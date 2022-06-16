@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<config>
+  <database connectionstring="trs:C:\WinApps\PolarDatabases\OADataService\" />
+  <!--<Net src="http://localhost:51056" />-->
+
+  <LoadCassette write="yes">C:\WinApps\FactographProjects\cass_mag01test</LoadCassette>
+  <!--LoadCassette write="yes">C:\WinApps\FactographProjects\cass_furs</LoadCasset-->
+  
+  <LoadCassette write="no">H:\home\OA\Ad</LoadCassette>
+  <LoadCassette write="no">H:\home\OA\Xc</LoadCassette>
+  <LoadCassette write="no">H:\home\OA\Xu</LoadCassette>
+  <LoadCassette write="no">H:\home\OA\Xc1</LoadCassette>
+  <LoadCassette write="no">H:\home\OA\Xu1</LoadCassette>
+  <LoadCassette write="no">H:\home\OA\Xu2</LoadCassette>
+  <LoadCassette regime="nodata" write="no">H:\home\OA\Ba</LoadCassette>
+  <LoadCassette regime="nodata" write="no">H:\home\OA\L5</LoadCassette>
+  <LoadCassette regime="nodata" write="no">H:\home\OA\La</LoadCassette>
+  <LoadCassette regime="nodata" write="no">H:\home\OA\Ly</LoadCassette>
+  <LoadCassette regime="nodata" write="no">H:\home\OA\Ns</LoadCassette>
+  <LoadCassette regime="nodata" write="no">H:\home\OA\Po</LoadCassette>
+  <LoadCassette regime="nodata" write="no">H:\home\OA\Rs</LoadCassette>
+  <LoadCassette regime="nodata" write="no">H:\home\OA\Ru</LoadCassette>
+  <LoadCassette regime="nodata" write="no">H:\home\OA\Th</LoadCassette>
+  <LoadCassette regime="nodata" write="no">H:\home\OA\Ti</LoadCassette>
+  <LoadCassette regime="nodata" write="no">H:\home\OA\Rs</LoadCassette>
+  <LoadCassette regime="nodata" write="no">F:\home\OA\Bm</LoadCassette>
+  <LoadCassette regime="nodata" write="no">F:\home\OA\F1</LoadCassette>
+  <LoadCassette regime="nodata" write="no">F:\home\OA\F2</LoadCassette>
+  <LoadCassette regime="nodata" write="no">F:\home\OA\F3</LoadCassette>
+  <LoadCassette regime="nodata" write="no">F:\home\OA\Ft</LoadCassette>
+  <LoadCassette regime="nodata" write="no">F:\home\OA\G1</LoadCassette>
+  <LoadCassette regime="nodata" write="no">F:\home\OA\G2</LoadCassette>
+  <LoadCassette regime="nodata" write="no">F:\home\OA\Kv</LoadCassette>
+  <LoadCassette regime="nodata" write="no">F:\home\OA\L1</LoadCassette>
+  <LoadCassette regime="nodata" write="no">F:\home\OA\Mr</LoadCassette>
+  <LoadCassette regime="nodata" write="no">F:\home\OA\R1</LoadCassette>
+  <LoadCassette regime="nodata" write="no">G:\home\OA\F4</LoadCassette>
+  <LoadCassette regime="nodata" write="no">G:\home\OA\F5</LoadCassette>
+  <LoadCassette regime="nodata" write="no">G:\home\OA\Hp</LoadCassette>
+  <LoadCassette regime="nodata" write="no">G:\home\OA\L2</LoadCassette>
+  <LoadCassette regime="nodata" write="no">G:\home\OA\L3</LoadCassette>
+  <LoadCassette regime="nodata" write="no">G:\home\OA\L4</LoadCassette>
+  <LoadCassette regime="nodata" write="no">G:\home\OA\Sa</LoadCassette>
+  <LoadCassette regime="nodata" write="no">G:\home\OA\Ta</LoadCassette>
+  <LoadCassette regime="nodata" write="no">G:\home\OA\Vo</LoadCassette>
+  <LoadCassette regime="nodata" write="no">J:\home\OA\Oh</LoadCassette>
+  <LoadCassette regime="nodata" write="no">J:\home\OA\Zc</LoadCassette>
+  <LoadCassette regime="nodata" write="no">J:\home\OA\Z1</LoadCassette>
+  <LoadCassette regime="nodata" write="no">J:\home\OA\Z2</LoadCassette>
+  <LoadCassette regime="nodata" write="no">J:\home\OA\Kl</LoadCassette>
+  <LoadCassette regime="nodata" write="no">J:\home\OA\F6</LoadCassette>
+  <LoadCassette regime="nodata" write="no">J:\home\OA\Ci</LoadCassette>
+  <LoadCassette regime="nodata" write="no">J:\home\OA\Os</LoadCassette>
+  <LoadCassette regime="nodata" write="no">J:\home\OA\L6</LoadCassette>
+
+
+  syp2001-p-marchuk_a идентификатор Марчука в БД Syp
+
+</config>

@@ -1,0 +1,196 @@
+﻿@using RDFEngine
+
+<div>@focusrecord.Id</div>
+
+<div class="heading1">
+    <h1>
+        @name
+        @dates
+    </h1>
+</div>
+<p>@description</p>
+<table cellpadding="0" cellspacing="0" border="0" width="100%" class="info-person">
+    @if (titles != null && titles.Count() > 0)
+    {
+        <tr valign="top">
+            <td width="25%" class="line-name">Титул:</td>
+            <td width="75%" class="line-info">
+                @foreach (RRecord tit in titles)
+                {
+                    string dts = tit.GetDates();
+                    <span>@tit.GetField("http://fogid.net/o/degree")</span>
+                    if (!string.IsNullOrEmpty(dts))
+                    {
+                        <span> (@dts) </span>
+                    }
+                    <br />
+                }
+            </td>
+        </tr>
+    }
+    @if (works != null && works.Count() > 0)
+    {
+        <tr valign="top">
+            <td width="25%" class="line-name">Место работы:</td>
+            <td width="75%" class="line-info">
+                @foreach (var work in works.OrderBy(w => w.GetField("http://fogid.net/o/from-date")))
+                {
+                    var org = work.GetDirectResource("http://fogid.net/o/in-org");
+                    string nm = org.GetName();
+                    string dt = work.GetDates();
+                    <a href='/view/@org.Id'>@nm</a>
+                    if (!string.IsNullOrEmpty(dt))
+                    {
+                        <span>(@dt)</span>
+                    }
+                    <br />
+                }
+            </td>
+        </tr>
+    }
+    @if (notworks != null && notworks.Count() > 0)
+    {
+        <tr valign="top">
+            <td width="25%" class="line-name">Участие в мероприятиях:</td>
+            <td width="75%" class="line-info">
+                @foreach (var nwork in notworks.OrderBy(w => w.GetField("http://fogid.net/o/from-date")))
+                {
+                    var org = nwork.GetDirectResource("http://fogid.net/o/in-org");
+                    string nm = org.GetName();
+                    string dt = nwork.GetDates();
+                    string dto = org.GetDates();
+                    <a href='/view/@org.Id'>@nm</a>
+                    if (!string.IsNullOrEmpty(dt))
+                    {
+                        <span>(@dt)</span>
+                    }
+                    else if (!string.IsNullOrEmpty(dto))
+                    {
+                        <span>(@dto)</span>
+                    }
+                    <br />
+                }
+            </td>
+        </tr>
+    }
+    @if (livings != null && livings.Count() > 0)
+    {
+        <tr valign="top">
+            <td width="25%" class="line-name">Геоинформация:</td>
+            <td width="75%" class="line-info">
+                @foreach (var live in livings)
+                {
+                    var place = live.GetDirectResource("http://fogid.net/o/location-place");
+                    <a href='/view/@place.Id'>@place.GetName()</a>
+                    <span>&nbsp;</span> 
+                    <span>@(live.GetField("http://fogid.net/o/location-category"))</span>
+                }
+            </td>
+        </tr>
+    }
+</table>
+<br />
+<br />
+
+
+@code {
+    [Parameter]
+    public RRecord focusrecord { get; set; }
+
+    private string name, dates, description;
+    private RRecord[] titles = null;
+    private RRecord[] works = null;
+    private RRecord[] notworks = null;
+    private RRecord[] livings = null;
+
+    protected override void OnInitialized() // = On Page Load
+    {
+        if (focusrecord != null)
+        {
+            name = focusrecord.GetName();
+            dates = focusrecord.GetDates();
+            description = focusrecord.GetField("http://fogid.net/o/description");
+            // Еще можно (?) про папу и маму, потом про детей (?)
+            RRecord erecord = (new RDFEngine.RXEngine() { User = null }).GetRRecord(focusrecord.Id, true);
+            // Группируем обратные отношения по обратным ссылкам
+            var relations = erecord.Props.Where(p => p is RInverseLink && ((RInverseLink)p).Source != null)
+                .Cast<RInverseLink>()
+                .GroupBy(d => d.Prop)
+                .Select(kd => new { propId = kd.Key, list = kd.ToArray() })
+                .ToArray();
+            titles = relations.FirstOrDefault(r => r.propId == "http://fogid.net/o/has-title")?.list
+                .Select(pr => (new RDFEngine.RXEngine() { User = null }).GetRRecord(pr.Source))
+                .ToArray();
+            var participations = relations.FirstOrDefault(r => r.propId == "http://fogid.net/o/participant")?.list
+                .Select(pr =>
+                {
+                    var rec = (new RDFEngine.RXEngine()).GetRRecord(pr.Source, true);
+                    return new RRecord
+                    {
+                        Id = rec.Id,
+                        Tp = rec.Tp,
+                        Props = rec.Props.Select(pro =>
+                        {
+                            if (pro.Prop == pr.Prop) return null; // запрещенное направление
+                            RProperty pres = null;
+                            if (pro is RField) pres = pro;
+                            else if (pro is RLink) pres = new RDirect
+                            {
+                                Prop = pro.Prop,
+                                DRec = (new RDFEngine.RXEngine()).GetRRecord(((RLink)pro).Resource, false)
+                            };
+                            return pres;
+                        }).Where(r => r != null).ToArray()
+                    };
+                })
+                .ToArray();
+            // "http://fogid.net/o/org-classification"
+            // "organization"
+            works = participations.Where(part => part.Props.Any(p =>
+            {
+                if (p.Prop == "http://fogid.net/o/in-org")
+                {
+                    RRecord rec = ((RDirect)p).DRec;
+                    string oc = rec.GetField("http://fogid.net/o/org-classification");
+                    if (oc == "organization") return true;
+                }
+                return false;
+            })).ToArray();
+            notworks = participations.Where(part => part.Props.All(p =>
+            {
+                if (p.Prop == "http://fogid.net/o/in-org")
+                {
+                    RRecord rec = ((RDirect)p).DRec;
+                    string oc = rec.GetField("http://fogid.net/o/org-classification");
+                    if (oc == "organization") return false;
+                }
+                return true;
+            })).ToArray();
+
+            livings = relations.FirstOrDefault(r => r.propId == "http://fogid.net/o/something")?.list
+    .Select(pr =>
+    {
+        var rec = (new RDFEngine.RXEngine()).GetRRecord(pr.Source, false);
+        return new RRecord
+        {
+            Id = rec.Id,
+            Tp = rec.Tp,
+            Props = rec.Props.Select(pro =>
+            {
+                if (pro.Prop == pr.Prop) return null; // запрещенное направление
+                RProperty pres = null;
+                if (pro is RField) pres = pro;
+                else if (pro is RLink) pres = new RDirect
+                {
+                    Prop = pro.Prop,
+                    DRec = (new RDFEngine.RXEngine()).GetRRecord(((RLink)pro).Resource, false)
+                };
+                return pres;
+            }).Where(r => r != null).ToArray()
+        };
+    })
+    .ToArray();
+
+        }
+    }
+}

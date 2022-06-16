@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<config>
+
+  <!--
+  <database dbname="OA" connectionstring="xml:" />
+  <database connectionstring="om:D:\Home\data\om\" />
+  -->
+  <database connectionstring="uni:D:\Home\data\uni\" />
+
+  <LoadCassette>D:\Home\FactographProjects\syp_cassettes\SypCassete</LoadCassette>
+
+</config>

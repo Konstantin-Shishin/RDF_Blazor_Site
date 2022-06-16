@@ -1,0 +1,47 @@
+﻿@page
+@using System.Xml.Linq
+@using OpenArchive;
+@{
+    //Layout = "~/_SiteLayout.cshtml";
+    if (!Request.HasFormContentType) { return; }
+    string sv = Request.Form["searchvariant"];
+    string ss = Request.Form["searchstring"];
+    if (string.IsNullOrEmpty(sv) || string.IsNullOrEmpty(ss)) { return; }
+    var searchresults = StaticObjects.engine.SearchByName(ss)
+        .Where(ite => ite.Attribute("type").Value == "http://fogid.net/o/" + sv)
+        .Select(ite => StaticObjects.engine.GetItemByIdBasic(ite.Attribute("id").Value, false));
+    IComparer<string> comparedates = new SCompare();
+}
+<p class="grad">
+    <a href="Default.cshtml" class="nov"><img src="img/ico-home.gif" class="ico-home" alt="" />Открытый архив</a>
+    &raquo;
+    Результаты поиска
+</p>
+
+@if (searchresults.Count() > 0)
+{
+    <ul class="links">
+        @foreach (XElement ite in searchresults
+           .OrderBy(it => StaticObjects.GetField(it, "http://fogid.net/o/name"))
+           .ThenBy(it => StaticObjects.GetDates(it), comparedates)
+           //.Take(40)
+           )
+        {
+            string nm = StaticObjects.GetField(ite, "http://fogid.net/o/name");
+            string dt = StaticObjects.GetDates(ite);
+            string descr = StaticObjects.GetField(ite, "http://fogid.net/o/description");
+            <li>
+                <a href='Portrait.cshtml?id=@ite.Attribute("id").Value'>@nm</a>
+                @if (!string.IsNullOrEmpty(dt))
+                {
+                    <span>(@dt)</span>
+                }
+                @descr
+            </li>
+        }
+    </ul>
+}
+else
+{
+}
+<div>Всего: @searchresults.Count()</div>

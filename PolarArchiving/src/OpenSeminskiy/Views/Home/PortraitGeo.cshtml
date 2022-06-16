@@ -1,0 +1,103 @@
+﻿@using System.Xml.Linq
+@*using OpenArchive*@
+@{
+    if (Model == null) { return; }
+    PortraitGeoModel m = (PortraitGeoModel)Model;
+}
+
+<p class="grad">
+    <a href="~/Home/Index" class="nov"><img src="/images/ico-home.gif" class="ico-home" alt="" />Открытый архив</a>
+    &raquo;
+    Гео-системы
+    &raquo;
+    @m.name
+</p>
+
+<div class="heading1">
+    <h1>
+        @m.name
+        @m.dates
+    </h1>
+</div>
+
+<p>@m.description</p>
+
+<table cellpadding="0" cellspacing="0" border="0" width="100%" class="info-person">
+    @if (m.locations_person.Count() > 0)
+    {
+        <tr valign="top">
+            <td width="25%" class="line-name">Проживание:</td>
+            <td width="75%" class="line-info">
+                @foreach (XElement ite in m.locations_person
+                  .OrderBy(it => SObjects.GetField(it, "http://fogid.net/o/name"))
+                  .Take(40000))
+                {
+                    string dts = SObjects.GetDates(ite);
+                    string nm = SObjects.GetField(ite, "http://fogid.net/o/name");
+                    string dc = SObjects.GetField(ite, "http://fogid.net/o/description");
+                    if (dc.Length > 72) { dc = dc.Substring(0, 72); }
+                    <a href='~/Home/Portrait?id=@ite.Attribute("id").Value'>@nm</a>
+                    if (!string.IsNullOrEmpty(dts))
+                    {
+                        <span>(@dts)</span>
+                    }
+                    <span>@dc</span>
+                    <br />
+                }
+            </td>
+        </tr>
+    }
+    @if (m.locations_org.Count() > 0)
+    {
+        <tr valign="top">
+            <td width="25%" class="line-name">Расположение:</td>
+            <td width="75%" class="line-info">
+                @foreach (XElement ite in m.locations_org
+                  .OrderBy(it => SObjects.GetField(it, "http://fogid.net/o/name"))
+                  .Take(40000))
+                {
+                    string dts = SObjects.GetDates(ite);
+                    string nm = SObjects.GetField(ite, "http://fogid.net/o/name");
+                    string dc = SObjects.GetField(ite, "http://fogid.net/o/description");
+                    if (dc.Length > 72) { dc = dc.Substring(0, 72); }
+                    <a href='~/Home/Portrait?id=@ite.Attribute("id").Value'>@nm</a>
+                    if (!string.IsNullOrEmpty(dts))
+                    {
+                        <span>(@dts)</span>
+                    }
+                    <span>@dc</span>
+                    <br />
+                }
+            </td>
+        </tr>
+    }
+</table>
+
+@if (m.locations_doc.Count() > 0)
+{
+
+    <div class="heading3">
+        <h3>Относится к документам</h3>
+    </div>
+
+    <table cellpadding="0" cellspacing="0" border="0" width="100%" class="info-docs">
+        <tr>
+            <th><a href="sort">Дата</a></th>
+            <th class="th-document-name"><a href="sort">Название документа<img src="~/images/ico-sort-down.gif" alt="" /></a></th>
+        </tr>
+        @foreach (XElement ite in m.locations_doc
+              .OrderBy(it => SObjects.GetField(it, "http://fogid.net/o/from-date"), SCompare.comparer))
+        {
+            string dt = SObjects.GetDates(ite);
+            string ds = SObjects.GetField(ite, "http://fogid.net/o/description");
+            <tr valign="top">
+                <td>@dt</td>
+                <td width="75%">
+                    <a href='~/Home/Portrait?id=@ite.Attribute("id").Value'>@SObjects.GetField(ite, "http://fogid.net/o/name")</a>
+                    <span class="small">@ds</span>
+                </td>
+            </tr>
+        }
+
+    </table>
+}

@@ -1,0 +1,41 @@
+﻿@{
+    ViewBag.Title = "LogOn";
+}
+
+<h2>Переход к редактированию</h2>
+@using (Html.BeginForm()) {
+    <div>
+        <fieldset>
+            <legend>Информация о пользователе</legend>
+
+            <div class="editor-label">
+@*                @Html.LabelFor(m => m.UserName)*@
+                @Html.Label("Пользователь")
+            </div>
+            <div class="editor-field">
+@*                @Html.TextBoxFor(m => m.UserName)
+                @Html.ValidationMessageFor(m => m.UserName)*@
+                @Html.TextBox("uuser")
+            </div>
+
+            <div class="editor-label">
+@*                @Html.LabelFor(m => m.Password)*@
+                @Html.Label("Пароль")
+            </div>
+            <div class="editor-field">
+@*                @Html.PasswordFor(m => m.Password)
+                @Html.ValidationMessageFor(m => m.Password)*@
+                @Html.Password("pass")
+            </div>
+
+@*            <div class="editor-label">
+                @Html.CheckBoxFor(m => m.RememberMe)
+                @Html.LabelFor(m => m.RememberMe)
+            </div>*@
+
+            <p>
+                <input type="submit" value="Log On" />
+            </p>
+        </fieldset>
+    </div>
+}

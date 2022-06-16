@@ -1,0 +1,66 @@
+﻿@using System.Xml.Linq
+@model Turgunda6.Models.RecordModel
+@{
+    bool edit = (new Turgunda6.Models.UserModel(Request)).Uuser != null;
+    if (Model == null) { return; }
+    XElement[] header = Model.GetHeaderFlow().ToArray();
+    string urlcancel = Url.Content("~/Home/Portrait?id=" + Model.bid);
+    XElement main_format_tree;
+    string main_ty = Turgunda6.Models.PortraitModel.GetFormat(Model.bid, out main_format_tree);
+    XElement row_format;
+    if (Model.eid == Model.bid) { row_format = main_format_tree; }
+    else
+    {
+        row_format = main_format_tree.Elements("inverse")
+            .First(inv => inv.Attribute("prop").Value == Model.iprop)
+            .Elements("record")
+            .First(re => re.Attribute("type").Value == Model.etype);
+    }
+}
+
+@foreach (XElement fd in row_format.Elements().Where(el => el.Name == "field" || el.Name == "direct"))
+{
+    string prop = fd.Attribute("prop").Value;
+    var same = header.Select((f, i) => new { f = f, i = i })
+        .FirstOrDefault(fi => fi.f.Attribute("prop").Value == prop);
+    string value = same == null ? "" : Model.GetFValue(same.i);
+    if (fd.Name == "field")
+    {
+        XAttribute valueTypeAtt = fd.Attribute("type");
+        if (valueTypeAtt != null) { value = TurgundaCommon.ModelCommon.GetEnumStateLabel(valueTypeAtt.Value, value); }
+        <td class="d" style="background-color:Yellow;">@value</td>
+    }
+    else if (fd.Name == "direct")
+    {
+        // Еще надо бы вычислить количество сливаемых колонок. Это для случая нескольких полей по direct
+        string pvalue = Model.GetPValue(same.i);
+        if (string.IsNullOrEmpty(pvalue))
+        {
+            <td></td>
+        }
+        else
+        {
+            string url = Url.Content("~/Home/Portrait?id=" + pvalue);
+            <td style="background-color:Yellow;"><a href="@url">@Model.GetVValue(same.i)</a></td>
+        }
+    }
+}
+
+@if (edit)
+{
+    <td>@Ajax.ActionLink("ред", "EditForm", new { firsttime=true, bid = Model.bid, eid = Model.eid, 
+       etype=Model.etype, iprop=Model.iprop, nc=Model.nc, d = System.DateTime.Now.Ticks }, new AjaxOptions()
+        {
+            HttpMethod = "Post",
+            InsertionMode = InsertionMode.Replace,
+            UpdateTargetId = Model.eid
+        })
+        @Ajax.ActionLink("x", "DeleteRow", new { eid = Model.eid, d = DateTime.Now.Ticks }, new AjaxOptions()
+           {
+               HttpMethod = "Get",
+               InsertionMode = InsertionMode.Replace,
+               UpdateTargetId = Model.eid,
+               Confirm = "Уничтожить?"
+           }) 
+    </td>
+}

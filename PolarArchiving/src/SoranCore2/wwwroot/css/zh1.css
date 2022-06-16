@@ -1,0 +1,94 @@
+body
+        {
+        color:#000; 
+        background: #fff;
+        font-family: times new roman, serif; 
+        margin-left:0px; margin-bottom:0x; margin-right:0px; margin-top:0px; padding:0px;
+        }
+
+
+
+b
+        {text-weight:bold;}
+a
+        {color:#06c; text-decoration:underline;}
+a:link
+        {color:#06c; text-decoration:underline;}
+a:visited
+        {color:#036; text-decoration:underline;}
+a:hover
+        {color:#09f; text-decoration:underline;}
+
+
+.col_menu
+        { padding-left:10px; padding-right:10px; padding-top:92px; }
+.col_login 
+        { padding-right:10px; padding-top:13px; }
+.col_logo 
+        { padding-left:10px; }
+.col_search
+        { padding-left:10px; padding-right:10px; }
+.col_content
+        { padding-left:10px; padding-right:10px; }
+
+
+ul.list_articles
+        { margin-left:1.2em; list-style:square; color: #06c; font-size:0.9em; }
+ul.list_forum
+        { margin-left:1.2em; list-style:square; color: #000; font-size:0.9em; }
+ul.list_text
+        { margin-left:1.4em; list-style:square; color: #000; font-size:0.9em; }
+ul.list_photo_desc
+        { margin-left:1.4em; list-style:square; color: #000; font-size:0.8em; }
+li
+        { margin-bottom:0.2em; }
+
+hr
+        { margin-top:0em; margin-bottom:0.2em; }
+h1
+        { font-family: arial, sans-serif; font-size:1em; margin-top:1.2em; margin-bottom:0.7em; margin-left:5px; }
+h2
+        { font-family: arial, sans-serif; font-size:1em; margin-top:0.9em; margin-bottom:0.7em;margin-left:5px; }
+
+.text
+        {  font-size:0.9em; margin-top:0em; padding-left:5px; padding-right:5px;}
+.text_menu
+        { padding-left:4px; padding-right:4px; font-family: arial, sans-serif; font-size:0.8em; margin-bottom:0.5em; }
+.p_menu
+        { margin-top:0.2em; margin-bottom:0.2em; }
+
+.text_arial_small
+        { font-family: arial, sans-serif; font-size:0.7em; }
+.text_rubrika
+        { font-family: arial, sans-serif; font-size:0.7em; margin-top:-0.5em; }
+.text_fromuser
+        { font-size:0.8em; }
+.text_copyright
+        { font-size:0.8em; padding-left:20px; }
+.pages
+        { font-size:0.8em; padding-left:5px; }
+
+.form_login
+        { border:1px solid #ccc; width:90%; font-family: arial, sans-serif; font-size:0.7em; }
+.form_search
+        { border:1px solid #369; width:99%; font-family: arial, sans-serif; font-size:1.2em; height:19px; }
+form
+        { margin: 0px; }
+.search_form
+        { background:#c4dffa; padding-left:5px; font-family: arial, sans-serif; font-size:0.7em; }
+.search_option_s
+        { background:#c4dffa; border-right:1px solid #fff; height:20px; padding-left:5px; padding-right:5px; font-family: arial, sans-serif; font-size:0.7em; }
+.search_option
+        { background:#ebebeb; border-top:2px solid #fff; border-bottom:1px solid #fff; border-right:1px solid #fff; height:18px; padding-left:5px; padding-right:5px; font-family: arial, sans-serif; font-size:0.7em; }
+
+.nblock_text
+        {float:left; width:78%; font-size:0.9em;}
+.nblock_date
+        {float:left; width:15%; margin-right:5px; text-align:center; background: #d9e9ff; color:#4e617b; font-size:0.7em; font-family: arial, sans-serif; }
+.nblock_date_news
+        {float:left; width:15%; margin-right:5px; text-align:center; background: #ebebeb; color:#4e617b; font-size:0.7em; font-family: arial, sans-serif; }
+
+.photo_list
+        {padding-bottom:15px; padding-right:5px;}       
+.photo_date
+        {margin-bottom:-0.5em;background-color:#ebebeb; text-align:center; padding:0 3 0 3px; color:#000; font-family: Arial, sans-serif; font-size:0.7em;}

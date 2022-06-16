@@ -1,0 +1,44 @@
+﻿@using System.Xml.Linq
+@using RDFEngine
+@model RDFEngine.RRecord
+@{
+    var m = Model;
+    Func<RDFEngine.RRecord, XElement> MkS = null;
+    MkS = rec =>  new XElement("table", 
+            new XElement("tr",
+                new XElement("td", new XAttribute("colspan", 2),
+                    new XElement("span", rec.Tp + " ", new XElement("a", new XAttribute("href", "?id=" + rec.Id), "@")))),
+            rec.Props.Select(p =>
+            {
+                if (p is RField)
+                {
+                    return new XElement("tr", new XAttribute("valign", "top"),
+                        new XElement("td", p.Prop),
+                        new XElement("td", ((RField)p).Value),
+                        null);
+                }
+                else if (p is RDirect)
+                {
+                    return new XElement("tr", new XAttribute("valign", "top"),
+                        new XElement("td", p.Prop, new XAttribute("style", "color: green;")),
+                        new XElement("td", MkS(((RDirect)p).DRec)),
+                        null);
+                }
+                else if (p is RInverse)
+                {
+                    return new XElement("tr", new XAttribute("valign", "top"),
+                        new XElement("td", p.Prop, new XAttribute("style", "color: darkgreen;")),
+                        new XElement("td", MkS(((RInverse)p).IRec)),
+                        null);
+                }
+                return null;
+            }),
+            null);
+    
+ }
+
+    <div>
+        @Html.Raw(MkS(m).ToString())
+    </div>
+
+

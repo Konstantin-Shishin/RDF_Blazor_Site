@@ -1,0 +1,193 @@
+﻿@page "/viewer/{entityId?}"
+@using RDFEngine
+@using BlazorServer.Components
+@inject NavigationManager NavManager
+
+@*<div><input type="checkbox" @bind="lookDb" /></div>*@
+<h3>Просмотрщик</h3>
+
+
+<Search onSearchResultClick="@(arg => NavManager.NavigateTo("viewer/"+((RRecord)arg).Id))" hideResults="false" blockTitle="Поиск"></Search>
+<div class="page-container">
+    @if (model != null)
+    {
+        var m = model;
+
+        <table border="1">
+            <tr>
+                <th colspan="@(m.row.Length+1)">
+                    @Infobase.GetTerm(m.Tp, currentLanguage) @m.Id
+                    <AuthorizeView Roles="Admin,Editor">
+                        <NavLink href="@("/editor/" + originalRecord.Id)">Редактировать</NavLink>
+                    </AuthorizeView>
+
+                </th>
+
+            </tr>
+            <tr>
+                @code{
+                    List<string> nonEmptyFields = new List<string>();
+                }
+                @foreach (var row in m.row)
+                {
+                    if ((row is RDirect && ((RDirect)row).DRec != null)
+                        || ((row is RField) && ((RField)row).Value != null))
+                    {
+                        nonEmptyFields.Add(row.Prop);
+                        <th class="secondary">@Infobase.GetTerm(row.Prop, currentLanguage)</th>
+                    }
+
+                }
+
+            </tr>
+            <tr>
+                <PropertyViewer properties="m.row" onBuildPortrait="@(arg => BuildPortrait((string)arg))" nonEmptyFields="@nonEmptyFields"></PropertyViewer>
+            </tr>
+        </table>
+        <br />
+
+        var possibleInvs = ont.Where(rec => rec.Tp == "ObjectProperty" &&
+                rec.Props.Any(prop => prop is RLink && prop.Prop == "range" && parentTypes.Contains(((RLink)prop).Resource)))
+                .Where(inv => inv.Props.FirstOrDefault(prop => prop.Prop == "range") != null)
+                .OrderBy(inv =>
+                {
+                    var val = ((RField)inv.Props.FirstOrDefault(prop => prop.Prop == "priority"))?.Value;
+                    return val == null ? "zzz" : val;
+                });
+        //.OrderBy(inv => inv.);
+
+        foreach (var inv in possibleInvs)
+        {
+
+            RProperty[] domains = inv.Props.Where(prop => prop.Prop == "domain").ToArray();
+            foreach (var domain in domains)
+            {
+                RProperty[] domFields = ont.FirstOrDefault(rec => rec.Tp == "Class" && rec.Id == ((RLink)domain).Resource)
+                    .Props.Where(prop => prop is RLink && ((RLink)prop).Resource != inv.Id).ToArray();
+
+
+
+                var pTypes = m.inv.Where(propT => propT.Prop == inv.Id);
+                if (pTypes.Any())
+                {
+                    <table border="1">
+                        <tr class="table-header">
+                            <th colspan="@domFields.Length">
+                                <span>@Infobase.GetTerm(inv.Id, currentLanguage)</span>
+                                <span>@Infobase.GetTerm(((RLink)domain).Resource, currentLanguage)</span>
+                                <span><input type="checkbox" id="tiles" @onchange="@(f => toggleTilesView(((RLink)domain).Resource))" /> <span>плиткой</span></span>
+                            </th>
+                        </tr>
+
+                        @foreach (var pType in pTypes)
+                        {
+                            if (pType.lists.Any())
+                            {
+                                foreach (var list in pType.lists)
+                                {
+                                    if (list.Tp == (((RLink)domain).Resource))
+                                    {
+                                        if (list.list.Length > 0)
+                                        {
+                                            var tilesDisplay = tilesView.Contains(((RLink)domain).Resource);
+                                            List<string> nonEmptyFields = new List<string>();
+                                                <tr class="@(tilesDisplay ? "table-name-row d-none" : "table-name-row")">
+                                                    @foreach (RLink field in domFields)
+                                                    {
+                                                        var nonEmpty = list.list.SelectMany(rec => rec.Props.Where(prop => prop.Prop == field.Resource)
+                                                        .Where(p => (p is RField && ((RField)p).Value != null) ||
+                                                       (p is RDirect && ((RDirect)p).DRec != null)));
+                                                        if (nonEmpty.Count() != 0)
+                                                        {
+                                                            nonEmptyFields.Add(field.Resource);
+                                                            <th class="secondary">@Infobase.GetTerm(field.Resource, currentLanguage)</th>
+                                                        }
+                                                    }
+                                                </tr>
+                                            
+                                            @foreach (RRecord r in list.list.OrderBy(rec => rec.Id))
+                                            {
+
+                                                <tr class="@(tilesDisplay ? "table-data-row d-inline-block" : "table-data-row")">
+                                                    <PropertyViewer onBuildPortrait="@(arg => BuildPortrait((string)arg))" properties="@r.Props" forbidden="@inv.Id" nonEmptyFields="@nonEmptyFields" tilesView="@tilesDisplay"></PropertyViewer>
+                                                </tr>
+
+
+                                            }
+                                        }
+
+                                    }
+                                }
+                            }
+                        }
+                    </table>
+                    <br />
+                }
+
+            }
+        }
+
+    }
+</div>
+
+@code {
+    [Parameter]
+    public string entityId { get; set; }
+
+    Models.P3Model model = null;
+    private RRecord originalRecord;
+    private string[] parentTypes;
+
+    private string currentLanguage = MainLayout.currentLanguage;
+
+    private List<string> tilesView = new List<string>();
+
+    private RRecord[] ont = Infobase.ront.rontology;
+    private void BuildPortrait(string id)
+    {
+        RRecord rec = (Infobase.engine).BuildPortrait(id);
+        originalRecord = rec;
+        parentTypes = ROntology.parentsDictionary[rec.Tp];
+        model = (new Models.P3Model()).Build(rec);
+    }
+
+    protected void toggleTilesView(string domain)
+    {
+        if (tilesView.Contains(domain))
+        {
+            tilesView.Remove(domain);
+        }
+        else
+        {
+            tilesView.Add(domain);
+        }
+    }
+
+    protected override void OnInitialized() // = On Page Load
+    {
+        if (entityId != null)
+        {
+            BuildPortrait(entityId);
+        }
+        else
+        {
+            model = null;
+        }
+        tilesView = new List<string>();
+    }
+
+    protected override void OnParametersSet() // = On Page Load
+    {
+        if (entityId != null)
+        {
+            BuildPortrait(entityId);
+        }
+        else
+        {
+            model = null;
+        }
+        tilesView = new List<string>();
+    }
+}
+
+

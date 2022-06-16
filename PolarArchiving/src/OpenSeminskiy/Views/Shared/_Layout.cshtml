@@ -1,0 +1,182 @@
+﻿@using System.Xml.Linq;
+@{
+    string sv = ""; //Context.Request.Form["searchvariant"];
+    string ss = ""; //Context.Request.Form["searchstring"];
+    if (Context.Request.HasFormContentType)
+    {
+        var form = Context.Request.Form;
+        sv = Context.Request.Form["searchvariant"];
+        ss = Context.Request.Form["searchstring"];
+    }
+    string[][] variants =
+    {
+        new string[] { "person", "Персоны" },
+        new string[] { "org-sys", "Организации" },
+        new string[] { "collection", "Коллекции" },
+        new string[] { "document", "Документы" },
+        new string[] { "city", "Города" },
+        new string[] { "country", "Страны" },
+    };//, "org-sys", "collection", "document", "city", "country" };
+//string[] s = variants.Select(v => v == sv ? "selected" : "").ToArray();
+@*<select name="searchvariant">
+        <option selected="@s[0]"></option>
+        <option selected="@s[0]" value="person">Персоны</option>
+        <option selected="@s[1]" value="org-sys">Организации</option>
+        <option selected="@s[2]" value="collection">Коллекции</option>
+        <option selected="@s[3]" value="document">Документы</option>
+        <option selected="@s[4]" value="city">Города</option>
+        <option selected="@s[5]" value="country">Страны</option>
+    </select>*@
+XElement xselel = new XElement("select", new XAttribute("name", "searchvariant"),
+    new XElement("option", (variants.Any(v => v[0] == sv) ? null : new XAttribute("selected", ""))),
+    variants.Select(v => new XElement("option", (v[0] == sv ? new XAttribute("selected", "") : null), new XAttribute("value", v[0]), v[1]))
+    );
+string selel = xselel.ToString();
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Открытый архив СО РАН</title>
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/css/moo.css")" />
+    <link rel="shortcut icon" href="@Url.Content("~/favicon.ico")" type="image/x-icon">
+</head>
+<body>
+    <div id="site">
+        <div class="pd">
+            <table cellpadding="0" cellspacing="0" border="0" width="100%">
+                <!--
+                <tr>
+                    <td class="header">
+                            &laquo;Открытый архив СО&nbsp;РАН как электронная система накопления, представления и&nbsp;хранения научного наследия&raquo; М-48
+                    </td>
+                </tr>
+                    -->
+                <tr>
+                    <td class="block-top">
+                        <a href="~/Home/Index"><img src="~/images/logo.png" class="logo" alt="Открытый архив СО РАН" /></a>
+                        <div class="main-menu">
+                            @*<a href="/Home/Portrait?id=syp2001-p-marchuk_a" class="menu-item nov"><b>тест</b></a>
+                                <span class="menu-sep">|||</span>*@
+                            <a href="~/Home/Index" class="menu-item nov">Фонды</a>
+                            <span class="menu-sep">|</span>
+                            <a href="~/Home/About" class="menu-item nov">О проекте</a>
+                            <span class="menu-sep">|</span>
+                            <a href="~/Home/Participants" class="menu-item nov">Участники</a>
+                            <span class="menu-sep">|</span>
+                            <a href="~/Home/Contacts" class="menu-item nov">Контакты</a>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+
+            <!-- В таблице: поисковая панель, основная панель (RenderBody), правая панель -->
+            <table cellpadding="0" cellspacing="0" border="0" width="100%">
+                <tr valign="top">
+                    <td class="block-content">
+                        <div id="wrap">
+                            <div class="fk-ie">
+
+                                <form method="post" action="~/Home/Search">
+                                    <div class="bsearch-1">
+                                        <div class="bsearch-2">
+                                            <div class="bsearch-3">
+                                                <table cellpadding="0" cellspacing="0" border="0" width="100%">
+                                                    <tr>
+                                                        <td class="s-input-1">
+                                                            <div class="search-form">
+                                                                <input name="searchstring" type="text" placeholder="поиск" title="введите текст для поиска" value="@ss" />
+                                                            </div>
+
+                                                        </td>
+                                                        <td class="s-input-2">
+                                                            <div class="search-form">
+                                                                @*<select name="searchvariant">
+                                                                        <option selected="@s[0]"></option>
+                                                                        <option selected="@s[0]" value="person">Персоны</option>
+                                                                        <option selected="@s[1]" value="org-sys">Организации</option>
+                                                                        <option selected="@s[2]" value="collection">Коллекции</option>
+                                                                        <option selected="@s[3]" value="document">Документы</option>
+                                                                        <option selected="@s[4]" value="city">Города</option>
+                                                                        <option selected="@s[5]" value="country">Страны</option>
+                                                                    </select>*@
+                                                                @Html.Raw(selel)
+                                                            </div>
+
+                                                        </td>
+                                                        <td>
+                                                            <input type="submit" value="&nbsp; &nbsp;&nbsp;  найти" class="search-go" />
+                                                        </td>
+                                                        <td class="s-input-o">
+                                                            <a href="~/Home/ExtSearch" class="small white">
+                                                                Расширенный<br /><img src="~/images/search-ext-btn.png" class="ext-btn" alt="" />поиск<img src="/images/p.gif" class="ext-btn" alt="" />
+                                                            </a>
+
+                                                        </td>
+                                                    </tr>
+                                                </table>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                                <br clear="all" />
+
+                                @*<div>
+                                        <pre>@selel</pre>
+                                    </div>*@
+
+                                @RenderBody()
+
+                                <br clear="all" />
+
+
+
+
+                            </div>
+                        </div>
+                    </td>
+
+                    <td class="sep-content"><img src="~/images/p.gif" width="40" height="1" alt="" /></td>
+                    <td class="block-right">
+                        @RenderSection("rightpanel", false)
+                    </td>
+                </tr>
+            </table>
+
+            <table cellpadding="0" cellspacing="0" border="0" width="100%">
+                <tr valign="top">
+                    <td class="block-content">
+                        <div class="line-bottom"> </div>
+
+                        <a href="#"><img src="~/images/up_arrow.png" border="0" align="left" /></a>
+
+
+                        <div class="copyright">
+                            &copy; 2013-2014 Институт Систем Информатики <br />
+                            им. А.П. Ершова СО РАН<br />
+                            <a href="mailto:oda@iis.nsk.su?subject=Open Digital Archive"><img src="~/images/ico-mail.gif" class="ico-mail" alt="Написать письмо" />Написать письмо</a>
+                        </div>
+
+                        <div class="main-menu">
+                            <a href="~/Home/Index" class="menu-item nov">Фонды</a>
+                            <span class="menu-sep">|</span>
+                            <a href="~/Home/About" class="menu-item nov">О проекте</a>
+                            <span class="menu-sep">|</span>
+                            <a href="~/Home/Participants" class="menu-item nov">Участники</a>
+                            <span class="menu-sep">|</span>
+                            <a href="~/Home/Contacts" class="menu-item nov">Контакты</a>
+                            @* <span class="menu-sep">|</span>
+                            <a href="~/Room216/Load" class="menu-item nov">Загрузка</a>
+                            <span class="menu-sep">|</span>
+                            <a href="~/Room216/Load?nom=1" class="menu-item nov">Загрузка 1</a> *@
+                        </div>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</body>
+</html>

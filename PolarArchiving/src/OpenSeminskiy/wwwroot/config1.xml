@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<config>
+
+  <database dbname="OA" connectionstring="xml:" />
+  <!--database connectionstring="trs:C:\WinApps\PolarDatabases\PolarSoran\"/-->
+
+  <LoadCassette>C:\Home\data\ErshArchCassette</LoadCassette>
+</config>

@@ -1,0 +1,274 @@
+﻿@page "/docsupload"
+@using System
+@using System.Diagnostics
+@using System.Drawing
+@using System.IO
+@using Microsoft.AspNetCore.Hosting
+@using Microsoft.Extensions.Logging
+
+@using RDFEngine
+
+@*@inject ILogger<FileUpload1> Logger*@
+@inject IWebHostEnvironment Environment
+
+
+<h3>Upload Files</h3>
+
+<p>
+    <label>
+        Max file size:
+        <input type="number" @bind="maxFileSize" />
+    </label>
+</p>
+
+<p>
+    <label>
+        Max allowed files:
+        <input type="number" @bind="maxAllowedFiles" />
+    </label>
+</p>
+
+<p>
+    <label>
+        Upload up to @maxAllowedFiles of up to @maxFileSize bytes:
+        <InputFile OnChange="@LoadFiles" multiple />
+    </label>
+</p>
+
+@if (isLoading)
+{
+    <p>Uploading...</p>
+}
+else
+{
+    <ul>
+        @foreach (var file in loadedFiles)
+        {
+            <li>
+                <ul>
+                    <li>Name: @file.Name</li>
+                    <li>Last modified: @file.LastModified.ToString()</li>
+                    <li>Size (bytes): @file.Size</li>
+                    <li>Content type: @file.ContentType</li>
+                </ul>
+            </li>
+        }
+    </ul>
+}
+<div><button @onclick="FixLoadedFiles">Зафиксировать</button></div>
+<div>@look</div>
+@code {
+    private List<IBrowserFile> loadedFiles = new();
+    private long maxFileSize = 100_000_000;
+    private int maxAllowedFiles = 100;
+    private bool isLoading;
+
+    //private WebImage image = null;
+
+    private void LdFiles(InputFileChangeEventArgs e)
+    {
+        isLoading = true;
+
+
+        foreach (var file in e.GetMultipleFiles(maxAllowedFiles))
+        {
+            var rr = file.RequestImageFileAsync("jpeg", 150, 150);
+            string path = Path.Combine(Environment.ContentRootPath, Environment.WebRootPath, "unsave_uploads");
+            Task.WaitAll();
+
+            var image = rr.Result;
+
+
+            //var image = System.Drawing.Image.FromStream(file.OpenReadStream(maxFileSize));
+            //image.Save(path + "/" + file.Name);
+            //Vintasoft.Imaging.VintasoftImage image = new Vintasoft.Imaging.VintasoftImage(file.OpenReadStream(maxFileSize));
+            //image.Save(path + "/" + file.Name);
+        }
+
+        isLoading = false;
+    }
+    private async Task LoadFiles(InputFileChangeEventArgs e)
+    {
+        // Порядок следующий: сначала чистим список файлов и объявляем режим загрузки, потом сформированный список посылаем на обработку.
+        isLoading = true;
+        // loadedFiles.Clear(); // Пусть накапливаются
+
+        foreach (var file in e.GetMultipleFiles(maxAllowedFiles))
+        {
+            //System.Web.Helpers.WebImage image = new WebImage(file.OpenReadStream());
+            //var photo = WebImage.GetImageFromRequest(file.Name)
+
+            try
+            {
+                loadedFiles.Add(file);
+
+                var trustedFileNameForFileStorage = file.Name; //Path.GetRandomFileName();
+                var path = Path.Combine(Environment.ContentRootPath,
+                        Environment.WebRootPath, "unsafe_uploads",
+                        trustedFileNameForFileStorage);
+
+                await using FileStream fs = new(path, FileMode.Create);
+                await file.OpenReadStream(maxFileSize).CopyToAsync(fs);
+            }
+            catch (Exception ex)
+            {
+                //Logger.LogError("File: {Filename} Error: {Error}",
+                //    file.Name, ex.Message);
+            }
+        }
+
+        isLoading = false;
+    }
+
+    // Фиксация загруженных файлов
+    private void FixLoadedFiles()
+    {
+        // Сначала откуда-то берется идентификатор пользователя
+        string user = "mag_9347";
+
+        // Найдем активную кассету
+        var activecassette = OAData.OADB.cassettes.FirstOrDefault(c =>
+        {
+            var q = c;
+            return (c.owner == user && c.writable);
+        }
+        );
+
+        // Если нет такой, выходим
+        if (activecassette == null) return;
+
+        // Берем из нее текущий фог
+        var activefog = activecassette.path + "/meta/" + activecassette.name + "_current.fog";
+
+        // Берем cassetteId
+        string activecassetteId = activecassette.name + "_cassetteId";
+
+        // Вычисляем uri последнего документа и его parts
+        string uri_first = "iiss://" + activecassette.name + "@iis.nsk.su/0001/";
+        DirectoryInfo di = new DirectoryInfo(activecassette.path + "/originals/");
+        DirectoryInfo xxxx = di.GetDirectories().OrderByDescending(d => d.Name).FirstOrDefault();
+        string second = xxxx?.Name;
+        FileInfo third_file = xxxx.GetFiles().OrderByDescending(f => f.Name).FirstOrDefault();
+        string fname = third_file.Name;
+        int pos = fname.IndexOf('.');
+        string ext = fname.Substring(pos);
+        int third_int = Int32.Parse(fname.Substring(0, pos));
+
+        // Организовываем цикл обработки принятых файлов
+        Random rnd = new Random();
+        string batfilename = "CalculatePreviews"+rnd.Next(1000000)+".bat";
+        Stream bat = File.OpenWrite(Path.Combine(Environment.ContentRootPath,
+                        Environment.WebRootPath, batfilename));
+        TextWriter bat_lines = new StreamWriter(bat); // Накопление командного файла
+
+        foreach (var fl in loadedFiles)
+        {
+            // Настраиваем части и вычисляем новый uri
+            third_int++; //TODO: надо менять директорию second
+            string third = string.Format("/{0:D4}", third_int);
+            string uri = uri_first + second + third;
+
+            // Старое имя и расширение
+            fname = fl.Name;
+            pos = fname.IndexOf('.');
+            ext = fname.Substring(pos);
+            string source_path = Environment.ContentRootPath + "/wwwroot/unsafe_uploads/" + fname;
+
+            // Базовая дата
+            string fromdate = fl.LastModified.DateTime.ToString("s");
+
+            // Новое имя - third и (возможно другое, это потом) расширение
+            string target_path = activecassette.path + "/originals/" + second + third + ext;
+
+            // Перемещаем
+            File.Move(source_path, target_path);
+
+            // Делаем превьюшки
+
+            string tp = "http://fogid.net/o/document";
+            if (fl.ContentType.StartsWith("image/"))
+            {
+                //TODO: Кажется, здесть работает только вариант image/jpeg
+                try
+                {
+                    ExifLib.ExifReader ereader = new ExifLib.ExifReader(target_path);
+                    object value;
+                    ereader.GetTagValue(ExifLib.ExifTags.DateTime, out value);
+                    string fd = (string)value;
+                    fromdate = fd.Substring(0, 10).Replace(':', '-') + "T" + fd.Substring(11);
+                }
+                catch (Exception) { }
+
+                var image = Bitmap.FromFile(target_path);
+                var size = image.Size;
+                int maxlen = Math.Max(size.Width, size.Height);
+                int destlen = 150;
+                double factor = ((double)destlen) / ((double)maxlen);
+                bat_lines.WriteLine(@"D:\Home\bin\vips-dev-8.12\bin\vips.exe resize " + target_path + " " +
+                    activecassette.path + "/documents/small/" + second + third + ".jpg" + " " + factor);
+                bat_lines.WriteLine(@"D:\Home\bin\vips-dev-8.12\bin\vips.exe resize " + target_path + " " +
+                    activecassette.path + "/documents/normal/" + second + third + ".jpg" + " " + ((double)800.0) / ((double)maxlen));
+                tp = "http://fogid.net/o/photo-doc";
+            }
+            if (fl.ContentType.StartsWith("video/"))
+            {
+                bat_lines.WriteLine("D:/Home/bin/ffmpeg -i {0} -y -vcodec libx264 -b 2020K {1}.mp4", target_path,
+                    activecassette.path + "/documents/normal/" + second + third);
+                tp = "http://fogid.net/o/video-doc";
+            }
+
+            // Порождаем движок
+            RDFEngine.IEngine engine = new RDFEngine.RXEngine() { User = user };
+
+            // Конструируем документ и добавляем его в базу данных
+            string doc_id = engine.NewRecord(tp, "noname");
+            engine.Update(new RRecord
+            {
+                Id = doc_id,
+                Tp = tp,
+                Props = new RProperty[]
+                {
+                    new RField { Prop = "http://fogid.net/o/name", Value = fname},
+                    new RField { Prop = "http://fogid.net/o/uri", Value = uri},
+                    new RField { Prop = "http://fogid.net/o/docmetainfo", Value = fl.ContentType},
+                    new RField { Prop = "http://fogid.net/o/from-date", Value = fromdate }
+                }
+            });
+
+            // Связываем документ с объектом кассеты
+            engine.Update(new RRecord
+            {
+                Tp = "http://fogid.net/o/collection-member",
+                Props = new RProperty[]
+                {
+                    new RLink { Prop = "http://fogid.net/o/in-collection", Resource = activecassetteId },
+                    new RLink { Prop = "http://fogid.net/o/collection-item", Resource = doc_id }
+                    }
+            });
+        }
+
+        bat_lines.Close();
+
+        // Запуск bat-файла
+        using (Process myProcess = new Process())
+        {
+            myProcess.StartInfo.UseShellExecute = false;
+            // You can start any process, HelloWorld is a do-nothing example.
+            myProcess.StartInfo.FileName = Path.Combine(Environment.ContentRootPath,
+                        Environment.WebRootPath, batfilename);
+            myProcess.StartInfo.CreateNoWindow = true;
+            myProcess.Start();
+            // This code assumes the process you are starting will terminate itself.
+            // Given that it is started without a window so you cannot terminate it
+            // on the desktop, it must terminate itself or you can do it programmatically
+            // from this application using the Kill method.
+        }
+
+
+        // Чистим список файлов
+        loadedFiles.Clear();
+        look = "ok";
+    }
+
+    private string look = null;
+}

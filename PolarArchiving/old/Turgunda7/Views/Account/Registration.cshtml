@@ -1,0 +1,36 @@
+﻿@{
+    ViewBag.Title = "Registration";
+}
+
+@using (Html.BeginForm())
+{
+    <div>
+        <fieldset>
+            <legend>Регистрация в системе</legend>
+
+            <div class="editor-label">
+                @Html.Label("Пользователь")
+            </div>
+            <div class="editor-field">
+                @Html.TextBox("uuser")
+            </div>
+
+            <div class="editor-label">
+                @Html.Label("Пароль")
+            </div>
+            <div class="editor-field">
+                @Html.Password("pass1")
+            </div>
+
+            <div class="editor-label">
+                @Html.Label("Пароль повторно (должен совпадать с полем \"Пароль\"")
+            </div>
+            <div class="editor-field">
+                @Html.Password("pass2")
+            </div>
+            <p/>
+
+            <input type="submit" value="Registrate" />
+        </fieldset>
+    </div>
+}

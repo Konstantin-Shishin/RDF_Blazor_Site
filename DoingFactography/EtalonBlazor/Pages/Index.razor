@@ -1,0 +1,146 @@
+﻿@page "/{Id?}"
+@using RDFEngine
+
+
+<div>@Id</div>
+
+<div>
+    <input @bind="searchsample" />
+    <select @bind="searchtype">
+        <option value=""></option>
+        @foreach (var typ in typs.Where(t => Infobase.rontology.LabelOfOnto(t) != null)) //TODO: Надо бы более корректно...
+        {
+            <option value="@typ">@(Infobase.rontology.LabelOfOnto(typ))</option>
+        }
+    </select>
+</div>
+@if (!string.IsNullOrEmpty(searchsample))
+{
+    IEnumerable<RRecord> query = null;
+    //query = Infobase.engine.RSearch(searchsample);
+    query = (new RDFEngine.RXEngine()).RSearch(searchsample);
+
+    if (string.IsNullOrEmpty(searchtype)) query = query.Where(r => typs.Contains(r.Tp));
+    else query = query.Where(r => r.Tp == searchtype);
+    foreach (RRecord rec in query.OrderBy(r => Infobase.GetName(r)))
+    {
+        <div>
+            <a href="javascript:void(0)" @onclick="@(e => SearchResultClick(rec))">@Infobase.GetName(rec)</a>
+            <span style="color:red;">@(Infobase.rontology.LabelOfOnto(rec.Tp))</span>
+        </div>
+    }
+}
+@if (model != null)
+{
+    var m = model;
+    <table border="1">
+        <tr>
+            <td colspan="@m.row.Length">@m.Tp @m.Id</td>
+        </tr>
+        <tr>
+            @foreach (var c in m.row)
+            {
+                <td>@c.Prop</td>
+            }
+        </tr>
+        <tr>
+            @foreach (var c in m.row)
+            {
+                if (c is RField)
+                {
+                    <td>@(((RField)c).Value)</td>
+                }
+                else if (c is RDirect && ((RDirect)c).DRec != null)
+                {
+                    var rr = ((RDirect)c).DRec;
+                    <td><a href='?id=@(rr.Id)'>@(GetName(rr))</a></td>
+                }
+            }
+        </tr>
+    </table>
+    @foreach (var p in m.inv)
+    {
+        foreach (var t in p.lists)
+        {
+            RRecord defrow = t.list[0];
+            <table border="1">
+                <tr>
+                    <td colspan="@(defrow.Props.Length-1)">
+                        <span>@(p.Prop)</span>
+                        <span>@(defrow.Tp)</span>
+                    </td>
+                </tr>
+                <tr>
+                    @foreach (var c in defrow.Props)
+                    {
+                        if (c.Prop == p.Prop) { continue; }
+                        <td>@(c.Prop)</td>
+                    }
+                </tr>
+                @foreach (var r in t.list)
+                {
+                    <tr>
+                        @foreach (var c in r.Props)
+                        {
+                            if (c.Prop == p.Prop) { continue; }
+                            if (c is RField)
+                            {
+                                <td>@(((RField)c).Value)</td>
+                            }
+                            else if (c is RDirect && ((RDirect)c).DRec != null)
+                            {
+                                var rr = ((RDirect)c).DRec;
+
+                                <td><a href='?id=@(rr.Id)'>@(GetName(rr))</a></td>
+                            }
+                            else
+                            {
+                                <td>???</td>
+                            }
+                        }
+                    </tr>
+                }
+
+            </table>
+        }
+    }
+
+}
+
+@code{
+    [Parameter]
+    public string Id { get; set; }
+
+    private Models.P3Model model;
+
+    private string searchsample { get; set; }
+    private string searchtype { get; set; }
+
+    private string[] typs = Infobase.rontology.DescendantsAndSelf("http://fogid.net/o/sys-obj").ToArray();
+
+    private void Build(string entityId)
+    {
+        var erec = Infobase.engine.BuildPortrait(entityId);
+        this.model = (new Models.P3Model()).Build(erec); // Новая модель сформирована!
+    }
+    protected override void OnInitialized() // = On Page Load
+    {
+        if (Id != null)
+        {
+            Build(Id);
+        }
+    }
+    private void SearchResultClick(RRecord rec)
+    {
+        searchsample = null;
+        Build(rec.Id);
+    }
+
+    // Получение имени из записи
+    private string GetName(RRecord rec) => ((RField)rec.Props.FirstOrDefault(p => p is RField && p.Prop == "http://fogid.net/o/name"))?.Value;
+
+    // Получение терминов через онтологию
+    private string gt(string code) => code;
+    private string git(string code) => code;
+
+}

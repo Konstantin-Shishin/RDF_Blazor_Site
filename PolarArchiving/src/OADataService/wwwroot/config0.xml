@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<config>
+  <database connectionstring="trs:D:/Home/data/Databases/OADataService/" />
+
+  <LoadCassette>E:\FactographProjects\syp_cassettes\SypCassete</LoadCassette>
+  <!--
+  <LoadCassette>F:\syp\syp_cassettes\SypCassete</LoadCassette>
+  Мой id=syp2001-p-marchuk_a
+  http://localhost:51056/db/SearchByName?ss=марчук
+  http://localhost:51056/db/GetItemByIdBasic?id=syp2001-p-marchuk_a&addinverse=true
+  
+  <LoadCassette>F:\syp\syp_cassettes\SypUsers</LoadCassette>
+  <LoadCassette>F:\syp\syp_cassettes\Syp_2012_1</LoadCassette>
+  <LoadCassette>F:\syp\syp_cassettes\Syp_2012_mag</LoadCassette>
+  <LoadCassette>F:\syp\syp_cassettes\Syp_2012_Tikhonova</LoadCassette>
+  <LoadCassette>F:\syp\syp_cassettes\Syp_2013</LoadCassette>
+  <LoadCassette>F:\syp\syp_cassettes\Syp2011</LoadCassette>
+  <LoadCassette>F:\syp\syp_cassettes\Syp2011video</LoadCassette>
+  <LoadCassette>F:\syp\syp_cassettes\Syp2013Users</LoadCassette>
+  <LoadCassette>F:\syp\syp_cassettes\Syp2013video</LoadCassette>
+  <LoadCassette>F:\syp\syp_cassettes\Syp2014</LoadCassette>
+  <LoadCassette>F:\syp\syp_cassettes\Syp2014conf_video</LoadCassette>
+  <LoadCassette>F:\syp\syp_cassettes\Syp2014Users</LoadCassette>
+  <LoadCassette>F:\syp\syp_cassettes\Syp2014video</LoadCassette>
+  <LoadCassette>F:\syp\syp_cassettes\Syp2015</LoadCassette>
+  <LoadCassette>F:\syp\syp_cassettes\Syp2015Bratus</LoadCassette>
+  <LoadCassette>F:\syp\syp_cassettes\Syp2015conf_video</LoadCassette>
+  <LoadCassette>F:\syp\syp_cassettes\Syp2015Users</LoadCassette>
+  <LoadCassette>F:\syp\syp_cassettes\Syp2015video</LoadCassette>
+  <LoadCassette>F:\syp\syp_cassettes\Syp2016</LoadCassette>
+  <LoadCassette>F:\syp\syp_cassettes\Syp2016Users</LoadCassette>
+  <LoadCassette>F:\syp\syp_cassettes\Syp2016video</LoadCassette>
+  <LoadCassette>F:\syp\syp_cassettes\Syp2016video2</LoadCassette>
+  <LoadCassette>F:\syp\syp_cassettes\Syp2017</LoadCassette>
+  <LoadCassette>F:\syp\syp_cassettes\Syp2017Users</LoadCassette>
+  <LoadCassette>F:\syp\syp_cassettes\Syp2017video</LoadCassette>
+  <LoadCassette>F:\syp\syp_cassettes\Syp2018</LoadCassette>
+  <LoadCassette>F:\syp\syp_cassettes\Syp2018Users</LoadCassette>
+  <LoadCassette>F:\syp\syp_cassettes\Syp2018video</LoadCassette>
+  <LoadCassette>F:\syp\syp_cassettes\Syp2019</LoadCassette>
+  <LoadCassette>F:\syp\syp_cassettes\Syp2019photos</LoadCassette>
+  -->
+</config>

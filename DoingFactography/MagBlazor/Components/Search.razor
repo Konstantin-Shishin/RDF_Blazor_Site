@@ -1,0 +1,68 @@
+﻿@using RDFEngine
+
+<div>
+    <input @bind="searchsample" />
+    <select @bind="searchtype">
+        <option value=""></option>
+        @foreach (var typ in typs.Where(t => Infobase.rontology.LabelOfOnto(t) != null)) //TODO: Надо бы более корректно...
+        {
+            <option value="@typ">@(Infobase.rontology.LabelOfOnto(typ))</option>
+        }
+    </select>
+    <span>расш.<input type="checkbox" @bind="extended"/></span>
+</div>
+@if (!string.IsNullOrEmpty(searchsample))
+{
+    IEnumerable<RRecord> query = null;
+    if (!extended)
+    {
+        query = (new RDFEngine.RXEngine() { User = user }).RSearch(searchsample);
+    }
+    else
+    {
+        query = (new RDFEngine.RXEngine() { User = user }).RSearchByWords(searchsample);
+    }
+
+
+    if (string.IsNullOrEmpty(searchtype)) query = query.Where(r => typs.Contains(r.Tp));
+    else query = query.Where(r => r.Tp == searchtype);
+    if (!extended) { query = query.OrderBy(r => Infobase.GetName(r)); }
+    foreach (RRecord rec in query)
+    {
+<div>
+    <a href="javascript:void(0)" @onclick="@(e =>SearchResultClick(rec))">@Infobase.GetName(rec)</a>
+    <span style="color:red;">@(Infobase.rontology.LabelOfOnto(rec.Tp))</span>
+</div>
+    }
+    if (toedit && !string.IsNullOrEmpty(searchtype)) 
+    {
+        <div><a href="javascript:void(0)" @onclick="@(e =>NewItemClick(searchtype))">нов.</a></div>
+    }
+}
+
+@code{
+    [Parameter]
+    public EventCallback onSelected { get; set; }
+    [Parameter]
+    public string searchsample { get; set; }
+    [Parameter]
+    public string[] typs { get; set; }
+    [Parameter]
+    public string user { get; set; }
+    private bool toedit { get { return ! string.IsNullOrEmpty(user); } }
+    private bool extended = false;
+
+    private async Task SearchResultClick(RRecord rec)
+    {
+        searchsample = null;
+        extended = false;
+        await onSelected.InvokeAsync(rec.Id);
+    }
+    private async Task NewItemClick(string tp)
+    {
+        string nid = (new RDFEngine.RXEngine() { User = user }).NewRecord(searchtype, searchsample);
+        searchsample = null;
+        await onSelected.InvokeAsync(nid);
+    }
+    private string searchtype;
+}

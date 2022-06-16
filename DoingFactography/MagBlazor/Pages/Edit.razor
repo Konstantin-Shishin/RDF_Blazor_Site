@@ -1,0 +1,167 @@
+﻿@page "/edit/{entityId?}"
+@using RDFEngine
+@using MagBlazor
+
+@{
+    string lnk = "/view/" + entityId;
+    <div style="float:right;">
+        <NavLink href="@lnk">view</NavLink>
+    </div>
+}
+
+<div style="text-align:right;">
+    <span>ru </span>
+    User: <input type="text" @bind="_user" />
+    <MagBlazor.Components.Upload user="@user" onFinish="(str) => Build(entityId)" />
+</div>
+<MagBlazor.Components.Search onSelected="(rid) => UtilizeRecord((string)rid)" searchsample="@searchsample" typs="@tps" user="@user" />
+@if (focusRec != null)
+{
+    if (focusRec.Tp == "http://fogid.net/o/photo-doc")
+    {
+        string sr = "docs/GetImage?u=" + ((RField)focusRec.Props.FirstOrDefault(p => p.Prop == "http://fogid.net/o/uri")).Value + "&s=normal";
+        <img src="@sr" />
+
+    }
+    if (focusRec.Tp == "http://fogid.net/o/video-doc")
+    {
+        string sr = "docs/GetVideo?u=" + ((RField)focusRec.Props.FirstOrDefault(p => p.Prop == "http://fogid.net/o/uri")).Value + "&s=normal";
+        <video controls>
+            <source type="video/webm" src='@(sr + "&ext=webm")' />
+            <source type="video/mp4" src='@(sr + "&ext=mp4")' />
+            Your browser does not support the video tag.
+        </video>
+
+    }
+    @*else if (documenttype == "application/pdf")
+        {
+            string src = url == null ? Url.Content("~/Docs/GetPdf?u=" + uri_coded) : url;
+            <embed src="@src" width="1024" height="800" />
+        }*@
+    try
+    {
+
+        <MagBlazor.Components.DrawTable focusId="@focusRec.Id" inverseTp="@focusRec.Tp" records="@(new RRecord[] { focusRec })" onGo="(id) => Build((string)id)" user="@user" />
+        var list2 = Infobase.rontology.AncestorsAndSelf(focusRec.Tp).SelectMany(t => Infobase.rontology.GetInversePropsByType(t)).Distinct();
+        //look =  "" + list2.Count() + " " + list2.Aggregate((a, s) => a + " | " + s);
+        foreach (var propName in list2)
+        {
+            var pr = focusInversePropTypes.FirstOrDefault(ipt => ipt.Prop == propName);
+            foreach (var typ in Infobase.rontology.DomainsOfProp(propName))
+            {
+                var it = pr == null ? null : pr.lists.FirstOrDefault(x => x.Tp == typ);
+                if (it == null)
+                {
+                    if (toedit)
+                    {
+                        <span>@(Infobase.rontology.InvLabelOfOnto(propName)) &nbsp;</span>
+                        <span>
+                            <a href="javascript:void(0)" @onclick="@(e => BuildInverseTable(propName, typ))">@(Infobase.rontology.LabelOfOnto(typ))</a> |
+                        </span>
+                    }
+                }
+                else
+                {
+                    <table border="1">
+                        <tr valign="top">
+                            <td>@(Infobase.rontology.InvLabelOfOnto(propName))</td>
+                            <td>
+                                <MagBlazor.Components.DrawTable focusId="@focusRec.Id" inverseProp="@propName" inverseTp="@typ" records="@(it==null?null:it.list)" onGo="(id) => Build((string)id)" user="@user" />
+                            </td>
+                        </tr>
+                    </table>
+                }
+            }
+        }
+    }
+    catch (Exception ex) { look = ex.Message; }
+}
+
+@code{
+    [Parameter]
+    public string entityId { get; set; }
+
+    // Пользователь
+    private string _user
+    {
+        get { return user; }
+        set { if (!string.IsNullOrEmpty(value) && OAData.OADB.HasWritabeFogForUser(value)) user = value; else user = null; }
+    }
+    private string user;
+
+    // Признак редактирования
+    private bool toedit { get { return !string.IsNullOrEmpty(user); } }
+
+    // Движок
+    //RDFEngine.IEngine engine = new RDFEngine.RXEngine();
+
+    private string[] tps = //new string[] { "http://fogid.net/o/person", "http://fogid.net/o/org-sys" };
+        Infobase.rontology.DescendantsAndSelf("http://fogid.net/o/sys-obj").ToArray();
+
+    private string searchsample = "";
+    // Запись фокусного элемента и списки обратных свойств для него
+    private RRecord focusRec = null;
+    private Models.InversePropType[] focusInversePropTypes = null;
+
+    private void UtilizeRecord(string id)
+    {
+        Build(id);
+        searchsample = null;
+    }
+
+    // Построение фокусного элемента по его идентификатору
+    private void Build(string recId)
+    {
+        RRecord erec = (new RDFEngine.RXEngine() { User = user }).BuildPortrait(recId); // ((REngine)(Infobase.engine)).BuildPortrait(recId);
+        if (erec == null)
+        {
+            focusRec = null;
+            return;
+        }
+        var query = erec.Props.Where(p => p is RInverse && ((RInverse)p).IRec != null)
+    .Cast<RInverse>()
+    .GroupBy(d => d.Prop)
+    .Select(kd => new Models.InversePropType
+    {
+        Prop = kd.Key,
+        lists =
+        kd.GroupBy(d => d.IRec.Tp)
+            .Select(dd =>
+            {
+                var qu = dd.Select(x => x.IRec)
+                    .Select(rr => new RRecord { Id = rr.Id, Tp = rr.Tp, Props = Infobase.rontology.ReorderFieldsDirects(rr, "ru") })
+                    .ToArray();
+                return new Models.InverseType
+                {
+                    Tp = dd.Key,
+                    list = qu
+                };
+            }).ToArray()
+    }).ToArray();
+        focusInversePropTypes = query;
+        focusRec = new RRecord { Id = erec.Id, Tp = erec.Tp, Props = Infobase.rontology.ReorderFieldsDirects(erec, "ru") };
+        entityId = recId;
+    }
+
+    private void BuildInverseTable(string prop, string typ)
+    {
+        (new RDFEngine.RXEngine() { User = user }).NewRelation(typ, prop, focusRec.Id);
+        Build(focusRec.Id);
+        //look = $"run BuildInverseTable {prop} {typ}";
+    }
+
+    // Переменная для отладки-просмотра
+    private string look = "";
+
+    protected override void OnInitialized() // = On Page Load
+    {
+        if (entityId != null)
+        {
+            Build(entityId);
+        }
+    }
+}
+
+<hr />
+<div>@look</div>
+<div>@user</div>

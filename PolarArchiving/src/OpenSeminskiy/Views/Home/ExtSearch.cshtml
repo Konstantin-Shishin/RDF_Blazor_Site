@@ -1,0 +1,102 @@
+﻿@using System.Xml.Linq
+@model ExtSearchModel
+@{
+    ExtSearchModel m = Model;
+}
+
+<h2>Расширенный поиск документов</h2>
+<form method="post" action="~/Home/ExtSearch">
+    Фонд
+    <select name="fund">
+        <option value="all">         </option>
+        @foreach (var xfund in m.funds)
+        {
+            if (xfund.Attribute("id").Value == m.fund)
+            {
+                <option selected value='@xfund.Attribute("id").Value'>@xfund.Value</option>
+            }
+            else
+            {
+                <option value='@xfund.Attribute("id").Value'>@xfund.Value</option>
+            }
+        }
+    </select>
+    (Отображается текущий фонд, если не указан, то по всем фондам, выбирается из раскрывающегося списка)
+    <br />
+
+
+    Контекст
+    <input type="text" name="context" value="@(string.IsNullOrEmpty(m.context)?"":m.context)" />
+    (слово или фрагмент текста)
+    <br />
+
+    Коллекция
+    <input type="text" name="coll" value="@m.coll" />
+    (отображается текущая коллекция, если не указана, то по всем коллекциям)
+    <br />
+
+    Персона
+    <input type="text" name="person" value="@m.person" />
+    S  <select>
+        <option value="all">         </option>
+        <option value="f1">Это тестовая роль персоны</option>
+    </select>
+    (через раскрывающийся список указывается роль персоны)
+    <br />
+
+    Организация
+    <input type="text" name="org" value="@m.org" />
+    <select>
+        <option value="all">         </option>
+        <option value="f1">Это тестовая роль организации</option>
+    </select>
+    (через раскрывающийся список указывается роль орг системы - отражение, исх. орг., вх. орг.)
+    <br />
+
+    Размещение
+    <input type="text" name="geo" value="@m.geo" />
+    (геоинформация)
+    <br />
+
+    Дата<br />
+    с <input type="text" name="fdate" value="@m.fdate" />
+    по <input type="text" name="tdate" value="@m.tdate" />
+
+    <br />
+    <br />
+
+    <input type="submit" value="искать!" />
+    <!--input type="reset" /-->
+</form>
+
+Поиск осуществляется по всем заполненным полям одновременно. Результат выдается списком документов.
+
+@if (m.IsPost)
+{
+    <h3>Результаты поиска</h3>
+
+
+    <div>Всего: @m.query.Count()</div>
+    foreach (XElement ite in m.query
+        .OrderBy(it => SObjects.GetField(it, "http://fogid.net/o/name"))
+        .ThenBy(it => SObjects.GetDates(it), m.comparedates)
+        )
+    {
+        string nm = SObjects.GetField(ite, "http://fogid.net/o/name");
+        string dt = SObjects.GetDates(ite);
+        string descr = "";
+        if (string.IsNullOrEmpty(m.context))
+        {
+            descr = SObjects.GetField(ite, "http://fogid.net/o/description");
+        }
+        <li>
+            <a href='~/Home/Portrait?id=@ite.Attribute("id").Value'>@nm</a>
+            @if (!string.IsNullOrEmpty(dt))
+            {
+                <span>(@dt)</span>
+            }
+            @descr
+        </li>
+    }
+}
+

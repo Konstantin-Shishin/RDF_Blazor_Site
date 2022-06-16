@@ -1,0 +1,35 @@
+﻿@using RDFEngine
+@model RRecord
+
+@{ 
+    if (Model == null) return;
+}
+<h2>Персона</h2>
+<div>@Model.Tp</div>
+<div>
+    <table>
+        @foreach (var property in Model.Props)
+        {
+            if (property is RField)
+            {
+                RField f = (RField)property;
+                string value = f.Value;
+                <tr><td>@property.Prop</td><td><b>@value</b></td></tr>
+            }
+            else if (property is RLink)
+            {
+                RLink l = (RLink)property;
+                string resource = l.Resource;
+                <tr><td>@property.Prop</td><td><a href='/Home/Person/@(resource)'>прямая ссылка</a></td></tr>
+            }
+            else if (property is RInverseLink)
+            {
+                var i = (RInverseLink)property;
+                string source = i.Source;
+                <tr><td>@property.Prop</td><td><a href='/Home/Person/@source'>обратная ссылка</a></td></tr>
+            }
+        }
+    </table>
+
+</div>
+

@@ -1,0 +1,57 @@
+﻿@model Turgunda7.Models.PortraitSpecialModel
+
+@{
+    if (Model.id == null) { return;  } 
+}
+<div>@Model.type duration=@(Model.duration.Ticks / 10000) ms.</div>
+<h2>@Model.name</h2>
+<table>
+    <tr>
+        <td>@Model.id</td>
+        <td></td>
+        <td>@Model.type_id</td>
+    </tr>
+@foreach (var f in Model.farr)
+{
+    <tr>
+        <td></td>
+        <td>@f.prop</td>
+        <td>@f.value <span style="color:Green;">@f.lang</span></td>
+    </tr>
+}
+@foreach (var d in Model.darr)
+{
+    <tr>
+        <td></td>
+        <td>@d.prop</td>
+        <td><a href="@Url.Content("~/Home/PortraitSpecial?id=" + d.resource)">@d.resource</a></td>
+    </tr>
+}
+@foreach (var i in Model.iarr)
+{
+    string name = i.name != null ? i.name : i.about;
+    <tr>
+        <td><a href="@Url.Content("~/Home/PortraitSpecial?id=" + i.about)">@name</a></td>
+        <td>@i.prop</td>
+        <td></td>
+    </tr>
+}
+
+    <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+
+</table>
+
+@*
+Для вывода в виде триплетов:
+    <tr>
+        <td>&lt;@(Model.id)&gt;</td>
+        <td>&lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#type&gt;</td>
+        <td>&lt;@(Model.type_id)&gt;</td>
+    </tr>
+и т.д.
+
+*@

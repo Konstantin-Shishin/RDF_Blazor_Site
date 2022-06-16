@@ -1,0 +1,419 @@
+﻿@using System.Xml.Linq
+
+@model Turgunda6.Models.PortraitModel
+@{
+    if (Model == null || Model.xresult == null) { return; }
+    bool edit = (new Turgunda6.Models.UserModel(Request)).Uuser != null; //User.IsInRole("user");
+    string id = Model.id;
+    string page_url = Request.Url.AbsoluteUri;
+    int pos = page_url.ToLower().IndexOf("home/portrait");
+    string ef_url = page_url.Substring(0, pos - 1);
+
+    Dictionary<string, string> icons = new Dictionary<string, string>();
+    icons.Add("http://fogid.net/o/document", "document_m.jpg");
+    icons.Add("http://fogid.net/o/photo-doc", "photo_m.jpg");
+    icons.Add("http://fogid.net/o/video-doc", "video_m.jpg");
+    icons.Add("http://fogid.net/o/audio-doc", "audio_m.jpg");
+    icons.Add("http://fogid.net/o/collection", "collection_m.jpg");
+    
+}
+
+@helper HTable(XElement container, string id, string iprop, string ttype, bool edit, bool candelete)
+    {
+        string bodyid = iprop == null ? "_headerid_" : "_" + iprop.Substring(iprop.LastIndexOf('/') + 1) + "_" + ttype.Substring(iprop.LastIndexOf('/') + 1);
+        XElement[] headerelements = container.Element("header").Elements().ToArray();
+<table>
+    <thead>
+    <tr>
+    @foreach (XElement f in headerelements)
+    {
+        <th>
+        @if (f.Name == "f")
+        { @f.Value }
+        else
+        { @f.Element("label").Value } 
+        </th>
+    }
+    @if (edit)
+    {
+        <td></td>
+    }
+    </tr>
+    </thead>
+    <tbody id="@bodyid">
+    @foreach (XElement r in container.Elements("r"))
+    {
+        string eid = r.Attribute("id").Value;
+        <tr id='@eid' valign="top">
+        @HRow(r, eid, headerelements, id, iprop, ttype, edit, candelete)
+        </tr>
+    }
+    </tbody>
+</table>  
+}
+
+@helper HRow(XElement r, string eid, XElement[] headerelements, string id, string iprop, string rtype, bool edit, bool candelete)
+    {
+    XElement[] rowelements = r.Elements().ToArray();
+    for (int i = 0; i < rowelements.Length; i++)
+    {
+        XElement cr = rowelements[i];
+        XElement f = headerelements[i];
+        if (cr.Name == "c")
+        {
+            XAttribute valueTypeAtt = f.Attribute("valueType");
+            string value = cr.Value;
+            if (valueTypeAtt != null) { value = TurgundaCommon.ModelCommon.GetEnumStateLabel(valueTypeAtt.Value, value); }
+        <td class="d">@value</td> 
+        }
+        else
+        {
+            XAttribute d_att = cr.Attribute("id");
+            string d_id = d_att == null ? "" : d_att.Value;
+            XAttribute d_ty = cr.Attribute("type");
+            string d_tid = d_ty == null ? "" : d_ty.Value;
+            XElement fr = f.Elements("r").FirstOrDefault(rr => rr.Attribute("type").Value == d_tid);
+            XElement[] frow = new XElement[0];
+            if (fr != null)
+            {
+                frow = fr.Elements("f").ToArray();
+            }
+            var qu = cr.Elements()
+                .Select(c => { return new XText(c.Value); }).ToArray();
+            bool isfirst = true;
+            int j = 0;
+        <td>
+            @foreach (XElement c in cr.Elements())
+            {
+                string val = c.Value;
+                if (j < frow.Length)
+                {
+                    var valueTypeAtt = frow[j].Attribute("valueType");
+                    if (valueTypeAtt != null)
+                    {
+                        val = TurgundaCommon.ModelCommon.GetEnumStateLabel(valueTypeAtt.Value, val);
+                    }
+                }
+                if (!string.IsNullOrEmpty(val) && isfirst)
+                {
+                    string url = Url.Content("~/Home/Portrait?id=" + d_id);
+                    isfirst = false;
+                <a href="@url">@val</a>
+                }
+                else
+                {
+                <span>@val</span>
+                }
+                j++;
+            }
+        </td>
+        }
+    }
+    if (edit)
+    {
+        <td>@Ajax.ActionLink("ред", "EditForm", new { firsttime = true, bid = id, eid = eid, etype = rtype, iprop = iprop, nc = r.Elements().Count(), d = System.DateTime.Now.Ticks }, new AjaxOptions()
+       {
+           HttpMethod = "Post",
+           InsertionMode = InsertionMode.Replace,
+           UpdateTargetId = eid
+       })
+            @if (candelete)
+            {
+                @Ajax.ActionLink("x", "DeleteRow", new { eid = eid, d = DateTime.Now.Ticks }, new AjaxOptions()
+           {
+               HttpMethod = "Get",
+               InsertionMode = InsertionMode.Replace,
+               UpdateTargetId = eid,
+               Confirm = "Уничтожить?"
+           }) 
+            }
+        </td>
+    }
+}
+
+<script type="text/jscript">
+    function SubmitForm(eid, comm) {
+        var data = comm + $('#frm_' + eid).serialize();
+        //alert(data);
+        var html = $.ajax({
+            url: '@ef_url/Home/EditForm',
+            async: false,
+            type: 'POST',
+            dataType: 'html',
+            data: data
+        }).responseText;
+        $('#' + eid).html(html);
+        return false;
+    }
+    function KeyPress(key, eid, comm) {
+        //alert('code=' + key);
+        if (key == 13) {
+            SubmitForm(eid, comm);
+            return false;
+        } else {
+            return true;
+        }
+    } 
+</script>
+
+<!-- ================= Начало построения ================= -->
+<div>@Model.typelabel</div>
+@if (Model.uri == null)
+{
+@*<h2 style="color: #5c87b2;">@Model.name : uri not found!</h2>*@
+}
+else
+{
+    if (Model.type_id == "http://fogid.net/o/photo-doc") 
+    {
+        string url = Url.Content("~/Docs/GetPhoto?s=medium&u=" + Model.uri);
+        <img src="@url" />
+    }
+    else if (Model.type_id == "http://fogid.net/o/video-doc")
+    {
+        string url = Url.Content("~/Docs/GetVideo?u=" + Model.uri);
+        <video height="300" controls>
+            <source type="video/webm" src='@(url + "&ext=webm")' />
+            <source type="video/mp4" src='@(url + "&ext=mp4")' />
+            Your browser does not support the video tag.
+        </video>
+        @*
+    <source type="video/webm; codecs='vp8.0, vorbis'" src='@(url + "&ext=webm")' />
+        *@
+
+    }
+    else if (Model.type_id == "http://fogid.net/o/audio-doc")
+    {
+        string url = Url.Content("~/Docs/GetAudio?u=" + Model.uri);
+        @*
+        <audio controls src="@url" />
+        *@
+    <p>
+        <audio src="@url" controls>
+        </audio>
+    </p>
+    }
+
+    string[] doclist = (string[])Session["doclist"];
+    if (doclist != null)
+    {
+        var pair = doclist.Select((s, i) => new { s = s, i = i }).FirstOrDefault(si => si.s == id);
+        if (pair != null)
+        {
+            int ind = pair.i;
+            string urlprev = ind <= 0 ? null : Url.Content("~/Home/Portrait?id=" + doclist[ind - 1]);
+            string urlnext = ind >= doclist.Length - 1 ? null : Url.Content("~/Home/Portrait?id=" + doclist[ind + 1]);
+            <div>
+                @if (urlprev != null)
+                { <a href="@urlprev">пред.</a> }
+                else
+                { <span>пред.</span>} 
+                <span> </span>
+                @if (urlnext != null)
+                { <a href="@urlnext">след.</a> }
+                else
+                { <span>след.</span>} 
+                @{
+                bool isapart = Model.xresult.Elements("ip")
+                    .Where(ip => ip.Attribute("prop").Value == "http://fogid.net/o/partItem")
+                    .Any(ip => ip.Elements("ir")
+                        .Where(ir => ir.Attribute("type").Value == "http://fogid.net/o/DocumentPart")
+                        .Any(ir => ir.Elements("r").Any()));
+                string ur = "";
+                if (Session["inDocumentId"] != null && Session["inDocumentName"] != null &&
+                    !isapart)
+                {
+                        <span>   Прикрепить ли к документу </span>
+                        @Html.ActionLink((string)Session["inDocumentName"], "ConnectToDocument",
+                                 new { bid = id, did = (string)Session["inDocumentId"] })  
+                        <span>???</span>
+                }
+                }
+            </div>
+        }
+    }
+}
+@{
+    bool hasinverse = Model.xresult.Elements("ip").SelectMany(ip => ip.Elements("ir")).Any(ir => ir.Element("r") != null);
+}
+@HTable(Model.xresult, id, null, Model.xresult.Element("r").Attribute("type").Value, edit, !hasinverse)
+@*
+@if (edit)
+{
+    var query = Model.xresult.Elements("ip");
+<div>
+  @foreach (XElement ip in query)
+  {
+      if (ip.Elements("ir").Any((XElement ir) => ir.Element("r") != null)) { continue; }
+      string label = ip.Element("label").Value;
+      XElement[] irs = ip.Elements("ir").ToArray();
+      if (irs.Length == 0) { continue; }
+      else if (irs.Length == 1)
+      {
+          string type_id = irs[0].Attribute("type").Value;
+      @Html.ActionLink(label, "AddInvRelation", new { bid = id, prop = ip.Attribute("prop").Value, rtype = type_id })
+      }
+      else
+      {
+          bool firsttime = true;
+      <span>@label
+        (
+        @foreach (XElement ir in irs)
+        {
+            string ir_label = ir.Element("label").Value;
+            string type_id = ir.Attribute("type").Value;
+            if (!firsttime)
+            { <span> </span> }
+            else { firsttime = false; }
+            @Html.ActionLink(ir_label, "AddInvRelation", new { bid = id, prop = ip.Attribute("prop").Value, rtype = type_id })
+        }
+        )
+      </span>
+      }
+      <span> </span>
+  }
+</div>
+}
+*@
+<table>
+@foreach (XElement ip in Model.xresult.Elements("ip"))
+{
+    if (!edit && !ip.Elements("ir").Any((XElement ir) => ir.Element("r") != null)) { continue; }
+    var qu = ip.Elements("ir").Where(ir => ir.Elements("r").Count() == 0);
+    //.Select(irr => irr.Element("label").Value).Aggregate((sum, s) => sum + " " + s);
+    
+    <tr valign="top">
+        <td>@ip.Element("label").Value</td>
+        <td>
+        @*
+        @if (edit && qu.Count() > 0)
+        {
+            bool needblank = false;
+            <div>
+            @foreach (XElement irr in qu)
+            {
+                string label = irr.Element("label").Value;
+                string type_id = irr.Attribute("type").Value;
+                if (needblank)
+                { <span> </span> }
+                else { needblank = true; }
+                @Html.ActionLink(label, "AddInvRelation", new { bid = id, prop = ip.Attribute("prop").Value, rtype = type_id })  
+            }
+            </div>
+        }
+        *@
+
+        @foreach (XElement ir in ip.Elements("ir"))
+        {
+            //if (ir.Elements("r").Count() == 0) { continue; }
+            XAttribute view_att = ir.Attribute("view");
+            if (view_att == null || view_att.Value != "largeicons")
+            {
+                string type_id = ir.Attribute("type").Value;
+                string iprop = ip.Attribute("prop").Value;
+                <div>@ir.Element("label").Value
+                    @if (edit)
+                    {
+                    <span>
+                    [@Ajax.ActionLink("нов", "EditForm", new { firsttime = true, bid = id, eid = "create888", etype = type_id, iprop = iprop, nc = ir.Element("header").Elements().Count(), d = System.DateTime.Now.Ticks }, new AjaxOptions()
+                {
+                    HttpMethod = "Post",
+                    InsertionMode = InsertionMode.InsertBefore, //.InsertAfter,
+                    UpdateTargetId = "_" + iprop.Substring(iprop.LastIndexOf('/') + 1) +
+                        "_" + type_id.Substring(iprop.LastIndexOf('/') + 1)
+                })]
+                    </span>
+                    }
+                </div>
+            }
+            if (view_att != null && view_att.Value == "largeicons")
+            {
+                var elementset = ir.Elements("r").OrderBy(rr => rr.Value);
+                string[] doclist = elementset.Where(rr => rr.Element("r") != null && rr.Element("r").Attribute("id") != null)
+                    .Select(rr => rr.Element("r").Attribute("id").Value).ToArray();
+                Session["doclist"] = doclist;
+                foreach (XElement r in elementset)
+                {
+                    string url = "";
+                    string src = "";
+                    string src_ext = "";
+                    List<string> parts = new List<string>();
+                    foreach (var fr in r.Elements())
+                    {
+                        if (fr.Name == "c")
+                        {
+                            parts.Add(fr.Value);
+                            continue;
+                        }
+                        if (fr.Name != "r") { continue; }
+
+                        var rid_att = fr.Attribute("id");
+                        var rty_att = fr.Attribute("type");
+                        if (rid_att == null || rty_att == null) { continue; }
+                        string rid = rid_att.Value;
+                        string rty = rty_att.Value;
+                        XAttribute uri_att = fr.Attribute("uri");
+                        url = Url.Content("~/Home/Portrait?id=" + rid); //"?id=" + rid;
+                        if (uri_att != null)
+                        {
+                            src = Url.Content("~/Docs/GetPhoto?s=small&u=" + uri_att.Value);
+                            src_ext = Url.Content("~/Docs/GetPhoto?s=normal&u=" + uri_att.Value);
+                        }
+                        else
+                        {
+                        }
+                        parts.AddRange(fr.Elements("c").Select(c => c.Value));
+                        if (src == "")
+                        {
+                            src = Url.Content("~/wwwroot/icons/medium/" +
+                                (icons.ContainsKey(rty) ? icons[rty] : "default_m.jpg"));
+                        }
+                    }
+                <div class="brick">
+                <div>
+                <a href="@url">
+                    <img src="@src" />
+                </a>
+                </div>
+                @if (parts.Count() > 0)
+                {
+                    int i = 0;
+                <div style="font-size:smaller;">
+                    @foreach (var part in parts)
+                    {
+                        string colo = i % 2 == 0 ? "White" : "Silver"; i++;
+                        <span style="background-color:@colo;">@part</span>
+                    }
+                    @if (edit && !string.IsNullOrEmpty(src_ext))
+                    {
+                        var imguri = Url.Content("~/wwwroot/icons/Zoom_in_16.gif");
+                        <a href="@src_ext" target="_external"><img src="@imguri" alt="Посмотреть" style="border-width:0;"/></a>
+                    }
+                </div>
+                }
+                </div>
+
+                    
+                }
+            }
+            else
+            {
+                string prop = ip.Attribute("prop").Value;
+                bool candelete = prop != "http://fogid.net/o/father" && prop != "http://fogid.net/o/mother"; 
+                @HTable(ir, id, prop, ir.Attribute("type").Value, edit && candelete, candelete)
+            }
+        }
+        </td>
+    </tr>
+}
+</table>
+
+@*
+<pre>@Model.xresult.ToString()</pre>
+*@
+
+@if (Model.look != null)
+{
+<pre>@Model.look.ToString()</pre>
+}
+

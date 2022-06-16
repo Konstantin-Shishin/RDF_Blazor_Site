@@ -1,0 +1,19 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <OutputType>Library</OutputType>
+    <ApplicationIcon />
+    <StartupObject />
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="TRecords.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\PolarDB\src\Polar.DB\Polar.DB.csproj" />
+    <ProjectReference Include="..\..\..\PolarDB\src\TripleStore\Polar.TripleStore.csproj" />
+  </ItemGroup>
+
+</Project>

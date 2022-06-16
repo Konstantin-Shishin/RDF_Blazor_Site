@@ -1,0 +1,254 @@
+﻿@using RDFEngine
+
+@inject AuthenticationStateProvider GetAuthenticationStateAsync
+
+
+@if (addRecord && recToAdd.Id == null)
+{
+    //string id = ((REngine)(Infobase.engine)).NewRelation(addRecordType, forbidden, originalRecord.Id);
+    var defrow = ont.FirstOrDefault(rec => rec.Id == type);
+    var defrowProps = defrow.Props.Where(prop => prop is RLink).ToArray();
+    recToAdd.Props = new RProperty[defrowProps.Length];
+    recToAdd.Tp = new String(defrow.Id);
+    recToAdd.Id = ((RXEngine) Infobase.engine).NewRelation(recToAdd.Tp, forbidden, origId, userName);
+    for (int i = 0; i < defrowProps.Length; i++)
+    {
+        RLink c = (RLink)defrowProps[i];
+        if (c.Prop == "DatatypeProperty")
+        {
+            recToAdd.Props[i] = new RField();
+            recToAdd.Props[i].Prop = c.Resource;
+            ((RField)recToAdd.Props[i]).Value = "";
+        }
+        else if (c.Prop == "ObjectProperty")
+        {
+            recToAdd.Props[i] = new RDirect();
+            recToAdd.Props[i].Prop = c.Resource;
+            if (c.Resource == forbidden)
+            {
+                ((RDirect)recToAdd.Props[i]).DRec = Infobase.engine.GetRRecord(origId);
+            }
+            else
+            {
+                ((RDirect)recToAdd.Props[i]).DRec = null;
+            }
+
+        }
+    }
+
+
+}
+else
+{
+    if (forbidden != null && !addRecord)
+    {
+        ((RDirect)r.Props.FirstOrDefault(prop => prop.Prop == forbidden)).DRec = Infobase.engine.GetRRecord(origId);
+
+    }
+}
+
+<table class="propery-editor">
+    <tbody>
+        @{ 
+            var rec = ont.FirstOrDefault(rec => rec.Id == r.Tp);
+            if (rec == null)
+            {
+                rec = ont.FirstOrDefault(rec => rec.Id == type);
+            }
+        }
+        
+        @foreach (var c in rec.Props.Where(p => p is RLink && ((RLink)p).Resource != forbidden))
+        {
+            var editClass = (c.Prop == "ObjectProperty" && ((RLink)c).Resource == editProp) ? "edited" : "";
+            <tr class="@editClass">
+                <td>@Infobase.GetTerm(((RLink)c).Resource, currentLanguage)</td>
+                <td>
+                    @{
+                        RProperty bindProperty;
+                        if (addRecord)
+                        {
+                            bindProperty = recToAdd.Props.FirstOrDefault(prop => prop.Prop == ((RLink)c).Resource);
+                        }
+                        else
+                        {
+                            bindProperty = r.Props.FirstOrDefault(prop => prop.Prop == ((RLink)c).Resource);
+                            if (bindProperty == null)
+                            {
+                                if (c.Prop == "DatatypeProperty")
+                                {
+                                    var field = new RField();
+                                    field.Prop = ((RLink)c).Resource;
+                                    field.Value = "";
+                                    r.Props = r.Props.Append(field).ToArray();
+                                    bindProperty = r.Props.FirstOrDefault(prop => prop.Prop == ((RLink)c).Resource);
+                                }
+
+                                if (c.Prop == "ObjectProperty")
+                                {
+                                    var direct = new RDirect();
+                                    direct.Prop = ((RLink)c).Resource;
+                                    direct.DRec = null;
+                                    r.Props = r.Props.Append(direct).ToArray();
+                                    bindProperty = r.Props.FirstOrDefault(prop => prop.Prop == ((RLink)c).Resource);
+                                }
+                            }
+                        }
+                    }
+                    @if (bindProperty is RField)
+                    {
+                        if (Infobase.ront.IsEnumeration(bindProperty.Prop))
+                        {
+                            var enuminfo = Infobase.ront.EnumPairs(bindProperty.Prop, currentLanguage);
+                            <select @onchange="@(e => SelectChangeHandler(e.Value, bindProperty))">
+                                @foreach(var item in enuminfo)
+                                {
+                                    if (((RField)bindProperty).Value == item.Key) {
+                                        <option selected="selected" value="@item.Key">@item.Value</option> 
+                                    }
+                                    else
+                                    {
+                                        <option value="@item.Key">@item.Value</option>
+                                    }
+                                }
+
+                            </select>
+                        } 
+                        else
+                        {
+                            <span><input type="text" @bind-value="@(((RField)bindProperty).Value)" /></span>
+                        }
+                    }
+                    else if (bindProperty is RDirect)
+                    {
+                        var rr = ((RDirect)bindProperty).DRec;
+                        if (editProp != ((RDirect)bindProperty).Prop)
+                        {
+                            if (rr != null)
+                            {
+
+
+                                if (rr.Props.FirstOrDefault(p => p.Prop == "documenttype") != null && rr.Props.FirstOrDefault(p => p.Prop == "uri") != null)
+                                {
+                                    <a href="javascript:void(0)" @onclick="@(e => BuildPortrait(rr.Id))">
+                                        <img src="@("docs/GetImage?u=" + ((RField)rr.Props.FirstOrDefault(p => p.Prop == "uri")).Value +"&s=medium")" />
+                                    </a>
+
+                                }
+
+                                <a href="javascript:void(0)" @onclick="@(e => BuildPortrait(rr.Id))">@rr.GetName()</a>
+                            }
+                            else
+                            {
+                                <span>Нет значения</span>
+                            }
+                            <a href="javascript:void(0)" @onclick="@(e => { editProp = ((RDirect)bindProperty).Prop; })"> ред.</a>
+                        }
+                        else
+                        {
+                            //string type = null;
+                            //if (rr != null)
+                            //{
+                            //    type = rr.Tp;
+                            //}
+                            if (rr != null)
+                            {
+                                if (rr.Props.FirstOrDefault(p => p.Prop == "http://fogid.net/o/docmetainfo") != null && rr.Props.FirstOrDefault(p => p.Prop == "http://fogid.net/o/uri") != null)
+                                {
+                                    <a href="javascript:void(0)" @onclick="@(e => BuildPortrait(rr.Id))">
+                                        <img src="@("docs/GetImage?u=" + ((RField)rr.Props.FirstOrDefault(p => p.Prop == "http://fogid.net/o/uri")).Value +"&s=small")" />
+                                    </a>
+
+                                }
+                                <span>@rr.GetName()</span>
+                            }
+                            <br /><span>Поиск:</span>
+                            string range = null;
+                            @if (bindProperty.Prop != null)
+                            {
+                                range = ((RLink)Infobase.ront.rontology.FirstOrDefault(rec => rec.Id == bindProperty.Prop).Props.FirstOrDefault(prop => prop.Prop == "range")).Resource;
+                            }
+                            <Search onSearchResultClick="@(arg => { editProp = null; ((RDirect)bindProperty).DRec = (RRecord)arg; })" rangeType="@range" />
+                        }
+                    }
+                    else
+                    {
+                        <span>???</span>
+                    }
+
+                </td>
+            </tr>
+        }
+        <tr>
+            <td><button @onclick="@Save">Сохранить</button></td>
+            <td><button @onclick="@Cancel">Отмена</button></td>
+        </tr>
+    </tbody>
+</table>
+
+@code {
+    [Parameter]
+    public RRecord r { get; set; }
+
+    [Parameter]
+    public bool addRecord { get; set; } = false;
+
+    [Parameter]
+    public string forbidden { get; set; }
+
+    [Parameter]
+    public string type { get; set; }
+
+    [Parameter]
+    public string origId { get; set; }
+
+    [Parameter]
+    public string userName { get; set; }
+
+    [Parameter]
+    public EventCallback onSave { get; set; }
+
+    [Parameter]
+    public EventCallback onCancel { get; set; }
+
+    [Parameter]
+    public EventCallback onBuildPortrait { get; set; }
+
+    [Parameter]
+    public bool tilesView  { get; set; } = false;
+
+    private RRecord[] ont = Infobase.ront.rontology;
+
+    private string editProp = null;
+
+    private RRecord recToAdd = new RRecord();
+
+    private string currentLanguage = MainLayout.currentLanguage;
+
+    protected async Task Save()
+    {
+        if (addRecord)
+        {
+            await onSave.InvokeAsync(recToAdd);
+        }
+        else
+        {
+            await onSave.InvokeAsync(r);
+        }
+    }
+
+    protected async Task Cancel()
+    {
+        editProp = null;
+        await onCancel.InvokeAsync();
+    }
+
+    protected async Task BuildPortrait(string id)
+    {
+        await onBuildPortrait.InvokeAsync(id);
+    }
+
+    private void SelectChangeHandler(object e, RProperty bindProperty)
+    {
+        ((RField)bindProperty).Value = e.ToString();
+    }
+}

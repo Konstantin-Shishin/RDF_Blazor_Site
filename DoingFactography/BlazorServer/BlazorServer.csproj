@@ -1,0 +1,46 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+	<UserSecretsId>aspnet-blzsrvtest-602A10E2-DBF4-4BCB-8B4B-A2B55532B83C</UserSecretsId>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="wwwroot\cassetes\**" />
+    <Compile Remove="wwwroot\unsafe_uploads\**" />
+    <Content Remove="wwwroot\cassetes\**" />
+    <Content Remove="wwwroot\unsafe_uploads\**" />
+    <EmbeddedResource Remove="wwwroot\cassetes\**" />
+    <EmbeddedResource Remove="wwwroot\unsafe_uploads\**" />
+    <None Remove="wwwroot\cassetes\**" />
+    <None Remove="wwwroot\unsafe_uploads\**" />
+  </ItemGroup>
+	
+  <ItemGroup>
+    <ProjectReference Include="..\RDFEngine\RDFEngine.csproj" />
+  </ItemGroup>
+
+	<ItemGroup>
+		<DotNetCliToolReference Include="DotnetPublishSsh" Version="0.1.0" />
+	</ItemGroup>
+
+
+	<ItemGroup>
+    <PackageReference Include="FFMpegCore" Version="4.8.0" />
+    <PackageReference Include="ImageProcessor" Version="2.9.1" />
+    <PackageReference Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" Version="5.0.13" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="5.0.13" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="5.0.13" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="5.0.13" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Analyzers" Version="5.0.13" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="5.0.13" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite.Core" Version="5.0.13" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="5.0.13" />
+    <PackageReference Include="System.Drawing.Common" Version="6.0.0" />
+  </ItemGroup>
+
+
+	<ItemGroup>
+	  <Folder Include="wwwroot\cassettes\" />
+	</ItemGroup>
+</Project>

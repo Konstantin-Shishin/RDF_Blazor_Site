@@ -1,0 +1,75 @@
+﻿@page
+@using System.Xml.Linq
+@using OpenArchive;
+@{
+    //Layout = "~/_Layout.cshtml";
+    XElement format = new XElement("record", new XAttribute("type", "http://fogid.net/o/collection"),
+        new XElement("field", new XAttribute("prop", "http://fogid.net/o/name")),
+        new XElement("inverse", new XAttribute("prop", "http://fogid.net/o/in-collection"),
+            new XElement("record", new XAttribute("type", "http://fogid.net/o/collection-member"),
+                new XElement("direct", new XAttribute("prop", "http://fogid.net/o/collection-item"),
+                    new XElement("record", new XAttribute("type", "http://fogid.net/o/collection"),
+                        new XElement("inverse", new XAttribute("prop", "http://fogid.net/o/reflected"),
+                            new XElement("record", new XAttribute("type", "http://fogid.net/o/reflection"),
+                                new XElement("direct", new XAttribute("prop", "http://fogid.net/o/in-doc"),
+                                    new XElement("record", new XAttribute("type", "http://fogid.net/o/photo-doc"),
+                                        new XElement("inverse", new XAttribute("prop", "http://fogid.net/o/forDocument"),
+                                            new XElement("record", new XAttribute("type", "http://fogid.net/o/FileStore"),
+                                                new XElement("field", new XAttribute("prop", "http://fogid.net/o/uri"))))
+                                                )))),
+                        new XElement("field", new XAttribute("prop", "http://fogid.net/o/name")))))));
+
+    XElement item = null;
+    try
+    {
+        if (StaticObjects.funds_id == null) { return; }
+        item = OpenArchive.StaticObjects.engine.GetItemById(StaticObjects.funds_id, format);
+    }
+    catch (Exception)
+    {
+        return;
+    }
+    if (item == null)
+    {
+        <div>Duration @StaticObjects.ElapsedMilliseconds</div>
+        return;
+    }
+    IEnumerable<XElement> fonds = Enumerable.Empty<XElement>();
+    try
+    {
+        fonds = item.Elements("inverse")
+            .Select((XElement inv) => inv.Element("record").Element("direct").Element("record"));
+    }
+    catch (Exception) { }
+    //@RenderPage("Portrait.cshtml", new { id=StaticObjects.funds_id, format=format })
+}
+
+
+<p class="grad">
+    <a href="Default.cshtml" class="nov"><img src="img/ico-home.gif" class="ico-home" alt="" />Открытый архив</a>
+    &raquo;
+    <a href="Default.cshtml">Фонды</a>
+</p>
+
+<div class="heading1">
+    <h1>@item.Elements("field").First(f => f.Attribute("prop").Value == "http://fogid.net/o/name").Value</h1>
+</div>
+@foreach (XElement r in fonds)
+{
+    string name = r.Elements("field").First(f => f.Attribute("prop").Value == "http://fogid.net/o/name").Value;
+    string img_src = "img/fund89x89.jpg";
+    var qq = r.Elements("inverse").FirstOrDefault(inv => inv.Attribute("prop").Value == "http://fogid.net/o/reflected");
+    if (qq != null)
+    {
+        img_src = "GetPhoto.cshtml?s=small&u=" + qq.Value;
+    }
+    string id = r.Attribute("id").Value;
+    <div class="block-25 small">
+        <a href="Portrait.cshtml?id=@id">
+            <img src="@img_src" class="fund-face" alt="" /><br /><img src="img/line-person.gif" class="line-face" alt="" /><br />
+            <span>@name</span>
+        </a>
+    </div>
+}
+<br clear="all" />
+

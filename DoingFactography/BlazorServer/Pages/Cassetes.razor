@@ -1,0 +1,124 @@
+﻿@page "/cassettes"
+@using System.Xml;
+@using System.Xml.Linq;
+@using BlazorServer;
+@using System
+@using System.IO
+@using Microsoft.AspNetCore.Hosting
+@using Microsoft.Extensions.Logging
+@inject ILogger<Cassetes> Logger
+@inject IWebHostEnvironment Environment
+@using System.IO.Compression;
+
+
+<h1>Кассеты</h1>
+<h3>Подключенные кассеты:</h3>
+@foreach (XElement cass in config.Elements("LoadCassette"))
+{
+    int pos = cass.Value.LastIndexOf("/") + 1;
+    <div>@cass.Value.Substring(pos, cass.Value.Length - pos)</div>
+}
+<br />
+<h3>Добавить кассеты</h3>
+
+<p>
+    <label>
+        Загрузите архив с кассетой до @maxFileSize байт:
+        <InputFile OnChange="@LoadFiles" />
+    </label>
+</p>
+
+@if (isLoading)
+{
+    <p>Uploading...</p>
+}
+else if (loadedFiles.Count != 0)
+{
+    <h3>Загруженные файлы:</h3>
+    <ul>
+        @foreach (var file in loadedFiles)
+        {
+
+            <li>
+                <ul>
+                    <li>@file.Name</li>
+                    <li>Размер: @file.Size</li>
+                </ul>
+            </li>
+        }
+    </ul>
+    <button type="button" @onclick="@SaveCassette">Сохранить кассету</button>
+    <br />
+}
+
+
+@code {
+
+    XElement config;
+
+    protected override void OnInitialized() // = On Page Load
+    {
+        string path = Environment.ContentRootPath + "/wwwroot/config.xml";
+        config = XElement.Load(path);
+    }
+}
+
+
+@code {
+    private List<IBrowserFile> loadedFiles = new();
+    private long maxFileSize = 1024 * 1024 * 1024;
+    private bool isLoading;
+
+    private async Task LoadFiles(InputFileChangeEventArgs e)
+    {
+        isLoading = true;
+        loadedFiles.Clear();
+
+        foreach (var file in e.GetMultipleFiles(1))
+        {
+            try
+            {
+                loadedFiles.Add(file);
+
+                var trustedFileNameForFileStorage = file.Name;
+                var path = Path.Combine(Environment.ContentRootPath,
+                        Environment.WebRootPath, "unsafe_uploads",
+                        trustedFileNameForFileStorage);
+
+                await using FileStream fs = new(path, FileMode.Create);
+                await file.OpenReadStream(maxFileSize).CopyToAsync(fs);
+            }
+            catch (Exception ex)
+            {
+                Logger.LogError("File: {Filename} Error: {Error}",
+                    file.Name, ex.Message);
+            }
+        }
+
+        isLoading = false;
+    }
+
+
+    private void SaveCassette()
+    {
+        foreach (var fl in loadedFiles)
+        {
+            // Старое имя и расширение
+            var fname = fl.Name;
+            var pos = fname.IndexOf('.');
+            var ext = fname.Substring(pos);
+            string source_path = Environment.ContentRootPath + "/wwwroot/unsafe_uploads/" + fname;
+            string target_path = Environment.ContentRootPath + "/wwwroot/cassettes/" + fname;
+
+            // Перемещаем
+            File.Move(source_path, target_path, true);
+            ZipFile.ExtractToDirectory(target_path, Environment.ContentRootPath + "/wwwroot/cassettes/", true);
+
+            config.Add(new XElement("LoadCassette", Environment.ContentRootPath + "/wwwroot/cassettes/" + fname.Remove(fname.Length - 4)));
+
+            config.Save(Environment.ContentRootPath + "/wwwroot/config.xml");
+
+        }
+        OAData.OADB.Reload();
+    }
+}

@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "SogEQGfa+qdm74bUU6CRd7rB6vrrwiOhJjB/iTudj+Sf8erl0fTRwK8PBZPupblyxQtTH9dM8hvzFP32cn0r4w==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\shish\\Downloads\\RDF_DataBase\\TestEdit\\TestEdit.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\shish\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\6.0.0\\system.runtime.compilerservices.unsafe.6.0.0.nupkg.sha512",
+    "C:\\Users\\shish\\.nuget\\packages\\system.text.encoding.codepages\\6.0.0\\system.text.encoding.codepages.6.0.0.nupkg.sha512"
+  ],
+  "logs": []
+}

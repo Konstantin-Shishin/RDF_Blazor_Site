@@ -1,0 +1,12 @@
+
+    //override async Task OnInitializedAsync()
+    //{
+    //    bool ok = await Init();
+    //}
+    //private Task<bool> Init()
+    //{
+        //Infobase.Init(XElement.Parse(Infobase.sampleRDFText).Elements());
+        //Start("p3817");
+        //isloaded = true;
+        //return Task.FromResult<bool>(true);
+    //}

@@ -1,0 +1,7 @@
+﻿@page "/search"
+@using RDFEngine
+@using BlazorServer.Components
+@inject NavigationManager NavManager
+<h1>Поиск</h1>
+
+<Search onSearchResultClick="@(arg => NavManager.NavigateTo("viewer/"+((RRecord)arg).Id))" hideResults="false"></Search>

@@ -1,0 +1,86 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Test</title>
+</head>
+<body>
+    <img src="/Docs/GetPhoto?s=small&amp;u=iiss://L2@iis.nsk.su/0001/0003/0721" />
+    <h3>== Тестирование сервиса OADataService ==</h3>
+    <h4>Get Ping</h4>
+    <form method="get" action="/db/Ping">
+        <input type="submit" />
+    </form>
+    <hr />
+    <h4>Get SearchByName</h4>
+    <form method="get" action="/db/SearchByName">
+        <input type="text" placeholder="имя" name="ss" />
+        <input type="text" placeholder="тип" name="tt" />
+        <input type="submit" />
+    </form>
+    <hr />
+    <h4>Get GetItemByIdBasic</h4>
+    <form method="get" action="/db/GetItemByIdBasic">
+        <input type="text" placeholder="id" name="id" />
+        обратные:<input type="checkbox" name="addinverse" />
+        <input type="submit" />
+    </form>
+    <hr />
+    <h4>Post GetItemById - Форматный GetItem</h4>
+    <form method="post" action="/db/GetItemById">
+        <input type="text" placeholder="id" name="id" />
+        формат:<textarea name="format" rows="16" cols="200"></textarea>
+        <input type="submit" />
+    </form>
+    <pre>
+Реальный формат для персоны:
+&lt;record type="http://fogid.net/o/person"&gt;
+    &lt;label xml:lang="ru"&gt;Персона&lt;/label&gt;
+    &lt;field prop="http://fogid.net/o/name" /&gt;
+    &lt;field prop="http://fogid.net/o/from-date"&gt;
+        &lt;label&gt;даты&lt;/label&gt;
+    &lt;/field&gt;
+
+    &lt;inverse prop="http://fogid.net/o/has-title"&gt;
+        &lt;record type="http://fogid.net/o/titled"&gt;
+            &lt;field prop="http://fogid.net/o/degree"&gt;
+                &lt;label&gt;cтепень/титул&lt;/label&gt;
+            &lt;/field&gt;
+            &lt;field prop="http://fogid.net/o/from-date" /&gt;
+        &lt;/record&gt;
+    &lt;/inverse&gt;
+    &lt;inverse prop="http://fogid.net/o/participant"&gt;
+        &lt;record type="http://fogid.net/o/participation" &gt;
+            &lt;label&gt;Орг. система&lt;/label&gt;
+            &lt;direct prop="http://fogid.net/o/in-org"&gt;
+                &lt;record type="http://fogid.net/o/org-sys"&gt;
+                    &lt;field prop="http://fogid.net/o/name" /&gt;
+                &lt;/record&gt;
+            &lt;/direct&gt;
+            &lt;field prop="http://fogid.net/o/role" /&gt;
+            &lt;field prop="http://fogid.net/o/role-classification" type="http://fogid.net/o/role-classificator" /&gt;
+            &lt;field prop="http://fogid.net/o/from-date" /&gt;
+            &lt;field prop="http://fogid.net/o/to-date" /&gt;
+        &lt;/record&gt;
+    &lt;/inverse&gt;
+    &lt;inverse prop="http://fogid.net/o/reflected"&gt;
+        &lt;record type="http://fogid.net/o/reflection"&gt;
+            &lt;direct prop="http://fogid.net/o/in-doc"&gt;
+                &lt;record type="http://fogid.net/o/photo-doc"&gt;
+                    &lt;field prop="http://fogid.net/o/name" /&gt;
+                    &lt;field prop="http://fogid.net/o/from-date" /&gt;
+                    &lt;field prop="http://fogid.net/o/uri" /&gt;
+                &lt;/record&gt;
+            &lt;/direct&gt;
+        &lt;/record&gt;
+    &lt;/inverse&gt;
+&lt;/record&gt;
+</pre>
+    <hr />
+</body>
+</html>

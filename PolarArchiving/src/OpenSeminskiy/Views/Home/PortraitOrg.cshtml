@@ -1,0 +1,176 @@
+﻿@using System.Xml.Linq
+@*using OpenArchive*@
+@{
+    if (Model == null) { return; }
+    PortraitOrgModel m = (PortraitOrgModel)Model;
+}
+
+<p class="grad">
+    <a href="~/Home/Index" class="nov"><img src="~/images/ico-home.gif" class="ico-home" alt="" />Открытый архив</a>
+    &raquo;
+    Орг.системы
+    &raquo;
+    @m.name
+</p>
+
+<div class="heading1">
+    <h1>
+        @m.name
+        @m.dates
+    </h1>
+</div>
+
+<p>@m.description</p>
+
+<table cellpadding="0" cellspacing="0" border="0" width="100%" class="info-person">
+    @if (m.participants.Count() > 0)
+    {
+        string word = m.isorg ? "работник" : "участник";
+        <tr valign="top">
+            <td width="25%" class="line-name">@word:</td>
+            <td width="75%" class="line-info">
+                @foreach (XElement participant in m.participants.Where(pa => SObjects.GetField(pa, "http://fogid.net/o/role-classification") == "director")
+                   .OrderBy(pa => SObjects.GetField(pa, "http://fogid.net/o/from-date")))
+                {
+                    XElement personage = participant.Element("direct").Element("record");
+                    string dts = SObjects.GetDates(participant);
+                    string role = SObjects.GetField(participant, "http://fogid.net/o/role");
+                    <a href='~/Home/Portrait?id=@personage.Attribute("id").Value'>@SObjects.GetField(personage, "http://fogid.net/o/name")</a>
+                    <span>@role</span>
+                    if (!string.IsNullOrEmpty(dts))
+                    {
+                        <span>(@dts)</span>
+                    }
+                    <br />
+                }
+
+                @foreach (XElement participant in m.participants.Where(pa => SObjects.GetField(pa, "http://fogid.net/o/role-classification") != "director")
+                 .OrderBy(pa => SObjects.GetField(pa, "http://fogid.net/o/name")))
+                {
+                    XElement personage = participant.Element("direct")?.Element("record");
+                    if (personage == null) { continue; }
+                    string dts = SObjects.GetDates(participant);
+                    string role = SObjects.GetField(participant, "http://fogid.net/o/role");
+                    <a href='~/Home/Portrait?id=@personage.Attribute("id").Value'>@SObjects.GetField(personage, "http://fogid.net/o/name")</a>
+                    <span>@role</span>
+                    if (!string.IsNullOrEmpty(dts))
+                    {
+                        <span>(@dts)</span>
+                    }
+                    <br />
+                }
+            </td>
+        </tr>
+    }
+    @if (m.locations.Count() > 0)
+    {
+        <tr valign="top">
+            <td width="25%" class="line-name">Геоинформация:</td>
+            <td width="75%" class="line-info">
+                @foreach (var location in m.locations)
+                {
+                    <a href='~/Home/Portrait?id=@location.Attribute("id").Value'>@SObjects.GetField(location, "http://fogid.net/o/name")</a>
+                    <br />
+                }
+            </td>
+        </tr>
+    }
+
+</table>   <!-- // Добавлено -->
+<!-- Исправления от Фурсенко
+ @if (m.auth.Count() > 0)
+ {
+ <tr valign="top">
+     <td width="25%" class="line-name">абонент документов:</td>
+     <td width="75%" class="line-info">
+         @foreach (var au in m.auth)
+         {
+             <a href='~/Home/Portrait?id=@au.Attribute("id").Value'>@SObjects.GetField(au, "http://fogid.net/o/name")</a>
+             <br />
+         }
+     </td>
+ </tr>
+ }
+ -->
+
+@if (m.auth.Count() > 0)
+{
+
+    <div class="heading3">
+        <h3>Является Исх./Вх. организацией для документов</h3>
+    </div>
+
+    <table cellpadding="0" cellspacing="0" border="0" width="100%" class="info-docs">
+        <tr>
+            <th width="15%"><a href="sort">Дата</a></th>
+            <th width="70%" class="th-document-name"><a href="sort">Название документа<img src="img/ico-sort-down.gif" alt="" /></a></th>
+            <th width="15%"><a href="sort">Исх./Вх. организация</a></th>
+        </tr>
+        @foreach (var au in m.auth)
+        {
+
+            string dt = SObjects.GetDates(au);
+            string nm = SObjects.GetField(au, "http://fogid.net/o/name");
+            string ds = SObjects.GetField(au, "http://fogid.net/o/description");
+
+            var auth_spec = SObjects.GetField(au.Parent.Parent, "http://fogid.net/o/authority-specificator");
+            string au_s = auth_spec == "out-org" ? "Исх. организация" :
+                (auth_spec == "in-org" ? "Вх. организация" : auth_spec);
+
+
+            <tr valign="top">
+                <td width="15%">@dt</td>
+                <td width="70%">
+                    <a href='~/Home/Portrait?id=@au.Attribute("id").Value'>@SObjects.GetField(au, "http://fogid.net/o/name")</a>
+                    <span class="small">@ds</span>
+                </td>
+                <td width="15%">@au_s</td>
+
+            </tr>
+        }
+    </table>
+}
+
+
+
+
+@if (m.reflections.Count() > 0)
+{
+    <br />
+
+    <div class="heading3">
+        <h3>Отражена в документах</h3>
+    </div>
+
+    <table cellpadding="0" cellspacing="0" border="0" width="100%" class="info-docs">
+        <tr>
+            <th><a href="sort">Дата</a></th>
+            <th class="th-document-name"><a href="sort">Название документа<img src="~/images/ico-sort-down.gif" alt="" /></a></th>
+
+        </tr>
+
+        @foreach (var refl in m.reflections)
+        {
+            if (refl == null) { continue; }
+            string dt = SObjects.GetDates(refl);
+            string ds = SObjects.GetField(refl, "http://fogid.net/o/description");
+
+            <tr valign="top">
+                <td>@dt</td>
+                <td width="75%">
+                    <a href='~/Home/Portrait?id=@refl.Attribute("id").Value'>@SObjects.GetField(refl, "http://fogid.net/o/name")</a>
+                    <span class="small">@ds</span>
+
+                </td>
+
+
+            </tr>
+
+
+        }
+
+    </table>
+
+
+}
+<!-- </table> Убрано -->

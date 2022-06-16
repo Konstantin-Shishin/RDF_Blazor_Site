@@ -1,0 +1,221 @@
+﻿@using System.Xml.Linq
+@*using OpenArchive*@
+@model PortraitDocumentModel
+@{
+    PortraitDocumentModel m = Model;
+}
+<p class="grad">
+    <a href="~/Home/Index" class="nov"><img src="~/images/ico-home.gif" class="ico-home" alt="" />Открытый архив</a>
+    &raquo;
+    <a href="~/Home/Index">Фонды</a>
+    &raquo;
+    @foreach (XElement cnode in SObjects.GetCollectionPath(m.id))
+    {
+        string nm = SObjects.GetField(cnode, "http://fogid.net/o/name");
+        <a href='~/Home/Portrait?id=@cnode.Attribute("id").Value'>@nm</a>
+        <span>&raquo;</span>
+    }
+    @m.name
+</p>
+
+<div class="heading1">
+    <h1>@m.name</h1>
+</div>
+@if (m.doceidarr != null)
+{
+    int ind = 0;
+    for (; ind<m.doceidarr.Length; ind++) { if (m.doceidarr[ind] == m.id) { break; } }
+<div style="text-align: center;">
+    <a href="?id=@m.eid">к документу</a>
+    &nbsp;
+    @if (ind == 0)
+    {
+        <span>пред</span>
+    }
+    else
+    {
+        <span><a href="?id=@(m.doceidarr[ind - 1])&eid=@(m.eid)">пред</a></span>
+    }
+    &nbsp;
+    @if (ind == m.doceidarr.Length - 1)
+    {
+        <span>след</span>
+    }
+    else
+    {
+        <span><a href="?id=@(m.doceidarr[ind + 1])&eid=@(m.eid)">след</a></span>
+    }
+</div>
+}
+@if (!string.IsNullOrEmpty(m.uri) && !m.uri.StartsWith("iiss://"))
+{
+    <img src="@m.uri" />
+}
+else if (!string.IsNullOrEmpty(m.uri) && m.contenttype != null && m.contenttype.StartsWith("image/"))
+{
+    string sr = (m.docSrc == null ? "~" : m.docSrc) + "/Docs/GetPhoto?s=normal&u=" + m.uri;
+    //string sr = (SObjects.Engine.DaraSrc == null ? "~" :
+    //    SObjects.Engine.DaraSrc) + "/Docs/GetPhoto?s=medium&u=" + m.uri;
+
+    <img src="@Url.Content(sr)" />
+}
+
+<table cellpadding="0" cellspacing="0" border="0" width="100%" class="info-document">
+    @if (!string.IsNullOrEmpty(m.startdate))
+    {
+        <tr valign="top">
+            <td width="25%" class="line-name">Дата:</td>
+            <td width="75%" class="line-info">
+                @(SObjects.DatePrinted(m.startdate))
+                @if (!string.IsNullOrEmpty(m.enddate)) { <span>- @SObjects.DatePrinted(m.enddate)</span> }
+            </td>
+        </tr>
+    }
+    @if (!string.IsNullOrEmpty(m.description))
+    {
+        <tr valign="top">
+            <td width="25%" class="line-name">Описание документа:</td>
+            <td width="75%" class="line-info">@m.description</td>
+        </tr>
+    }
+    @if (m.parts.Count() > 0)
+    {
+        <tr>
+            <td class="doc-show-small">&nbsp;</td>
+            <td class="doc-show-small">
+                @foreach (var docpart in m.parts)
+                {
+                    if (docpart == null || docpart.docInPart == null) { continue; }
+                    string nm = SObjects.GetField(docpart.docInPart, "http://fogid.net/o/name");
+                    string uri = SObjects.GetField(docpart.docInPart, "http://fogid.net/o/uri");
+                    string idd = docpart.docInPart.Attribute("id").Value;
+
+                    if (uri.StartsWith("iiss://"))
+                    {
+                        string sr = (m.docSrc == null ? "~" : m.docSrc) + "/Docs/GetPhoto?s=small&u=" + uri;
+                        <div class="show-small">
+                            <a href="~/Home/Portrait?id=@idd&eid=@m.id">
+                                @*<img src="@Url.Content(sr)" border="0" vspace="10" hspace="10" alt="" />*@
+                                <img src="@Url.Content(sr)" />
+                            </a>
+                            <br />
+                            @docpart.pages
+                        </div>
+
+                    }
+                    else
+                    {
+                        <div class="show-small">
+                            <a href="@uri">
+                                <img src="/images/photo.jpg" />
+                            </a>
+                            <br />
+                            @docpart.pages
+                        </div>
+
+                    }
+
+                }
+
+            </td>
+        </tr>
+    }
+    @if (!string.IsNullOrEmpty(m.doccontent))
+    {
+        string[] lines = m.doccontent.Split('\n');
+        <tr valign="top">
+            <td width="25%" class="line-name">Текст документа:</td>
+            <td width="75%" class="line-info">
+                @foreach (var line in lines)
+                {
+                    <p>
+                        @line
+                    </p>
+                }
+            </td>
+        </tr>
+    }
+    @if (m.reflections.Count() > 0)
+    {
+        string sep = "";
+        <tr valign="top">
+            <td width="25%" class="line-name">Отраженные персонажи:</td>
+            <td width="75%" class="line-info">
+                @foreach (var who in m.reflections.Where(re => re != null))
+                {
+                    @sep; sep = ","; <a href='~/Home/Portrait?id=@who.Attribute("id").Value'>@SObjects.GetField(who, "http://fogid.net/o/name")</a>;
+
+                }
+            </td>
+        </tr>
+    }
+    @if (m.authors.Count() > 0)
+    {
+        string sep = "";
+        <tr valign="top">
+            <td width="25%" class="line-name">Авторы документа:</td>
+            <td width="75%" class="line-info">
+
+                @foreach (var au in m.authors)
+                {
+                    @sep; sep = ", ";  // Добавлен разделитель
+                    <a href='~/Home/Portrait?id=@au.Attribute("id").Value'>@SObjects.GetField(au, "http://fogid.net/o/name")</a>;
+                }
+            </td>
+        </tr>
+    }
+    @if (m.recipients.Count() > 0)
+    {
+        string sep = "";
+        <tr valign="top">
+            <td width="25%" class="line-name">Адресаты документа:</td>
+            <td width="75%" class="line-info">
+                @foreach (var au in m.recipients)
+                {
+                    @sep; sep = ",";  // Добавлен разделитель
+                    <a href='~/Home/Portrait?id=@au.Attribute("id").Value'>@SObjects.GetField(au, "http://fogid.net/o/name")</a>;
+                }
+            </td>
+        </tr>
+    }
+    @if (m.geoplaces.Count() > 0)
+    {
+        <tr valign="top">
+            <td width="25%" class="line-name">Геоинформация:</td>
+            <td width="75%" class="line-info">
+                @foreach (var geo in m.geoplaces.Where(g => g != null))
+                {
+                    <a href='~/Home/Portrait?id=@geo.Attribute("id").Value'>@SObjects.GetField(geo, "http://fogid.net/o/name")</a>
+                }
+            </td>
+        </tr>
+    }
+    @if (m.infosource != null)
+    {
+        <tr valign="top">
+            <td width="25%" class="line-name">Источник поступления:</td>
+            <td width="75%" class="line-info">
+                <a href='~/Home/Portrait?id=@m.infosource.Attribute("id").Value'>@SObjects.GetField(m.infosource, "http://fogid.net/o/name")</a>
+                @if (m.descr_infosource != null)
+                {
+                    <span>@m.descr_infosource.Value</span>
+                }
+            </td>
+        </tr>
+    }
+    @if (m.collections.Count() > 0)
+    {
+        <tr valign="top">
+            <td width="25%" class="line-name">Документ входит в коллекции:</td>
+            <td width="75%" class="line-info">
+                @foreach (XElement coll in m.collections)
+                {
+                    <a href='~/Home/Portrait?id=@coll.Attribute("id").Value'>@SObjects.GetField(coll, "http://fogid.net/o/name")</a>
+                    <br />
+                }
+            </td>
+        </tr>
+    }
+</table>
+<br />
+

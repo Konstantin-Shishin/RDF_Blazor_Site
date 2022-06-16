@@ -1,0 +1,163 @@
+﻿@using System.Xml.Linq
+@model Turgunda6.Models.RecordModel
+@{
+    if (Model == null) { return; }
+    XElement[] header = Model.GetHeaderFlow().ToArray();
+    bool insertnew = ViewData["insertnewrelation"] != null;
+}
+
+
+@if (insertnew)
+{
+    <tr id="@Model.eid">@DrowTD(header)</tr>
+}
+else
+{
+    @DrowTD(header)
+}
+
+@helper DrowTD(XElement[] header)
+    {
+<td colspan="@Model.nc">
+
+<div style="border-width:thin; border-style:dashed; border-color:Black;">
+@{
+    string f_id = "frm_" + Model.eid;
+ }
+<form id = "@f_id" style="margin-top:4px; margin-bottom:4px;">
+    <input type="hidden" name="eid" value="@Model.eid" />
+    <input type="hidden" name="bid" value="@Model.bid" />
+    <input type="hidden" name="nc" value="@Model.nc" />
+    <input type="hidden" name="command" value="@Model.command" />
+    <input type="hidden" name="etype" value="@Model.etype" />
+    <input type="hidden" name="exchange" value="@Model.exchange" />
+    <input type="hidden" name="iprop" value="@Model.iprop" />
+    <table width="100%">
+    @for (int i = 0; i < header.Length; i++)
+    {
+        XElement h = header[i];
+        string fname = "f_" + i;
+        <tr>
+        @if (h.Name == "f")
+        {
+            bool istextarea = h.Attribute("prop").Value == "http://fogid.net/o/description" ||
+                h.Attribute("prop").Value == "http://fogid.net/o/doc-content";
+            <td>@h.Value</td>
+            <td>
+            @if (istextarea)
+            {
+                <textarea rows="5" style="width: 400px;" name="@fname">@Model.GetFValue(i)</textarea>
+            }
+            else
+            {
+                XAttribute valueTypeAtt = h.Attribute("valueType");
+                if (valueTypeAtt != null)
+                {
+                    string stvalue = Model.GetFValue(i);
+                    var variants = TurgundaCommon.ModelCommon.GetEnumStates(valueTypeAtt.Value)
+                        .Select(st => new SelectListItem()
+                        {
+                            Selected = st.Attribute("value").Value == stvalue ? true : false,
+                            Value = st.Attribute("value").Value,
+                            Text = st.Value
+                        }).ToList();
+                    <select name="@fname">
+                        <option value=" "></option>
+                        @foreach (var sel in variants) 
+                        {
+                            if (sel.Selected) {
+                            <option selected="selected" value="@sel.Value">@sel.Text</option>
+                            }
+                            else
+                            {
+                            <option value="@sel.Value">@sel.Text</option>
+                            }
+                        }
+                    </select>
+                }
+                else
+                {
+                <input type="text" name="@fname" style="width: 400px;" value="@Model.GetFValue(i)"/>
+                }
+            }
+            </td>
+        }
+        else if (h.Name == "d")
+        {
+            string text_value = "";
+            <td>@h.Element("label").Value</td>
+            <td>
+            @if (Model.GetPValue(i) != null)
+            {
+                @Html.Hidden("p_" + i)
+                @Html.Hidden("v_" + i)
+                @Html.Hidden("d_" + i)
+                @Html.Hidden("t_" + i)
+                text_value = Model.GetVValue(i);
+                <span style="color:blue;">@text_value</span>
+            }
+            else
+            {
+                string[] types = h.Elements("r").Select(rr => rr.Attribute("type").Value).ToArray();
+                if (types.Length == 0)
+                {
+                    // Если будет так, то это ошибка, пока не знаю как ее обрабатывать
+                }
+                else if (types.Length == 1)
+                {
+                    @Html.Hidden("t_" + i, types[0])
+                }
+                else
+                {
+                    string t_variant = Model.GetTValue(i);
+                    string sel_name = "t_" + i;
+                    <select name="@sel_name">
+                        @foreach (var str in types)
+                        {
+                            if (str == t_variant) {
+                            <option selected="selected" value="@str">@TurgundaCommon.ModelCommon.OntNames[str]</option>
+                            }
+                            else
+                            {
+                            <option value="@str">@TurgundaCommon.ModelCommon.OntNames[str]</option>
+                            }
+                        } 
+                    </select>
+                }
+                <input name="@fname" style = "background-color:#e0eeff; width: 400px;" value="@Model.GetFValue(i)" 
+                    onkeypress="return KeyPress(event.keyCode, '@Model.eid', 'chk=chk&')" />
+                                                           object searchindexobj = ViewData["searchindex"];
+                                                           if (searchindexobj != null)
+                                                           {
+                                                               int searchindex = (int)searchindexobj;
+                                                               if (searchindex == i)
+                                                               {
+                                                                   var co = "command=SetVariantNew&exchange=" + i + "|" + Model.GetTValue(i) + "|" + Server.UrlEncode(Model.GetFValue(i)) + "&";
+                        <div>[ <a href="" onclick="return SubmitForm('@Model.eid','@co')">нов.</a> ]</div>
+                                                                              Turgunda6.Models.SearchResult[] searchresults = (Turgunda6.Models.SearchResult[])ViewData["searchresults"];
+                                                                              foreach (Turgunda6.Models.SearchResult sr in searchresults)
+                                                                              {
+                                                                                  var commm = "command=SetVariant&exchange=" + i + "|" + sr.id + "|" +  Server.UrlEncode(sr.value) + "&";
+                                <div>
+                                    <a href="" onclick="return SubmitForm('@Model.eid','@commm')">@sr.value</a>
+                                </div>
+                                                                              }
+                                                               }
+                                                           }
+
+            }
+            </td>
+        }
+        </tr>
+    }
+    </table>
+</form>
+<div style="margin-bottom:10px;">    
+    <button onclick="javascript:SubmitForm('@Model.eid', 'chk=chk&');">пров.</button>
+    <button onclick="javascript:SubmitForm('@Model.eid', 'ok=ok&');">записать!</button>
+    <button onclick="javascript:SubmitForm('@Model.eid', 'canc=cancel&');">отмен.</button>
+</div>
+</div>
+</td>
+}
+ 

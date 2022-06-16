@@ -1,0 +1,156 @@
+﻿@{
+    string sv = ""; //Context.Request.Form["searchvariant"];
+    string ss = ""; //Context.Request.Form["searchstring"];
+    if(Context.Request.HasFormContentType)
+    {
+        var form = Context.Request.Form;
+        sv = Context.Request.Form["searchvariant"];
+        ss = Context.Request.Form["searchstring"];
+    }
+    string[] variants = { "person", "org-sys", "collection", "document", "city", "country" };
+    string[] s = variants.Select(v => v == sv ? "selected" : "").ToArray();
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Открытый архив СО РАН</title>
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/css/moo.css")" />
+    <link rel="shortcut icon" href="style/favicon.ico" type="image/x-icon">
+</head>
+<body>
+    <div id="site">
+        <div class="pd">
+            <table cellpadding="0" cellspacing="0" border="0" width="100%">
+                <!--
+                <tr>
+                    <td class="header">
+                            &laquo;Открытый архив СО&nbsp;РАН как электронная система накопления, представления и&nbsp;хранения научного наследия&raquo; М-48
+                    </td>
+                </tr>
+                    -->
+                <tr>
+                    <td class="block-top">
+                        <a href="Default.cshtml"><img src="img/logo.png" class="logo" alt="Открытый архив СО РАН" /></a>
+                        <div class="main-menu">
+                            <a href="Default.cshtml" class="menu-item nov">Фонды</a>
+                            <span class="menu-sep">|</span>
+                            <!--
+                            <a href="" class="menu-item nov">Персоны</a>
+                            <span class="menu-sep">|</span>
+                            <a href="" class="menu-item nov">Организации</a>
+                            <span class="menu-sep">|</span>
+                            <a href="" class="menu-item nov">Полезные ссылки</a>
+                            <span class="menu-sep">|</span>
+                                -->
+                            <a href="About.cshtml" class="menu-item nov">О проекте</a>
+                            <span class="menu-sep">|</span>
+                            <a href="Participants.cshtml" class="menu-item nov">Участники</a>
+                            <span class="menu-sep">|</span>
+                            <a href="Contacts.cshtml" class="menu-item nov">Контакты</a>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+
+            <!-- В таблице: поисковая панель, основная панель (RenderBody), правая панель -->
+            <table cellpadding="0" cellspacing="0" border="0" width="100%">
+                <tr valign="top">
+                    <td class="block-content">
+                        <div id="wrap">
+                            <div class="fk-ie">
+
+                                <form method="post" action="Search">
+                                    <div class="bsearch-1">
+                                        <div class="bsearch-2">
+                                            <div class="bsearch-3">
+                                                <table cellpadding="0" cellspacing="0" border="0" width="100%">
+                                                    <tr>
+                                                        <td class="s-input-1">
+                                                            <div class="search-form">
+                                                                <input name="searchstring" type="text" placeholder="поиск" title="введите текст для поиска" value="@ss" />
+                                                            </div>
+
+                                                        </td>
+                                                        <td class="s-input-2">
+                                                            <div class="search-form">
+                                                                <select name="searchvariant">
+                                                                    <option selected="@s[0]"></option> 
+                                                                    <option selected="@s[0]" value="person">Персоны</option>
+                                                                    <option selected="@s[1]" value="org-sys">Организации</option>
+                                                                    <option selected="@s[2]" value="collection">Коллекции</option>
+                                                                    <option selected="@s[3]" value="document">Документы</option>
+                                                                    <option selected="@s[4]" value="city">Города</option>
+                                                                    <option selected="@s[5]" value="country">Страны</option>
+                                                                </select>
+                                                            </div>
+
+                                                        </td>
+                                                        <td>
+                                                            <input type="submit" value="&nbsp; &nbsp;&nbsp;  найти" class="search-go" />
+                                                        </td>
+                                                        <td class="s-input-o">
+                                                            <a href="ExtSearch.cshtml" class="small white">
+                                                                Расширенный<br /><img src="img/search-ext-btn.png" class="ext-btn" alt="" />поиск<img src="img/p.gif" class="ext-btn" alt="" />
+                                                            </a>
+
+                                                        </td>
+                                                    </tr>
+                                                </table>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                                <br clear="all" />
+
+                                @RenderBody()
+
+                                <br clear="all" />
+
+
+
+
+                            </div>
+                        </div>
+                    </td>
+
+                    <td class="sep-content"><img src="img/p.gif" width="40" height="1" alt="" /></td>
+                    <td class="block-right">
+                        @RenderSection("rightpanel", false)
+                    </td>
+                </tr>
+            </table>
+
+            <table cellpadding="0" cellspacing="0" border="0" width="100%">
+                <tr valign="top">
+                    <td class="block-content">
+                        <div class="line-bottom"> </div>
+
+                        <a href="#"><img src="img/up_arrow.png" border="0" align="left" /></a>
+
+
+                        <div class="copyright">
+                            &copy; 2013-2014 Институт Систем Информатики <br />
+                            им. А.П. Ершова СО РАН<br />
+                            <a href="mailto:oda@iis.nsk.su?subject=Open Digital Archive"><img src="img/ico-mail.gif" class="ico-mail" alt="Написать письмо" />Написать письмо</a>
+                        </div>
+
+                        <div class="main-menu">
+                            <a href="Default.cshtml" class="menu-item nov">Фонды</a>
+                            <span class="menu-sep">|</span>
+                            <a href="About.cshtml" class="menu-item nov">О проекте</a>
+                            <span class="menu-sep">|</span>
+                            <a href="Participants.cshtml" class="menu-item nov">Участники</a>
+                            <span class="menu-sep">|</span>
+                            <a href="Contacts.cshtml" class="menu-item nov">Контакты</a>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</body>
+</html>

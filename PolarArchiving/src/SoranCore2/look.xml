@@ -1,0 +1,256 @@
+﻿<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="PublicuemCommon/soran1957styles/zh.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="PublicuemCommon/Styles.css" />
+    <script language="javascript" type="text/JScript" src="PublicuemCommon/PublicuemScript.js">.</script>
+  </head>
+  <body>
+    <table width="100%" style="table-layout:fixed;">
+      <col width="150" />
+      <col width="100%" />
+      <col width="410" />
+      <tr valign="top">
+        <td />
+        <td>
+          <div id="logo" style="" width="500" height="99">
+            <a href="">
+              <img src="PublicuemCommon/soran1957styles/img/logo2.gif" width="391" height="61" vspace="12" alt="СО РАН с 1957 года" border="0" />
+            </a>
+          </div>
+        </td>
+        <td>
+          <div id="login" style="">
+            <table cellpadding="0" cellspacing="0" border="0" width="100%">
+              <tr>
+                <td class="text_arial_small">имя: </td>
+                <td width="40%">
+                  <input type="text" class="form_login" />
+                </td>
+                <td class="text_arial_small">пароль: </td>
+                <td width="40%">
+                  <input type="password" class="form_login" />
+                </td>
+                <td>
+                  <input type="image" width="19" height="19" src="PublicuemCommon/soran1957styles/img/btn_login.gif" />
+                </td>
+              </tr>
+              <tr>
+                <td />
+                <td colspan="4" class="text_arial_small">
+                  <a>регистрация</a> | <a>забыли пароль?</a>
+                </td>
+              </tr>
+            </table>
+          </div>
+        </td>
+      </tr>
+      <tr valign="top">
+        <td rowspan="2">
+          <div id="menu" style="">
+            <a href="?id=w20070417_7_1744">
+              <img src="PublicuemCommon/soran1957styles/img/i_home.gif" width="10" height="10" hspace="4" border="0" alt="Главная страница" />
+            </a>
+            <a href="mailto:pavl@iis.nsk.su?subject=soran1957.ru%20 PA_Users_svet_634587632753537813_5539">
+              <img src="PublicuemCommon/soran1957styles/img/i_mail.gif" width="10" height="10" hspace="11" border="0" alt="Написать письмо" />
+            </a>
+            <br />
+            <hr noshade="1" size="1" color="#cccccc" />
+            <div class="text_menu">
+              <div class="p_menu">
+                <a href="?id=w20070417_7_1744">
+                  <b>Начало</b>
+                </a>
+                <hr noshade="1" size="3" color="#cccccc" />
+                <a href="?id=w20070417_3_6186">
+                  <b>СО РАН</b>
+                </a>
+                <hr noshade="1" size="3" color="#cccccc" />
+                <a href="?id=w20070417_4_1010">
+                  <b>Первичные фотоматериалы</b>
+                </a>
+                <hr noshade="1" size="3" color="#cccccc" />
+                <a href="?id=newspaper_cassetteId">
+                  <b>Архив газет "За науку в Сибири"</b>
+                </a>
+                <hr noshade="1" size="3" color="#cccccc" />
+                <a href="?id=w20070417_3_4658">
+                  <b>О проекте</b>
+                </a>
+                <hr noshade="1" size="3" color="#cccccc" />
+                <a href="?id=usefullLinks">
+                  <b>Полезные ссылки</b>
+                </a>
+              </div>
+            </div>
+            <hr noshade="1" size="3" color="#cccccc" />
+          </div>
+        </td>
+        <td>
+          <div id="search" style="">
+            <form action="">
+              <input type="hidden" name="p" value="typed-item-list" />
+              <input type="hidden" name="ch" value="search-form" />
+              <table cellpadding="0" cellspacing="0" border="0">
+                <tr>
+                  <td class="search_option">
+                    <a href="?sdirection=photo-doc">Фотографии</a>
+                  </td>
+                  <td class="search_option_s">
+                    <a>Персоны</a>
+                  </td>
+                  <td class="search_option">
+                    <a href="?sdirection=org-sys">Организации</a>
+                  </td>
+                </tr>
+              </table>
+              <table cellpadding="0" cellspacing="0" border="0" width="100%" height="55">
+                <tr>
+                  <td width="100%" class="search_form">
+                    <input name="searchstring" type="text" class="form_search" />
+                  </td>
+                  <td class="search_form">
+                    <input type="image" width="63" height="19" src="PublicuemCommon/soran1957styles/img/btn_search.gif" style="margin-right:5px;" />
+                  </td>
+                </tr>
+                <tr valign="top">
+                  <td colspan="2" class="search_form">
+                    <input type="checkbox" id="search_all" disabled="disabled" style="border:0px solid #036;" /><label for="search_all">искать по отдельным словам</label> | <a>расширенный поиск</a>
+                  </td>
+                </tr>
+              </table>
+            </form>
+          </div>
+        </td>
+        <td />
+      </tr>
+      <tr valign="top">
+        <td>
+          <div>
+            <div style="text-align:center;">
+              <div>Признанный авторитет СО АН СССР.</div>
+            </div>
+            <div style="text-align:center;">
+              <span style="text-align:center;">
+                <span>1974май15</span>
+              </span>
+            </div>
+            <div>
+              <div>Статья о создании Академии наук Казахстана.</div>
+            </div>
+            <a href="mailto:pavl@iis.nsk.su?subject=soran1957.ruPA_Users_svet_634587632753537813_5539">
+              <img src="PublicuemCommon/soran1957styles/img/i_mail.gif" width="10" height="15" hspace="11" border="0" alt="уточнить/дополнить" />
+            </a>
+            <div />
+            <div>
+              <hr />
+            </div>
+            <div>
+              Автор: <span class="margin-right: 10px;">
+                <a href="?id=pavl_100531115859_2565">Султангазин Умирзак Махмутович </a>
+              </span><span class="margin-right: 10px;">
+                <a href="?id=svet_100616111408_9023">Тайманов Асан Дабсович</a>
+              </span>
+            </div>
+          </div>
+        </td>
+        <td>
+          <div>
+            <div>
+              <h2>Отражены</h2>
+              <div>
+                <a href="?id=w20090506_svetlana_3664">Академия наук Казахстана</a>
+              </div>
+              <div>
+                <a href="?id=w20071113_9_7315">Алма-Ата</a>
+              </div>
+              <div>
+                <a href="?id=svet_100616111408_14705">Байков Александр Александрович</a>
+              </div>
+              <div>
+                <a href="?id=svet_100616111408_14747">Бардин Иван Павлович</a>
+              </div>
+              <div>
+                <a href="?id=piu_200809051703">Беляев Спартак Тимофеевич</a>
+              </div>
+              <div>
+                <a href="?id=svet_100616111408_9500">Вавилов Сергей Иванович</a>
+              </div>
+              <div>
+                <a href="?id=piu_200809051437">Векуа Илья Несторович</a>
+              </div>
+              <div>
+                <a href="?id=svet_100616111408_17407">Ершов Юрий Леонидович</a>
+              </div>
+              <div>
+                <a href="?id=w20071113_9_22374">Институт вычислительной математики и математической геофизики СО РАН</a>
+              </div>
+              <div>
+                <a href="?id=w20070417_7_7031">Институт математики им. С.Л. Соболева  CО РАН</a>
+              </div>
+              <div>
+                <a href="?id=w20090506_svetlana_3566">Казахский национальный университет имени Аль-Фараби</a>
+              </div>
+              <div>
+                <a href="?id=ivan_100616111345_2478">Каргаполов Михаил Иванович</a>
+              </div>
+              <div>
+                <a href="?id=ivan_100616111345_2929">Комаров Владимир Леонтьевич</a>
+              </div>
+              <div>
+                <a href="?id=svet_100616111408_19182">Кржижановский Глеб Максимилианович</a>
+              </div>
+              <div>
+                <a href="?id=p0011540">Лаврентьев Михаил Алексеевич</a>
+              </div>
+              <div>
+                <a href="?id=svet_100616111408_18571">Мальцев Анатолий Иванович</a>
+              </div>
+              <div>
+                <a href="?id=piu_200809051508">Марчук Гурий Иванович</a>
+              </div>
+              <div>
+                <a href="?id=fog_pavlovskaya200812254335">Новосибирский государственный университет</a>
+              </div>
+              <div>
+                <a href="?id=svet_100616111408_20802">Обручев Владимир Афанасьевич</a>
+              </div>
+              <div>
+                <a href="?id=svet_100616111408_21513">Прянишников Дмитрий Николаевич</a>
+              </div>
+              <div>
+                <a href="?id=p0012500">Сатпаев Каныш Имантаевич</a>
+              </div>
+              <div>
+                <a href="?id=svet_100616111408_8476">Соболев Сергей Львович</a>
+              </div>
+              <div>
+                <a href="?id=w20070417_3_9021">Специализированный учебно-научный центр им. акад. М.А. Лаврентьева НГУ </a>
+              </div>
+              <div>
+                <a href="?id=svet_100616111408_12204">Шемякин Евгений Иванович</a>
+              </div>
+              <div>
+                <a href="?id=pavl_100531115859_2706">Яненко Николай Николаевич</a>
+              </div>
+            </div>
+            <div />
+            <div />
+            <div />
+            <div />
+          </div>
+        </td>
+      </tr>
+      <tr valign="top">
+        <td colspan="3">
+          <hr />
+        </td>
+      </tr>
+      <tr valign="top">
+        <td />
+        <td colspan="2">(c) Фотоархив Сибирского отделения Российской академии наук</td>
+      </tr>
+    </table>
+  </body>
+</html>
+

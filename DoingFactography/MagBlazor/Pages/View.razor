@@ -1,0 +1,47 @@
+﻿@page "/view/{entityId?}"
+@using RDFEngine;
+
+@{
+    string lnk = "/edit/" + entityId;
+    <div style="float:right;">
+        <NavLink href="@lnk">edit</NavLink>
+    </div>
+}
+
+<MagBlazor.Components.Search onSelected="(rid) => UtilizeRecord((string)rid)" searchsample="@searchsample" typs="@tps" user="@user" />
+<MagBlazor.Components.ViewPortrait focusrecord="@focusrecord"/>
+
+@code {
+    [Parameter]
+    public string entityId { get; set; }
+
+    private string searchsample;
+    private string[] tps = new string[]
+    {
+        "http://fogid.net/o/person",
+        "http://fogid.net/o/org-sys",
+        "http://fogid.net/o/document",
+        "http://fogid.net/o/collection"
+        //"http://fogid.net/o/",
+    };
+    private string user = null;
+    private RRecord focusrecord = null;
+
+    private void UtilizeRecord(string id)
+    {
+        entityId = id;
+        Build(entityId);
+    }
+    private void Build(string id)
+    {
+        RRecord record = (new RDFEngine.RXEngine() { User = user }).GetRRecord(id);
+        focusrecord = record;
+    }
+    protected override void OnInitialized() // = On Page Load
+    {
+        if (entityId != null)
+        {
+            Build(entityId);
+        }
+    }
+}

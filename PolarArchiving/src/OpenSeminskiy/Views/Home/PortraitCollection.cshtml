@@ -1,0 +1,181 @@
+﻿@using System.Xml.Linq
+@*using OpenArchive*@
+@{
+    PortraitCollectionModel m = (PortraitCollectionModel)Model;
+    // Глубина коллекции 1 - это фонд
+    int collection_depth = 0;
+}
+
+<p class="grad">
+    <a href="~/Home/Index" class="nov"><img src="~/images/ico-home.gif" class="ico-home" alt="" />Открытый архив</a>
+    &raquo;
+    <a href="~/Home/Index">Фонды</a>
+    &raquo;
+    @foreach (XElement cnode in SObjects.GetCollectionPath(m.id))
+    {
+        collection_depth++;
+        string nm = SObjects.GetField(cnode, "http://fogid.net/o/name");
+        <a href='~/Home/Portrait?id=@cnode.Attribute("id").Value'>@nm</a>
+        <span>&raquo;</span>
+    }
+    @m.name
+</p>
+
+<div class="heading1">
+    <h1>@m.name</h1>
+</div>
+
+<p>@m.description</p>
+
+<p class="page-short-info">Подколлеций: @m.subcollections.Count()  |  Документов: @m.documents.Count() </p>
+<br />
+
+@if (m.subcollections.Count() > 0)
+{
+    if (collection_depth > 1)
+    {
+        <div class="heading3">
+            <h3>Коллекция содержит подколлекции</h3>
+        </div>
+    }
+    <ul class="coll-tree">
+        @foreach (XElement ite in m.subcollections)
+        {
+            string ite_id = ite.Attribute("id").Value;
+            var ite_name_el = ite.Elements("field").FirstOrDefault(f => f.Attribute("prop").Value == "http://fogid.net/o/name");
+            string ite_name = ite_name_el == null ? "noname" : ite_name_el.Value;
+            if (collection_depth == 0 && ite_name.StartsWith("Исходные материалы")) { continue; }
+            <li><a href="~/Home/Portrait?id=@ite_id">@ite_name</a></li>
+        }
+    </ul>
+    <br />
+}
+
+
+@if (m.documents.Count() > 0)
+{
+    <div class="heading3">
+        <h3>Коллекция содержит документы</h3>
+    </div>
+
+    <table cellpadding="0" cellspacing="0" border="0" width="100%" class="info-docs">
+        <tr>
+            <th width="16%"><a href="sort">Дата</a></th>
+            <th width="60%" class="th-document-name"><a href="sort">Название документа<img src="~/images/ico-sort-down.gif" alt="" /></a></th>
+            <th width="25%"><a href="sort">Автор&nbsp;&nbsp;=>&nbsp;&nbsp;Адресат</a></th>
+        </tr>
+        @foreach (XElement ite in m.documents.OrderBy(it => SObjects.GetDates(it), SCompare.comparer))
+        {
+
+            var ite_name_el = ite.Elements("field").FirstOrDefault(f => f.Attribute("prop").Value == "http://fogid.net/o/name");
+            string ite_name = ite_name_el == null ? "noname" : ite_name_el.Value;
+            var fd_el = ite.Elements("field").FirstOrDefault(f => f.Attribute("prop").Value == "http://fogid.net/o/from-date");
+            string fd = fd_el == null ? "" : fd_el.Value;
+            string ite_id = ite.Attribute("id").Value;
+            var d_el = ite.Elements("field").FirstOrDefault(f => f.Attribute("prop").Value == "http://fogid.net/o/description");
+            string d = d_el == null ? "" : d_el.Value;
+            if (d.Length > 78) { d = d.Substring(0, 78); }
+            var auth_receps = ite.Elements("inverse")
+                .Where(inv => inv.Attribute("prop").Value == "http://fogid.net/o/adoc")
+                .Select(inv => inv.Element("record"))
+                .Where(re =>
+                {
+                    var spec = re.Elements("field")
+                        .FirstOrDefault(f => f.Attribute("prop").Value == "http://fogid.net/o/authority-specificator");
+                    if (spec != null && (spec.Value == "author" || spec.Value == "recipient" || spec.Value == "out-org" || spec.Value == "in-org")) return true;
+                    return false;
+                }).Where(rec => rec != null);
+
+            // Дополнение от Фурсенко: Добавлены Исх.организация в Авторы и Вх. организация в Адресаты
+
+            var authors = auth_receps
+                .Where(rec => ((SObjects.GetField(rec, "http://fogid.net/o/authority-specificator") == "author")
+                || (SObjects.GetField(rec, "http://fogid.net/o/authority-specificator") == "out-org")))
+                            .Select(re =>
+                           {
+                               var di = re.Element("direct");
+                               if (di == null) return null;
+                               var rec = di.Element("record");
+                               return rec;
+                           })
+
+                .Where(x => x != null);
+            var recipients = auth_receps
+                .Where(ar => ((ar.Elements("field")
+                        .First(f => f.Attribute("prop").Value == "http://fogid.net/o/authority-specificator").Value == "recipient")
+                     || (ar.Elements("field")
+                     .First(f => f.Attribute("prop").Value == "http://fogid.net/o/authority-specificator").Value == "in-org")))
+                .Select(re =>
+                {
+                    var di = re.Element("direct");
+                    if (di == null) return null;
+                    var rec = di.Element("record");
+                    return rec;
+                });
+            <tr valign="top">
+                <td width="15%">@fd</td>
+                <td width="60%" class="norma">
+                    <!--			<a href="/Home/Portrait?id=@ite_id"><img src="img/icon-doc.png" class="icon-doc" alt="" />
+                                @ite_name</a><br />  Убрал А. Фурсенко-->
+                    <a href="~/Home/Portrait?id=@ite_id">@ite_name</a><br />
+                    <span class="small">@d</span>
+                </td>
+                <!--td width="25%"><a href="author">И.О. Фамилия</a>, <a href="author">Ф.И. Отчество</a></td -->
+                <!-- добавил class="norma" -->
+                <td width="25%" class="norma">
+                    @{
+                        string sep = "";
+                        foreach (XElement au in authors)
+                        {
+                            var nm_att = au.Elements("field")
+                                .FirstOrDefault(f => f.Attribute("prop") != null && f.Attribute("prop").Value == "http://fogid.net/o/name");
+                            string nm = nm_att == null ? "noname" : nm_att.Value;
+                            string idd = au.Attribute("id") == null ? "noid" : au.Attribute("id").Value;
+                            @sep;
+                            sep = ",";
+                            <a href='~/Home/Portrait?id=@idd'>@nm</a>;
+                            //                   sep = ",";                        // разделитель
+                        }
+                        sep = "";
+                        //                @sep;
+                        <span>=></span>
+                        foreach (XElement au in recipients)
+                        {
+                            string nm = au.Elements("field")
+                                .First(f => f.Attribute("prop").Value == "http://fogid.net/o/name")
+                                .Value;
+                            @sep;
+                            //                   <span>=></span> добавил class="icon-doc"
+                            sep = ",";
+                            <a href='~/Home/Portrait?id=@au.Attribute("id").Value'>@nm</a>;
+                        }
+                    }
+                </td>
+            </tr>
+        }
+    </table>
+}
+
+@if (m.multimedia.Count() > 0)
+{
+    <div class="heading3">
+        <h3>Коллекция содержит изображения</h3>
+    </div>
+    <ul class="coll-tree">
+        @foreach (XElement doc in m.multimedia)
+        {
+            string dt = SObjects.GetField(doc, "http://fogid.net/o/from-date");
+            string uri = SObjects.GetField(doc, "http://fogid.net/o/uri");
+            <div class="show-small">
+                <a href="~/Home/Portrait?id=@doc.Attribute("id").Value">
+                    <img src="~/Docs/GetPhoto?s=small&u=@uri" border="0" vspace="10" hspace="10" alt="" /><br />
+                </a>
+                @dt
+            </div>
+        }
+    </ul>
+    <br clear="all" />
+}
+@if (m.look != null)
+{<pre>@m.look.ToString()</pre>}
+

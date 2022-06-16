@@ -1,0 +1,2162 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rdf:RDF dbid="family1234" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" prefix="famwf1234_" counter="1511">
+	<titled rdf:about="famwf1234_1002">
+		<has-title rdf:resource="http://family.marchuk.ru/a/1103" />
+		<degree xml:lang="ru">имени Шацкого</degree>
+	</titled>
+	<person rdf:about="famwf1234_1004">
+		<name xml:lang="ru">Марчук Иван отец Саввы</name>
+	</person>
+	<person rdf:about="famwf1234_1005">
+		<name xml:lang="ru">Марчук Савва Иванович</name>
+		<father rdf:resource="famwf1234_1004" />
+	</person>
+	<person rdf:about="famwf1234_1006">
+		<name xml:lang="ru">Марчук Петр Саввич</name>
+		<father rdf:resource="famwf1234_1005" />
+		<to-date>1922</to-date>
+	</person>
+	<person rdf:about="famwf1234_1007">
+		<name xml:lang="ru">Марчук Гордей Саввич</name>
+		<comment xml:lang="ru">раскулачен в Самаре в 1928 г.</comment>
+		<father rdf:resource="famwf1234_1005" />
+	</person>
+	<family rdf:about="famwf1234_1008">
+		<husband rdf:resource="famwf1234_1007" />
+		<wife rdf:resource="famwf1234_1009" />
+	</family>
+	<person rdf:about="famwf1234_1009">
+		<name xml:lang="ru">Марчук Ольга (Гордеева)</name>
+	</person>
+	<person rdf:about="famwf1234_1010">
+		<name xml:lang="ru">Марчук Иосиф Саввич</name>
+		<father rdf:resource="famwf1234_1005" />
+		<comment xml:lang="ru">раскулачен в Самаре в 1928 г.</comment>
+	</person>
+	<family rdf:about="famwf1234_1011">
+		<husband rdf:resource="famwf1234_1010" />
+		<wife rdf:resource="famwf1234_1012" />
+	</family>
+	<person rdf:about="famwf1234_1012">
+		<name xml:lang="ru">Марчук Екатерина Онуфриевна</name>
+	</person>
+	<person rdf:about="famwf1234_1013">
+		<name xml:lang="ru">Марчук Александр Саввич</name>
+		<father rdf:resource="famwf1234_1005" />
+		<comment xml:lang="ru">Раскулачен и умер в Средней Азии</comment>
+	</person>
+	<family rdf:about="famwf1234_1014">
+		<husband rdf:resource="famwf1234_1013" />
+		<wife rdf:resource="famwf1234_1015" />
+		<to-date>1931</to-date>
+		<comment xml:lang="ru">умерла от голода в 1931/32 году</comment>
+	</family>
+	<person rdf:about="famwf1234_1015">
+		<name xml:lang="ru">Марчук Пелагея (Александрова)</name>
+	</person>
+	<person rdf:about="famwf1234_1016">
+		<name xml:lang="ru">Марчук Корней Саввич</name>
+		<father rdf:resource="famwf1234_1005" />
+		<comment xml:lang="ru">раскулачен и умер в Средней Азии</comment>
+	</person>
+	<family rdf:about="famwf1234_1018">
+		<husband rdf:resource="famwf1234_1016" />
+		<wife rdf:resource="famwf1234_1019" />
+	</family>
+	<person rdf:about="famwf1234_1019">
+		<name xml:lang="ru">Марчук Анна (Ганна)</name>
+	</person>
+	<person rdf:about="famwf1234_1020">
+		<name xml:lang="ru">Марчук Мария Саввична</name>
+		<father rdf:resource="famwf1234_1005" />
+	</person>
+	<family rdf:about="famwf1234_1021">
+		<wife rdf:resource="famwf1234_1020" />
+		<husband rdf:resource="famwf1234_1022" />
+	</family>
+	<person rdf:about="famwf1234_1022">
+		<name xml:lang="ru">Граждан Микита</name>
+	</person>
+	<person rdf:about="famwf1234_1023">
+		<name xml:lang="ru">Марчук Яков Саввич</name>
+		<father rdf:resource="famwf1234_1005" />
+		<comment xml:lang="ru">раскулачен в Самаре в 1928 г.</comment>
+	</person>
+	<person rdf:about="famwf1234_1025">
+		<name xml:lang="ru">Марчук Мария Саввична (2)</name>
+		<comment xml:lang="ru">выдана замуж в другую деревню</comment>
+		<father rdf:resource="famwf1234_1005" />
+		<sex>f</sex>
+	</person>
+	<person rdf:about="famwf1234_1026">
+		<name xml:lang="ru">Гармаш Ольга Петровна</name>
+		<father rdf:resource="famwf1234_1006" />
+	</person>
+	<family rdf:about="famwf1234_1028">
+		<husband rdf:resource="famwf1234_1006" />
+		<wife rdf:resource="famwf1234_1029" />
+	</family>
+	<person rdf:about="famwf1234_1029">
+		<name xml:lang="ru">Осецкая Пелагея</name>
+		<comment xml:lang="ru">умерла от туберкулеза</comment>
+		<to-date>1907</to-date>
+	</person>
+	<naming rdf:about="famwf1234_1030">
+		<referred-sys rdf:resource="famwf1234_1029" />
+		<alias xml:lang="ru">Палашка</alias>
+	</naming>
+	<family rdf:about="famwf1234_1031">
+		<husband rdf:resource="famwf1234_1006" />
+		<wife rdf:resource="famwf1234_1032" />
+	</family>
+	<person rdf:about="famwf1234_1032">
+		<name xml:lang="ru">Марчук Ефросинья</name>
+		<to-date>1922</to-date>
+	</person>
+	<naming rdf:about="famwf1234_1033">
+		<referred-sys rdf:resource="famwf1234_1032" />
+		<alias xml:lang="ru">Фрысина</alias>
+	</naming>
+	<person rdf:about="famwf1234_1034">
+		<name xml:lang="ru">Гармаш Николай</name>
+		<mother rdf:resource="famwf1234_1026" />
+	</person>
+	<person rdf:about="famwf1234_1035">
+		<name xml:lang="ru">Гармаш Вера</name>
+		<father rdf:resource="famwf1234_1034" />
+		<sex>f</sex>
+	</person>
+	<person rdf:about="famwf1234_1036">
+		<name xml:lang="ru">Гармаш Наталья Николаевна</name>
+		<father rdf:resource="famwf1234_1034" />
+	</person>
+	<person rdf:about="famwf1234_1037">
+		<name xml:lang="ru">Гармаш Андрей Николаевич</name>
+		<father rdf:resource="famwf1234_1034" />
+	</person>
+	<person rdf:about="famwf1234_1038">
+		<name xml:lang="ru">Гармаш Мария</name>
+		<mother rdf:resource="famwf1234_1026" />
+		<from-date>1910</from-date>
+	</person>
+	<family rdf:about="famwf1234_1039">
+		<wife rdf:resource="famwf1234_1038" />
+		<husband rdf:resource="famwf1234_1040" />
+	</family>
+	<person rdf:about="famwf1234_1040">
+		<name xml:lang="ru">Нефедов</name>
+	</person>
+	<person rdf:about="famwf1234_1041">
+		<name xml:lang="ru">Нефедова Клавдия</name>
+		<mother rdf:resource="famwf1234_1038" />
+		<sex>f</sex>
+	</person>
+	<person rdf:about="famwf1234_1042">
+		<name xml:lang="ru">Нефедова Людмила</name>
+		<mother rdf:resource="famwf1234_1038" />
+	</person>
+	<location rdf:about="famwf1234_1043">
+		<something rdf:resource="famwf1234_1042" />
+		<location-place rdf:resource="famwf1234_1044" />
+	</location>
+	<city rdf:about="famwf1234_1044">
+		<name xml:lang="ru">Киев</name>
+	</city>
+	<family rdf:about="famwf1234_1045">
+		<wife rdf:resource="famwf1234_1042" />
+		<husband rdf:resource="famwf1234_1046" />
+	</family>
+	<person rdf:about="famwf1234_1046">
+		<name xml:lang="ru">Венгеров Анатолий</name>
+	</person>
+	<person rdf:about="famwf1234_1047">
+		<name xml:lang="ru">Венгерова Вера</name>
+		<mother rdf:resource="famwf1234_1042" />
+	</person>
+	<family rdf:about="famwf1234_1048">
+		<wife rdf:resource="famwf1234_1047" />
+		<husband rdf:resource="famwf1234_1049" />
+	</family>
+	<person rdf:about="famwf1234_1049">
+		<name xml:lang="ru">* Владимир</name>
+	</person>
+	<person rdf:about="famwf1234_1050">
+		<name xml:lang="ru">Венгерова Ирина</name>
+		<mother rdf:resource="famwf1234_1042" />
+		<sex>f</sex>
+	</person>
+	<family rdf:about="famwf1234_1051">
+		<husband rdf:resource="http://family.marchuk.ru/a/1009" />
+		<wife rdf:resource="famwf1234_1052" />
+	</family>
+	<person rdf:about="famwf1234_1052">
+		<name xml:lang="ru">Цибульская Елизавета Афанасьевна</name>
+		<from-date>1902</from-date>
+		<to-date>1949</to-date>
+	</person>
+	<naming rdf:about="famwf1234_1053">
+		<referred-sys rdf:resource="http://family.marchuk.ru/a/1005" />
+		<alias xml:lang="ru">Беляева Ольга Николаевна</alias>
+		<to-date>1951</to-date>
+		<comment xml:lang="ru">девичья фамилия</comment>
+	</naming>
+	<family rdf:about="famwf1234_1054">
+		<husband rdf:resource="http://family.marchuk.ru/a/1021" />
+		<wife rdf:resource="famwf1234_1055" />
+		<from-date>1971-04-28</from-date>
+	</family>
+	<person rdf:about="famwf1234_1055">
+		<name xml:lang="ru">Марчук Елена Александровна</name>
+		<father rdf:resource="famwf1234_1056" />
+		<mother rdf:resource="famwf1234_1057" />
+	</person>
+	<person rdf:about="famwf1234_1056">
+		<name xml:lang="ru">Шевченко Александр Васильевич</name>
+	</person>
+	<person rdf:about="famwf1234_1057">
+		<name xml:lang="ru">Шевченко Римма Павловна</name>
+	</person>
+	<person rdf:about="famwf1234_1058">
+		<name xml:lang="ru">Марчук Гурий Александрович</name>
+		<father rdf:resource="http://family.marchuk.ru/a/1021" />
+		<mother rdf:resource="famwf1234_1055" />
+		<from-date>1971-10-05</from-date>
+	</person>
+	<family rdf:about="famwf1234_1059">
+		<husband rdf:resource="famwf1234_1058" />
+		<wife rdf:resource="famwf1234_1060" />
+	</family>
+	<person rdf:about="famwf1234_1060">
+		<name xml:lang="ru">Марчук Валерия</name>
+	</person>
+	<naming rdf:about="famwf1234_1061">
+		<referred-sys rdf:resource="famwf1234_1060" />
+		<alias xml:lang="ru">Лера</alias>
+	</naming>
+	<person rdf:about="famwf1234_1062">
+		<name xml:lang="ru">Марчук Александра Гурьевна</name>
+		<father rdf:resource="famwf1234_1058" />
+		<mother rdf:resource="famwf1234_1060" />
+		<from-date>1997</from-date>
+	</person>
+	<person rdf:about="famwf1234_1063">
+		<name xml:lang="ru">Марчук Наталья Александровна</name>
+		<father rdf:resource="http://family.marchuk.ru/a/1021" />
+		<mother rdf:resource="famwf1234_1055" />
+		<from-date>1973-08-21</from-date>
+	</person>
+	<family rdf:about="famwf1234_1064">
+		<wife rdf:resource="famwf1234_1063" />
+		<husband rdf:resource="famwf1234_1065" />
+	</family>
+	<person rdf:about="famwf1234_1065">
+		<name xml:lang="ru">Гребенник Григорий Олегович</name>
+	</person>
+	<person rdf:about="famwf1234_1066">
+		<name xml:lang="ru">Гребенник Лев Григорьевич</name>
+		<father rdf:resource="famwf1234_1065" />
+		<mother rdf:resource="famwf1234_1063" />
+		<from-date>1996</from-date>
+	</person>
+	<person rdf:about="famwf1234_1067">
+		<name xml:lang="ru">Гребенник Мира Григорьевна</name>
+		<father rdf:resource="famwf1234_1065" />
+		<mother rdf:resource="famwf1234_1063" />
+		<from-date>1998-03</from-date>
+	</person>
+	<person rdf:about="famwf1234_1068">
+		<name xml:lang="ru">Марчук Петр Александрович</name>
+		<father rdf:resource="http://family.marchuk.ru/a/1021" />
+		<mother rdf:resource="famwf1234_1055" />
+		<from-date>1983-02-28</from-date>
+	</person>
+	<family rdf:about="famwf1234_1069">
+		<husband rdf:resource="http://family.marchuk.ru/a/1033" />
+		<wife rdf:resource="famwf1234_1070" />
+	</family>
+	<person rdf:about="famwf1234_1070">
+		<name xml:lang="ru">Марчук Елена Анатольевна</name>
+	</person>
+	<person rdf:about="famwf1234_1071">
+		<name xml:lang="ru">Марчук Анатолий Андреевич</name>
+		<father rdf:resource="http://family.marchuk.ru/a/1033" />
+		<mother rdf:resource="famwf1234_1070" />
+		<from-date>1978</from-date>
+	</person>
+	<person rdf:about="famwf1234_1073">
+		<name xml:lang="ru">Марчук Ольга Андреевна</name>
+		<father rdf:resource="http://family.marchuk.ru/a/1033" />
+		<mother rdf:resource="famwf1234_1070" />
+		<from-date>1984</from-date>
+	</person>
+	<family rdf:about="famwf1234_1075">
+		<husband rdf:resource="http://family.marchuk.ru/a/1048" />
+		<wife rdf:resource="famwf1234_1076" />
+		<to-date>1980</to-date>
+	</family>
+	<person rdf:about="famwf1234_1076">
+		<name xml:lang="ru">Троицкая Ирина</name>
+	</person>
+	<family rdf:about="famwf1234_1077">
+		<husband rdf:resource="http://family.marchuk.ru/a/1048" />
+		<wife rdf:resource="famwf1234_1078" />
+		<to-date>2006</to-date>
+	</family>
+	<person rdf:about="famwf1234_1078">
+		<name xml:lang="ru">Марчук Елена Валентиновна</name>
+	</person>
+	<person rdf:about="famwf1234_1079">
+		<name xml:lang="ru">Марчук Анна Николаевна</name>
+		<father rdf:resource="http://family.marchuk.ru/a/1048" />
+		<mother rdf:resource="famwf1234_1078" />
+		<from-date>1988</from-date>
+	</person>
+	<person rdf:about="famwf1234_1081">
+		<name xml:lang="ru">Зубиков Сергей</name>
+	</person>
+	<family rdf:about="famwf1234_1082">
+		<wife rdf:resource="http://family.marchuk.ru/a/1214" />
+		<husband rdf:resource="famwf1234_1081" />
+	</family>
+	<family rdf:about="famwf1234_1083">
+		<wife rdf:resource="http://family.marchuk.ru/a/1215" />
+		<husband rdf:resource="famwf1234_1084" />
+	</family>
+	<person rdf:about="famwf1234_1084">
+		<name xml:lang="ru">Козуб Игнат</name>
+	</person>
+	<person rdf:about="famwf1234_1085">
+		<name xml:lang="ru">Козуб Ольга</name>
+		<mother rdf:resource="http://family.marchuk.ru/a/1215" />
+		<from-date>1983</from-date>
+		<sex>f</sex>
+	</person>
+	<person rdf:about="famwf1234_1086">
+		<name xml:lang="ru">Волицкая Вера Петровна</name>
+		<father rdf:resource="famwf1234_1006" />
+		<to-date>1943</to-date>
+	</person>
+	<person rdf:about="famwf1234_1087">
+		<name xml:lang="ru">Волицкий Юрий</name>
+		<mother rdf:resource="famwf1234_1086" />
+		<comment xml:lang="ru">умер от ран после ВОВ</comment>
+		<sex>m</sex>
+	</person>
+	<person rdf:about="famwf1234_1088">
+		<name xml:lang="ru">Волицкая Людмила</name>
+		<mother rdf:resource="famwf1234_1086" />
+	</person>
+	<family rdf:about="famwf1234_1089">
+		<wife rdf:resource="famwf1234_1088" />
+		<husband rdf:resource="famwf1234_1090" />
+	</family>
+	<person rdf:about="famwf1234_1090">
+		<name xml:lang="ru">Бондаренко Евгений</name>
+	</person>
+	<person rdf:about="famwf1234_1091">
+		<name xml:lang="ru">Бондаренко Светлана</name>
+		<mother rdf:resource="famwf1234_1088" />
+		<from-date>1947</from-date>
+	</person>
+	<family rdf:about="famwf1234_1092">
+		<wife rdf:resource="famwf1234_1091" />
+		<husband rdf:resource="famwf1234_1093" />
+	</family>
+	<person rdf:about="famwf1234_1093">
+		<name xml:lang="ru">Забиров Шамиль</name>
+	</person>
+	<person rdf:about="famwf1234_1094">
+		<name xml:lang="ru">Забирова Елена</name>
+		<mother rdf:resource="famwf1234_1091" />
+		<father rdf:resource="famwf1234_1093" />
+		<from-date>1974</from-date>
+		<sex>f</sex>
+	</person>
+	<person rdf:about="famwf1234_1095">
+		<name xml:lang="ru">Забирова Людмила</name>
+		<mother rdf:resource="famwf1234_1091" />
+		<from-date>1981</from-date>
+		<sex>f</sex>
+	</person>
+	<person rdf:about="famwf1234_1096">
+		<name xml:lang="ru">Бондаренко Вячеслав Евгеньевич</name>
+		<father rdf:resource="famwf1234_1090" />
+		<mother rdf:resource="famwf1234_1088" />
+		<from-date>1950</from-date>
+	</person>
+	<family rdf:about="famwf1234_1097">
+		<husband rdf:resource="famwf1234_1096" />
+		<wife rdf:resource="famwf1234_1098" />
+	</family>
+	<person rdf:about="famwf1234_1098">
+		<name xml:lang="ru">Бондаренко Лариса</name>
+	</person>
+	<person rdf:about="famwf1234_1099">
+		<name xml:lang="ru">Бондаренко Владимир Вячеславович</name>
+		<father rdf:resource="famwf1234_1096" />
+		<mother rdf:resource="famwf1234_1098" />
+		<from-date>1976</from-date>
+	</person>
+	<person rdf:about="famwf1234_1100">
+		<name xml:lang="ru">Бондаренко Евгения Вячеславовна</name>
+		<father rdf:resource="famwf1234_1096" />
+		<mother rdf:resource="famwf1234_1098" />
+		<from-date>1977</from-date>
+	</person>
+	<person rdf:about="famwf1234_1101">
+		<name xml:lang="ru">Бондаренко Юрий Евгеньевич</name>
+		<father rdf:resource="famwf1234_1090" />
+		<mother rdf:resource="famwf1234_1088" />
+		<from-date>1957</from-date>
+	</person>
+	<family rdf:about="famwf1234_1102">
+		<husband rdf:resource="famwf1234_1101" />
+		<wife rdf:resource="famwf1234_1103" />
+	</family>
+	<person rdf:about="famwf1234_1103">
+		<name xml:lang="ru">Бондаренко Ирина</name>
+	</person>
+	<person rdf:about="famwf1234_1104">
+		<name xml:lang="ru">Бондаренко Вера</name>
+		<father rdf:resource="famwf1234_1101" />
+		<sex>f</sex>
+	</person>
+	<person rdf:about="famwf1234_1106">
+		<name xml:lang="ru">Марчук Петр Петрович</name>
+		<comment xml:lang="ru">убит</comment>
+		<to-date>1920</to-date>
+		<father rdf:resource="famwf1234_1006" />
+	</person>
+	<person rdf:about="famwf1234_1107">
+		<name xml:lang="ru">Марчук Мария Петровна</name>
+		<father rdf:resource="famwf1234_1006" />
+		<from-date>1903</from-date>
+		<to-date>1920</to-date>
+	</person>
+	<person rdf:about="famwf1234_1108">
+		<name xml:lang="ru">Марчук Николай Петрович</name>
+		<father rdf:resource="famwf1234_1006" />
+		<from-date>1905</from-date>
+		<to-date>1968</to-date>
+	</person>
+	<family rdf:about="famwf1234_1109">
+		<husband rdf:resource="famwf1234_1108" />
+		<wife rdf:resource="famwf1234_1110" />
+	</family>
+	<person rdf:about="famwf1234_1110">
+		<name xml:lang="ru">Харламова Александра Павловна</name>
+	</person>
+	<person rdf:about="famwf1234_1111">
+		<name xml:lang="ru">Марчук Юрий Николаевич</name>
+		<mother rdf:resource="famwf1234_1110" />
+		<father rdf:resource="famwf1234_1108" />
+	</person>
+	<family rdf:about="famwf1234_1112">
+		<husband rdf:resource="famwf1234_1111" />
+		<wife rdf:resource="famwf1234_1113" />
+	</family>
+	<person rdf:about="famwf1234_1113">
+		<name xml:lang="ru">Марчук Маргарита</name>
+	</person>
+	<dating rdf:about="famwf1234_1114">
+		<referred rdf:resource="famwf1234_1111" />
+		<dating-specificator>from</dating-specificator>
+		<dating-accuracy>2-00-00</dating-accuracy>
+		<date xml:lang="en">1930</date>
+	</dating>
+	<person rdf:about="famwf1234_1115">
+		<name xml:lang="ru">Марчук Елена Юрьевна</name>
+		<father rdf:resource="famwf1234_1111" />
+		<mother rdf:resource="famwf1234_1113" />
+	</person>
+	<family rdf:about="famwf1234_1117">
+		<wife rdf:resource="famwf1234_1115" />
+		<husband rdf:resource="famwf1234_1118" />
+	</family>
+	<person rdf:about="famwf1234_1118">
+		<name xml:lang="ru">Дюкарев Виталий</name>
+	</person>
+	<person rdf:about="famwf1234_1119">
+		<name xml:lang="ru">Дюкарева Оксана Витальевна</name>
+		<father rdf:resource="famwf1234_1118" />
+		<mother rdf:resource="famwf1234_1115" />
+		<from-date>1981</from-date>
+	</person>
+	<person rdf:about="famwf1234_1120">
+		<name xml:lang="ru">Марчук Алексей Николаевич</name>
+		<father rdf:resource="famwf1234_1108" />
+		<from-date>1934</from-date>
+		<mother rdf:resource="famwf1234_1110" />
+	</person>
+	<person rdf:about="famwf1234_1122">
+		<name xml:lang="ru">Марчук Елена</name>
+	</person>
+	<person rdf:about="famwf1234_1123">
+		<name xml:lang="ru">Марчук Алексей Алексеевич</name>
+		<from-date>1983</from-date>
+		<mother rdf:resource="famwf1234_1122" />
+		<father rdf:resource="famwf1234_1130" />
+	</person>
+	<person rdf:about="famwf1234_1124">
+		<name xml:lang="ru">Марчук Маргарита Алексеевна</name>
+		<mother rdf:resource="famwf1234_1122" />
+		<from-date>1984</from-date>
+		<father rdf:resource="famwf1234_1130" />
+	</person>
+	<person rdf:about="famwf1234_1125">
+		<name xml:lang="ru">Марчук Софья Юрьевна</name>
+		<father rdf:resource="famwf1234_1111" />
+		<mother rdf:resource="famwf1234_1113" />
+	</person>
+	<family rdf:about="famwf1234_1127">
+		<wife rdf:resource="famwf1234_1125" />
+		<husband rdf:resource="famwf1234_1128" />
+	</family>
+	<person rdf:about="famwf1234_1128">
+		<name xml:lang="ru">Харитонов Владимир</name>
+	</person>
+	<person rdf:about="famwf1234_1129">
+		<name xml:lang="ru">Харитонова Варвара</name>
+		<father rdf:resource="famwf1234_1128" />
+		<mother rdf:resource="famwf1234_1125" />
+		<from-date>1998</from-date>
+		<sex>f</sex>
+	</person>
+	<person rdf:about="famwf1234_1130">
+		<name xml:lang="ru">Марчук Алексей Юрьевич</name>
+		<father rdf:resource="famwf1234_1111" />
+		<mother rdf:resource="famwf1234_1113" />
+	</person>
+	<family rdf:about="famwf1234_1131">
+		<husband rdf:resource="famwf1234_1130" />
+		<wife rdf:resource="famwf1234_1122" />
+	</family>
+	<family rdf:about="famwf1234_1132">
+		<husband rdf:resource="famwf1234_1120" />
+		<wife rdf:resource="famwf1234_1133" />
+	</family>
+	<person rdf:about="famwf1234_1133">
+		<name xml:lang="ru">Марчук Наталья Петровна</name>
+	</person>
+	<person rdf:about="famwf1234_1134">
+		<name xml:lang="ru">Марчук Иван Алексеевич</name>
+		<father rdf:resource="famwf1234_1120" />
+		<mother rdf:resource="famwf1234_1133" />
+		<from-date>1957</from-date>
+	</person>
+	<family rdf:about="famwf1234_1135">
+		<husband rdf:resource="famwf1234_1134" />
+		<wife rdf:resource="famwf1234_1136" />
+	</family>
+	<person rdf:about="famwf1234_1136">
+		<name xml:lang="ru">Марчук Галина</name>
+	</person>
+	<person rdf:about="famwf1234_1137">
+		<name xml:lang="ru">Марчук Мария Ивановна</name>
+		<father rdf:resource="famwf1234_1134" />
+		<from-date>1980</from-date>
+		<mother rdf:resource="famwf1234_1136" />
+	</person>
+	<person rdf:about="famwf1234_1138">
+		<name xml:lang="ru">Марчук Петр Иванович</name>
+		<father rdf:resource="famwf1234_1134" />
+		<from-date>1985</from-date>
+	</person>
+	<person rdf:about="famwf1234_1139">
+		<name xml:lang="ru">Марчук Михаил Алексеевич</name>
+		<father rdf:resource="famwf1234_1120" />
+		<mother rdf:resource="famwf1234_1133" />
+		<from-date>1961</from-date>
+	</person>
+	<family rdf:about="famwf1234_1140">
+		<husband rdf:resource="famwf1234_1139" />f
+		<wife rdf:resource="famwf1234_1141" />
+	</family>
+	<person rdf:about="famwf1234_1141">
+		<name xml:lang="ru">Марчук Ольга (Михаилова)</name>
+	</person>
+	<person rdf:about="famwf1234_1142">
+		<name xml:lang="ru">Марчук Полина Михайловна</name>
+		<father rdf:resource="famwf1234_1139" />
+		<mother rdf:resource="famwf1234_1141" />
+		<from-date>1988</from-date>
+	</person>
+	<person rdf:about="famwf1234_1143">
+		<name xml:lang="ru">Марчук Артем Алексеевич</name>
+		<father rdf:resource="famwf1234_1120" />
+		<from-date>1967</from-date>
+	</person>
+	<family rdf:about="famwf1234_1144">
+		<husband rdf:resource="famwf1234_1143" />
+		<wife rdf:resource="famwf1234_1145" />
+	</family>
+	<person rdf:about="famwf1234_1145">
+		<name xml:lang="ru">Марчук Валентина</name>
+	</person>
+	<person rdf:about="famwf1234_1146">
+		<name xml:lang="ru">Марчук Никита Артемович</name>
+		<father rdf:resource="famwf1234_1143" />
+		<mother rdf:resource="famwf1234_1145" />
+		<from-date>1993</from-date>
+	</person>
+	<person rdf:about="famwf1234_1147">
+		<name xml:lang="ru">Марчук Екатерина Артемовна</name>
+		<father rdf:resource="famwf1234_1143" />
+		<mother rdf:resource="famwf1234_1145" />
+	</person>
+	<person rdf:about="famwf1234_1148">
+		<name xml:lang="ru">Марчук Наталья Алексеевна</name>
+		<father rdf:resource="famwf1234_1120" />
+		<mother rdf:resource="famwf1234_1133" />
+		<from-date>1973</from-date>
+	</person>
+	<person rdf:about="famwf1234_1149">
+		<name xml:lang="ru">Марчук Вера Николаевна</name>
+		<father rdf:resource="famwf1234_1108" />
+		<mother rdf:resource="famwf1234_1110" />
+		<from-date>1938</from-date>
+	</person>
+	<person rdf:about="famwf1234_1150">
+		<name xml:lang="ru">Марчук Алексей Петрович</name>
+		<father rdf:resource="famwf1234_1006" />
+		<to-date>1929</to-date>
+	</person>
+	<person rdf:about="famwf1234_1151">
+		<name xml:lang="ru">Марчук Андрей Петрович</name>
+		<father rdf:resource="famwf1234_1006" />
+		<comment xml:lang="ru">умер ребенком</comment>
+	</person>
+	<person rdf:about="famwf1234_1152">
+		<name xml:lang="ru">Марчук Анна Гордеевна</name>
+		<father rdf:resource="famwf1234_1007" />
+		<from-date>1901</from-date>
+	</person>
+	<family rdf:about="famwf1234_1153">
+		<wife rdf:resource="famwf1234_1152" />
+		<husband rdf:resource="famwf1234_1154" />
+	</family>
+	<person rdf:about="famwf1234_1154">
+		<name xml:lang="ru">Таран Федор</name>
+	</person>
+	<person rdf:about="famwf1234_1155">
+		<name xml:lang="ru">Таран Вениамин</name>
+		<father rdf:resource="famwf1234_1154" />
+		<mother rdf:resource="famwf1234_1152" />
+		<from-date>1924</from-date>
+		<to-date>1944</to-date>
+		<comment xml:lang="ru">погиб в ВОВ</comment>
+		<sex>m</sex>
+	</person>
+	<student rdf:about="famwf1234_1156">
+		<learner rdf:resource="famwf1234_1155" />
+		<learning-org rdf:resource="famwf1234_1157" />
+	</student>
+	<org-sys rdf:about="famwf1234_1157">
+		<name xml:lang="ru">НИВИТА</name>
+	</org-sys>
+	<person rdf:about="famwf1234_1158">
+		<name xml:lang="ru">Таран Валентин Федорович</name>
+		<father rdf:resource="famwf1234_1154" />
+		<mother rdf:resource="famwf1234_1152" />
+		<from-date>1922</from-date>
+		<to-date>1943</to-date>
+		<comment xml:lang="ru">погиб в ВОВ</comment>
+	</person>
+	<student rdf:about="famwf1234_1159">
+		<learner rdf:resource="famwf1234_1158" />
+		<learning-org rdf:resource="famwf1234_1157" />
+	</student>
+	<person rdf:about="famwf1234_1160">
+		<name xml:lang="ru">Марчук Александр Гордеевич</name>
+		<father rdf:resource="famwf1234_1007" />
+		<comment xml:lang="ru">умер в детстве</comment>
+		<from-date>1910</from-date>
+	</person>
+	<person rdf:about="famwf1234_1161">
+		<name xml:lang="ru">Марчук Анастасия Гордеевна</name>
+		<father rdf:resource="famwf1234_1007" />
+		<from-date>1904</from-date>
+		<to-date>1978</to-date>
+	</person>
+	<family rdf:about="famwf1234_1162">
+		<wife rdf:resource="famwf1234_1161" />
+		<husband rdf:resource="famwf1234_1163" />
+	</family>
+	<person rdf:about="famwf1234_1163">
+		<name xml:lang="ru">Осецкий Николай</name>
+	</person>
+	<person rdf:about="famwf1234_1164">
+		<name xml:lang="ru">Осецкий Лев Николаевич</name>
+		<father rdf:resource="famwf1234_1163" />
+		<mother rdf:resource="famwf1234_1161" />
+		<from-date>1928</from-date>
+	</person>
+	<family rdf:about="famwf1234_1165">
+		<husband rdf:resource="famwf1234_1164" />
+		<wife rdf:resource="famwf1234_1166" />
+	</family>
+	<person rdf:about="famwf1234_1166">
+		<name xml:lang="ru">Осецкая Зинаида</name>
+		<from-date>1930</from-date>
+	</person>
+	<person rdf:about="famwf1234_1167">
+		<name xml:lang="ru">Осецкая Ирина Львовна</name>
+		<father rdf:resource="famwf1234_1164" />
+	</person>
+	<location rdf:about="famwf1234_1168">
+		<something rdf:resource="famwf1234_1167" />
+		<location-place rdf:resource="famwf1234_1169" />
+	</location>
+	<city rdf:about="famwf1234_1169">
+		<name xml:lang="ru">Колпино</name>
+	</city>
+	<person rdf:about="famwf1234_1170">
+		<name xml:lang="ru">Марчук Надежда Гордеевна</name>
+		<father rdf:resource="famwf1234_1007" />
+		<from-date>1922</from-date>
+		<to-date>2004</to-date>
+	</person>
+	<family rdf:about="famwf1234_1171">
+		<wife rdf:resource="famwf1234_1170" />
+		<husband rdf:resource="famwf1234_1172" />
+	</family>
+	<person rdf:about="famwf1234_1172">
+		<name xml:lang="ru">Дмитриев Алексей Георгиевич</name>
+	</person>
+	<person rdf:about="famwf1234_1173">
+		<name xml:lang="ru">Дмитриев Владимир Алексеевич</name>
+		<father rdf:resource="famwf1234_1172" />
+		<mother rdf:resource="famwf1234_1170" />
+		<from-date>1946</from-date>
+	</person>
+	<location rdf:about="famwf1234_1174">
+		<something rdf:resource="famwf1234_1173" />
+		<location-place rdf:resource="famwf1234_1175" />
+	</location>
+	<city rdf:about="famwf1234_1175">
+		<name xml:lang="ru">Бузулук</name>
+	</city>
+	<person rdf:about="famwf1234_1176">
+		<name xml:lang="ru">Дмитриева Юлия Владимировна</name>
+		<father rdf:resource="famwf1234_1173" />
+		<from-date>1973</from-date>
+	</person>
+	<person rdf:about="famwf1234_1181">
+		<name xml:lang="ru">Дмитриева Диана Владимировна</name>
+		<father rdf:resource="famwf1234_1173" />
+		<from-date>1986</from-date>
+	</person>
+	<person rdf:about="famwf1234_1182">
+		<name xml:lang="ru">Дмитриева Лариса Алексеевна</name>
+		<father rdf:resource="famwf1234_1172" />
+		<from-date>1954</from-date>
+	</person>
+	<family rdf:about="famwf1234_1183">
+		<wife rdf:resource="famwf1234_1182" />
+		<husband rdf:resource="famwf1234_1184" />
+	</family>
+	<person rdf:about="famwf1234_1184">
+		<name xml:lang="ru">Уткин Виктор</name>
+	</person>
+	<person rdf:about="famwf1234_1185">
+		<name xml:lang="ru">Уткин Алексей Викторович</name>
+		<father rdf:resource="famwf1234_1184" />
+		<mother rdf:resource="famwf1234_1182" />
+		<from-date>1976</from-date>
+	</person>
+	<person rdf:about="famwf1234_1186">
+		<name xml:lang="ru">Уткин Максим Алексеевич</name>
+		<father rdf:resource="famwf1234_1185" />
+	</person>
+	<person rdf:about="famwf1234_1187">
+		<name xml:lang="ru">Уткина Ийя Викторовна</name>
+		<father rdf:resource="famwf1234_1184" />
+		<mother rdf:resource="famwf1234_1182" />
+		<from-date>1983</from-date>
+	</person>
+	<person rdf:about="famwf1234_1188">
+		<name xml:lang="ru">Марчук Григорий Гордеевич</name>
+		<father rdf:resource="famwf1234_1007" />
+		<mother rdf:resource="famwf1234_1009" />
+		<from-date>1908</from-date>
+		<to-date>1943</to-date>
+	</person>
+	<person rdf:about="famwf1234_1189">
+		<name xml:lang="ru">Марчук Мария (Григорьева)</name>
+	</person>
+	<person rdf:about="famwf1234_1190">
+		<name xml:lang="ru">Марчук Валентина Григорьевна</name>
+		<father rdf:resource="famwf1234_1188" />
+		<from-date>1930</from-date>
+	</person>
+	<family rdf:about="famwf1234_1191">
+		<wife rdf:resource="famwf1234_1190" />
+		<husband rdf:resource="famwf1234_1192" />
+	</family>
+	<person rdf:about="famwf1234_1192">
+		<name xml:lang="ru">Чуркин Валентин</name>
+	</person>
+	<person rdf:about="famwf1234_1193">
+		<name xml:lang="ru">Чуркин Виктор Валентинович</name>
+		<father rdf:resource="famwf1234_1192" />
+		<mother rdf:resource="famwf1234_1190" />
+		<from-date>1951</from-date>
+	</person>
+	<person rdf:about="famwf1234_1194">
+		<name xml:lang="ru">Чуркина Ирина Викторовна</name>
+		<father rdf:resource="famwf1234_1193" />
+		<from-date>1978</from-date>
+	</person>
+	<person rdf:about="famwf1234_1195">
+		<name xml:lang="ru">(Чуркин) Дмитрий</name>
+		<mother rdf:resource="famwf1234_1194" />
+		<from-date>1999</from-date>
+		<sex>m</sex>
+	</person>
+	<person rdf:about="famwf1234_1196">
+		<name xml:lang="ru">Чуркина Людмила Валентиновна</name>
+		<father rdf:resource="famwf1234_1192" />
+		<mother rdf:resource="famwf1234_1190" />
+		<from-date>1955</from-date>
+	</person>
+	<person rdf:about="famwf1234_1197">
+		<name xml:lang="ru">(Чуркина) Елена</name>
+		<mother rdf:resource="famwf1234_1196" />
+		<from-date>1975</from-date>
+		<sex>f</sex>
+	</person>
+	<person rdf:about="famwf1234_1198">
+		<name xml:lang="ru">Марчук Зоя Григорьевна</name>
+		<father rdf:resource="famwf1234_1188" />
+		<mother rdf:resource="famwf1234_1189" />
+		<from-date>1932</from-date>
+	</person>
+	<family rdf:about="famwf1234_1199">
+		<wife rdf:resource="famwf1234_1198" />
+		<husband rdf:resource="famwf1234_1200" />
+	</family>
+	<person rdf:about="famwf1234_1200">
+		<name xml:lang="ru">Литвинов Михаил</name>
+	</person>
+	<person rdf:about="famwf1234_1201">
+		<name xml:lang="ru">Литвинов Владимир Михайлович</name>
+		<father rdf:resource="famwf1234_1200" />
+		<mother rdf:resource="famwf1234_1198" />
+	</person>
+	<person rdf:about="famwf1234_1202">
+		<name xml:lang="ru">Литвинов Максим Владимирович</name>
+		<father rdf:resource="famwf1234_1201" />
+	</person>
+	<person rdf:about="famwf1234_1203">
+		<name xml:lang="ru">Литвинов Александр Владимирович</name>
+		<father rdf:resource="famwf1234_1201" />
+	</person>
+	<person rdf:about="famwf1234_1204">
+		<name xml:lang="ru">Литвинова Алла Михайловна</name>
+		<father rdf:resource="famwf1234_1200" />
+		<mother rdf:resource="famwf1234_1198" />
+	</person>
+	<person rdf:about="famwf1234_1205">
+		<name xml:lang="ru">(Литвинова) Оксана</name>
+		<mother rdf:resource="famwf1234_1204" />
+		<sex>f</sex>
+	</person>
+	<person rdf:about="famwf1234_1206">
+		<name xml:lang="ru">(Литвинов) Александр</name>
+		<mother rdf:resource="famwf1234_1204" />
+		<sex>m</sex>
+	</person>
+	<person rdf:about="famwf1234_1207">
+		<name xml:lang="ru">Марчук Анатолий Григорьевич</name>
+		<father rdf:resource="famwf1234_1188" />
+		<from-date>1939</from-date>
+	</person>
+	<family rdf:about="famwf1234_1208">
+		<husband rdf:resource="famwf1234_1207" />
+		<wife rdf:resource="famwf1234_1209" />
+	</family>
+	<person rdf:about="famwf1234_1209">
+		<name xml:lang="ru">Марчук Нина</name>
+	</person>
+	<person rdf:about="famwf1234_1210">
+		<name xml:lang="ru">Марчук Геннадий Анатольевич</name>
+		<father rdf:resource="famwf1234_1207" />
+	</person>
+	<person rdf:about="famwf1234_1211">
+		<name xml:lang="ru">Марчук Оксана Геннадьевна</name>
+		<father rdf:resource="famwf1234_1210" />
+	</person>
+	<person rdf:about="famwf1234_1212">
+		<name xml:lang="ru">Марчук Александр Анатольевич</name>
+		<father rdf:resource="famwf1234_1207" />
+	</person>
+	<person rdf:about="famwf1234_1213">
+		<name xml:lang="ru">Марчук Кристина Алексанедровна</name>
+		<father rdf:resource="famwf1234_1212" />
+	</person>
+	<person rdf:about="famwf1234_1214">
+		<name xml:lang="ru">Марчук Тамара Григорьевна</name>
+		<father rdf:resource="famwf1234_1188" />
+		<from-date>1941</from-date>
+	</person>
+	<family rdf:about="famwf1234_1215">
+		<wife rdf:resource="famwf1234_1214" />
+		<husband rdf:resource="famwf1234_1216" />
+	</family>
+	<person rdf:about="famwf1234_1216">
+		<name xml:lang="ru">Михайлов Виктор</name>
+	</person>
+	<person rdf:about="famwf1234_1217">
+		<name xml:lang="ru">Михайлова Лилия Викторовна</name>
+		<father rdf:resource="famwf1234_1216" />
+		<mother rdf:resource="famwf1234_1214" />
+	</person>
+	<person rdf:about="famwf1234_1218">
+		<name xml:lang="ru">(Михайлова) Алла</name>
+		<mother rdf:resource="famwf1234_1217" />
+		<sex>f</sex>
+	</person>
+	<person rdf:about="famwf1234_1219">
+		<name xml:lang="ru">(Михайлова) Луиза</name>
+		<mother rdf:resource="famwf1234_1217" />
+		<sex>f</sex>
+	</person>
+	<person rdf:about="famwf1234_1220">
+		<name xml:lang="ru">Михайлова Александра Викторовна</name>
+		<father rdf:resource="famwf1234_1216" />
+		<mother rdf:resource="famwf1234_1214" />
+	</person>
+	<person rdf:about="famwf1234_1221">
+		<name xml:lang="ru">(Михайлов) Денис</name>
+		<mother rdf:resource="famwf1234_1220" />
+		<sex>m</sex>
+	</person>
+	<person rdf:about="famwf1234_1222">
+		<name xml:lang="ru">(Михайлова) Настя</name>
+		<mother rdf:resource="famwf1234_1220" />
+		<sex>f</sex>
+	</person>
+	<person rdf:about="famwf1234_1223">
+		<name xml:lang="ru">Марчук Раиса Григорьевна</name>
+		<father rdf:resource="famwf1234_1188" />
+		<from-date>1944</from-date>
+		<to-date>1944</to-date>
+		<comment xml:lang="ru">умерла в детстве, 4 м.</comment>
+	</person>
+	<person rdf:about="famwf1234_1224">
+		<name xml:lang="ru">Марчук Мария Гордеевна</name>
+		<father rdf:resource="famwf1234_1007" />
+	</person>
+	<dating rdf:about="famwf1234_1225">
+		<referred rdf:resource="famwf1234_1224" />
+		<date xml:lang="ru">1910</date>
+		<dating-specificator>from</dating-specificator>
+		<dating-accuracy>2-0-0</dating-accuracy>
+	</dating>
+	<family rdf:about="famwf1234_1226">
+		<wife rdf:resource="famwf1234_1224" />
+		<husband rdf:resource="famwf1234_1227" />
+	</family>
+	<person rdf:about="famwf1234_1227">
+		<name xml:lang="ru">Черкашин Петр</name>
+	</person>
+	<person rdf:about="famwf1234_1228">
+		<name xml:lang="ru">Черкашин Юрий Петрович</name>
+		<father rdf:resource="famwf1234_1227" />
+		<mother rdf:resource="famwf1234_1224" />
+	</person>
+	<person rdf:about="famwf1234_1229">
+		<name xml:lang="ru">Черкашин Александр Юрьевич</name>
+		<father rdf:resource="famwf1234_1228" />
+	</person>
+	<person rdf:about="famwf1234_1230">
+		<name xml:lang="ru">Черкашин Александр Петрович</name>
+		<father rdf:resource="famwf1234_1227" />
+		<mother rdf:resource="famwf1234_1224" />
+	</person>
+	<person rdf:about="famwf1234_1231">
+		<name xml:lang="ru">Черкашина Галина Александровна</name>
+		<father rdf:resource="famwf1234_1230" />
+	</person>
+	<person rdf:about="famwf1234_1232">
+		<name xml:lang="ru">Черкашина Светлана Петровна</name>
+		<father rdf:resource="famwf1234_1227" />
+		<mother rdf:resource="famwf1234_1224" />
+		<from-date>1939</from-date>
+	</person>
+	<person rdf:about="famwf1234_1233">
+		<name xml:lang="ru">(Черкашин) Андрей</name>
+		<mother rdf:resource="famwf1234_1232" />
+		<sex>m</sex>
+	</person>
+	<person rdf:about="famwf1234_1234">
+		<name xml:lang="ru">(Черкашина) Елена</name>
+		<mother rdf:resource="famwf1234_1232" />
+		<sex>f</sex>
+	</person>
+	<person rdf:about="famwf1234_1235">
+		<name xml:lang="ru">Марчук Александра Гордеевна</name>
+		<father rdf:resource="famwf1234_1007" />
+	</person>
+	<family rdf:about="famwf1234_1236">
+		<wife rdf:resource="famwf1234_1235" />
+		<husband rdf:resource="famwf1234_1237" />
+	</family>
+	<person rdf:about="famwf1234_1237">
+		<name xml:lang="ru">Васильев Федор</name>
+	</person>
+	<family rdf:about="famwf1234_1238">
+		<wife rdf:resource="famwf1234_1235" />
+		<husband rdf:resource="famwf1234_1239" />
+	</family>
+	<person rdf:about="famwf1234_1239">
+		<name xml:lang="ru">Васильев Михаил</name>
+	</person>
+	<person rdf:about="famwf1234_1240">
+		<name xml:lang="ru">Васильев Евгений Федорович</name>
+		<mother rdf:resource="famwf1234_1235" />
+		<from-date>1938</from-date>
+	</person>
+	<family rdf:about="famwf1234_1241">
+		<husband rdf:resource="famwf1234_1240" />
+		<wife rdf:resource="famwf1234_1242" />
+	</family>
+	<person rdf:about="famwf1234_1242">
+		<name xml:lang="ru">Марчук Людмила</name>
+	</person>
+	<person rdf:about="famwf1234_1243">
+		<name xml:lang="ru">Васильев Вениамин Евгеньевич</name>
+		<father rdf:resource="famwf1234_1240" />
+		<from-date>1960</from-date>
+	</person>
+	<family rdf:about="famwf1234_1244">
+		<husband rdf:resource="famwf1234_1243" />
+		<wife rdf:resource="famwf1234_1245" />
+	</family>
+	<person rdf:about="famwf1234_1245">
+		<name xml:lang="ru">Васильева Елена</name>
+	</person>
+	<family rdf:about="famwf1234_1246">
+		<husband rdf:resource="famwf1234_1243" />
+		<wife rdf:resource="famwf1234_1247" />
+	</family>
+	<person rdf:about="famwf1234_1247">
+		<name xml:lang="ru">Васильева Светлана</name>
+	</person>
+	<person rdf:about="famwf1234_1248">
+		<name xml:lang="ru">Васильева Алиса Вениаминовна</name>
+		<father rdf:resource="famwf1234_1243" />
+		<from-date>1984</from-date>
+	</person>
+	<person rdf:about="famwf1234_1249">
+		<name xml:lang="ru">Васильева Ирина Евгеньевна</name>
+		<father rdf:resource="famwf1234_1240" />
+		<from-date>1963</from-date>
+	</person>
+	<family rdf:about="famwf1234_1250">
+		<wife rdf:resource="famwf1234_1249" />
+		<husband rdf:resource="famwf1234_1251" />
+	</family>
+	<person rdf:about="famwf1234_1251">
+		<name xml:lang="ru">() Сергей</name>
+	</person>
+	<family rdf:about="famwf1234_1252">
+		<wife rdf:resource="famwf1234_1249" />
+		<husband rdf:resource="famwf1234_1253" />
+	</family>
+	<person rdf:about="famwf1234_1253">
+		<name xml:lang="ru">() Александр</name>
+	</person>
+	<person rdf:about="famwf1234_1254">
+		<name xml:lang="ru">(Васильев) Михаил</name>
+		<mother rdf:resource="famwf1234_1249" />
+		<from-date>1985</from-date>
+		<sex>m</sex>
+	</person>
+	<person rdf:about="famwf1234_1255">
+		<name xml:lang="ru">(Васильева) Анна</name>
+		<mother rdf:resource="famwf1234_1249" />
+		<from-date>1989</from-date>
+		<sex>f</sex>
+	</person>
+	<person rdf:about="famwf1234_1256">
+		<name xml:lang="ru">(Васильев) Валентин</name>
+		<mother rdf:resource="famwf1234_1249" />
+		<from-date>1998</from-date>
+		<sex>m</sex>
+	</person>
+	<location rdf:about="famwf1234_1257">
+		<something rdf:resource="famwf1234_1240" />
+		<location-place rdf:resource="http://family.marchuk.ru/a/1272" />
+	</location>
+	<person rdf:about="famwf1234_1258">
+		<name xml:lang="ru">Васильев Олег</name>
+		<mother rdf:resource="famwf1234_1235" />
+		<from-date>1953</from-date>
+	</person>
+	<family rdf:about="famwf1234_1259">
+		<husband rdf:resource="famwf1234_1258" />
+		<wife rdf:resource="famwf1234_1260" />
+	</family>
+	<person rdf:about="famwf1234_1260">
+		<name xml:lang="ru">Васильева Татьяна</name>
+	</person>
+	<location rdf:about="famwf1234_1261">
+		<something rdf:resource="famwf1234_1258" />
+		<location-place rdf:resource="famwf1234_1262" />
+	</location>
+	<city rdf:about="famwf1234_1262">
+		<name xml:lang="ru">Тамбов</name>
+	</city>
+	<person rdf:about="famwf1234_1263">
+		<name xml:lang="ru">Васильева Александра Олеговна</name>
+		<father rdf:resource="famwf1234_1258" />
+		<from-date>1980</from-date>
+	</person>
+	<student rdf:about="famwf1234_1264">
+		<learner rdf:resource="famwf1234_1263" />
+		<learning-org rdf:resource="famwf1234_1265" />
+	</student>
+	<org-sys rdf:about="famwf1234_1265">
+		<name xml:lang="ru">МАИ</name>
+	</org-sys>
+	<person rdf:about="famwf1234_1266">
+		<name xml:lang="ru">Васильев Дмитрий Олегович</name>
+		<father rdf:resource="famwf1234_1258" />
+		<from-date>1988</from-date>
+	</person>
+	<person rdf:about="famwf1234_1267">
+		<name xml:lang="ru">Васильев Сергей Олегович</name>
+		<father rdf:resource="famwf1234_1258" />
+		<from-date>1988</from-date>
+	</person>
+	<person rdf:about="famwf1234_1268">
+		<name xml:lang="ru">Марчук Раиса Гордеевна</name>
+		<father rdf:resource="famwf1234_1007" />
+	</person>
+	<dating rdf:about="famwf1234_1269">
+		<referred rdf:resource="famwf1234_1268" />
+		<date xml:lang="ru">1919</date>
+		<dating-specificator>from</dating-specificator>
+		<dating-accuracy>1-0-0</dating-accuracy>
+	</dating>
+	<family rdf:about="famwf1234_1270">
+		<wife rdf:resource="famwf1234_1268" />
+		<husband rdf:resource="famwf1234_1271" />
+	</family>
+	<person rdf:about="famwf1234_1271">
+		<name xml:lang="ru">Сергеев Николай</name>
+	</person>
+	<family rdf:about="famwf1234_1272">
+		<wife rdf:resource="famwf1234_1268" />
+		<husband rdf:resource="famwf1234_1273" />
+	</family>
+	<person rdf:about="famwf1234_1273">
+		<name xml:lang="ru">Попков Сергей</name>
+	</person>
+	<person rdf:about="famwf1234_1274">
+		<name xml:lang="ru">Сергеев Геннадий Николаевич</name>
+		<father rdf:resource="famwf1234_1271" />
+		<mother rdf:resource="famwf1234_1268" />
+		<from-date>1939</from-date>
+	</person>
+	<person rdf:about="famwf1234_1275">
+		<name xml:lang="ru">Попков Виктор Сергеевич</name>
+		<father rdf:resource="famwf1234_1273" />
+		<mother rdf:resource="famwf1234_1268" />
+		<comment xml:lang="ru">возможно, Валерий</comment>
+	</person>
+	<family rdf:about="famwf1234_1276">
+		<wife rdf:resource="famwf1234_1148" />
+		<husband rdf:resource="famwf1234_1277" />
+	</family>
+	<person rdf:about="famwf1234_1277">
+		<name xml:lang="ru">Фахри Самер</name>
+	</person>
+	<naming rdf:about="famwf1234_1278">
+		<referred-sys rdf:resource="famwf1234_1277" />
+		<alias xml:lang="ru">Миша</alias>
+	</naming>
+	<person rdf:about="famwf1234_1279">
+		<name xml:lang="ru">Фахри Даниил Самерович</name>
+		<father rdf:resource="famwf1234_1277" />
+		<mother rdf:resource="famwf1234_1148" />
+		<from-date>1997</from-date>
+	</person>
+	<person rdf:about="famwf1234_1280">
+		<name xml:lang="ru">Фахри Тимур Самерович</name>
+		<father rdf:resource="famwf1234_1277" />
+		<mother rdf:resource="famwf1234_1148" />
+		<from-date>2002</from-date>
+	</person>
+	<person rdf:about="famwf1234_1281">
+		<name xml:lang="ru">Марчук Вера Иосифовна</name>
+		<father rdf:resource="famwf1234_1010" />
+		<mother rdf:resource="famwf1234_1012" />
+	</person>
+	<person rdf:about="famwf1234_1282">
+		<name xml:lang="ru">(Марчук) Элеонора</name>
+		<mother rdf:resource="famwf1234_1281" />
+	</person>
+	<person rdf:about="famwf1234_1283">
+		<name xml:lang="ru">(Марчук) Ольга</name>
+		<mother rdf:resource="famwf1234_1282" />
+		<sex>f</sex>
+	</person>
+	<person rdf:about="famwf1234_1284">
+		<name xml:lang="ru">Марчук Антонина Иосифовна</name>
+		<father rdf:resource="famwf1234_1010" />
+	</person>
+	<family rdf:about="famwf1234_1285">
+		<wife rdf:resource="famwf1234_1284" />
+		<husband rdf:resource="famwf1234_1286" />
+	</family>
+	<person rdf:about="famwf1234_1286">
+		<name xml:lang="ru">Ящук Николай</name>
+		<sex>m</sex>
+	</person>
+	<person rdf:about="famwf1234_1287">
+		<name xml:lang="ru">Ящук Галина Николаевна</name>
+		<comment xml:lang="ru">умерла</comment>
+		<mother rdf:resource="famwf1234_1284" />
+		<father rdf:resource="famwf1234_1286" />
+	</person>
+	<person rdf:about="famwf1234_1288">
+		<name xml:lang="ru">(Ящук) Антон</name>
+		<mother rdf:resource="famwf1234_1287" />
+		<comment xml:lang="ru">пропал без вести</comment>
+		<sex>m</sex>
+	</person>
+	<person rdf:about="famwf1234_1289">
+		<name xml:lang="ru">Ящук Жанетта Николаевна</name>
+		<father rdf:resource="famwf1234_1286" />
+		<mother rdf:resource="famwf1234_1284" />
+		<from-date>1941</from-date>
+	</person>
+	<person rdf:about="famwf1234_1290">
+		<name xml:lang="ru">Марчук Любовь Иосифовна</name>
+		<father rdf:resource="famwf1234_1010" />
+		<mother rdf:resource="famwf1234_1012" />
+		<to-date>1981</to-date>
+	</person>
+	<person rdf:about="famwf1234_1291">
+		<name xml:lang="ru">(Марчук) Галина</name>
+		<mother rdf:resource="famwf1234_1290" />
+	</person>
+	<person rdf:about="famwf1234_1292">
+		<name xml:lang="ru">(Марчук) Виктор</name>
+		<mother rdf:resource="famwf1234_1291" />
+		<sex>m</sex>
+	</person>
+	<person rdf:about="famwf1234_1293">
+		<name xml:lang="ru">Марчук Людмила Иосифовна</name>
+		<father rdf:resource="famwf1234_1010" />
+	</person>
+	<person rdf:about="famwf1234_1294">
+		<name xml:lang="ru">(Марчук) Марина</name>
+		<mother rdf:resource="famwf1234_1293" />
+	</person>
+	<person rdf:about="famwf1234_1295">
+		<name xml:lang="ru">(Марчук) Борис</name>
+		<mother rdf:resource="famwf1234_1294" />
+		<sex>m</sex>
+	</person>
+	<person rdf:about="famwf1234_1296">
+		<name xml:lang="ru">(Марчук) Дмитрий</name>
+		<mother rdf:resource="famwf1234_1293" />
+		<sex>m</sex>
+	</person>
+	<person rdf:about="famwf1234_1297">
+		<name xml:lang="ru">Марчук Александра Иосифовна</name>
+		<father rdf:resource="famwf1234_1010" />
+	</person>
+	<person rdf:about="famwf1234_1298">
+		<name xml:lang="ru">(Марчук) Людмила</name>
+		<mother rdf:resource="famwf1234_1297" />
+	</person>
+	<person rdf:about="famwf1234_1299">
+		<name xml:lang="ru">(Марчук) Марина (Людмила)</name>
+		<mother rdf:resource="famwf1234_1298" />
+	</person>
+	<person rdf:about="famwf1234_1300">
+		<name xml:lang="ru">(Марчук) Адель</name>
+		<mother rdf:resource="famwf1234_1299" />
+		<sex>f</sex>
+	</person>
+	<person rdf:about="famwf1234_1301">
+		<name xml:lang="ru">(Марчук) Римма</name>
+		<mother rdf:resource="famwf1234_1297" />
+	</person>
+	<person rdf:about="famwf1234_1302">
+		<name xml:lang="ru">(Марчук) Ольга (Римма)</name>
+		<mother rdf:resource="famwf1234_1301" />
+		<sex>f</sex>
+	</person>
+	<person rdf:about="famwf1234_1303">
+		<name xml:lang="ru">(Марчук) Андрей</name>
+		<mother rdf:resource="famwf1234_1301" />
+		<sex>m</sex>
+	</person>
+	<person rdf:about="famwf1234_1304">
+		<name xml:lang="ru">Марчук Петр Иосифович</name>
+		<comment xml:lang="ru">умер в детстве</comment>
+	</person>
+	<person rdf:about="famwf1234_1305">
+		<name xml:lang="ru">Марчук Павел Иосифович</name>
+		<father rdf:resource="famwf1234_1010" />
+		<from-date>1921</from-date>
+		<to-date>2001</to-date>
+	</person>
+	<person rdf:about="famwf1234_1306">
+		<name xml:lang="ru">Марчук Валерий Павлович</name>
+		<father rdf:resource="famwf1234_1305" />
+		<from-date>1954</from-date>
+	</person>
+	<location rdf:about="famwf1234_1307">
+		<something rdf:resource="famwf1234_1306" />
+		<comment xml:lang="ru">Оренбургская обл.</comment>
+	</location>
+	<person rdf:about="famwf1234_1308">
+		<name xml:lang="ru">Марчук Елена Валерьевна</name>
+		<father rdf:resource="famwf1234_1306" />
+		<comment xml:lang="ru">2 сына</comment>
+	</person>
+	<person rdf:about="famwf1234_1309">
+		<name xml:lang="ru">Марчук Людмила Павловна</name>
+		<father rdf:resource="famwf1234_1305" />
+		<from-date>1951</from-date>
+	</person>
+	<location rdf:about="famwf1234_1310">
+		<something rdf:resource="famwf1234_1309" />
+		<location-place rdf:resource="famwf1234_1311" />
+	</location>
+	<city rdf:about="famwf1234_1311">
+		<name xml:lang="ru">Новый Уренгой</name>
+	</city>
+	<person rdf:about="famwf1234_1312">
+		<name xml:lang="ru">(Марчук) Валерий</name>
+		<mother rdf:resource="famwf1234_1309" />
+		<sex>m</sex>
+	</person>
+	<person rdf:about="famwf1234_1313">
+		<name xml:lang="ru">Марчук Леонтий Иосифович</name>
+		<father rdf:resource="famwf1234_1010" />
+	</person>
+	<location rdf:about="famwf1234_1314">
+		<something rdf:resource="famwf1234_1313" />
+		<location-place rdf:resource="famwf1234_1315" />
+	</location>
+	<city rdf:about="famwf1234_1315">
+		<name xml:lang="ru">Чимкент</name>
+	</city>
+	<person rdf:about="famwf1234_1316">
+		<name xml:lang="ru">Марчук Тамара Леонтьевна</name>
+		<father rdf:resource="famwf1234_1313" />
+	</person>
+	<person rdf:about="famwf1234_1317">
+		<name xml:lang="ru">(Марчук) Юрий</name>
+		<mother rdf:resource="famwf1234_1316" />
+		<sex>m</sex>
+	</person>
+	<person rdf:about="famwf1234_1318">
+		<name xml:lang="ru">Марчук Нонна Леонтьевна</name>
+		<father rdf:resource="famwf1234_1313" />
+	</person>
+	<person rdf:about="famwf1234_1319">
+		<name xml:lang="ru">(Марчук) Наталья</name>
+		<mother rdf:resource="famwf1234_1318" />
+		<sex>f</sex>
+	</person>
+	<person rdf:about="famwf1234_1320">
+		<name xml:lang="ru">Марчук Лев Леонтьевич</name>
+		<father rdf:resource="famwf1234_1313" />
+		<comment xml:lang="ru">еще сын</comment>
+	</person>
+	<person rdf:about="famwf1234_1321">
+		<name xml:lang="ru">Марчук Анжела Львовна</name>
+		<father rdf:resource="famwf1234_1320" />
+	</person>
+	<person rdf:about="famwf1234_1322">
+		<name xml:lang="ru">Марчук Геннадий Леонтьевич</name>
+		<father rdf:resource="famwf1234_1313" />
+		<comment xml:lang="ru">2 детей</comment>
+	</person>
+	<person rdf:about="famwf1234_1323">
+		<name xml:lang="ru">Марчук Андрей Александрович</name>
+		<father rdf:resource="famwf1234_1013" />
+	</person>
+	<person rdf:about="famwf1234_1324">
+		<name xml:lang="ru">Марчук Ольга Александровна</name>
+		<father rdf:resource="famwf1234_1013" />
+		<comment xml:lang="ru">умерла в детстве</comment>
+	</person>
+	<person rdf:about="famwf1234_1325">
+		<name xml:lang="ru">Марчук Николай Александрович</name>
+		<father rdf:resource="famwf1234_1013" />
+		<to-date>1935</to-date>
+	</person>
+	<person rdf:about="famwf1234_1326">
+		<name xml:lang="ru">Марчук Мария Александровна</name>
+		<father rdf:resource="famwf1234_1013" />
+		<comment xml:lang="ru">умерла в детстве</comment>
+	</person>
+	<person rdf:about="famwf1234_1327">
+		<name xml:lang="ru">Марчук Елизавета Александровна</name>
+		<father rdf:resource="famwf1234_1013" />
+	</person>
+	<family rdf:about="famwf1234_1328">
+		<wife rdf:resource="famwf1234_1327" />
+		<husband rdf:resource="famwf1234_1329" />
+	</family>
+	<person rdf:about="famwf1234_1329">
+		<name xml:lang="ru">Сухаверский Петр</name>
+	</person>
+	<family rdf:about="famwf1234_1330">
+		<wife rdf:resource="famwf1234_1327" />
+		<husband rdf:resource="famwf1234_1331" />
+	</family>
+	<person rdf:about="famwf1234_1331">
+		<name xml:lang="ru">() Андрей</name>
+	</person>
+	<location rdf:about="famwf1234_1332">
+		<something rdf:resource="famwf1234_1331" />
+		<location-place rdf:resource="famwf1234_1333" />
+		<comment xml:lang="ru">Черниговщина</comment>
+	</location>
+	<city rdf:about="famwf1234_1333">
+		<name xml:lang="ru">Прилуки</name>
+	</city>
+	<person rdf:about="famwf1234_1334">
+		<name xml:lang="ru">(Марчук) Наталья </name>
+		<sex>f</sex>
+	</person>
+	<location rdf:about="famwf1234_1335">
+		<something rdf:resource="famwf1234_1334" />
+		<location-place rdf:resource="famwf1234_1333" />
+	</location>
+	<person rdf:about="famwf1234_1336">
+		<name xml:lang="ru">(Марчук) Вера</name>
+	</person>
+	<family rdf:about="famwf1234_1337">
+		<wife rdf:resource="famwf1234_1336" />
+		<husband rdf:resource="famwf1234_1338" />
+	</family>
+	<person rdf:about="famwf1234_1338">
+		<name xml:lang="ru">Ленец Григорий</name>
+	</person>
+	<location rdf:about="famwf1234_1339">
+		<something rdf:resource="famwf1234_1338" />
+		<location-place rdf:resource="famwf1234_1340" />
+	</location>
+	<city rdf:about="famwf1234_1340">
+		<name xml:lang="ru">Одесса</name>
+	</city>
+	<person rdf:about="famwf1234_1341">
+		<name xml:lang="ru">Ленец Владимир Григорьевич</name>
+		<father rdf:resource="famwf1234_1338" />
+		<mother rdf:resource="famwf1234_1336" />
+	</person>
+	<person rdf:about="famwf1234_1342">
+		<name xml:lang="ru">Ленец Светлана Григорьевна</name>
+		<father rdf:resource="famwf1234_1338" />
+		<mother rdf:resource="famwf1234_1336" />
+	</person>
+	<person rdf:about="famwf1234_1343">
+		<name xml:lang="ru">(Марчук) Ганна</name>
+		<mother rdf:resource="famwf1234_1327" />
+	</person>
+	<person rdf:about="famwf1234_1344">
+		<name xml:lang="ru">Галоша Вячеслав Александрович</name>
+		<mother rdf:resource="famwf1234_1343" />
+		<father rdf:resource="famwf1234_1346" />
+	</person>
+	<person rdf:about="famwf1234_1345">
+		<name xml:lang="ru">Галоша Александр Александрович</name>
+		<mother rdf:resource="famwf1234_1343" />
+		<father rdf:resource="famwf1234_1346" />
+	</person>
+	<person rdf:about="famwf1234_1346">
+		<name xml:lang="ru">Галоша Александр</name>
+	</person>
+	<location rdf:about="famwf1234_1347">
+		<something rdf:resource="famwf1234_1346" />
+		<location-place rdf:resource="famwf1234_1348" />
+	</location>
+	<city rdf:about="famwf1234_1348">
+		<name xml:lang="ru">Чернигов</name>
+	</city>
+	<person rdf:about="famwf1234_1349">
+		<name xml:lang="ru">(Марчук) Марина (Елизавета)</name>
+		<mother rdf:resource="famwf1234_1327" />
+		<sex>f</sex>
+	</person>
+	<person rdf:about="famwf1234_1350">
+		<name xml:lang="ru">(Марчук) Николай</name>
+		<mother rdf:resource="famwf1234_1327" />
+		<sex>m</sex>
+	</person>
+	<person rdf:about="famwf1234_1351">
+		<name xml:lang="ru">(Марчук) Иван</name>
+		<mother rdf:resource="famwf1234_1327" />
+		<sex>m</sex>
+	</person>
+	<location rdf:about="famwf1234_1352">
+		<something rdf:resource="famwf1234_1351" />
+		<location-place rdf:resource="famwf1234_1333" />
+	</location>
+	<person rdf:about="famwf1234_1353">
+		<name xml:lang="ru">Марчук Евдокия Александровна</name>
+		<father rdf:resource="famwf1234_1013" />
+		<from-date>1902</from-date>
+	</person>
+	<family rdf:about="famwf1234_1354">
+		<wife rdf:resource="famwf1234_1353" />
+		<husband rdf:resource="famwf1234_1355" />
+	</family>
+	<person rdf:about="famwf1234_1355">
+		<name xml:lang="ru">Маслюк Григорий</name>
+	</person>
+	<family rdf:about="famwf1234_1356">
+		<wife rdf:resource="famwf1234_1353" />
+		<husband rdf:resource="famwf1234_1357" />
+	</family>
+	<person rdf:about="famwf1234_1357">
+		<name xml:lang="ru">Маслюк Иван Петрович</name>
+	</person>
+	<location rdf:about="famwf1234_1358">
+		<something rdf:resource="famwf1234_1353" />
+		<location-place rdf:resource="famwf1234_1359" />
+	</location>
+	<city rdf:about="famwf1234_1359">
+		<name xml:lang="ru">Косяковка</name>
+	</city>
+	<person rdf:about="famwf1234_1360">
+		<name xml:lang="ru">Маслюк Семен</name>
+		<mother rdf:resource="famwf1234_1353" />
+		<comment xml:lang="ru">погиб в ВОВ</comment>
+		<sex>m</sex>
+	</person>
+	<person rdf:about="famwf1234_1361">
+		<name xml:lang="ru">Маслюк Полина</name>
+		<mother rdf:resource="famwf1234_1353" />
+	</person>
+	<naming rdf:about="famwf1234_1362">
+		<referred-sys rdf:resource="famwf1234_1361" />
+		<alias xml:lang="ru">Павлина</alias>
+	</naming>
+	<family rdf:about="famwf1234_1363">
+		<wife rdf:resource="famwf1234_1361" />
+		<husband rdf:resource="famwf1234_1364" />
+	</family>
+	<person rdf:about="famwf1234_1364">
+		<name xml:lang="ru">Сохныч Иван</name>
+	</person>
+	<person rdf:about="famwf1234_1365">
+		<name xml:lang="ru">Сохныч Надежда Ивановна</name>
+		<father rdf:resource="famwf1234_1364" />
+		<mother rdf:resource="famwf1234_1361" />
+	</person>
+	<location rdf:about="famwf1234_1366">
+		<something rdf:resource="famwf1234_1365" />
+		<location-place rdf:resource="famwf1234_1367" />
+	</location>
+	<city rdf:about="famwf1234_1367">
+		<name xml:lang="ru">Керданы</name>
+	</city>
+	<family rdf:about="famwf1234_1368">
+		<wife rdf:resource="famwf1234_1365" />
+		<husband rdf:resource="famwf1234_1369" />
+	</family>
+	<person rdf:about="famwf1234_1369">
+		<name xml:lang="ru">Козмиренко Дмитрий</name>
+	</person>
+	<person rdf:about="famwf1234_1370">
+		<name xml:lang="ru">Козмиренко Ирина Дмитриевна</name>
+		<father rdf:resource="famwf1234_1369" />
+		<mother rdf:resource="famwf1234_1365" />
+		<from-date>1970</from-date>
+	</person>
+	<family rdf:about="famwf1234_1371">
+		<wife rdf:resource="famwf1234_1370" />
+		<husband rdf:resource="famwf1234_1372" />
+	</family>
+	<person rdf:about="famwf1234_1372">
+		<name xml:lang="ru">Молодцов</name>
+	</person>
+	<family rdf:about="famwf1234_1373">
+		<wife rdf:resource="famwf1234_1370" />
+		<husband rdf:resource="famwf1234_1374" />
+	</family>
+	<person rdf:about="famwf1234_1374">
+		<name xml:lang="ru">Родин</name>
+	</person>
+	<person rdf:about="famwf1234_1375">
+		<name xml:lang="ru">Козмиренко Юрий Дмитриевич</name>
+		<father rdf:resource="famwf1234_1369" />
+		<mother rdf:resource="famwf1234_1365" />
+	</person>
+	<person rdf:about="famwf1234_1376">
+		<name xml:lang="ru">Сохныч Леонид Иванович</name>
+		<father rdf:resource="famwf1234_1364" />
+		<mother rdf:resource="famwf1234_1361" />
+		<comment xml:lang="ru">умер от диабета</comment>
+	</person>
+	<person rdf:about="famwf1234_1377">
+		<name xml:lang="ru">Маслюк Яков</name>
+		<mother rdf:resource="famwf1234_1353" />
+	</person>
+	<family rdf:about="famwf1234_1378">
+		<husband rdf:resource="famwf1234_1377" />
+		<wife rdf:resource="famwf1234_1379" />
+	</family>
+	<person rdf:about="famwf1234_1379">
+		<name xml:lang="ru">Маслюк Елена Михайловна</name>
+	</person>
+	<person rdf:about="famwf1234_1380">
+		<name xml:lang="ru">Маслюк Григорий Яковлевич</name>
+		<father rdf:resource="famwf1234_1377" />
+	</person>
+	<family rdf:about="famwf1234_1381">
+		<husband rdf:resource="famwf1234_1380" />
+		<wife rdf:resource="famwf1234_1382" />
+	</family>
+	<person rdf:about="famwf1234_1382">
+		<name xml:lang="ru">Маслюк Оксана</name>
+	</person>
+	<person rdf:about="famwf1234_1383">
+		<name xml:lang="ru">Маслюк Игорь Григорьевич</name>
+		<father rdf:resource="famwf1234_1380" />
+	</person>
+	<person rdf:about="famwf1234_1384">
+		<name xml:lang="ru">Маслюк Владимир Яковлевич</name>
+		<father rdf:resource="famwf1234_1377" />
+	</person>
+	<person rdf:about="famwf1234_1385">
+		<name xml:lang="ru">Маслюк Светлана Яковлевна</name>
+		<father rdf:resource="famwf1234_1377" />
+	</person>
+	<location rdf:about="famwf1234_1386">
+		<something rdf:resource="famwf1234_1385" />
+		<location-place rdf:resource="famwf1234_1387" />
+	</location>
+	<city rdf:about="famwf1234_1387">
+		<name xml:lang="ru">Тула</name>
+	</city>
+	<family rdf:about="famwf1234_1388">
+		<wife rdf:resource="famwf1234_1385" />
+		<husband rdf:resource="famwf1234_1389" />
+	</family>
+	<person rdf:about="famwf1234_1389">
+		<name xml:lang="ru">Егоров Александр</name>
+	</person>
+	<person rdf:about="famwf1234_1390">
+		<name xml:lang="ru">Егоров Алексей Александрович</name>
+		<father rdf:resource="famwf1234_1389" />
+		<mother rdf:resource="famwf1234_1385" />
+		<from-date>1973</from-date>
+	</person>
+	<person rdf:about="famwf1234_1391">
+		<name xml:lang="ru">Маслюк Надежда Яковлевна</name>
+		<father rdf:resource="famwf1234_1377" />
+	</person>
+	<family rdf:about="famwf1234_1392">
+		<wife rdf:resource="famwf1234_1391" />
+		<husband rdf:resource="famwf1234_1393" />
+	</family>
+	<person rdf:about="famwf1234_1393">
+		<name xml:lang="ru">() Владимир</name>
+	</person>
+	<location rdf:about="famwf1234_1394">
+		<something rdf:resource="famwf1234_1391" />
+		<location-place rdf:resource="famwf1234_1395" />
+	</location>
+	<city rdf:about="famwf1234_1395">
+		<name xml:lang="ru">Брянск</name>
+	</city>
+	<person rdf:about="famwf1234_1396">
+		<name xml:lang="ru">(Маслюк) Людмила Владимировна</name>
+		<mother rdf:resource="famwf1234_1391" />
+	</person>
+	<person rdf:about="famwf1234_1397">
+		<name xml:lang="ru">(Маслюк) Руслан Владимирович</name>
+		<mother rdf:resource="famwf1234_1391" />
+	</person>
+	<person rdf:about="famwf1234_1398">
+		<name xml:lang="ru">Маслюк Татьяна Яковлевна</name>
+		<father rdf:resource="famwf1234_1377" />
+	</person>
+	<person rdf:about="famwf1234_1399">
+		<name xml:lang="ru">(Маслюк) Егор</name>
+		<mother rdf:resource="famwf1234_1391" />
+		<sex>m</sex>
+	</person>
+	<person rdf:about="famwf1234_1400">
+		<name xml:lang="ru">Маслюк Елена Яковлевна</name>
+		<father rdf:resource="famwf1234_1377" />
+	</person>
+	<person rdf:about="famwf1234_1401">
+		<name xml:lang="ru">Маслюк Нина Яковлевна</name>
+		<father rdf:resource="famwf1234_1377" />
+	</person>
+	<person rdf:about="famwf1234_1402">
+		<name xml:lang="ru">(Маслюк) Лидия</name>
+		<mother rdf:resource="famwf1234_1401" />
+		<from-date>1980</from-date>
+		<sex>f</sex>
+	</person>
+	<person rdf:about="famwf1234_1403">
+		<name xml:lang="ru">(Маслюк) Вячеслав</name>
+		<from-date>1988</from-date>
+		<mother rdf:resource="famwf1234_1401" />
+		<sex>m</sex>
+	</person>
+	<person rdf:about="famwf1234_1404">
+		<name xml:lang="ru">Маслюк Виктор</name>
+		<to-date>1986</to-date>
+		<mother rdf:resource="famwf1234_1353" />
+	</person>
+	<family rdf:about="famwf1234_1405">
+		<husband rdf:resource="famwf1234_1404" />
+		<wife rdf:resource="famwf1234_1406" />
+	</family>
+	<person rdf:about="famwf1234_1406">
+		<name xml:lang="ru">Маслюк Мария</name>
+	</person>
+	<person rdf:about="famwf1234_1407">
+		<name xml:lang="ru">Маслюк Василий Викторович</name>
+		<father rdf:resource="famwf1234_1404" />
+	</person>
+	<person rdf:about="famwf1234_1408">
+		<name xml:lang="ru">Маслюк Леонид Викторович</name>
+		<father rdf:resource="famwf1234_1404" />
+	</person>
+	<person rdf:about="famwf1234_1409">
+		<name xml:lang="ru">Маслюк Яков Викторович</name>
+		<father rdf:resource="famwf1234_1404" />
+	</person>
+	<location rdf:about="famwf1234_1410">
+		<something rdf:resource="famwf1234_1409" />
+		<location-place rdf:resource="famwf1234_1044" />
+	</location>
+	<person rdf:about="famwf1234_1411">
+		<name xml:lang="ru">Маслюк Людмила Викторовна</name>
+		<father rdf:resource="famwf1234_1404" />
+	</person>
+	<location rdf:about="famwf1234_1412">
+		<something rdf:resource="famwf1234_1411" />
+		<location-place rdf:resource="famwf1234_1413" />
+	</location>
+	<city rdf:about="famwf1234_1413">
+		<name xml:lang="ru">Киев</name>
+	</city>
+	<location rdf:about="famwf1234_1414">
+		<something rdf:resource="famwf1234_1407" />
+		<location-place rdf:resource="famwf1234_1413" />
+	</location>
+	<location rdf:about="famwf1234_1416">
+		<something rdf:resource="famwf1234_1408" />
+		<location-place rdf:resource="famwf1234_1044" />
+	</location>
+	<person rdf:about="famwf1234_1417">
+		<name xml:lang="ru">Маслюк Ольга</name>
+		<mother rdf:resource="famwf1234_1353" />
+	</person>
+	<family rdf:about="famwf1234_1418">
+		<wife rdf:resource="famwf1234_1417" />
+		<husband rdf:resource="famwf1234_1419" />
+	</family>
+	<person rdf:about="famwf1234_1419">
+		<name xml:lang="ru">Марков Иван</name>
+	</person>
+	<person rdf:about="famwf1234_1420">
+		<name xml:lang="ru">Марков Владимир Иванович</name>
+		<father rdf:resource="famwf1234_1419" />
+		<mother rdf:resource="famwf1234_1417" />
+	</person>
+	<person rdf:about="famwf1234_1421">
+		<name xml:lang="ru">Марчук Иван Александрович</name>
+		<father rdf:resource="famwf1234_1013" />
+		<from-date>1911</from-date>
+	</person>
+	<family rdf:about="famwf1234_1422">
+		<husband rdf:resource="famwf1234_1421" />
+		<wife rdf:resource="famwf1234_1423" />
+	</family>
+	<person rdf:about="famwf1234_1423">
+		<name xml:lang="ru">() Анастасия</name>
+		<from-date>1911</from-date>
+	</person>
+	<location rdf:about="famwf1234_1424">
+		<something rdf:resource="famwf1234_1421" />
+		<location-place rdf:resource="http://family.marchuk.ru/a/1017" />
+	</location>
+	<person rdf:about="famwf1234_1425">
+		<name xml:lang="ru">Марчук Мария Ивановна 2</name>
+		<father rdf:resource="famwf1234_1421" />
+		<from-date>1930</from-date>
+	</person>
+	<family rdf:about="famwf1234_1426">
+		<wife rdf:resource="famwf1234_1425" />
+		<husband rdf:resource="famwf1234_1427" />
+	</family>
+	<person rdf:about="famwf1234_1427">
+		<name xml:lang="ru">Кулагин Сергей</name>
+	</person>
+	<person rdf:about="famwf1234_1428">
+		<name xml:lang="ru">Кулагина Надежда Сергеевна</name>
+		<mother rdf:resource="famwf1234_1425" />
+		<father rdf:resource="famwf1234_1427" />
+	</person>
+	<person rdf:about="famwf1234_1429">
+		<name xml:lang="ru">Кулагина Вера Сергеевна</name>
+		<father rdf:resource="famwf1234_1427" />
+	</person>
+	<person rdf:about="famwf1234_1430">
+		<name xml:lang="ru">Кулагина Марина Сергеевна</name>
+		<father rdf:resource="famwf1234_1427" />
+	</person>
+	<person rdf:about="famwf1234_1431">
+		<name xml:lang="ru">(Кулагина) Наталья</name>
+		<mother rdf:resource="famwf1234_1430" />
+		<sex>f</sex>
+	</person>
+	<person rdf:about="famwf1234_1432">
+		<name xml:lang="ru">(Кулагин) Евгений</name>
+		<mother rdf:resource="famwf1234_1430" />
+		<sex>m</sex>
+	</person>
+	<person rdf:about="famwf1234_1433">
+		<name xml:lang="ru">(Кулагин) Павел</name>
+		<mother rdf:resource="famwf1234_1430" />
+		<sex>m</sex>
+	</person>
+	<person rdf:about="famwf1234_1434">
+		<name xml:lang="ru">Марчук Виктор Иванович</name>
+		<father rdf:resource="famwf1234_1421" />
+		<from-date>1938</from-date>
+	</person>
+	<location rdf:about="famwf1234_1435">
+		<something rdf:resource="famwf1234_1434" />
+		<location-place rdf:resource="famwf1234_1436" />
+	</location>
+	<city rdf:about="famwf1234_1436">
+		<name xml:lang="ru">Калуга</name>
+	</city>
+	<family rdf:about="famwf1234_1437">
+		<husband rdf:resource="famwf1234_1434" />
+		<wife rdf:resource="famwf1234_1438" />
+	</family>
+	<person rdf:about="famwf1234_1438">
+		<name xml:lang="ru">() Вера</name>
+	</person>
+	<person rdf:about="famwf1234_1439">
+		<name xml:lang="ru">Марчук Елена Викторовна</name>
+		<father rdf:resource="famwf1234_1434" />
+	</person>
+	<family rdf:about="famwf1234_1440">
+		<wife rdf:resource="famwf1234_1439" />
+		<husband rdf:resource="famwf1234_1441" />
+	</family>
+	<person rdf:about="famwf1234_1441">
+		<name xml:lang="ru">() Владимир 2</name>
+	</person>
+	<person rdf:about="famwf1234_1442">
+		<name xml:lang="ru">(Марчук) Сергей Владимирович</name>
+		<mother rdf:resource="famwf1234_1439" />
+		<from-date>1985</from-date>
+	</person>
+	<person rdf:about="famwf1234_1443">
+		<name xml:lang="ru">(Марчук) Максим Владимирович</name>
+		<mother rdf:resource="famwf1234_1439" />
+		<from-date>1986</from-date>
+	</person>
+	<person rdf:about="famwf1234_1444">
+		<name xml:lang="ru">Марчук Николай Иванович</name>
+		<father rdf:resource="famwf1234_1421" />
+		<from-date>1937</from-date>
+	</person>
+	<family rdf:about="famwf1234_1445">
+		<husband rdf:resource="famwf1234_1444" />
+		<wife rdf:resource="famwf1234_1446" />
+	</family>
+	<person rdf:about="famwf1234_1446">
+		<name xml:lang="ru">Марчук Евгения</name>
+	</person>
+	<person rdf:about="famwf1234_1447">
+		<name xml:lang="ru">Марчук Елена Николаевна</name>
+		<father rdf:resource="famwf1234_1444" />
+	</person>
+	<person rdf:about="famwf1234_1448">
+		<name xml:lang="ru">(Марчук) Алексей</name>
+		<mother rdf:resource="famwf1234_1447" />
+		<sex>m</sex>
+	</person>
+	<person rdf:about="famwf1234_1449">
+		<name xml:lang="ru">Марчук Наталья Ивановна</name>
+		<father rdf:resource="famwf1234_1421" />
+		<from-date>1945</from-date>
+	</person>
+	<family rdf:about="famwf1234_1450">
+		<wife rdf:resource="famwf1234_1449" />
+		<husband rdf:resource="famwf1234_1451" />
+	</family>
+	<person rdf:about="famwf1234_1451">
+		<name xml:lang="ru">Тихорецкий Игорь</name>
+	</person>
+	<person rdf:about="famwf1234_1452">
+		<name xml:lang="ru">Тихорецкий Роман Игоревич</name>
+		<father rdf:resource="famwf1234_1451" />
+		<mother rdf:resource="famwf1234_1449" />
+		<from-date>1966</from-date>
+	</person>
+	<person rdf:about="famwf1234_1453">
+		<name xml:lang="ru">Тихорецкая Татьяна</name>
+	</person>
+	<family rdf:about="famwf1234_1454">
+		<wife rdf:resource="famwf1234_1453" />
+		<husband rdf:resource="famwf1234_1452" />
+	</family>
+	<person rdf:about="famwf1234_1455">
+		<name xml:lang="ru">Тихорецкий Даниил Романович</name>
+		<father rdf:resource="famwf1234_1452" />
+		<from-date>1997</from-date>
+	</person>
+	<person rdf:about="famwf1234_1456">
+		<name xml:lang="ru">Тихорецкий Александр Романович</name>
+		<father rdf:resource="famwf1234_1452" />
+		<from-date>2005</from-date>
+	</person>
+	<person rdf:about="famwf1234_1457">
+		<name xml:lang="ru">Марчук Вера Ивановна</name>
+		<father rdf:resource="famwf1234_1421" />
+		<from-date>1946</from-date>
+	</person>
+	<family rdf:about="famwf1234_1458">
+		<wife rdf:resource="famwf1234_1457" />
+		<husband rdf:resource="famwf1234_1459" />
+	</family>
+	<person rdf:about="famwf1234_1459">
+		<name xml:lang="ru">Смирнов Сергей</name>
+	</person>
+	<person rdf:about="famwf1234_1460">
+		<name xml:lang="ru">Смирнова Екатерина Сергеевна</name>
+		<father rdf:resource="famwf1234_1459" />
+		<mother rdf:resource="famwf1234_1457" />
+		<from-date>1969</from-date>
+	</person>
+	<family rdf:about="famwf1234_1461">
+		<wife rdf:resource="famwf1234_1460" />
+		<husband rdf:resource="famwf1234_1462" />
+	</family>
+	<person rdf:about="famwf1234_1462">
+		<name xml:lang="ru">Михеенков Павел</name>
+	</person>
+	<person rdf:about="famwf1234_1463">
+		<name xml:lang="ru">Михеенкова Марина Павловна</name>
+		<father rdf:resource="famwf1234_1462" />
+		<mother rdf:resource="famwf1234_1460" />
+		<from-date>1996</from-date>
+	</person>
+	<person rdf:about="famwf1234_1464">
+		<name xml:lang="ru">Марчук Иван Корнеевич</name>
+		<comment xml:lang="ru">Уехал из Косяковки. Раскулачен, сидел 10 лет,умер молодым</comment>
+		<father rdf:resource="famwf1234_1016" />
+	</person>
+	<person rdf:about="famwf1234_1465">
+		<name xml:lang="ru">Марчук Петро Корнеевич</name>
+		<father rdf:resource="famwf1234_1016" />
+		<comment xml:lang="ru">Уехал в 1929. Раскулачен,зарублен в тюрьме в Средней Азии</comment>
+	</person>
+	<location rdf:about="famwf1234_1466">
+		<something rdf:resource="famwf1234_1465" />
+		<location-place rdf:resource="famwf1234_1359" />
+	</location>
+	<person rdf:about="famwf1234_1467">
+		<name xml:lang="ru">Марчук Трофим Корнеевич</name>
+		<father rdf:resource="famwf1234_1016" />
+		<comment xml:lang="ru">вернулся в Косяковку</comment>
+	</person>
+	<location rdf:about="famwf1234_1468">
+		<something rdf:resource="famwf1234_1467" />
+		<location-place rdf:resource="famwf1234_1359" />
+	</location>
+	<person rdf:about="famwf1234_1469">
+		<name xml:lang="ru">Марчук Денис Трофимович</name>
+		<father rdf:resource="famwf1234_1467" />
+	</person>
+	<person rdf:about="famwf1234_1470">
+		<name xml:lang="ru">Марчук Иван Трофимович</name>
+		<father rdf:resource="famwf1234_1467" />
+	</person>
+	<person rdf:about="famwf1234_1471">
+		<name xml:lang="ru">Марчук Николай Корнеевич</name>
+		<father rdf:resource="famwf1234_1016" />
+		<comment xml:lang="ru">умер в тюрьме</comment>
+	</person>
+	<person rdf:about="famwf1234_1472">
+		<name xml:lang="ru">Марчук Григорий Корнеевич</name>
+		<father rdf:resource="famwf1234_1016" />
+	</person>
+	<person rdf:about="famwf1234_1473">
+		<name xml:lang="ru">Марчук Лидия Корнеевна</name>
+		<father rdf:resource="famwf1234_1016" />
+		<comment xml:lang="ru">немая. застрелена фашистами в 18 лет.</comment>
+	</person>
+	<person rdf:about="famwf1234_1474">
+		<name xml:lang="ru">Марчук Вера Корнеевна</name>
+		<father rdf:resource="famwf1234_1016" />
+		<comment xml:lang="ru">вернулась в Косяковку</comment>
+	</person>
+	<location rdf:about="famwf1234_1475">
+		<something rdf:resource="famwf1234_1474" />
+		<location-place rdf:resource="famwf1234_1359" />
+	</location>
+	<person rdf:about="famwf1234_1476">
+		<name xml:lang="ru">(Марчук) Екатерина</name>
+		<mother rdf:resource="famwf1234_1474" />
+		<sex>f</sex>
+	</person>
+	<person rdf:about="famwf1234_1477">
+		<name xml:lang="ru">Марчук Яков Корнеевич</name>
+		<father rdf:resource="famwf1234_1016" />
+	</person>
+	<person rdf:about="famwf1234_1478">
+		<name xml:lang="ru">Марчук Мария Корнеевна</name>
+		<father rdf:resource="famwf1234_1016" />
+	</person>
+	<location rdf:about="famwf1234_1479">
+		<something rdf:resource="famwf1234_1478" />
+		<location-place rdf:resource="famwf1234_1044" />
+	</location>
+	<person rdf:about="famwf1234_1480">
+		<name xml:lang="ru">Граждан Петр Микитович</name>
+		<father rdf:resource="famwf1234_1022" />
+		<mother rdf:resource="famwf1234_1020" />
+	</person>
+	<person rdf:about="famwf1234_1481">
+		<name xml:lang="ru">Граждан Федор Микитович</name>
+		<father rdf:resource="famwf1234_1022" />
+		<mother rdf:resource="famwf1234_1020" />
+	</person>
+	<person rdf:about="famwf1234_1482">
+		<name xml:lang="ru">Граждан Павел Микитович</name>
+		<father rdf:resource="famwf1234_1022" />
+		<mother rdf:resource="famwf1234_1020" />
+		<from-date>1908</from-date>
+		<comment xml:lang="ru">есть сын, сын учился в МГУ</comment>
+	</person>
+	<location rdf:about="famwf1234_1483">
+		<something rdf:resource="famwf1234_1482" />
+		<location-place rdf:resource="famwf1234_1484" />
+		<comment xml:lang="ru">Украина</comment>
+	</location>
+	<city rdf:about="famwf1234_1484">
+		<name xml:lang="ru">Буда, деревня</name>
+	</city>
+	<person rdf:about="famwf1234_1485">
+		<name xml:lang="ru">Граждан Григорий Микитович</name>
+		<father rdf:resource="famwf1234_1022" />
+		<mother rdf:resource="famwf1234_1020" />
+	</person>
+	<location rdf:about="famwf1234_1486">
+		<something rdf:resource="famwf1234_1485" />
+		<location-place rdf:resource="famwf1234_1487" />
+	</location>
+	<city rdf:about="famwf1234_1487">
+		<name xml:lang="ru">Славут</name>
+	</city>
+	<person rdf:about="famwf1234_1488">
+		<name xml:lang="ru">Граждан Вера Микитовна</name>
+		<father rdf:resource="famwf1234_1022" />
+		<mother rdf:resource="famwf1234_1020" />
+	</person>
+	<person rdf:about="famwf1234_1489">
+		<name xml:lang="ru">Граждан Алексей Микитович</name>
+		<father rdf:resource="famwf1234_1022" />
+		<mother rdf:resource="famwf1234_1020" />
+		<comment xml:lang="ru">есть сын</comment>
+	</person>
+	<location rdf:about="famwf1234_1490">
+		<something rdf:resource="famwf1234_1489" />
+		<location-place rdf:resource="famwf1234_1491" />
+	</location>
+	<city rdf:about="famwf1234_1491">
+		<name xml:lang="ru">Джамбул</name>
+	</city>
+	<family rdf:about="famwf1234_1492">
+		<husband rdf:resource="famwf1234_1489" />
+		<wife rdf:resource="famwf1234_1493" />
+	</family>
+	<person rdf:about="famwf1234_1493">
+		<name xml:lang="ru">Граждан Ольга</name>
+	</person>
+	<naming rdf:about="famwf1234_1494">
+		<referred-sys rdf:resource="famwf1234_1489" />
+		<alias xml:lang="ru">Лёля</alias>
+	</naming>
+	<person rdf:about="famwf1234_1495">
+		<name xml:lang="ru">Граждан Надежда Микитовна</name>
+		<father rdf:resource="famwf1234_1022" />
+		<mother rdf:resource="famwf1234_1020" />
+		<comment xml:lang="ru">умерла от голода. Детей удочерила Евдокия</comment>
+	</person>
+	<person rdf:about="famwf1234_1496">
+		<name xml:lang="ru">(Граждан) Владимир</name>
+		<mother rdf:resource="famwf1234_1495" />
+		<to-date>1987</to-date>
+	</person>
+	<person rdf:about="famwf1234_1497">
+		<name xml:lang="ru">(Граждан) Татьяна Владимировна</name>
+		<father rdf:resource="famwf1234_1496" />
+	</person>
+	<person rdf:about="famwf1234_1498">
+		<name xml:lang="ru">(Граждан) Ольга</name>
+		<mother rdf:resource="famwf1234_1497" />
+		<sex>f</sex>
+	</person>
+	<person rdf:about="famwf1234_1499">
+		<name xml:lang="ru">(Граждан) Надежда Владимировна</name>
+		<father rdf:resource="famwf1234_1496" />
+		<comment xml:lang="ru">есть дочь</comment>
+	</person>
+	<person rdf:about="famwf1234_1500">
+		<name xml:lang="ru">(Граждан) Валентина</name>
+		<mother rdf:resource="famwf1234_1495" />
+		<sex>f</sex>
+	</person>
+	<location rdf:about="famwf1234_1501">
+		<something rdf:resource="famwf1234_1500" />
+		<location-place rdf:resource="famwf1234_1502" />
+	</location>
+	<city rdf:about="famwf1234_1502">
+		<name xml:lang="ru">Курган</name>
+	</city>
+	<person rdf:about="famwf1234_1503">
+		<name xml:lang="ru">Марчук Иван Яковлевич</name>
+		<father rdf:resource="famwf1234_1023" />
+	</person>
+	<person rdf:about="famwf1234_1504">
+		<name xml:lang="ru">Марчук Макар Яковлевич</name>
+		<father rdf:resource="famwf1234_1023" />
+	</person>
+	<person rdf:about="famwf1234_1505">
+		<name xml:lang="ru">Марчук Владимир Макарович</name>
+		<father rdf:resource="famwf1234_1504" />
+	</person>
+	<person rdf:about="famwf1234_1506">
+		<name xml:lang="ru">Марчук Таисия Макаровна</name>
+		<father rdf:resource="famwf1234_1504" />
+	</person>
+	<family rdf:about="famwf1234_1508">
+		<wife rdf:resource="famwf1234_1343" />
+		<husband rdf:resource="famwf1234_1346" />
+	</family>
+	<family rdf:about="famwf1234_1509">
+		<husband rdf:resource="famwf1234_1188" />
+		<wife rdf:resource="famwf1234_1189" />
+	</family>
+	<family rdf:about="famwf1234_1510">
+		<husband rdf:resource="famwf1234_1056" />
+		<wife rdf:resource="famwf1234_1057" />
+	</family>
+</rdf:RDF>

@@ -1,0 +1,19 @@
+﻿@using System.Xml.Linq
+@model Turgunda7.Models.SearchModel
+           
+<div>@Model.message</div>
+@{
+    if ((new Turgunda7.Models.UserModel(Context.Request)).Uuser != null && Model.type != null) 
+    {
+        <div>[@Html.ActionLink("нов.", "NewRecord", new { searchstring = Model.searchstring, type = Model.type })]</div>
+    }
+    var results = Model.Results;
+    foreach (Turgunda7.Models.SearchResult r in results)
+    {
+        string url = Url.Content("~/Home/Portrait?id=" + r.id);
+        <div>
+            <span>@r.type_name</span>
+            <a href="@url">@r.value</a>
+        </div>
+    }
+}

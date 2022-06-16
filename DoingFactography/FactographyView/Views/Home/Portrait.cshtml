@@ -1,0 +1,101 @@
+﻿@using RDFEngine
+@model RRecord
+
+@{
+    if (Model == null) return;
+    Func<string, string> gt = Infobase.GetTerm;
+    Func<string, string> git = Infobase.GetInvTerm;
+}
+<h2>Портрет</h2>
+<div>Тип: @gt(Model.Tp)</div>
+<div>Код: @Model.Id</div>
+<div>
+    <table>
+        @foreach (var property in Model.Props)
+        {
+            if (property is RField)
+            {
+                RField f = (RField)property;
+                string value = f.Value;
+                <tr><td>@gt(property.Prop)</td><td><b>@value</b></td></tr>
+            }
+            else if (property is RLink)
+            {
+                RLink l = (RLink)property;
+                string resource = l.Resource;
+                var target = Infobase.engine.GetRRecord(resource);
+                RField[] fields = target.Props.Where(p => p is RField).Select(p => (RField)p).ToArray();
+                <tr>
+                    <td>@gt(property.Prop)</td>
+                    <td>
+                        <span>@gt(@target.Tp) </span>
+                        @for (int i = 0; i < fields.Length; i++)
+                        {
+                            if (i > 0)
+                            {<span>, &nbsp;</span> }
+                            var f = fields[i];
+                            if (f.Prop == "name")
+                            {
+                                <a href="@resource"> @f.Value </a>
+                            }
+                            else
+                            {
+                                <span> @(f.Prop): </span> <span>@(f.Value) </span>
+                            }
+                        }
+                    </td>
+                </tr>
+            }
+            else if (property is RInverseLink)
+            {
+                var i = (RInverseLink)property;
+                string src = i.Source;
+                var source = Infobase.engine.GetRRecord(src);
+                RProperty[] fildsdirects = source.Props.Where(p => p.Prop != property.Prop).ToArray();
+                <tr>
+                    <td> @git(property.Prop) </td>
+                    <td>
+                        <span style="color: darkred;"> @gt(source.Tp) </span>
+                        @for (int j = 0; j < fildsdirects.Length; j++)
+                        {
+                            if (j > 0)
+                            {<span>, &nbsp;</span> }
+                            var fd = fildsdirects[j];
+                            if (fd is RField)
+                            {
+                                <span>@gt(fd.Prop): </span> <span> @gt(((RField)fd).Value) </span>
+                            }
+                            else if (fd is RLink)
+                            {
+                                @*<a href="@(((RLink)fd).Resource)">Ссылка</a>*@
+
+                                var target2 = Infobase.engine.GetRRecord(((RLink)fd).Resource);
+                                RField[] fields2 = target2.Props.Where(p => p is RField).Select(p => (RField)p).ToArray();
+                                <span> @(gt(fd.Prop)): (</span>
+                                <span>@gt(target2.Tp)</span>
+                                @for (int ii = 0; ii < fields2.Length; ii++)
+                                {
+                                    if (ii > 0)
+                                    {<span>, &nbsp;</span> }
+                                    var ff = fields2[ii];
+                                    if (ff.Prop == "name")
+                                    {
+                                        <a href="@(((RLink)fd).Resource)">@ff.Value</a>
+                                    }
+                                    else
+                                    {
+                                        <span> @(gt(ff.Prop)): </span> <span>@(ff.Value)</span>
+                                    }
+                                }
+                                <span>)</span>
+
+                            }
+                        }
+                    </td>
+                </tr>
+            }
+        }
+    </table>
+
+</div>
+

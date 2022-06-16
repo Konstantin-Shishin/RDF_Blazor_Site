@@ -1,0 +1,43 @@
+﻿@using System.Linq
+@using System.Xml.Linq
+
+@{
+    XElement conf = SObjects.xconfig;
+    int ind = -1;
+}
+
+<h3>Конфигурация системы</h3>
+<form action="" method="Get">
+    <table>
+        <tr><th></th><th>кассета</th><th>ред</th></tr>
+        @foreach (var t in conf.Elements("LoadCassette"))
+        {
+            ind++;
+            <tr>
+                <td><input type="checkbox" name="@ind" /></td>
+                <td>@t.Value</td>
+                <td>
+                    @if (t.Attribute("write")?.Value == "yes")
+                    {<input type="checkbox" checked name='@("w" + ind)' />}
+                    else
+                    {<input type="checkbox" name='@("w" + ind)' />}
+                </td>
+            </tr>
+         }
+        <tr>
+            <td></td>
+            <td><input type="text" name="addition"/></td>
+            <td><input type="checkbox" name='awrite' /></td>
+        </tr>
+    </table>
+    <br />
+    <input type="submit" value="отключить/изменить/добавить" />
+</form>
+
+@*<h4>Подключение кассет</h4>
+<form method="post" enctype="multipart/form-data" action='@Url.Content("~/Home/ConnectCassettes")'>
+    <p>Upload one or more cassettes using this form:</p>
+    <input type="file" name="files" multiple />
+    <input type="submit" value="подключить" />
+</form>*@
+

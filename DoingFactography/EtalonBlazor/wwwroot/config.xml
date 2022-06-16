@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<config>
+  <database dbname="photoarchive" connectionstring="xml:" />
+
+  <LoadCassette>C:\Home\Data\SypCassete</LoadCassette>
+
+
+</config>

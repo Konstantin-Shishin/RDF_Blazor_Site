@@ -1,0 +1,13 @@
+﻿
+@{
+    Turgunda6.Models.UserModel umodel = new Turgunda6.Models.UserModel(Request);
+    if (umodel.Uuser != null)
+    {
+        <span>@umodel.Uuser @Html.ActionLink("вых.", "Logout", "Account", routeValues: null, htmlAttributes: new { id = "rrrrr" })</span>
+    }
+    else
+    {
+        <span>@Html.ActionLink("ред.", "Logon", "Account", routeValues: null, htmlAttributes: new { id = "registerLink" })</span>
+    }
+
+}

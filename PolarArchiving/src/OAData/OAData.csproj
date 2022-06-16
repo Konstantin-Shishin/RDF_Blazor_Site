@@ -1,0 +1,16 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="System.Text.Encoding.CodePages" Version="6.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\PolarDB\src\TripleStore\Polar.TripleStore.csproj" />
+    <ProjectReference Include="..\..\..\PolarDB\Polar.OModel\Polar.OModel.csproj" />
+    <ProjectReference Include="..\..\..\PolarDB\Polar.Universal\Polar.Universal.csproj" />
+  </ItemGroup>
+</Project>

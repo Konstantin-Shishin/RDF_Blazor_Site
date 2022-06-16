@@ -1,0 +1,37 @@
+﻿<person mT="2020-10-26 05:09:20Z" rdf:about="Cassette_test20180311_mag111_637392365301532170_1002" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns="http://fogid.net/o/">
+  <name>Новый 1</name>
+</person>
+<person rdf:about="Cassette_test20180311_mag111_637392365301532170_1001" mT="2020-10-26 05:30:39Z" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns="http://fogid.net/o/">
+  <name>Сидор 1</name>
+</person>
+<person rdf:about="Cassette_test20180311_mag111_637392365301532170_1001" mT="2020-10-27 04:39:45Z" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns="http://fogid.net/o/">
+  <name>Сидор 2</name>
+</person>
+<delete rdf:about="Cassette_test20180311_mag111_637392365301532170_1002" id="Cassette_test20180311_mag111_637392365301532170_1002" mT="2020-10-27 04:39:45Z" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns="http://fogid.net/o/">
+  <name>Новый 1</name>
+</delete>
+<person rdf:about="Cassette_test20180311_mag111_637392365301532170_1001" mT="2020-10-27 04:41:09Z" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns="http://fogid.net/o/">
+  <name>Сидор 2</name>
+</person>
+<delete rdf:about="Cassette_test20180311_mag111_637392365301532170_1002" id="Cassette_test20180311_mag111_637392365301532170_1002" mT="2020-10-27 04:41:09Z" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns="http://fogid.net/o/" />
+<person mT="2020-10-27 04:55:34Z" rdf:about="Cassette_test20180311_mag111_637392365301532170_1003" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns="http://fogid.net/o/">
+  <name>Сидор Уничтожаемый</name>
+</person>
+<delete rdf:about="Cassette_test20180311_mag111_637392365301532170_1002" id="Cassette_test20180311_mag111_637392365301532170_1002" mT="2020-10-27 04:55:34Z" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns="http://fogid.net/o/" />
+<person mT="2020-10-27 06:25:00Z" rdf:about="Cassette_test20180311_mag111_637392365301532170_1004" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns="http://fogid.net/o/">
+  <name>Сидор Уничтожаемый</name>
+</person>
+<delete rdf:about="Cassette_test20180311_mag111_637392365301532170_1003" id="Cassette_test20180311_mag111_637392365301532170_1002" mT="2020-10-27 06:25:15Z" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns="http://fogid.net/o/">
+  <name>Сидор Уничтожаемый</name>
+</delete>
+<person mT="2020-10-27 06:51:06Z" rdf:about="Cassette_test20180311_mag111_637392365301532170_1005" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns="http://fogid.net/o/">
+  <name>Сидор Уничтожаемый</name>
+</person>
+<delete rdf:about="Cassette_test20180311_mag111_637392365301532170_1003" id="Cassette_test20180311_mag111_637392365301532170_1002" mT="2020-10-27 06:51:06Z" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns="http://fogid.net/o/" />
+<person mT="2020-10-27 07:56:01Z" rdf:about="Cassette_test20180311_mag111_637392365301532170_1006" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns="http://fogid.net/o/">
+  <name>Сидор Уничтожаемый</name>
+</person>
+<person mT="2020-10-27 08:32:34Z" rdf:about="Cassette_test20180311_mag111_637392365301532170_1008" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns="http://fogid.net/o/">
+  <name>Сидор Уничтожаемый</name>
+</person>
+<delete rdf:about="Cassette_test20180311_mag111_637392365301532170_1004" id="Cassette_test20180311_mag111_637392365301532170_1004" mT="2020-10-27 08:32:34Z" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns="http://fogid.net/o/" />

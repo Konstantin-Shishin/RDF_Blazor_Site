@@ -1,0 +1,99 @@
+﻿@using RDFEngine
+
+<div class="search-container">
+    @if (blockTitle.Length != 0)
+    {
+        <h4>@blockTitle</h4>
+    }
+    <div>
+        <input @bind="searchsample" />
+        <select @bind="@selectedType">
+            @{
+                allowedTypes = Infobase.ront.DescendantsAndSelf(rangeType);
+                if (allowedTypes.Count() > 1)
+                {
+                    <option value="all">Все типы</option>
+                }
+                foreach (var name in allowedTypes)
+                {
+                    if (name == "http://fogid.net/o/sys-obj")
+                    {
+                        continue;
+                    }
+                    <option value="@name">@(Infobase.GetTerm(name, MainLayout.currentLanguage))</option>
+                }
+            }
+
+        </select>
+        @*@if (extendedSearch)
+        {
+            <select @bind="@searchLookType">
+                <option value="SW">Начинатеся с
+                </option>
+                <option value="C">Содержит</option>
+                </select>
+        }*@
+        <button type="submit">Поиск</button>
+        <input type="checkbox" id="addition" name="math" value="add" @bind="@extendedSearch" /> <span>по словам</span>
+    </div>
+    @if (!string.IsNullOrEmpty(searchsample) && resShown)
+    {
+        IEnumerable<RRecord> query = null;
+        if (!extendedSearch) {
+           
+            if (!string.IsNullOrEmpty(selectedType) && selectedType != "all")
+            {
+                query = Infobase.engine.RSearch(searchsample).Where(rec => rec.Tp == selectedType);
+            }
+            else
+            {
+                query = Infobase.engine.RSearch(searchsample).Where(rec => allowedTypes.Contains(rec.Tp));
+            }
+        } 
+        else
+        {
+            query = ((RXEngine)Infobase.engine).RSearchByWords(searchsample);
+        }
+        foreach (RRecord rec in query)
+        {
+            <div>
+                <span>@Infobase.GetTerm(rec.Tp, MainLayout.currentLanguage)</span> &nbsp;
+                <a href="javasrcipt:void(0);" @onclick="@(e =>SearchResultClick(rec))">@rec.GetName()</a>
+            </div>
+        }
+    }
+</div>
+@code{
+    private string searchsample = "";
+
+    [Parameter]
+    public EventCallback onSearchResultClick { get; set; }
+
+    [Parameter]
+    public bool hideResults { get; set; } = false;
+
+    [Parameter]
+    public string selectedType { get; set; } = null;
+
+    [Parameter]
+    public string rangeType { get; set; } = "http://fogid.net/o/sys-obj";
+
+    [Parameter]
+    public string blockTitle { get; set; } = "";
+
+    private bool extendedSearch = false;
+
+    private bool resShown = true;
+
+    private string searchLookType = "SW";
+
+    private IEnumerable<string> allowedTypes;
+
+    protected async Task SearchResultClick(RRecord rec)
+    {
+        resShown = !hideResults;
+        await onSearchResultClick.InvokeAsync(rec);
+    }
+
+
+}

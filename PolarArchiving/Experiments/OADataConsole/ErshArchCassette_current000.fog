@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" dbid="ErshArchCassette" owner="mag" prefix="ErshArch2021_" counter="10000">
+  <!--<person rdf:about="PA_Users_vera_634418387401748047_1006">
+    <name>Кузьменко Елена Ильинична</name>
+  </person>
+  <reflection mT="2011-05-25T13:33:54" rdf:about="PA_Users_vera_634418387401748047_1002">
+    <in-doc rdf:resource="da2_0001_0009" />
+    <reflected rdf:resource="PA_Users_vera_634418387401748047_1006" />
+    <ground>foreground</ground>
+  </reflection>
+<photo-doc mT="2012-08-15T12:39:35" rdf:about="gi_pharchive_0001_0252">
+<iisstore uri="iiss://gi_pharchive@iis.nsk.su/0001/0001/0252" originalname="F:\processed\папка021\021_2179.tif" size="57669728" documenttype="image/tiff" documentcreation="2010-01-18T13:24:10" documentfirstuploaded="2011-02-22T10:56:49" documentmodification="2010-01-15T12:27:02" checksum="qwerty" width="6972" height="5006" transform="" />
+<name xml:lang="ru">2179</name>
+<from-date>1975-10</from-date>
+<description xml:lang="ru">Институт оптики атмосферы СО РАН. Слева направо: 1-й ряд: -,  Г.И. Марчук (2-й), Н.Н. Рукавишников, В.Е. Зуев. 2 ряд: -, -,А.П. Бычков (в центре), -, -, -. 3 ряд: Сажнев, В. Фомин, -, -, -. 4 ряд: В.Симоненко, -, В Новицкий, -, -, Л. Ройтман, </description>
+</photo-doc>
+<document mT="2012-10-11T12:16:11" rdf:about="PA_Users_vera_634418387401748047_4050">
+<name xml:lang="ru">Ветви единого дерева</name>
+<from-date>1970-03-18</from-date>
+<description xml:lang="ru">Гидродинамика вязкой жидкости, пластичность и ползучесть материалов, кибернетика - предмет изучения сектора кибернетики.</description>
+</document>-->
+  
+  
+</rdf:RDF>

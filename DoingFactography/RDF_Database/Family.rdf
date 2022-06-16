@@ -1,0 +1,95 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+  <person rdf:about="p0">
+    <name xml:lang="ru">Сергей</name>
+    <age>45</age>
+  </person>
+  <person rdf:about="p1">
+    <name xml:lang="ru">Галина</name>
+    <age>44</age>
+  </person>
+  <person rdf:about="p2">
+    <name xml:lang="ru">Людмила</name>
+    <age>57</age>
+  </person>
+  <person rdf:about="p3">
+    <name xml:lang="ru">Бемоль</name>
+    <age>10</age>
+  </person>
+  <person rdf:about="p4">
+    <name xml:lang="ru">Костя</name>
+    <age>21</age>
+  </person>
+  <photo-doc rdf:about="f0">
+    <name>Сергей</name>
+    <uri>Sergey.jpg</uri>
+  </photo-doc>
+  <photo-doc rdf:about="f1">
+    <name>Людмила</name>
+    <uri>Liudmila.jpg</uri>
+  </photo-doc>
+  <photo-doc rdf:about="f2">
+    <name>Галина</name>
+    <uri>Galina.jpg</uri>
+  </photo-doc>
+  <photo-doc rdf:about="f3">
+    <name>Бемоль</name>
+    <uri>Bemol.jpg</uri>
+  </photo-doc>
+  <photo-doc rdf:about="f4">
+    <name>Сергей и Бемоль</name>
+    <uri>Sergey_Bemol.jpg</uri>
+  </photo-doc>
+  <photo-doc rdf:about="f5">
+    <name>Сергей и Галина</name>
+    <uri>Sergey_Galina.jpg</uri>
+  </photo-doc>
+  <photo-doc rdf:about="f6">
+    <name>Сергей, Галина и Людмила </name>
+    <uri>Sergey_Galina_Liudmila.jpg</uri>
+  </photo-doc>
+  <reflection rdf:about="r0">
+    <reflected rdf:resource="p0" />
+    <indoc rdf:resource="f0" />
+  </reflection>
+  <reflection rdf:about="r1">
+    <reflected rdf:resource="p0" />
+    <indoc rdf:resource="f4" />
+  </reflection>
+  <reflection rdf:about="r2">
+    <reflected rdf:resource="p0" />
+    <indoc rdf:resource="f5" />
+  </reflection>
+  <reflection rdf:about="r3">
+    <reflected rdf:resource="p0" />
+    <indoc rdf:resource="f6" />
+  </reflection>
+  <reflection rdf:about="r4">
+    <reflected rdf:resource="p3" />
+    <indoc rdf:resource="f4" />
+  </reflection>
+  <reflection rdf:about="r5">
+    <reflected rdf:resource="p3" />
+    <indoc rdf:resource="f3" />
+  </reflection>
+  <reflection rdf:about="r6">
+    <reflected rdf:resource="p1" />
+    <indoc rdf:resource="f2" />
+  </reflection>
+  <reflection rdf:about="r7">
+    <reflected rdf:resource="p1" />
+    <indoc rdf:resource="f5" />
+  </reflection>
+  <reflection rdf:about="r8">
+    <reflected rdf:resource="p1" />
+    <indoc rdf:resource="f6" />
+  </reflection>
+  <reflection rdf:about="r9">
+    <reflected rdf:resource="p2" />
+    <indoc rdf:resource="f1" />
+  </reflection>
+  <reflection rdf:about="r10">
+    <reflected rdf:resource="p2" />
+    <indoc rdf:resource="f6" />
+  </reflection>
+</rdf:RDF>

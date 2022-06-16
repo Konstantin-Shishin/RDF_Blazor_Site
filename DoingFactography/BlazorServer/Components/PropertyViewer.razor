@@ -1,0 +1,109 @@
+﻿@using RDFEngine
+
+@if (nonEmptyFields != null)
+{
+    properties = properties.Where(prop => nonEmptyFields.Contains(prop.Prop)).ToArray();
+}
+
+@if (tilesView)
+{
+    var directs = properties.Where(prop => prop is RDirect && ((RDirect)prop).DRec != null);
+
+    var fields = properties.Where(prop => prop is RField && ((RField)prop).Value != null);
+    var image = directs.FirstOrDefault(prop => ((RDirect)prop).DRec.Props.FirstOrDefault(p => p.Prop == "http://fogid.net/o/docmetainfo") != null && ((RDirect)prop).DRec.Props.FirstOrDefault(p => p.Prop == "http://fogid.net/o/uri") != null);
+    if (image != null)
+    {
+        var rr = ((RDirect)image).DRec;
+       <td сlass="d-inline-block">
+             <a href="@("/viewer/" + rr.Id)">
+                <img src="@("docs/GetImage?u=" + ((RField)rr.Props.FirstOrDefault(p => p.Prop == "http://fogid.net/o/uri")).Value +"&s=small")" />
+            </a>
+        </td>
+        foreach(var field in fields)
+        {
+            if (Infobase.ront.IsEnumeration(field.Prop) && ((RField)field).Value != null && ((RField)field).Value != "")
+            {
+                <td class="d-inline-block">@(Infobase.ront.EnumValue(field.Prop, ((RField)field).Value, MainLayout.currentLanguage))</td>
+            }
+            else if (((RField)field).Value != null && ((RField)field).Value != "")
+            {
+                <td class="d-inline-block">@(((RField)field).Value)</td> 
+            }
+        }
+    }
+} 
+else
+{
+    foreach (var c in properties)
+    {
+        if (c.Prop == forbidden) { continue; }
+        if (c is RField)
+        {
+            if (c.Prop == "http://fogid.net/o/uri")
+            {
+                <img src="@("docs/GetImage?u=" + ((RField)c).Value +"&s=medium")" />
+            }
+            else
+            {
+                if (Infobase.ront.IsEnumeration(c.Prop) && ((RField)c).Value != null && ((RField)c).Value != "")
+                {
+                    <td>@(Infobase.ront.EnumValue(c.Prop, ((RField)c).Value, MainLayout.currentLanguage))</td>
+                }
+                else
+                {
+                   <td>@(((RField)c).Value)</td> 
+                }
+            
+            }
+
+        }
+        else if (c is RDirect && ((RDirect)c).DRec != null)
+        {
+            var rr = ((RDirect)c).DRec;
+
+            if (rr.Props.FirstOrDefault(p => p.Prop == "http://fogid.net/o/docmetainfo") != null && rr.Props.FirstOrDefault(p => p.Prop == "http://fogid.net/o/uri") != null)
+            {
+                <td>
+                    <a href="@("/viewer/" + rr.Id)">
+                        <img src="@("docs/GetImage?u=" + ((RField)rr.Props.FirstOrDefault(p => p.Prop == "http://fogid.net/o/uri")).Value +"&s=small")" />
+                    </a>
+                </td>
+            }
+            else
+            {
+                <td><a href="@("/viewer/" + rr.Id)">@(rr.GetName())</a></td>
+            }
+
+        }
+        else
+        {
+        
+           <td>Нет данных</td>
+        
+
+        }
+
+    }
+}
+
+@code {
+    [Parameter]
+    public RProperty[] properties { get; set; }
+
+    [Parameter]
+    public string forbidden { get; set; } = null;
+
+    [Parameter]
+    public EventCallback onBuildPortrait { get; set; }
+
+    [Parameter]
+    public List<string> nonEmptyFields { get; set; } = null;
+
+    [Parameter]
+    public bool tilesView  { get; set; } = false;
+
+    protected async Task BuildPortrait(string id)
+    {
+        await onBuildPortrait.InvokeAsync(id);
+    }
+}

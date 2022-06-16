@@ -1,0 +1,71 @@
+﻿
+@model UserConfigurationModel
+@{
+    string user = (new Turgunda7.Models.UserModel(Context.Request)).Uuser;
+    string cassette_name = null;
+}
+
+<h3>Где будем редактировать?</h3>
+<form action="" method="Get">
+    <table>
+        <tr><th>кассета</th><th>ред</th><th>user</th><th>актив</th></tr>
+        @foreach (var t in Model.Confs)
+        {
+            if (t.Cass != null) { cassette_name = t.Cass.Name; }
+        <tr>
+            <td>@cassette_name</td>
+            <td>
+                @if (t.Cass != null)
+                {
+                    string isowner = t.Owner == user ? "font-weight:900;color:red;" : "";
+                    @if (t.Editable)
+                    {
+                        if (t.Owner == user)
+                        {
+                            <input type="checkbox" name="checkbox_@cassette_name" checked />
+                        }
+                        else
+                        {
+                            <input type="checkbox" name="checkbox_@cassette_name" checked disabled />
+                        }
+
+                        }
+                        else
+                        {
+                        if (t.Owner == user)
+                        {
+                             <input type="checkbox" name="checkbox_@cassette_name" />
+                        }
+                        else
+                        {
+                             <input type="checkbox" name="checkbox_@cassette_name" disabled />
+                        }
+                     }
+                 }
+            </td>
+            <td>
+                @{
+                    string s = t.Owner==user ? "font-weight:900;color:red;" : "";
+                <span style="@s">@t.Owner</span>
+                }
+            </td>
+            <td>
+                @if (t.Owner == user && t.Editable)
+                {
+                    if (t.Active == cassette_name)
+                    {
+                        <input type="radio" name="radio" checked value="@cassette_name" />
+                    }
+                    else
+                    {
+                        <input type="radio" name="radio" value="@cassette_name" />
+                    }
+                }
+
+            </td>
+        </tr>
+        }
+    </table>
+    <input type="submit" value="изменить" />
+</form> 
+

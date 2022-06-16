@@ -1,0 +1,91 @@
+﻿@using RDFEngine
+@model RDFEngine.RRecord
+@{
+    ViewData["Title"] = "Portrait";
+}
+
+@{
+    if (Model == null) return;
+    Func<string, string> gt = Infobase.GetTerm;
+    Func<string, string> git = Infobase.GetInvTerm;
+}
+
+<h1>Portrait</h1>
+
+<div>Id @Model.Id</div>
+<div>Tp @gt(Model.Tp)</div>
+
+@if (Model.Tp == "photo")
+{
+    var rurl = ((RField)Model.Props.Where(a => a.Prop == "url").FirstOrDefault());
+    string url = "/img/" + rurl.Value;
+    <img src="@url" width="350" />
+    @foreach (RProperty property in Model.Props)
+    {
+        if (property is RField)
+        {
+            RField field = (RField)property;
+            <div>@gt(property.Prop) @field.Value</div>
+        }
+
+        if (property is RLink)
+        {
+            RLink link = (RLink)property;
+            string resourse = link.Resource;
+            RRecord rr = Infobase.engine.GetRRecord(resourse); // ищу r-итые
+            var value = ((RLink)(rr.Props[0])); // reflected
+
+            RRecord rrnext = Infobase.engine.GetRRecord(value.Resource); // ищу персону
+            RField field_name = (RField)(rrnext.Props[0]);
+            RField field_age = (RField)(rrnext.Props[1]);
+            string name = field_name.Value;
+            string age = field_age.Value;
+            <div><a href="@value.Resource">Отраженная персона @value.Resource (@name, @age) </a></div>
+        }
+        if (property is RInverseLink)
+        {
+            RInverseLink link = (RInverseLink)property;
+            string sourse = link.Source;
+            RRecord rr = Infobase.engine.GetRRecord(sourse);
+
+            var value = ((RLink)(rr.Props[0])); // reflected
+            RRecord rrnext = Infobase.engine.GetRRecord(value.Resource); // ищу персону
+            RField field_name = (RField)(rrnext.Props[0]);
+            RField field_age = (RField)(rrnext.Props[1]);
+            string name = field_name.Value;
+            string age = field_age.Value;
+            <div><a href="@value.Resource">Отраженная персона @value.Resource (@name, @age) </a></div>
+        }
+    }
+}
+
+else // persona
+{
+    @foreach (RProperty property in Model.Props)
+    {
+        if (property is RField)
+        {
+            RField field = (RField)property;
+            <div>@gt(property.Prop) @field.Value</div>
+        }
+
+        if (property is RLink)
+        {
+            RLink link = (RLink)property;
+            string resourse = link.Resource;
+            RRecord rr = Infobase.engine.GetRRecord(resourse);
+
+            var value = ((RLink)(rr.Props[1])); //indoc
+            <div><a href="@value.Resource">Отражен в @value.Resource </a></div>
+        }
+        if (property is RInverseLink)
+        {
+            RInverseLink link = (RInverseLink)property;
+            string sourse = link.Source;
+            RRecord rr = Infobase.engine.GetRRecord(sourse);
+
+            var value = ((RLink)(rr.Props[1])); // indoc
+            <div><a href="@value.Resource">Отражен в @value.Resource </a></div>
+        }
+    }
+}

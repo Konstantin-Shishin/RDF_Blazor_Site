@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<config>
+  <!--<database connectionstring="xml:"/>-->
+  <!--Parameters extappbinpath="C:/Home/bin/" newcassettesdirpath="C:/Home/FactographProjects/newcassettes/">
+  </Parameters-->
+  <params appname="Открытый архив СО РАН (редактирующее приложение)"></params>
+  <finfo>
+    <image>
+      <small previewBase="120" qualityLevel="90" />
+      <medium previewBase="640" qualityLevel="90" />
+      <normal previewBase="1280" qualityLevel="90" />
+    </image>
+    <video>
+      <medium videoBitrate="400K" audioBitrate="22050" rate="10" framesize="480x360" />
+    </video>
+  </finfo>
+</config>

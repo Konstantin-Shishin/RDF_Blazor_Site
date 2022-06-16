@@ -1,0 +1,1154 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<application>
+  <formats>
+    <record type="http://fogid.net/o/person" fid="person">
+      <label xml:lang="ru">Персона</label>
+      <field prop="http://fogid.net/o/name" />
+      <field prop="http://fogid.net/o/from-date">
+        <label>даты</label>
+      </field>
+      <field prop="http://fogid.net/o/to-date">
+        <label>жизни</label>
+      </field>
+      <field prop="http://fogid.net/o/sex" type="http://fogid.net/o/person-sex"></field>
+      <!--
+      <direct prop="http://fogid.net/o/father">
+				<record type="http://fogid.net/o/person">
+					<field prop="http://fogid.net/o/name"/>
+				</record>
+			</direct>
+			<inverse prop="http://fogid.net/o/father">
+				<record type="http://fogid.net/o/person">
+					<field prop="http://fogid.net/o/name"/>
+				</record>
+			</inverse>
+			<inverse prop="http://fogid.net/o/husband">
+				<record type="http://fogid.net/o/family" fid="person/-husband/family">
+					<direct prop="http://fogid.net/o/wife">
+						<record type="http://fogid.net/o/person">
+							<field prop="http://fogid.net/o/name"/>
+						</record>
+					</direct>
+					<field prop="http://fogid.net/o/from-date"/>
+					<field prop="http://fogid.net/o/to-date"/>
+				</record>
+			</inverse>
+			<inverse prop="http://fogid.net/o/wife">
+				<record type="http://fogid.net/o/family" fid="person/-wife/family">
+					<direct prop="http://fogid.net/o/husband">
+						<record type="http://fogid.net/o/person">
+							<field prop="http://fogid.net/o/name"/>
+						</record>
+					</direct>
+					<field prop="http://fogid.net/o/from-date"/>
+					<field prop="http://fogid.net/o/to-date"/>
+				</record>
+			</inverse>
+      -->
+      <field prop="http://fogid.net/o/description" />
+      <field prop="http://fogid.net/o/comment" />
+      <inverse prop="http://fogid.net/o/referred-sys">
+        <record type="http://fogid.net/o/naming" fid="naming">
+          <field prop="http://fogid.net/o/alias">
+            <label>другое имя</label>
+          </field>
+          <field prop="http://fogid.net/o/from-date" />
+          <field prop="http://fogid.net/o/to-date" />
+        </record>
+      </inverse>
+      <!--<inverse prop="http://fogid.net/o/learner"><record type="http://fogid.net/o/pupil" fid="person\learner/pupil"><label>школьник</label><direct prop="http://fogid.net/o/learning-org"><record type="http://fogid.net/o/org-sys"><field prop="http://fogid.net/o/name" /></record></direct><field prop="http://fogid.net/o/from-date" /><field prop="http://fogid.net/o/to-date" /></record><record type="http://fogid.net/o/student" fid="person\learner/student"><label>студент</label><direct prop="http://fogid.net/o/learning-org"><record type="http://fogid.net/o/org-sys"><field prop="http://fogid.net/o/name" /></record></direct><field prop="http://fogid.net/o/from-date" /><field prop="http://fogid.net/o/to-date" /></record></inverse>-->
+      <inverse prop="http://fogid.net/o/has-title">
+        <record type="http://fogid.net/o/titled" fid="titled">
+          <field prop="http://fogid.net/o/degree">
+            <label>cтепень/титул</label>
+          </field>
+          <field prop="http://fogid.net/o/from-date" />
+        </record>
+      </inverse>
+      <inverse prop="http://fogid.net/o/participant">
+        <record type="http://fogid.net/o/participation" fid="participant/participation">
+          <label>Орг. система</label>
+          <direct prop="http://fogid.net/o/in-org">
+            <record type="http://fogid.net/o/org-sys">
+              <!--<field prop="http://fogid.net/o/org-classification" type="http://fogid.net/o/org-classificator" />-->
+              <field prop="http://fogid.net/o/name" />
+            </record>
+          </direct>
+          <field prop="http://fogid.net/o/role" />
+          <field prop="http://fogid.net/o/role-classification" type="http://fogid.net/o/role-classificator" />
+          <field prop="http://fogid.net/o/from-date" />
+          <field prop="http://fogid.net/o/to-date" />
+        </record>
+      </inverse>
+      <inverse prop="http://fogid.net/o/something">
+        <label>геоинформация</label>
+        <record type="http://fogid.net/o/location">
+          <label>Место</label>
+          <direct prop="http://fogid.net/o/location-place">
+            <record type="http://fogid.net/o/city">
+              <field prop="http://fogid.net/o/name" />
+            </record>
+            <record type="http://fogid.net/o/country">
+              <field prop="http://fogid.net/o/name" />
+            </record>
+            <record type="http://fogid.net/o/region">
+              <field prop="http://fogid.net/o/name" />
+            </record>
+          </direct>
+          <field prop="http://fogid.net/o/from-date"></field>
+          <field prop="http://fogid.net/o/to-date"></field>
+          <field prop="http://fogid.net/o/location-category"></field>
+        </record>
+      </inverse>
+      <inverse prop="http://fogid.net/o/reflected">
+        <record type="http://fogid.net/o/reflection" view="largeicons" fid="reflected/reflection">
+          <direct prop="http://fogid.net/o/in-doc">
+            <record type="http://fogid.net/o/photo-doc">
+              <field prop="http://fogid.net/o/name" />
+              <field prop="http://fogid.net/o/from-date" />
+              <field prop="http://fogid.net/o/uri" />
+              <inverse prop="http://fogid.net/o/forDocument" attname="uri">
+                <record type="http://fogid.net/o/FileStore">
+                  <field prop="http://fogid.net/o/uri" />
+                </record>
+              </inverse>
+            </record>
+            <record type="http://fogid.net/o/document">
+              <field prop="http://fogid.net/o/name" />
+              <field prop="http://fogid.net/o/from-date" />
+            </record>
+            <!--<record type="http://fogid.net/o/video-doc"><field prop="http://fogid.net/o/name" /><field prop="http://fogid.net/o/from-date" /></record>-->
+            <!--<record type="http://fogid.net/o/audio-doc"><field prop="http://fogid.net/o/name" /><field prop="http://fogid.net/o/from-date" /></record>-->
+          </direct>
+        </record>
+      </inverse>
+      <!--Является автором документов-->
+      <!--<inverse prop="http://fogid.net/o/reflected"><label>Автор документов</label><record type="http://fogid.net/o/reflection" fid="reflected/reflection"><direct prop="http://fogid.net/o/in-doc"><record type="http://fogid.net/o/photo-doc"><field prop="http://fogid.net/o/name" /><field prop="http://fogid.net/o/from-date" /><inverse prop="http://fogid.net/o/forDocument" attname="uri"><record type="http://fogid.net/o/FileStore"><field prop="http://fogid.net/o/uri" /></record></inverse></record><record type="http://fogid.net/o/document"><field prop="http://fogid.net/o/name" /><field prop="http://fogid.net/o/from-date" /></record>/*<record type="http://fogid.net/o/video-doc"><field prop="http://fogid.net/o/name" /><field prop="http://fogid.net/o/from-date" /></record>*//*<record type="http://fogid.net/o/audio-doc"><field prop="http://fogid.net/o/name" /><field prop="http://fogid.net/o/from-date" /></record>*/</direct></record></inverse>-->
+      <inverse prop="http://fogid.net/o/author">
+        <label>автор/адресат для</label>
+        <record type="http://fogid.net/o/authority" view="largeicons">
+          <direct prop="http://fogid.net/o/adoc">
+            <!--<record type="http://fogid.net/o/photo-doc"><field prop="http://fogid.net/o/name" /><field prop="http://fogid.net/o/from-date" /><inverse prop="http://fogid.net/o/forDocument" attname="uri"><record type="http://fogid.net/o/FileStore"><field prop="http://fogid.net/o/uri" /></record></inverse></record>-->
+            <record type="http://fogid.net/o/document">
+              <field prop="http://fogid.net/o/name" />
+              <field prop="http://fogid.net/o/from-date" />
+            </record>
+          </direct>
+        </record>
+      </inverse>
+      <inverse prop="http://fogid.net/o/info-source">
+        <label>источник поступл. для</label>
+        <record type="http://fogid.net/o/archive-member" view="largeicons">
+          <direct prop="http://fogid.net/o/archive-item">
+            <!--<record type="http://fogid.net/o/photo-doc"><field prop="http://fogid.net/o/name" /><field prop="http://fogid.net/o/from-date" /><inverse prop="http://fogid.net/o/forDocument" attname="uri"><record type="http://fogid.net/o/FileStore"><field prop="http://fogid.net/o/uri" /></record></inverse></record>-->
+            <record type="http://fogid.net/o/document">
+              <field prop="http://fogid.net/o/name" />
+              <field prop="http://fogid.net/o/from-date" />
+            </record>
+          </direct>
+        </record>
+      </inverse>
+    </record>
+    <record type="http://fogid.net/o/org-sys" fid="org-sys">
+      <field prop="http://fogid.net/o/name" />
+      <field prop="http://fogid.net/o/from-date"></field>
+      <field prop="http://fogid.net/o/to-date"></field>
+      <field prop="http://fogid.net/o/org-classification" type="http://fogid.net/o/org-classificator" />
+      <field prop="http://fogid.net/o/description" />
+      <!--<inverse prop="http://fogid.net/o/referred-sys"><record type="http://fogid.net/o/naming" fid="naming"><field prop="http://fogid.net/o/alias"><label>другое имя</label></field><field prop="http://fogid.net/o/from-date" /><field prop="http://fogid.net/o/to-date" /></record></inverse>-->
+      <inverse prop="http://fogid.net/o/in-org">
+        <record type="http://fogid.net/o/participation" fid="in-org/participation">
+          <label>Персона</label>
+          <direct prop="http://fogid.net/o/participant">
+            <label>работник/участник</label>
+            <record type="http://fogid.net/o/person">
+              <field prop="http://fogid.net/o/name" />
+            </record>
+          </direct>
+          <field prop="http://fogid.net/o/role" />
+          <field prop="http://fogid.net/o/role-classification" type="http://fogid.net/o/role-classificator" />
+          <field prop="http://fogid.net/o/from-date" />
+          <field prop="http://fogid.net/o/to-date" />
+        </record>
+      </inverse>
+      <inverse prop="http://fogid.net/o/something">
+        <label>геоинформация</label>
+        <record type="http://fogid.net/o/location">
+          <label>Место</label>
+          <direct prop="http://fogid.net/o/location-place">
+            <record type="http://fogid.net/o/city">
+              <field prop="http://fogid.net/o/name" />
+            </record>
+            <record type="http://fogid.net/o/country">
+              <field prop="http://fogid.net/o/name" />
+            </record>
+            <record type="http://fogid.net/o/region">
+              <field prop="http://fogid.net/o/name" />
+            </record>
+          </direct>
+          <field prop="http://fogid.net/o/from-date"></field>
+          <field prop="http://fogid.net/o/to-date"></field>
+          <field prop="http://fogid.net/o/location-category"></field>
+        </record>
+      </inverse>
+      <!--<inverse prop="http://fogid.net/o/something"><record type="http://fogid.net/o/location"><direct prop="http://fogid.net/o/location-place"><record type="http://fogid.net/o/city"><field prop="http://fogid.net/o/name" /></record><record type="http://fogid.net/o/country"><field prop="http://fogid.net/o/name" /></record></direct><field prop="http://fogid.net/o/location-category" /></record></inverse>-->
+      <inverse prop="http://fogid.net/o/reflected">
+        <record type="http://fogid.net/o/reflection" view="largeicons" fid="reflected/reflection">
+          <field prop="http://fogid.net/o/ground" type="http://fogid.net/o/personage-ground" />
+          <direct prop="http://fogid.net/o/in-doc">
+            <record type="http://fogid.net/o/photo-doc">
+              <field prop="http://fogid.net/o/name" />
+              <field prop="http://fogid.net/o/from-date" />
+              <field prop="http://fogid.net/o/uri" />
+              <inverse prop="http://fogid.net/o/forDocument" attname="uri">
+                <record type="http://fogid.net/o/FileStore">
+                  <field prop="http://fogid.net/o/uri" />
+                </record>
+              </inverse>
+            </record>
+            <record type="http://fogid.net/o/document">
+              <field prop="http://fogid.net/o/name" />
+              <field prop="http://fogid.net/o/from-date" />
+            </record>
+          </direct>
+        </record>
+      </inverse>
+      <!--<inverse prop="http://fogid.net/o/learning-org"><record type="http://fogid.net/o/pupil"><field prop="http://fogid.net/o/from-date" /><field prop="http://fogid.net/o/to-date" /><direct prop="http://fogid.net/o/learner"><record type="http://fogid.net/o/person"><field prop="http://fogid.net/o/name" /></record></direct></record><record type="http://fogid.net/o/student"><field prop="http://fogid.net/o/from-date" /><field prop="http://fogid.net/o/to-date" /><direct prop="http://fogid.net/o/learner"><record type="http://fogid.net/o/person"><field prop="http://fogid.net/o/name" /></record></direct></record></inverse>-->
+      <inverse prop="http://fogid.net/o/author">
+        <label>автор/адресат для</label>
+        <record type="http://fogid.net/o/authority" view="largeicons">
+          <direct prop="http://fogid.net/o/adoc">
+            <!--<record type="http://fogid.net/o/photo-doc"><field prop="http://fogid.net/o/name" /><field prop="http://fogid.net/o/from-date" /><inverse prop="http://fogid.net/o/forDocument" attname="uri"><record type="http://fogid.net/o/FileStore"><field prop="http://fogid.net/o/uri" /></record></inverse></record>-->
+            <record type="http://fogid.net/o/document">
+              <field prop="http://fogid.net/o/name" />
+              <field prop="http://fogid.net/o/from-date" />
+            </record>
+          </direct>
+        </record>
+      </inverse>
+      <inverse prop="http://fogid.net/o/info-source">
+        <label>источник поступл. для</label>
+        <record type="http://fogid.net/o/archive-member" view="largeicons">
+          <direct prop="http://fogid.net/o/archive-item">
+            <!--<record type="http://fogid.net/o/photo-doc"><field prop="http://fogid.net/o/name" /><field prop="http://fogid.net/o/from-date" /><inverse prop="http://fogid.net/o/forDocument" attname="uri"><record type="http://fogid.net/o/FileStore"><field prop="http://fogid.net/o/uri" /></record></inverse></record>-->
+            <record type="http://fogid.net/o/document">
+              <field prop="http://fogid.net/o/name" />
+              <field prop="http://fogid.net/o/from-date" />
+            </record>
+          </direct>
+        </record>
+      </inverse>
+      <!--<inverse prop="http://fogid.net/o/org-parent"><record type="http://fogid.net/o/org-relatives"><label>Орг. система</label><direct prop="http://fogid.net/o/org-child"><record type="http://fogid.net/o/org-sys"><field prop="http://fogid.net/o/name" /></record></direct></record></inverse>-->
+      <!--<inverse prop="http://fogid.net/o/org-child"><record type="http://fogid.net/o/org-relatives"><label>Орг. система</label><direct prop="http://fogid.net/o/org-parent"><record type="http://fogid.net/o/org-sys"><field prop="http://fogid.net/o/name" /></record></direct></record></inverse>-->
+    </record>
+    <record type="http://fogid.net/o/photo-doc">
+      <field prop="http://fogid.net/o/name" />
+      <!--<field prop="http://fogid.net/o/description" />-->
+      <!--<field prop="http://fogid.net/o/from-date" />-->
+      <field prop="http://fogid.net/o/uri" />
+      <inverse prop="http://fogid.net/o/forDocument" attname="uri" invisible="true">
+        <record type="http://fogid.net/o/FileStore">
+          <field prop="http://fogid.net/o/uri" />
+        </record>
+      </inverse>
+      <inverse prop="http://fogid.net/o/partItem">
+        <label>страница</label>
+        <record type="http://fogid.net/o/DocumentPart">
+          <label>Документ</label>
+          <direct prop="http://fogid.net/o/inDocument">
+            <record type="http://fogid.net/o/document">
+              <field prop="http://fogid.net/o/name"></field>
+            </record>
+            <label>в документе</label>
+          </direct>
+          <field prop="http://fogid.net/o/pageNumbers">
+            <label>номер страницы</label>
+          </field>
+        </record>
+      </inverse>
+      <!--<inverse prop="http://fogid.net/o/in-doc"><record type="http://fogid.net/o/reflection"><direct prop="http://fogid.net/o/reflected"><record type="http://fogid.net/o/person"><field prop="http://fogid.net/o/name" /></record><record type="http://fogid.net/o/org-sys"><field prop="http://fogid.net/o/name" /></record><record type="http://fogid.net/o/city"><field prop="http://fogid.net/o/name" /></record></direct><field prop="http://fogid.net/o/ground" type="http://fogid.net/o/personage-ground" /></record></inverse>-->
+      <inverse prop="http://fogid.net/o/collection-item">
+        <label>cодержится в</label>
+        <record type="http://fogid.net/o/collection-member">
+          <label>Папка</label>
+          <direct prop="http://fogid.net/o/in-collection">
+            <label>в папке</label>
+            <record type="http://fogid.net/o/collection">
+              <field prop="http://fogid.net/o/name" />
+            </record>
+            <!--<record type="http://fogid.net/o/cassette"><field prop="http://fogid.net/o/name" /></record>-->
+          </direct>
+          <field prop="http://fogid.net/o/pageNumbers" />
+        </record>
+      </inverse>
+      <!--<inverse prop="http://fogid.net/o/archive-item"><label>хранится в</label><record type="http://fogid.net/o/archive-member"><direct prop="http://fogid.net/o/in-archive"><record type="http://fogid.net/o/archive"><field prop="http://fogid.net/o/name" /></record></direct><direct prop="http://fogid.net/o/info-source"><record type="http://fogid.net/o/person"><field prop="http://fogid.net/o/name" /></record><record type="http://fogid.net/o/archive"><field prop="http://fogid.net/o/name" /></record></direct></record></inverse>-->
+      <!--<inverse prop="http://fogid.net/o/adoc"><record type="http://fogid.net/o/authority"><direct prop="http://fogid.net/o/author"><record type="http://fogid.net/o/person"><field prop="http://fogid.net/o/name" /></record></direct></record></inverse>-->
+    </record>
+    <record type="http://fogid.net/o/video-doc">
+      <field prop="http://fogid.net/o/name" />
+      <field prop="http://fogid.net/o/description" />
+      <field prop="http://fogid.net/o/from-date" />
+      <inverse prop="http://fogid.net/o/forDocument" attname="uri" invisible="true">
+        <record type="http://fogid.net/o/FileStore">
+          <field prop="http://fogid.net/o/uri" />
+          <field prop="http://fogid.net/o/docmetainfo" />
+        </record>
+      </inverse>
+      <inverse prop="http://fogid.net/o/partItem">
+        <record type="http://fogid.net/o/DocumentPart">
+          <field prop="http://fogid.net/o/pageNumbers" />
+          <direct prop="http://fogid.net/o/inDocument">
+            <record type="http://fogid.net/o/document">
+              <field prop="http://fogid.net/o/name" />
+            </record>
+          </direct>
+        </record>
+      </inverse>
+      <inverse prop="http://fogid.net/o/in-doc">
+        <record type="http://fogid.net/o/reflection">
+          <direct prop="http://fogid.net/o/reflected">
+            <record type="http://fogid.net/o/person">
+              <field prop="http://fogid.net/o/name" />
+            </record>
+          </direct>
+        </record>
+      </inverse>
+      <inverse prop="http://fogid.net/o/archive-item">
+        <record type="http://fogid.net/o/archive-member">
+          <direct prop="http://fogid.net/o/in-archive">
+            <record type="http://fogid.net/o/archive">
+              <field prop="http://fogid.net/o/name" />
+            </record>
+          </direct>
+          <direct prop="http://fogid.net/o/info-source">
+            <record type="http://fogid.net/o/person">
+              <field prop="http://fogid.net/o/name" />
+            </record>
+            <record type="http://fogid.net/o/archive">
+              <field prop="http://fogid.net/o/name" />
+            </record>
+          </direct>
+        </record>
+      </inverse>
+      <inverse prop="http://fogid.net/o/adoc">
+        <record type="http://fogid.net/o/authority">
+          <direct prop="http://fogid.net/o/author">
+            <record type="http://fogid.net/o/person">
+              <field prop="http://fogid.net/o/name" />
+            </record>
+          </direct>
+        </record>
+      </inverse>
+      <inverse prop="http://fogid.net/o/collection-item">
+        <record type="http://fogid.net/o/collection-member">
+          <direct prop="http://fogid.net/o/in-collection">
+            <record type="http://fogid.net/o/collection">
+              <field prop="http://fogid.net/o/name" />
+            </record>
+            <record type="http://fogid.net/o/cassette">
+              <field prop="http://fogid.net/o/name" />
+            </record>
+          </direct>
+          <field prop="http://fogid.net/o/pageNumbers" />
+        </record>
+      </inverse>
+    </record>
+    <record type="http://fogid.net/o/audio-doc">
+      <field prop="http://fogid.net/o/name" />
+      <field prop="http://fogid.net/o/description" />
+      <field prop="http://fogid.net/o/from-date" />
+      <inverse prop="http://fogid.net/o/forDocument" attname="uri" invisible="true">
+        <record type="http://fogid.net/o/FileStore">
+          <field prop="http://fogid.net/o/uri" />
+        </record>
+      </inverse>
+      <inverse prop="http://fogid.net/o/partItem">
+        <record type="http://fogid.net/o/DocumentPart">
+          <field prop="http://fogid.net/o/pageNumbers" />
+          <direct prop="http://fogid.net/o/inDocument">
+            <record type="http://fogid.net/o/document">
+              <field prop="http://fogid.net/o/name" />
+            </record>
+          </direct>
+        </record>
+      </inverse>
+      <inverse prop="http://fogid.net/o/in-doc">
+        <record type="http://fogid.net/o/reflection">
+          <direct prop="http://fogid.net/o/reflected">
+            <record type="http://fogid.net/o/person">
+              <field prop="http://fogid.net/o/name" />
+            </record>
+          </direct>
+        </record>
+      </inverse>
+      <inverse prop="http://fogid.net/o/archive-item">
+        <record type="http://fogid.net/o/archive-member">
+          <direct prop="http://fogid.net/o/in-archive">
+            <record type="http://fogid.net/o/archive">
+              <field prop="http://fogid.net/o/name" />
+            </record>
+          </direct>
+          <direct prop="http://fogid.net/o/info-source">
+            <record type="http://fogid.net/o/person">
+              <field prop="http://fogid.net/o/name" />
+            </record>
+            <record type="http://fogid.net/o/archive">
+              <field prop="http://fogid.net/o/name" />
+            </record>
+          </direct>
+        </record>
+      </inverse>
+      <inverse prop="http://fogid.net/o/adoc">
+        <record type="http://fogid.net/o/authority">
+          <direct prop="http://fogid.net/o/author">
+            <record type="http://fogid.net/o/person">
+              <field prop="http://fogid.net/o/name" />
+            </record>
+          </direct>
+        </record>
+      </inverse>
+      <inverse prop="http://fogid.net/o/collection-item">
+        <record type="http://fogid.net/o/collection-member">
+          <direct prop="http://fogid.net/o/in-collection">
+            <record type="http://fogid.net/o/collection">
+              <field prop="http://fogid.net/o/name" />
+            </record>
+            <record type="http://fogid.net/o/cassette">
+              <field prop="http://fogid.net/o/name" />
+            </record>
+          </direct>
+          <field prop="http://fogid.net/o/pageNumbers" />
+        </record>
+      </inverse>
+    </record>
+    <record type="http://fogid.net/o/document">
+      <field prop="http://fogid.net/o/name" />
+      <field prop="http://fogid.net/o/from-date"></field>
+      <field prop="http://fogid.net/o/to-date"></field>
+      <field prop="http://fogid.net/o/description"></field>
+      <field prop="http://fogid.net/o/doc-content">
+        <label>текст документа</label>
+      </field>
+      <field prop="http://fogid.net/o/comment" />
+      <!--<field prop="http://fogid.net/o/doc-content"><label>источник поступл.</label></field>-->
+      <!--<inverse prop="http://fogid.net/o/forDocument" attname="uri" invisible="true"><record type="http://fogid.net/o/FileStore"><field prop="http://fogid.net/o/uri" /><field prop="http://fogid.net/o/contentType" />/*field prop="http://fogid.net/o/docmetainfo"/*/</record></inverse>-->
+      <!--<inverse prop="http://fogid.net/o/partItem"><record type="http://fogid.net/o/DocumentPart"><direct prop="http://fogid.net/o/inDocument"><record type="http://fogid.net/o/document"><field prop="http://fogid.net/o/name" /></record></direct><field prop="http://fogid.net/o/pageNumbers" /></record></inverse>-->
+      <inverse prop="http://fogid.net/o/inDocument">
+        <label>cтраницы</label>
+        <record type="http://fogid.net/o/DocumentPart" view="largeicons">
+          <field prop="http://fogid.net/o/pageNumbers" />
+          <direct prop="http://fogid.net/o/partItem">
+            <record type="http://fogid.net/o/photo-doc">
+              <field prop="http://fogid.net/o/name" />
+              <field prop="http://fogid.net/o/uri" />
+              <inverse prop="http://fogid.net/o/forDocument" attname="uri">
+                <record type="http://fogid.net/o/FileStore">
+                  <field prop="http://fogid.net/o/uri" />
+                </record>
+              </inverse>
+            </record>
+            <record type="http://fogid.net/o/document">
+              <field prop="http://fogid.net/o/name" />
+              <inverse prop="http://fogid.net/o/forDocument" attname="uri">
+                <record type="http://fogid.net/o/FileStore">
+                  <field prop="http://fogid.net/o/uri" />
+                </record>
+              </inverse>
+            </record>
+          </direct>
+        </record>
+      </inverse>
+      <inverse prop="http://fogid.net/o/in-doc">
+        <record type="http://fogid.net/o/reflection">
+          <label>Персонаж</label>
+          <direct prop="http://fogid.net/o/reflected">
+            <record type="http://fogid.net/o/person">
+              <field prop="http://fogid.net/o/name" />
+            </record>
+            <record type="http://fogid.net/o/org-sys">
+              <field prop="http://fogid.net/o/name" />
+            </record>
+            <record type="http://fogid.net/o/city">
+              <field prop="http://fogid.net/o/name"></field>
+            </record>
+            <record type="http://fogid.net/o/country">
+              <field prop="http://fogid.net/o/name" />
+            </record>
+            <record type="http://fogid.net/o/region">
+              <field prop="http://fogid.net/o/name" />
+            </record>
+            <record type="http://fogid.net/o/location">
+              <direct prop="http://fogid.net/o/location-place">
+                <record type="http://fogid.net/o/city">
+                  <field prop="http://fogid.net/o/name" />
+                </record>
+                <record type="http://fogid.net/o/country">
+                  <field prop="http://fogid.net/o/name" />
+                </record>
+                <record type="http://fogid.net/o/region">
+                  <field prop="http://fogid.net/o/name" />
+                </record>
+              </direct>
+              <field prop="http://fogid.net/o/location-category" />
+            </record>
+          </direct>
+          <field prop="http://fogid.net/o/ground" type="http://fogid.net/o/personage-ground"></field>
+        </record>
+      </inverse>
+      <inverse prop="http://fogid.net/o/adoc">
+        <label>авторы/адресаты</label>
+        <record type="http://fogid.net/o/authority">
+          <label>Автор/Адресат</label>
+          <direct prop="http://fogid.net/o/author">
+            <label>субъект</label>
+            <record type="http://fogid.net/o/person">
+              <field prop="http://fogid.net/o/name" />
+            </record>
+            <record type="http://fogid.net/o/org-sys">
+              <field prop="http://fogid.net/o/name" />
+            </record>
+          </direct>
+          <field prop="http://fogid.net/o/authority-specificator" type="http://fogid.net/o/authority-variants">
+            <label>спецификатор</label>
+          </field>
+        </record>
+      </inverse>
+      <inverse prop="http://fogid.net/o/something">
+        <label>геоинформация</label>
+        <record type="http://fogid.net/o/location">
+          <label>Место</label>
+          <direct prop="http://fogid.net/o/location-place">
+            <record type="http://fogid.net/o/city">
+              <field prop="http://fogid.net/o/name" />
+            </record>
+            <record type="http://fogid.net/o/country">
+              <field prop="http://fogid.net/o/name" />
+            </record>
+            <record type="http://fogid.net/o/region">
+              <field prop="http://fogid.net/o/name" />
+            </record>
+          </direct>
+          <field prop="http://fogid.net/o/from-date"></field>
+          <field prop="http://fogid.net/o/to-date"></field>
+          <field prop="http://fogid.net/o/location-category"></field>
+        </record>
+      </inverse>
+      <inverse prop="http://fogid.net/o/archive-item">
+        <label>источник поступл.</label>
+        <record type="http://fogid.net/o/archive-member">
+          <label>Орг. сист./Персона</label>
+          <!--<direct prop="http://fogid.net/o/in-archive"><record type="http://fogid.net/o/archive"><field prop="http://fogid.net/o/name" /></record></direct>-->
+          <direct prop="http://fogid.net/o/info-source">
+            <label>источник</label>
+            <record type="http://fogid.net/o/person">
+              <field prop="http://fogid.net/o/name" />
+            </record>
+            <record type="http://fogid.net/o/org-sys">
+              <field prop="http://fogid.net/o/name" />
+            </record>
+            <!--<record type="http://fogid.net/o/archive"><field prop="http://fogid.net/o/name" /></record>-->
+          </direct>
+          <field prop="http://fogid.net/o/description">
+            <label>реквизиты</label>
+          </field>
+        </record>
+      </inverse>
+      <inverse prop="http://fogid.net/o/collection-item">
+        <record type="http://fogid.net/o/collection-member">
+          <label>Коллекция</label>
+          <direct prop="http://fogid.net/o/in-collection">
+            <record type="http://fogid.net/o/collection">
+              <field prop="http://fogid.net/o/name" />
+            </record>
+            <record type="http://fogid.net/o/cassette">
+              <field prop="http://fogid.net/o/name" />
+            </record>
+          </direct>
+          <field prop="http://fogid.net/o/pageNumbers">
+            <label>номер</label>
+          </field>
+        </record>
+      </inverse>
+    </record>
+    <record type="http://fogid.net/o/collection">
+      <field prop="http://fogid.net/o/name" />
+      <field prop="http://fogid.net/o/description"></field>
+      <field prop="http://fogid.net/o/comment" />
+      <inverse prop="http://fogid.net/o/in-collection">
+        <record type="http://fogid.net/o/collection-member" view="largeicons">
+          <field prop="http://fogid.net/o/pageNumbers">
+            <label>номер</label>
+          </field>
+          <direct prop="http://fogid.net/o/collection-item">
+            <record type="http://fogid.net/o/collection">
+              <field prop="http://fogid.net/o/name" />
+              <field prop="http://fogid.net/o/from-date" />
+            </record>
+            <record type="http://fogid.net/o/archive">
+              <field prop="http://fogid.net/o/name" />
+              <field prop="http://fogid.net/o/from-date" />
+              <!--<add from Alex />-->
+            </record>
+            <record type="http://fogid.net/o/cassette">
+              <field prop="http://fogid.net/o/name" />
+              <field prop="http://fogid.net/o/description" />
+            </record>
+            <record type="http://fogid.net/o/document">
+              <field prop="http://fogid.net/o/name" />
+              <!--<field prop="http://fogid.net/o/description" />-->
+              <!--<field prop="http://fogid.net/o/doc-content" />-->
+              <field prop="http://fogid.net/o/from-date" />
+            </record>
+            <record type="http://fogid.net/o/photo-doc">
+              <field prop="http://fogid.net/o/name" />
+              <!--<field prop="http://fogid.net/o/from-date" />-->
+              <field prop="http://fogid.net/o/uri" />
+              <inverse prop="http://fogid.net/o/forDocument" attname="uri">
+                <record type="http://fogid.net/o/FileStore">
+                  <field prop="http://fogid.net/o/uri" />
+                </record>
+              </inverse>
+            </record>
+            <record type="http://fogid.net/o/video-doc">
+              <field prop="http://fogid.net/o/name" />
+              <field prop="http://fogid.net/o/from-date" />
+            </record>
+            <record type="http://fogid.net/o/audio-doc">
+              <field prop="http://fogid.net/o/name" />
+              <field prop="http://fogid.net/o/from-date" />
+            </record>
+          </direct>
+        </record>
+      </inverse>
+      <inverse prop="http://fogid.net/o/collection-item">
+        <record type="http://fogid.net/o/collection-member">
+          <label>Коллекция/Тема</label>
+          <direct prop="http://fogid.net/o/in-collection">
+            <record type="http://fogid.net/o/collection">
+              <field prop="http://fogid.net/o/name" />
+            </record>
+            <record type="http://fogid.net/o/cassette">
+              <field prop="http://fogid.net/o/name" />
+            </record>
+          </direct>
+          <field prop="http://fogid.net/o/pageNumbers">
+            <label>номер</label>
+          </field>
+        </record>
+      </inverse>
+      <!--<Open for New Phond Picture>-->
+      <!--<inverse prop="http://fogid.net/o/reflected"><record type="http://fogid.net/o/reflection"><direct prop="http://fogid.net/o/in-doc"><record type="http://fogid.net/o/photo-doc"><field prop="http://fogid.net/o/name" /><field prop="http://fogid.net/o/from-date" /><inverse prop="http://fogid.net/o/forDocument" attname="uri"><record type="http://fogid.net/o/FileStore"><field prop="http://fogid.net/o/uri" /></record></inverse></record></direct></record></inverse>-->
+    </record>
+    <record type="http://fogid.net/o/cassette">
+      <field prop="http://fogid.net/o/name" />
+      <field prop="http://fogid.net/o/description" />
+      <inverse prop="http://fogid.net/o/in-collection">
+        <label>кассета для</label>
+        <record type="http://fogid.net/o/collection-member">
+          <label>Элемент кассеты</label>
+          <direct prop="http://fogid.net/o/collection-item">
+            <record type="http://fogid.net/o/collection">
+              <field prop="http://fogid.net/o/name" />
+              <field prop="http://fogid.net/o/description" />
+            </record>
+            <!--<record type="http://fogid.net/o/document"><field prop="http://fogid.net/o/name" /><field prop="http://fogid.net/o/description" /><field prop="http://fogid.net/o/doc-content" /></record>-->
+            <!--<record type="http://fogid.net/o/photo-doc"><field prop="http://fogid.net/o/name" /><field prop="http://fogid.net/o/from-date" /><inverse prop="http://fogid.net/o/forDocument" attname="uri"><record type="http://fogid.net/o/FileStore"><field prop="http://fogid.net/o/uri" /></record></inverse></record>-->
+            <!--<record type="http://fogid.net/o/video-doc"><field prop="http://fogid.net/o/name" /><field prop="http://fogid.net/o/from-date" /><inverse prop="http://fogid.net/o/forDocument" attname="uri"><record type="http://fogid.net/o/FileStore"><field prop="http://fogid.net/o/uri" /></record></inverse></record>-->
+            <!--<record type="http://fogid.net/o/audio-doc"><field prop="http://fogid.net/o/name" /><field prop="http://fogid.net/o/from-date" /><inverse prop="http://fogid.net/o/forDocument" attname="uri"><record type="http://fogid.net/o/FileStore"><field prop="http://fogid.net/o/uri" /></record></inverse></record>-->
+          </direct>
+        </record>
+      </inverse>
+      <inverse prop="http://fogid.net/o/collection-item">
+        <record type="http://fogid.net/o/collection-member">
+          <direct prop="http://fogid.net/o/in-collection">
+            <record type="http://fogid.net/o/collection">
+              <field prop="http://fogid.net/o/name" />
+            </record>
+            <!--<record type="http://fogid.net/o/cassette"><field prop="http://fogid.net/o/name" /></record>-->
+          </direct>
+        </record>
+      </inverse>
+    </record>
+    <record type="http://fogid.net/o/country">
+      <field prop="http://fogid.net/o/name" />
+      <field prop="http://fogid.net/o/from-date"></field>
+      <field prop="http://fogid.net/o/to-date"></field>
+      <field prop="http://fogid.net/o/description"></field>
+      <inverse prop="http://fogid.net/o/reflected">
+        <record type="http://fogid.net/o/reflection" view="largeicons" fid="reflected/reflection">
+          <field prop="http://fogid.net/o/ground" type="http://fogid.net/o/personage-ground" />
+          <direct prop="http://fogid.net/o/in-doc">
+            <!--<record type="http://fogid.net/o/photo-doc"><field prop="http://fogid.net/o/name" /><field prop="http://fogid.net/o/from-date" /><inverse prop="http://fogid.net/o/forDocument" attname="uri"><record type="http://fogid.net/o/FileStore"><field prop="http://fogid.net/o/uri" /></record></inverse></record>-->
+            <record type="http://fogid.net/o/document">
+              <field prop="http://fogid.net/o/name" />
+              <field prop="http://fogid.net/o/from-date" />
+            </record>
+          </direct>
+        </record>
+      </inverse>
+      <inverse prop="http://fogid.net/o/location-place">
+        <!--prop="http://fogid.net/o/author"-->
+        <label>место для</label>
+        <record type="http://fogid.net/o/location" view="largeicons">
+          <direct prop="http://fogid.net/o/something">
+            <!--<record type="http://fogid.net/o/photo-doc"><field prop="http://fogid.net/o/name" /><field prop="http://fogid.net/o/from-date" /><inverse prop="http://fogid.net/o/forDocument" attname="uri"><record type="http://fogid.net/o/FileStore"><field prop="http://fogid.net/o/uri" /></record></inverse></record>-->
+            <record type="http://fogid.net/o/document">
+              <field prop="http://fogid.net/o/name" />
+              <field prop="http://fogid.net/o/from-date" />
+            </record>
+          </direct>
+        </record>
+      </inverse>
+    </record>
+    <record type="http://fogid.net/o/city">
+      <field prop="http://fogid.net/o/name" />
+      <field prop="http://fogid.net/o/from-date"></field>
+      <field prop="http://fogid.net/o/to-date"></field>
+      <field prop="http://fogid.net/o/description" />
+      <inverse prop="http://fogid.net/o/reflected">
+        <record type="http://fogid.net/o/reflection" view="largeicons" fid="reflected/reflection">
+          <field prop="http://fogid.net/o/ground" type="http://fogid.net/o/personage-ground" />
+          <direct prop="http://fogid.net/o/in-doc">
+            <!--<record type="http://fogid.net/o/photo-doc"><field prop="http://fogid.net/o/name" /><field prop="http://fogid.net/o/from-date" /><inverse prop="http://fogid.net/o/forDocument" attname="uri"><record type="http://fogid.net/o/FileStore"><field prop="http://fogid.net/o/uri" /></record></inverse></record>-->
+            <record type="http://fogid.net/o/document">
+              <field prop="http://fogid.net/o/name" />
+              <field prop="http://fogid.net/o/from-date" />
+            </record>
+          </direct>
+        </record>
+      </inverse>
+      <inverse prop="http://fogid.net/o/location-place">
+        <!--prop="http://fogid.net/o/author"-->
+        <label>место для</label>
+        <record type="http://fogid.net/o/location" view="largeicons">
+          <direct prop="http://fogid.net/o/something">
+            <!--<record type="http://fogid.net/o/photo-doc"><field prop="http://fogid.net/o/name" /><field prop="http://fogid.net/o/from-date" /><inverse prop="http://fogid.net/o/forDocument" attname="uri"><record type="http://fogid.net/o/FileStore"><field prop="http://fogid.net/o/uri" /></record></inverse></record>-->
+            <record type="http://fogid.net/o/document">
+              <field prop="http://fogid.net/o/name" />
+              <field prop="http://fogid.net/o/from-date" />
+            </record>
+          </direct>
+        </record>
+      </inverse>
+    </record>
+    <record type="http://fogid.net/o/region">
+      <field prop="http://fogid.net/o/name" />
+      <field prop="http://fogid.net/o/from-date"></field>
+      <field prop="http://fogid.net/o/to-date"></field>
+      <field prop="http://fogid.net/o/description" />
+      <inverse prop="http://fogid.net/o/reflected">
+        <record type="http://fogid.net/o/reflection" view="largeicons" fid="reflected/reflection">
+          <field prop="http://fogid.net/o/ground" type="http://fogid.net/o/personage-ground" />
+          <direct prop="http://fogid.net/o/in-doc">
+            <!--<record type="http://fogid.net/o/photo-doc"><field prop="http://fogid.net/o/name" /><field prop="http://fogid.net/o/from-date" /><inverse prop="http://fogid.net/o/forDocument" attname="uri"><record type="http://fogid.net/o/FileStore"><field prop="http://fogid.net/o/uri" /></record></inverse></record>-->
+            <record type="http://fogid.net/o/document">
+              <field prop="http://fogid.net/o/name" />
+              <field prop="http://fogid.net/o/from-date" />
+            </record>
+          </direct>
+        </record>
+      </inverse>
+      <inverse prop="http://fogid.net/o/location-place">
+        <!--prop="http://fogid.net/o/author"-->
+        <label>место для</label>
+        <record type="http://fogid.net/o/location" view="largeicons">
+          <direct prop="http://fogid.net/o/something">
+            <!--<record type="http://fogid.net/o/photo-doc"><field prop="http://fogid.net/o/name" /><field prop="http://fogid.net/o/from-date" /><inverse prop="http://fogid.net/o/forDocument" attname="uri"><record type="http://fogid.net/o/FileStore"><field prop="http://fogid.net/o/uri" /></record></inverse></record>-->
+            <record type="http://fogid.net/o/document">
+              <field prop="http://fogid.net/o/name" />
+              <field prop="http://fogid.net/o/from-date" />
+            </record>
+          </direct>
+        </record>
+      </inverse>
+    </record>
+    <record type="http://fogid.net/o/archive">
+      <field prop="http://fogid.net/o/name"></field>
+      <field prop="http://fogid.net/o/from-date" />
+      <field prop="http://fogid.net/o/description" />
+      <!--<inverse prop="http://fogid.net/o/in-collection"><record type="http://fogid.net/o/collection-member" view="largeicons"><direct prop="http://fogid.net/o/collection-item"><record type="http://fogid.net/o/collection"><field prop="http://fogid.net/o/name" /><field prop="http://fogid.net/o/from-date" /></record><record type="http://fogid.net/o/cassette"><field prop="http://fogid.net/o/name" /><field prop="http://fogid.net/o/description" /></record><record type="http://fogid.net/o/document"><field prop="http://fogid.net/o/name" /><field prop="http://fogid.net/o/description" /><field prop="http://fogid.net/o/doc-content" /></record><record type="http://fogid.net/o/photo-doc"><field prop="http://fogid.net/o/name" /><field prop="http://fogid.net/o/from-date" /><inverse prop="http://fogid.net/o/forDocument" attname="uri"><record type="http://fogid.net/o/FileStore"><field prop="http://fogid.net/o/uri" /></record></inverse></record><record type="http://fogid.net/o/video-doc"><field prop="http://fogid.net/o/name" /><field prop="http://fogid.net/o/from-date" /></record><record type="http://fogid.net/o/audio-doc"><field prop="http://fogid.net/o/name" /><field prop="http://fogid.net/o/from-date" /></record></direct></record></inverse>-->
+      <inverse prop="http://fogid.net/o/collection-item">
+        <record type="http://fogid.net/o/collection-member">
+          <direct prop="http://fogid.net/o/in-collection">
+            <record type="http://fogid.net/o/collection">
+              <field prop="http://fogid.net/o/name" />
+            </record>
+            <record type="http://fogid.net/o/cassette">
+              <field prop="http://fogid.net/o/name" />
+            </record>
+          </direct>
+        </record>
+      </inverse>
+    </record>
+    <!--<add from Alex />-->
+    <!--<record type="http://fogid.net/o/collection-member">
+      <field prop="http://fogid.net/o/name" />
+      <field prop="http://fogid.net/o/description"></field>
+      <inverse prop="http://fogid.net/o/in-collection">
+      </inverse>
+      <inverse prop="http://fogid.net/o/collection-item">
+        <record type="http://fogid.net/o/collection-member">
+          <label>Коллекция/Тема</label>
+          <direct prop="http://fogid.net/o/in-collection">
+            <record type="http://fogid.net/o/collection">
+              <field prop="http://fogid.net/o/name" />
+            </record>
+            <record type="http://fogid.net/o/cassette">
+              <field prop="http://fogid.net/o/name" />
+            </record>
+          </direct>
+        </record>
+      </inverse>
+    </record>-->
+  </formats>
+  <EditRecords>
+    <record type="http://fogid.net/o/person" fid="person">
+      <label xml:lang="ru">Персона</label>
+      <field prop="http://fogid.net/o/name" />
+      <field prop="http://fogid.net/o/from-date">
+        <label>дата рожд.</label>
+      </field>
+      <field prop="http://fogid.net/o/to-date">
+        <label>дата смерти</label>
+      </field>
+      <field prop="http://fogid.net/o/sex" type="http://fogid.net/o/person-sex" />
+      <field prop="http://fogid.net/o/description" />
+      <!--<direct prop="http://fogid.net/o/father"><record type="http://fogid.net/o/person"><field prop="http://fogid.net/o/name" /></record></direct>-->
+      <field prop="http://fogid.net/o/comment" />
+    </record>
+    <record type="http://fogid.net/o/org-sys" fid="org-sys">
+      <field prop="http://fogid.net/o/name" />
+      <field prop="http://fogid.net/o/from-date" />
+      <field prop="http://fogid.net/o/to-date" />
+      <field prop="http://fogid.net/o/org-classification" type="http://fogid.net/o/org-classificator" />
+      <field prop="http://fogid.net/o/description" />
+      <field prop="http://fogid.net/o/comment" />
+    </record>
+    <record type="http://fogid.net/o/city" fid="city">
+      <field prop="http://fogid.net/o/name" />
+      <field prop="http://fogid.net/o/from-date" />
+      <field prop="http://fogid.net/o/to-date" />
+      <field prop="http://fogid.net/o/description" />
+      <field prop="http://fogid.net/o/comment" />
+    </record>
+    <record type="http://fogid.net/o/country" fid="city">
+      <field prop="http://fogid.net/o/name" />
+      <field prop="http://fogid.net/o/from-date" />
+      <field prop="http://fogid.net/o/to-date" />
+      <field prop="http://fogid.net/o/description" />
+      <field prop="http://fogid.net/o/comment" />
+    </record>
+    <record type="http://fogid.net/o/region" fid="city">
+      <field prop="http://fogid.net/o/name" />
+      <field prop="http://fogid.net/o/from-date" />
+      <field prop="http://fogid.net/o/to-date" />
+      <field prop="http://fogid.net/o/description" />
+      <field prop="http://fogid.net/o/comment" />
+    </record>
+    <record type="http://fogid.net/o/document">
+      <field prop="http://fogid.net/o/name" />
+      <field prop="http://fogid.net/o/from-date"></field>
+      <field prop="http://fogid.net/o/to-date"></field>
+      <field prop="http://fogid.net/o/description" />
+      <field prop="http://fogid.net/o/doc-content">
+        <label>текст документа</label>
+      </field>
+      <field prop="http://fogid.net/o/comment"></field>
+      <!--<field prop="http://fogid.net/o/doc-content"><label>источник поступл.</label></field>-->
+    </record>
+    <record type="http://fogid.net/o/photo-doc">
+      <field prop="http://fogid.net/o/name" />
+      <!--<field prop="http://fogid.net/o/description" />-->
+      <!--<field prop="http://fogid.net/o/from-date" />-->
+      <!--<field prop="http://fogid.net/o/comment" />-->
+    </record>
+    <record type="http://fogid.net/o/video-doc">
+      <field prop="http://fogid.net/o/name" />
+      <field prop="http://fogid.net/o/description" />
+      <field prop="http://fogid.net/o/from-date" />
+    </record>
+    <record type="http://fogid.net/o/audio-doc">
+      <field prop="http://fogid.net/o/name" />
+      <field prop="http://fogid.net/o/description" />
+      <field prop="http://fogid.net/o/from-date" />
+    </record>
+    <record type="http://fogid.net/o/collection">
+      <field prop="http://fogid.net/o/name" />
+      <field prop="http://fogid.net/o/description" />
+      <field prop="http://fogid.net/o/comment" />
+    </record>
+    <record type="http://fogid.net/o/cassette">
+      <field prop="http://fogid.net/o/name" />
+      <field prop="http://fogid.net/o/description" />
+    </record>
+    <record type="http://fogid.net/o/archive">
+      <field prop="http://fogid.net/o/name" />
+      <field prop="http://fogid.net/o/from-date" />
+      <field prop="http://fogid.net/o/comment" />
+    </record>
+    <!--        Отношения         -->
+    <record type="http://fogid.net/o/family" fid="family">
+      <direct prop="http://fogid.net/o/husband">
+        <record type="http://fogid.net/o/person">
+          <field prop="http://fogid.net/o/name" />
+        </record>
+      </direct>
+      <direct prop="http://fogid.net/o/wife">
+        <record type="http://fogid.net/o/person">
+          <field prop="http://fogid.net/o/name" />
+        </record>
+      </direct>
+      <field prop="http://fogid.net/o/from-date" />
+      <field prop="http://fogid.net/o/to-date" />
+    </record>
+    <record type="http://fogid.net/o/naming" fid="naming">
+      <direct prop="http://fogid.net/o/referred-sys">
+        <record>
+          <field prop="http://fogid.net/o/name" />
+        </record>
+      </direct>
+      <field prop="http://fogid.net/o/alias">
+        <label>другое имя</label>
+      </field>
+      <field prop="http://fogid.net/o/from-date" />
+      <field prop="http://fogid.net/o/to-date" />
+    </record>
+    <record type="http://fogid.net/o/pupil" fid="pupil">
+      <label>школьник</label>
+      <direct prop="http://fogid.net/o/learner">
+        <record type="http://fogid.net/o/person">
+          <field prop="http://fogid.net/o/name" />
+        </record>
+      </direct>
+      <direct prop="http://fogid.net/o/learning-org">
+        <record type="http://fogid.net/o/org-sys">
+          <field prop="http://fogid.net/o/name" />
+        </record>
+      </direct>
+      <field prop="http://fogid.net/o/from-date" />
+      <field prop="http://fogid.net/o/to-date" />
+    </record>
+    <record type="http://fogid.net/o/student" fid="student">
+      <label>студент</label>
+      <direct prop="http://fogid.net/o/learner">
+        <record type="http://fogid.net/o/person">
+          <field prop="http://fogid.net/o/name" />
+        </record>
+      </direct>
+      <direct prop="http://fogid.net/o/learning-org">
+        <record type="http://fogid.net/o/org-sys">
+          <field prop="http://fogid.net/o/name" />
+        </record>
+      </direct>
+      <field prop="http://fogid.net/o/from-date" />
+      <field prop="http://fogid.net/o/to-date" />
+    </record>
+    <record type="http://fogid.net/o/titled" fid="titled">
+      <direct prop="http://fogid.net/o/has-title">
+        <record type="http://fogid.net/o/person">
+          <field prop="http://fogid.net/o/name" />
+        </record>
+        <record type="http://fogid.net/o/org-sys">
+          <field prop="http://fogid.net/o/name" />
+        </record>
+        <record type="http://fogid.net/o/city">
+          <field prop="http://fogid.net/o/name" />
+        </record>
+      </direct>
+      <field prop="http://fogid.net/o/degree" />
+      <field prop="http://fogid.net/o/from-date" />
+    </record>
+    <record type="http://fogid.net/o/participation" fid="participant/participation">
+      <direct prop="http://fogid.net/o/participant">
+        <record type="http://fogid.net/o/person">
+          <field prop="http://fogid.net/o/name" />
+        </record>
+        <record type="http://fogid.net/o/org-sys">
+          <field prop="http://fogid.net/o/name" />
+        </record>
+      </direct>
+      <direct prop="http://fogid.net/o/in-org">
+        <record type="http://fogid.net/o/org-sys">
+          <field prop="http://fogid.net/o/org-classification" type="http://fogid.net/o/org-classificator" />
+          <field prop="http://fogid.net/o/name" />
+        </record>
+      </direct>
+      <field prop="http://fogid.net/o/role" />
+      <field prop="http://fogid.net/o/role-classification" type="http://fogid.net/o/role-classificator" />
+      <field prop="http://fogid.net/o/from-date" />
+      <field prop="http://fogid.net/o/to-date" />
+    </record>
+    <record type="http://fogid.net/o/reflection" view="largeicons" fid="reflected/reflection">
+      <direct prop="http://fogid.net/o/in-doc">
+        <record type="http://fogid.net/o/photo-doc">
+          <field prop="http://fogid.net/o/name" />
+        </record>
+        <record type="http://fogid.net/o/document">
+          <field prop="http://fogid.net/o/name" />
+        </record>
+      </direct>
+      <direct prop="http://fogid.net/o/reflected">
+        <record type="http://fogid.net/o/person">
+          <field prop="http://fogid.net/o/name" />
+        </record>
+        <record type="http://fogid.net/o/org-sys">
+          <field prop="http://fogid.net/o/name" />
+        </record>
+        <record type="http://fogid.net/o/city">
+          <field prop="http://fogid.net/o/name" />
+        </record>
+        <record type="http://fogid.net/o/country">
+          <field prop="http://fogid.net/o/name" />
+        </record>
+        <record type="http://fogid.net/o/region">
+          <field prop="http://fogid.net/o/name" />
+        </record>
+        <record type="http://fogid.net/o/collection">
+          <field prop="http://fogid.net/o/name" />
+        </record>
+      </direct>
+      <field prop="http://fogid.net/o/ground" type="http://fogid.net/o/personage-ground" />
+    </record>
+    <record type="http://fogid.net/o/location">
+      <direct prop="http://fogid.net/o/location-place">
+        <record type="http://fogid.net/o/city">
+          <field prop="http://fogid.net/o/name" />
+        </record>
+        <record type="http://fogid.net/o/country">
+          <field prop="http://fogid.net/o/name" />
+        </record>
+        <record type="http://fogid.net/o/region">
+          <field prop="http://fogid.net/o/name" />
+        </record>
+      </direct>
+      <field prop="http://fogid.net/o/from-date" />
+      <field prop="http://fogid.net/o/to-date" />
+      <field prop="http://fogid.net/o/location-category" />
+      <direct prop="http://fogid.net/o/something">
+        <record type="http://fogid.net/o/person">
+          <field prop="http://fogid.net/o/name" />
+        </record>
+        <record type="http://fogid.net/o/org-sys">
+          <field prop="http://fogid.net/o/name" />
+        </record>
+      </direct>
+    </record>
+    <record type="http://fogid.net/o/org-relatives">
+      <direct prop="http://fogid.net/o/org-parent">
+        <record type="http://fogid.net/o/org-sys">
+          <field prop="http://fogid.net/o/name" />
+        </record>
+      </direct>
+      <direct prop="http://fogid.net/o/org-child">
+        <record type="http://fogid.net/o/org-sys">
+          <field prop="http://fogid.net/o/name" />
+        </record>
+      </direct>
+    </record>
+    <record type="http://fogid.net/o/DocumentPart">
+      <direct prop="http://fogid.net/o/inDocument">
+        <label>в документе</label>
+        <record type="http://fogid.net/o/document">
+          <field prop="http://fogid.net/o/name"></field>
+        </record>
+      </direct>
+      <direct prop="http://fogid.net/o/partItem">
+        <record type="http://fogid.net/o/document">
+          <field prop="http://fogid.net/o/name"></field>
+        </record>
+        <record type="http://fogid.net/o/photo-doc">
+          <field prop="http://fogid.net/o/name" />
+        </record>
+      </direct>
+      <field prop="http://fogid.net/o/pageNumbers">
+        <label>номер страницы</label>
+      </field>
+    </record>
+    <record type="http://fogid.net/o/archive-member">
+      <!--<direct prop="http://fogid.net/o/in-archive"><record type="http://fogid.net/o/archive"><field prop="http://fogid.net/o/name" /></record></direct>-->
+      <direct prop="http://fogid.net/o/archive-item">
+        <record type="http://fogid.net/o/document">
+          <field prop="http://fogid.net/o/name" />
+        </record>
+        <record type="http://fogid.net/o/photo-doc">
+          <field prop="http://fogid.net/o/name" />
+        </record>
+        <record type="http://fogid.net/o/video-doc">
+          <field prop="http://fogid.net/o/name" />
+        </record>
+        <record type="http://fogid.net/o/audio-doc">
+          <field prop="http://fogid.net/o/name" />
+        </record>
+      </direct>
+      <direct prop="http://fogid.net/o/info-source">
+        <label>источник</label>
+        <record type="http://fogid.net/o/org-sys">
+          <field prop="http://fogid.net/o/name" />
+        </record>
+        <record type="http://fogid.net/o/person">
+          <field prop="http://fogid.net/o/name" />
+        </record>
+        <!--<record type="http://fogid.net/o/archive"><field prop="http://fogid.net/o/name" /></record>-->
+      </direct>
+      <field prop="http://fogid.net/o/description">
+        <label>реквизиты</label>
+      </field>
+    </record>
+    <record type="http://fogid.net/o/authority">
+      <direct prop="http://fogid.net/o/author">
+        <record type="http://fogid.net/o/person">
+          <field prop="http://fogid.net/o/name" />
+        </record>
+        <record type="http://fogid.net/o/org-sys">
+          <field prop="http://fogid.net/o/name" />
+        </record>
+      </direct>
+      <field prop="http://fogid.net/o/authority-specificator" type="http://fogid.net/o/authority-variants" />
+      <direct prop="http://fogid.net/o/adoc">
+        <record type="http://fogid.net/o/document">
+          <field prop="http://fogid.net/o/name" />
+        </record>
+        <record type="http://fogid.net/o/photo-doc">
+          <field prop="http://fogid.net/o/name" />
+        </record>
+        <record type="http://fogid.net/o/video-doc">
+          <field prop="http://fogid.net/o/name" />
+        </record>
+        <record type="http://fogid.net/o/audio-doc">
+          <field prop="http://fogid.net/o/name" />
+        </record>
+      </direct>
+    </record>
+    <record type="http://fogid.net/o/collection-member">
+      <direct prop="http://fogid.net/o/in-collection">
+        <record type="http://fogid.net/o/collection">
+          <field prop="http://fogid.net/o/name" />
+        </record>
+        <record type="http://fogid.net/o/cassette">
+          <field prop="http://fogid.net/o/name" />
+        </record>
+        <record type="http://fogid.net/o/archive">
+          <field prop="http://fogid.net/o/name" />
+          <!--<add from Alex />-->
+        </record>
+      </direct>
+      <field prop="http://fogid.net/o/pageNumbers">
+        <label>номер</label>
+      </field>
+      <direct prop="http://fogid.net/o/collection-item">
+        <record type="http://fogid.net/o/document">
+          <field prop="http://fogid.net/o/name" />
+        </record>
+        <record type="http://fogid.net/o/photo-doc">
+          <field prop="http://fogid.net/o/name" />
+        </record>
+        <record type="http://fogid.net/o/video-doc">
+          <field prop="http://fogid.net/o/name" />
+        </record>
+        <record type="http://fogid.net/o/collection">
+          <field prop="http://fogid.net/o/name" />
+        </record>
+      </direct>
+    </record>
+  </EditRecords>
+</application>

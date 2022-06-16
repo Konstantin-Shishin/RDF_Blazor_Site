@@ -1,0 +1,32 @@
+﻿@{
+    ViewBag.Title = "LogOn";
+}
+
+@using (Html.BeginForm()) {
+    <div>
+        <fieldset>
+            <legend>Авторизация для редактирования</legend>
+
+            <div class="editor-label">
+                @Html.Label("Пользователь")
+            </div>
+            <div class="editor-field">
+                @Html.TextBox("uuser")
+            </div>
+
+            <div class="editor-label">
+                @Html.Label("Пароль")
+            </div>
+            <div class="editor-field">
+                @Html.Password("pass")
+            </div>
+
+            <p>
+                <input type="submit" value="Log On" />
+            </p>
+        </fieldset>
+    </div>
+}
+    <div>
+        <a href="@Url.Content("~/Account/Registration")">Регистрация пользователя</a>
+    </div>

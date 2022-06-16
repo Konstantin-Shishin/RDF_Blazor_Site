@@ -1,0 +1,973 @@
+<?xml version="1.0" encoding="windows-1251"?>
+<Ontology dbid="ontology_iis-v6"  xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+    <Class rdf:about="entity" abstract="yes" />
+    <DatatypeProperty rdf:about="comment" priority="z">
+        <label xml:lang="ru">комментарий</label>
+        <label xml:lang="en">comment</label>
+        <domain rdf:resource="entity"/>
+        <range rdf:resource="text"/>
+    </DatatypeProperty>
+    <DatatypeProperty rdf:about="from-date" priority="r">
+        <label xml:lang="ru">нач.дата</label>
+        <label xml:lang="en">initial date</label>
+        <domain rdf:resource="entity"/>
+        <range rdf:resource="date"/>
+    </DatatypeProperty>
+    <DatatypeProperty rdf:about="to-date" priority="t">
+        <label xml:lang="ru">кон.дата</label>
+        <label xml:lang="en">final date</label>
+        <domain rdf:resource="entity"/>
+        <range rdf:resource="date"/>
+    </DatatypeProperty>
+    <Class rdf:about="sys-obj" abstract="yes">
+        <SubClassOf rdf:resource="entity"/>
+    </Class>
+    <DatatypeProperty rdf:about="name" priority="a" essential="yes">
+        <label xml:lang="ru">имя</label>
+        <label xml:lang="en">name</label>
+        <domain rdf:resource="sys-obj"/>
+        <range rdf:resource="text"/>
+    </DatatypeProperty>
+    <DatatypeProperty rdf:about="description" priority="s">
+        <label xml:lang="ru">описание</label>
+        <label xml:lang="en">description</label>
+        <domain rdf:resource="sys-obj"/>
+        <range rdf:resource="text" style="textarea"/>
+    </DatatypeProperty>
+    <Class rdf:about="person">
+        <label xml:lang="ru">Персона</label>
+        <label xml:lang="en">Person</label>
+        <SubClassOf rdf:resource="sys-obj"/>
+    </Class>
+    <DatatypeProperty rdf:about="sex" priority="u">
+        <label xml:lang="ru">пол</label>
+        <label xml:lang="en">sex</label>
+        <domain rdf:resource="person"/>
+        <range rdf:resource="person-sex"/>
+    </DatatypeProperty>
+    <EnumerationType rdf:about="person-sex">
+        <state value="m" xml:lang="ru">муж.</state>
+        <state value="f" xml:lang="ru">жен.</state>
+        <state value="m" xml:lang="en">male</state>
+        <state value="f" xml:lang="en">female</state>
+    </EnumerationType>
+    <ObjectProperty rdf:about="father" priority="t">
+        <label xml:lang="ru">отец</label>
+        <label xml:lang="en">father</label>
+        <inverse-label xml:lang="ru">ребенок</inverse-label>
+        <inverse-label xml:lang="en">child</inverse-label>
+        <domain rdf:resource="person"/>
+        <range rdf:resource="person"/>
+    </ObjectProperty>
+    <ObjectProperty rdf:about="mother" priority="t">
+        <label xml:lang="ru">мать</label>
+        <label xml:lang="en">mother</label>
+        <inverse-label xml:lang="ru">ребенок</inverse-label>
+        <inverse-label xml:lang="en">child</inverse-label>
+        <domain rdf:resource="person"/>
+        <range rdf:resource="person"/>
+    </ObjectProperty>
+    <Class rdf:about="org-sys">
+        <label xml:lang="ru">Организационная система</label>
+        <label xml:lang="en">Organization system</label>
+        <SubClassOf rdf:resource="sys-obj"/>
+    </Class>
+        <DatatypeProperty rdf:about="org-classification" priority="ab">
+                <label xml:lang="ru">классификатор орг.</label>
+                <label xml:lang="en">organization classifier</label>
+                <domain rdf:resource="org-sys"/>
+                <range rdf:resource="org-classificator"/>
+        </DatatypeProperty>
+        <EnumerationType rdf:about="org-classificator">
+                <state value="team" xml:lang="ru">группа</state>
+                <state value="team" xml:lang="en">group</state>
+                <state value="arrangement" xml:lang="ru">мероприятие</state>
+                <state value="arrangement" xml:lang="en">event</state>
+                <state value="club" xml:lang="ru">клуб</state>
+                <state value="club" xml:lang="en">club</state>
+                <state value="department" xml:lang="ru">отдел</state>
+                <state value="department" xml:lang="en">department</state>
+                <state value="organization" xml:lang="ru">организация</state>
+                <state value="organization" xml:lang="en">organization</state>
+                <state value="association" xml:lang="ru">ассоциация</state>
+                <state value="assotiation" xml:lang="en">association</state>
+                <state value="holding" xml:lang="ru">холдинг</state>
+                <state value="holding" xml:lang="en">holding</state>
+        </EnumerationType>
+        <DatatypeProperty rdf:about="org-category" priority="ac">
+                <label xml:lang="ru">вид.орг.</label>
+                <label xml:lang="en">organization form</label>
+                <domain rdf:resource="org-sys"/>
+                <range rdf:resource="text"/>
+        </DatatypeProperty>
+        <Class rdf:about="geosys" abstract="yes">
+        <label xml:lang="ru">Геосистема</label>
+        <label xml:lang="en">Geosystem</label>
+        <SubClassOf rdf:resource="sys-obj"/>
+    </Class>
+    <Class rdf:about="country">
+        <label xml:lang="ru">Страна</label>
+        <label xml:lang="en">Country</label>
+        <SubClassOf rdf:resource="geosys"/>
+    </Class>
+    <Class rdf:about="region">
+        <label xml:lang="ru">Регион</label>
+        <label xml:lang="en">Region</label>
+        <SubClassOf rdf:resource="geosys"/>
+    </Class>
+    <Class rdf:about="city">
+        <label xml:lang="ru">Город</label>
+        <label xml:lang="en">City</label>
+        <SubClassOf rdf:resource="geosys"/>
+    </Class>
+    <Class rdf:about="geosys-special">
+        <label xml:lang="ru">Геосистема специальная</label>
+        <label xml:lang="en">Geosystem special</label>
+        <SubClassOf rdf:resource="geosys"/>
+    </Class>
+    <DatatypeProperty rdf:about="geosys-category" priority="ac">
+        <label xml:lang="ru">категория геосистемы</label>
+        <label xml:lang="en">geosystem category</label>
+        <domain rdf:resource="geosys-special"/>
+        <range rdf:resource="text"/>
+    </DatatypeProperty>
+
+        <Class rdf:about="archive">
+                <SubClassOf rdf:resource="sys-obj"/>
+                <label xml:lang="ru">Архив</label>
+                <label xml:lang="en">Archive</label>
+        </Class>
+        <ObjectProperty rdf:about="in-archive" essential="yes">
+                <label xml:lang="ru">в архиве</label>
+                <label xml:lang="en">in archive</label>
+                <inverse-label xml:lang="ru">архив для</inverse-label>
+                <inverse-label xml:lang="en">archive for</inverse-label>
+                <domain rdf:resource="archive-member"/>
+                <range rdf:resource="archive"/>
+        </ObjectProperty>
+        <ObjectProperty rdf:about="archive-item" essential="yes">
+                <label xml:lang="ru">содержит</label>
+                <label xml:lang="en">contains</label>
+                <inverse-label xml:lang="ru">элемент для</inverse-label>
+                <inverse-label xml:lang="en">element for</inverse-label>
+                <domain rdf:resource="archive-member"/>
+                <range rdf:resource="sys-obj"/>
+        </ObjectProperty>
+        <Class rdf:about="archive-member">
+                <label xml:lang="ru">Элемент архива</label>
+                <label xml:lang="en">Archive's element</label>
+                <SubClassOf rdf:resource="entity"/>
+        </Class>
+        <DatatypeProperty rdf:about="concernment">
+                <label xml:lang="ru">значимость</label>
+                <label xml:lang="en">importance</label>
+                <domain rdf:resource="archive-member"/>
+                <range rdf:resource="string"/>
+        </DatatypeProperty>
+        <ObjectProperty rdf:about="info-source">
+                <label xml:lang="ru">источник инф.</label>
+                <label xml:lang="en">information source</label>
+                <inverse-label xml:lang="ru">источник инф. для</inverse-label>
+                <inverse-label xml:lang="en">information source for</inverse-label>
+                <domain rdf:resource="archive-member"/>
+                <range rdf:resource="sys-obj"/>
+        </ObjectProperty>
+
+        <Class rdf:about="collection">
+                <label xml:lang="ru">Коллекция</label>
+                <label xml:lang="en">Collection</label>
+                <SubClassOf rdf:resource="sys-obj"/>
+        </Class>
+        <Class rdf:about="collection-member">
+                <label xml:lang="ru">Элемент коллекции</label>
+                <label xml:lang="en">Collection's element</label>
+                <SubClassOf rdf:resource="entity"/>
+        </Class>
+        <ObjectProperty rdf:about="in-collection" essential="yes">
+                <label xml:lang="ru">в коллекции</label>
+                <label xml:lang="en">in collection</label>
+                <inverse-label xml:lang="ru">коллекция для</inverse-label>
+                <inverse-label xml:lang="en">collection for</inverse-label>
+                <domain rdf:resource="collection-member"/>
+                <range rdf:resource="collection"/>
+        </ObjectProperty>
+        <ObjectProperty rdf:about="collection-item" essential="yes">
+            <label xml:lang="ru">содержит</label>
+            <label xml:lang="en">contains</label>
+            <inverse-label xml:lang="ru">элемент коллекции</inverse-label>
+            <inverse-label xml:lang="en">collection's element</inverse-label>
+            <domain rdf:resource="collection-member"/>
+                        <range rdf:resource="sys-obj"/>
+        </ObjectProperty>
+  
+    <Class rdf:about="reg-phone-code">
+        <label xml:lang="ru">Региональный тел. код</label>
+        <label xml:lang="en">Regional phone code</label>
+        <SubClassOf rdf:resource="entity"/>
+    </Class>
+    <ObjectProperty rdf:about="geo-place" priority="m" essential="yes">
+        <label xml:lang="ru">Регион</label>
+        <label xml:lang="en">Region</label>
+        <inverse-label xml:lang="ru">код региона</inverse-label>
+        <inverse-label xml:lang="en">region code</inverse-label>
+        <domain rdf:resource="reg-phone-code"/>
+        <range rdf:resource="geosys"/>
+    </ObjectProperty>
+    <DatatypeProperty rdf:about="code" priority="p" essential="yes">
+        <label xml:lang="ru">код</label>
+        <label xml:lang="en">code</label>
+        <domain rdf:resource="reg-phone-code"/>
+        <range rdf:resource="string"/>
+    </DatatypeProperty>
+    <Class rdf:about="document">
+        <label xml:lang="ru">Документ</label>
+        <label xml:lang="en">Document</label>
+        <SubClassOf rdf:resource="sys-obj"/>
+    </Class>
+    <!--DatatypeProperty rdf:about="published" priority="c" essential="yes">
+        <label xml:lang="ru">опубликован в</label>
+        <label xml:lang="en">published in</label>
+        <domain rdf:resource="document"/>
+        <range rdf:resource="URI"/>
+    </DatatypeProperty-->
+    <!--ObjectProperty rdf:about="doc-source" priority="c" essential="yes">
+        <label xml:lang="ru">источник документа</label>
+        <inverse-label xml:lang="ru">источник для документа</inverse-label>
+        <domain rdf:resource="document"/>
+        <range rdf:resource="sys-obj"/>
+    </ObjectProperty-->
+    <DatatypeProperty rdf:about="doc-content" priority="u">
+        <label xml:lang="ru">текст документа</label>
+        <label xml:lang="en">document text</label>
+        <domain rdf:resource="document"/>
+        <range rdf:resource="text" style="textarea"/>
+    </DatatypeProperty>
+    <!--Class rdf:about="opinion">
+        <label xml:lang="ru">Мнение</label>
+        <SubClassOf rdf:resource="document"/>
+    </Class-->
+    <Class rdf:about="photo-doc">
+        <label xml:lang="ru">Фотодокумент</label>
+        <label xml:lang="en">Photo document</label>
+        <SubClassOf rdf:resource="document"/>
+    </Class>
+    <Class rdf:about="video-doc">
+        <label xml:lang="ru">Видеодокумент</label>
+        <label xml:lang="en">Video document</label>
+        <SubClassOf rdf:resource="document"/>
+    </Class>
+    <Class rdf:about="audio-doc">
+        <label xml:lang="ru">Аудиодокумент</label>
+        <label xml:lang="en">Audio document</label>
+        <SubClassOf rdf:resource="document"/>
+    </Class>
+    <Class rdf:about="speech">
+        <label xml:lang="ru">Выступление</label>
+        <label xml:lang="en">Speech</label>
+        <SubClassOf rdf:resource="document"/>
+    </Class>
+    <ObjectProperty rdf:about="at-meeting" essential="yes">
+        <label xml:lang="ru">на встрече в</label>
+        <label xml:lang="en">at meeting</label>
+        <inverse-label xml:lang="ru">выступление</inverse-label>
+        <inverse-label xml:lang="en">speech</inverse-label>
+        <domain rdf:resource="speech"/>
+        <range rdf:resource="org-sys"/>
+    </ObjectProperty>
+    <Class rdf:about="titled">
+        <label xml:lang="ru">Титулован</label>
+        <label xml:lang="en">Entitled</label>
+        <SubClassOf rdf:resource="entity"/>
+    </Class>
+    <ObjectProperty rdf:about="has-title" priority="m" essential="yes">
+        <label xml:lang="ru">субъект</label>
+        <label xml:lang="en">subject</label>
+        <inverse-label xml:lang="ru">степень/титул</inverse-label>
+        <inverse-label xml:lang="en">degree/title</inverse-label>
+        <domain rdf:resource="titled"/>
+        <range rdf:resource="sys-obj"/>
+    </ObjectProperty>
+    <ObjectProperty rdf:about="support-org" priority="o">
+        <label xml:lang="ru">поддерж. орг.</label>
+        <label xml:lang="en">supporting organization</label>
+        <inverse-label xml:lang="ru">поддерживает</inverse-label>
+        <inverse-label xml:lang="en">supports</inverse-label>
+        <domain rdf:resource="titled"/>
+        <range rdf:resource="org-sys"/>
+    </ObjectProperty>
+    <DatatypeProperty rdf:about="degree" priority="n" essential="yes">
+        <label xml:lang="ru">степень</label>
+        <label xml:lang="en">degree</label>
+        <domain rdf:resource="titled"/>
+        <range rdf:resource="text"/>
+    </DatatypeProperty>
+    <Class rdf:about="business-activity">
+        <label xml:lang="ru">Сфера деятельности</label>
+        <label xml:lang="en">Field of activity</label>
+        <SubClassOf rdf:resource="entity"/>
+    </Class>
+    <ObjectProperty rdf:about="has-activity" priority="m" essential="yes">
+        <label xml:lang="ru">субъект</label>
+        <label xml:lang="en">subject</label>
+        <inverse-label xml:lang="ru">специалист в</inverse-label>
+        <inverse-label xml:lang="en">specialist in</inverse-label>
+        <domain rdf:resource="business-activity"/>
+        <range rdf:resource="sys-obj"/>
+    </ObjectProperty>
+    <DatatypeProperty rdf:about="business" priority="n" essential="yes">
+        <label xml:lang="ru">деятельность</label>
+        <label xml:lang="en">activity</label>
+        <domain rdf:resource="business-activity"/>
+        <range rdf:resource="text"/>
+    </DatatypeProperty>
+    <Class rdf:about="family">
+        <label xml:lang="ru">Семья</label>
+        <label xml:lang="en">Family</label>
+        <SubClassOf rdf:resource="entity"/>
+    </Class>
+    <ObjectProperty rdf:about="husband" priority="m" essential="yes">
+        <label xml:lang="ru">муж</label>
+        <label xml:lang="en">husband</label>
+        <inverse-label xml:lang="ru">муж для</inverse-label>
+        <inverse-label xml:lang="en">husband for</inverse-label>
+        <domain rdf:resource="family"/>
+        <range rdf:resource="person"/>
+    </ObjectProperty>
+    <ObjectProperty rdf:about="wife" priority="n" essential="yes">
+        <label xml:lang="ru">жена</label>
+        <label xml:lang="en">wife</label>
+        <inverse-label xml:lang="ru">жена для</inverse-label>
+        <inverse-label xml:lang="en">wife for</inverse-label>
+        <domain rdf:resource="family"/>
+        <range rdf:resource="person"/>
+    </ObjectProperty>
+    <Class rdf:about="participation">
+        <label xml:lang="ru">Участие</label>
+        <label xml:lang="en">Participation</label>
+        <SubClassOf rdf:resource="entity"/>
+    </Class>
+    <ObjectProperty rdf:about="participant" priority="m" essential="yes">
+        <label xml:lang="ru">участник</label>
+        <label xml:lang="en">participant</label>
+        <inverse-label xml:lang="ru">участник в орг.</inverse-label>
+        <inverse-label xml:lang="en">participant in organization</inverse-label>
+        <domain rdf:resource="participation"/>
+        <range rdf:resource="sys-obj"/>
+    </ObjectProperty>
+    <ObjectProperty rdf:about="in-org" priority="n" essential="yes">
+        <label xml:lang="ru">в орг. сист.</label>
+        <label xml:lang="en">in organization system</label>
+        <inverse-label xml:lang="ru">работник/участник</inverse-label>
+        <inverse-label xml:lang="en">worker/participant</inverse-label>
+        <domain rdf:resource="participation"/>
+        <range rdf:resource="org-sys"/>
+    </ObjectProperty>
+    <DatatypeProperty rdf:about="role" priority="o" essential="yes">
+        <label xml:lang="ru">роль</label>
+        <label xml:lang="en">role</label>
+        <domain rdf:resource="participation"/>
+        <range rdf:resource="text"/>
+    </DatatypeProperty>
+    <DatatypeProperty rdf:about="role-classification" priority="o">
+        <label xml:lang="ru">клсф.роли</label>
+        <label xml:lang="en">role classifier</label>
+        <domain rdf:resource="participation"/>
+        <range rdf:resource="role-classificator"/>
+    </DatatypeProperty>
+    <EnumerationType rdf:about="role-classificator">
+        <state value="director" xml:lang="ru">первое лицо</state>
+        <state value="director" xml:lang="en">director</state>
+        <state value="organizer" xml:lang="ru">организатор</state>
+        <state value="organizer" xml:lang="en">organizer</state>
+        <state value="basic" xml:lang="ru">участник</state>
+        <state value="basic" xml:lang="en">participant</state>
+        <state value="guest" xml:lang="ru">гость</state>
+        <state value="guest" xml:lang="en">guest</state>
+        <state value="client" xml:lang="ru">клиент</state>
+        <state value="client" xml:lang="en">client</state>
+        <state value="sponsor" xml:lang="ru">спонсор</state>
+        <state value="sponsor" xml:lang="en">sponsor</state>
+    </EnumerationType>
+    <Class rdf:about="learn" abstract="yes">
+        <label xml:lang="ru">Учеба</label>
+        <label xml:lang="en">Education</label>
+        <SubClassOf rdf:resource="entity"/>
+    </Class>
+    <ObjectProperty rdf:about="learner" priority="m" essential="yes">
+        <label xml:lang="ru">ученик</label>
+        <label xml:lang="en">pupil</label>
+        <inverse-label xml:lang="ru">образование в</inverse-label>
+        <inverse-label xml:lang="en">education in</inverse-label>
+        <domain rdf:resource="learn"/>
+        <range rdf:resource="person"/>
+    </ObjectProperty>
+    <ObjectProperty rdf:about="learning-org" priority="n" essential="yes">
+        <label xml:lang="ru">в уч. заведении</label>
+        <label xml:lang="en">in educational organization</label>
+        <inverse-label xml:lang="ru">учащийся</inverse-label>
+        <inverse-label xml:lang="en">learner</inverse-label>
+        <domain rdf:resource="learn"/>
+        <range rdf:resource="org-sys"/>
+    </ObjectProperty>
+    <Class rdf:about="pupil">
+        <label xml:lang="ru">Школьник</label>
+        <label xml:lang="en">Schoolchild</label>
+        <SubClassOf rdf:resource="learn"/>
+    </Class>
+    <Class rdf:about="student">
+        <label xml:lang="ru">Студент</label>
+        <label xml:lang="en">Student</label>
+        <SubClassOf rdf:resource="learn"/>
+    </Class>
+    <Class rdf:about="aspirant">
+        <label xml:lang="ru">Аспирант</label>
+        <label xml:lang="en">Graduate student</label>
+        <SubClassOf rdf:resource="learn"/>
+    </Class>
+    <Class rdf:about="learn-special">
+        <label xml:lang="ru">Учеба спец.</label>
+        <label xml:lang="en">Education special</label>
+        <SubClassOf rdf:resource="learn"/>
+    </Class>
+    <DatatypeProperty rdf:about="learn-category" priority="o">
+        <label xml:lang="ru">тип обучения</label>
+        <label xml:lang="en">education type</label>
+        <domain rdf:resource="learn-special"/>
+        <range rdf:resource="text"/>
+    </DatatypeProperty>
+    <Class rdf:about="location">
+        <label xml:lang="ru">Расположение</label>
+        <label xml:lang="en">Location</label>
+        <SubClassOf rdf:resource="entity"/>
+    </Class>
+    <ObjectProperty rdf:about="something" priority="m" essential="yes">
+        <label xml:lang="ru">размещаемое</label>
+        <label xml:lang="en">settable</label>
+        <inverse-label xml:lang="ru">находится в</inverse-label>
+        <inverse-label xml:lang="en">located in</inverse-label>
+        <domain rdf:resource="location"/>
+        <range rdf:resource="sys-obj"/>
+    </ObjectProperty>
+    <ObjectProperty rdf:about="location-place" priority="n" essential="yes">
+        <label xml:lang="ru">место</label>
+        <label xml:lang="en">place</label>
+        <inverse-label xml:lang="ru">место для</inverse-label>
+        <inverse-label xml:lang="en">place for</inverse-label>
+        <domain rdf:resource="location"/>
+        <range rdf:resource="geosys"/>
+    </ObjectProperty>
+    <DatatypeProperty rdf:about="location-category" priority="o">
+        <label xml:lang="ru">тип размещения</label>
+        <label xml:lang="en">location type</label>
+        <domain rdf:resource="location"/>
+        <range rdf:resource="text"/>
+    </DatatypeProperty>
+    <Class rdf:about="post-address">
+        <label xml:lang="ru">Почтовый адрес</label>
+        <label xml:lang="en">Postal address</label>
+        <SubClassOf rdf:resource="entity"/>
+    </Class>
+    <ObjectProperty rdf:about="post-target" priority="m" essential="yes">
+        <label xml:lang="ru">что</label>
+        <label xml:lang="en">what</label>
+        <inverse-label xml:lang="ru">по адресу</inverse-label>
+        <inverse-label xml:lang="en">at the address</inverse-label>
+        <domain rdf:resource="post-address"/>
+        <range rdf:resource="location"/>
+    </ObjectProperty>
+    <DatatypeProperty rdf:about="post-index" priority="n" essential="yes">
+        <label xml:lang="ru">почт.индекс</label>
+        <label xml:lang="en">postal index</label>
+        <domain rdf:resource="post-address"/>
+        <range rdf:resource="string"/>
+    </DatatypeProperty>
+    <DatatypeProperty rdf:about="address" priority="o" essential="yes">
+        <label xml:lang="ru">адрес</label>
+        <label xml:lang="en">address</label>
+        <domain rdf:resource="post-address"/>
+        <range rdf:resource="text"/>
+    </DatatypeProperty>
+    <Class rdf:about="naming">
+        <label xml:lang="ru">Именование</label>
+        <label xml:lang="en">Naming</label>
+        <SubClassOf rdf:resource="entity"/>
+    </Class>
+    <ObjectProperty rdf:about="referred-sys" priority="m" essential="yes">
+        <label xml:lang="ru">именуемое</label>
+        <label xml:lang="en">by name</label>
+        <inverse-label xml:lang="ru">именуется</inverse-label>
+        <inverse-label xml:lang="en">beeing called</inverse-label>
+        <domain rdf:resource="naming"/>
+        <range rdf:resource="sys-obj"/>
+    </ObjectProperty>
+    <DatatypeProperty rdf:about="alias" priority="n" essential="yes">
+        <label xml:lang="ru">друг. имя</label>
+        <label xml:lang="en">another name</label>
+        <domain rdf:resource="naming"/>
+        <range rdf:resource="text"/>
+    </DatatypeProperty>
+    <Class rdf:about="dating">
+        <label xml:lang="ru">Датирование</label>
+        <label xml:lang="en">Dating</label>
+        <SubClassOf rdf:resource="entity"/>
+    </Class>
+    <ObjectProperty rdf:about="referred" priority="m" essential="yes">
+        <label xml:lang="ru">датируемое</label>
+        <label xml:lang="en">by date</label>
+        <inverse-label xml:lang="ru">датируется</inverse-label>
+        <inverse-label xml:lang="en">is dated</inverse-label>
+        <domain rdf:resource="dating"/>
+        <range rdf:resource="entity"/>
+    </ObjectProperty>
+    <DatatypeProperty rdf:about="dating-specificator">
+        <label xml:lang="ru">спецификатор датирования</label>
+        <label xml:lang="en">dating specifier</label>
+        <domain rdf:resource="dating"/>
+        <range rdf:resource="dating-variants"/>
+    </DatatypeProperty>
+    <EnumerationType rdf:about="dating-variants">
+        <state value="before" xml:lang="ru">до начала</state>
+        <state value="before" xml:lang="en">before</state>
+        <state value="from" xml:lang="ru">начало</state>
+        <state value="from" xml:lang="en">from</state>
+        <state value="in" xml:lang="ru">текущая</state>
+        <state value="in" xml:lang="en">current</state>
+        <state value="to" xml:lang="ru">конец</state>
+        <state value="to" xml:lang="en">to</state>
+        <state value="after" xml:lang="ru">после конца</state>
+        <state value="after" xml:lang="en">after</state>
+    </EnumerationType>
+    <DatatypeProperty rdf:about="some-date" priority="n" essential="yes">
+        <label xml:lang="ru">дата</label>
+        <label xml:lang="en">date</label>
+        <domain rdf:resource="dating"/>
+        <range rdf:resource="text"/>
+    </DatatypeProperty>
+    <DatatypeProperty rdf:about="dating-accuracy">
+        <label xml:lang="ru">точность датирования</label>
+        <label xml:lang="en">dating accuracy</label>
+        <domain rdf:resource="dating"/>
+        <range rdf:resource="string"/>
+    </DatatypeProperty>
+    <Class rdf:about="authority">
+        <label xml:lang="ru">Авторство</label>
+        <label xml:lang="en">Authorship</label>
+        <SubClassOf rdf:resource="entity"/>
+    </Class>
+    <ObjectProperty rdf:about="adoc" priority="m" essential="yes">
+        <label xml:lang="ru">документ</label>
+        <label xml:lang="en">document</label>
+        <inverse-label xml:lang="ru">автор</inverse-label>
+        <inverse-label xml:lang="en">author</inverse-label>
+        <domain rdf:resource="authority"/>
+        <range rdf:resource="document"/>
+    </ObjectProperty>
+    <ObjectProperty rdf:about="author" priority="n" essential="yes">
+        <label xml:lang="ru">автор</label>
+        <label xml:lang="en">author</label>
+        <inverse-label xml:lang="ru">автор документа</inverse-label>
+        <inverse-label xml:lang="en">document's author</inverse-label>
+        <domain rdf:resource="authority"/>
+        <range rdf:resource="person"/>
+    </ObjectProperty>
+    <Class rdf:about="communication" abstract="yes">
+        <SubClassOf rdf:resource="entity"/>
+    </Class>
+    <ObjectProperty rdf:about="user" priority="m" essential="yes">
+        <label xml:lang="ru">абонент</label>
+        <label xml:lang="en">user</label>
+        <inverse-label xml:lang="ru">абонент</inverse-label>
+        <inverse-label xml:lang="en">user</inverse-label>
+        <domain rdf:resource="communication"/>
+        <range rdf:resource="sys-obj"/>
+    </ObjectProperty>
+    <Class rdf:about="phone">
+        <SubClassOf rdf:resource="communication"/>
+        <label xml:lang="ru">Телефон</label>
+        <label xml:lang="en">Phone</label>
+    </Class>
+    <DatatypeProperty rdf:about="phone-number" priority="n" essential="yes">
+        <label xml:lang="ru">номер</label>
+        <label xml:lang="en">phone number</label>
+        <domain rdf:resource="phone"/>
+        <range rdf:resource="string"/>
+    </DatatypeProperty>
+    <DatatypeProperty rdf:about="specific" priority="o" essential="yes">
+        <label xml:lang="ru">вид</label>
+        <label xml:lang="en">type</label>
+        <domain rdf:resource="phone"/>
+        <range rdf:resource="phone-specific"/>
+    </DatatypeProperty>
+    <EnumerationType rdf:about="phone-specific">
+        <state value="h" xml:lang="ru">дом</state>
+        <state value="h" xml:lang="en">home</state>
+        <state value="o" xml:lang="ru">офис</state>
+        <state value="o" xml:lang="en">office</state>
+        <state value="m" xml:lang="ru">моб.</state>
+        <state value="m" xml:lang="en">mobile</state>
+        <state value="f" xml:lang="ru">факс</state>
+        <state value="f" xml:lang="en">fax</state>
+    </EnumerationType>
+    <Class rdf:about="email">
+        <label xml:lang="ru">Электронная почта</label>
+        <label xml:lang="en">E-mail</label>
+        <SubClassOf rdf:resource="communication"/>
+    </Class>
+    <DatatypeProperty rdf:about="email-code" priority="n" essential="yes">
+        <label xml:lang="ru">email-код</label>
+        <label xml:lang="en">e-mail address</label>
+        <domain rdf:resource="email"/>
+        <range rdf:resource="Email"/>
+    </DatatypeProperty>
+    <Class rdf:about="url">
+        <label xml:lang="ru">Веб ресурс</label>
+        <label xml:lang="en">WEB-page</label>
+        <SubClassOf rdf:resource="communication"/>
+    </Class>
+    <DatatypeProperty rdf:about="url-code" priority="n" essential="yes">
+        <label xml:lang="ru">URL-код</label>
+        <label xml:lang="en">URL</label>
+        <domain rdf:resource="url"/>
+        <range rdf:resource="URI"/>
+    </DatatypeProperty>
+    <Class rdf:about="org-relatives">
+        <label xml:lang="ru">Родственные организации</label>
+        <label xml:lang="en">Related organizations</label>
+        <SubClassOf rdf:resource="entity"/>
+    </Class>
+    <ObjectProperty rdf:about="org-parent" priority="m" essential="yes">
+        <label xml:lang="ru">орг.родитель</label>
+        <label xml:lang="en">parent organization</label>
+        <inverse-label xml:lang="ru">орг.родитель для</inverse-label>
+        <inverse-label xml:lang="en">parent organization for</inverse-label>
+        <domain rdf:resource="org-relatives"/>
+        <range rdf:resource="org-sys"/>
+    </ObjectProperty>
+    <ObjectProperty rdf:about="org-child" priority="n" essential="yes">
+        <label xml:lang="ru">орг.ребенок</label>
+        <label xml:lang="en">child organization</label>
+        <inverse-label xml:lang="ru">орг.ребенок для</inverse-label>
+        <inverse-label xml:lang="en">child organization for</inverse-label>
+        <domain rdf:resource="org-relatives"/>
+        <range rdf:resource="org-sys"/>
+    </ObjectProperty>
+    <Class rdf:about="reflection">
+        <label xml:lang="ru">Отражение</label>
+        <label xml:lang="en">Reflection</label>
+        <SubClassOf rdf:resource="entity"/>
+    </Class>
+    <ObjectProperty rdf:about="reflected" priority="m" essential="yes">
+        <label xml:lang="ru">отражаемое</label>
+        <label xml:lang="en">reflected item</label>
+        <inverse-label xml:lang="ru">отраж. в документе</inverse-label>
+        <inverse-label xml:lang="en">reflected in document</inverse-label>
+        <domain rdf:resource="reflection"/>
+        <range rdf:resource="sys-obj"/>
+    </ObjectProperty>
+    <ObjectProperty rdf:about="in-doc" priority="n" essential="yes">
+        <label xml:lang="ru">в документе</label>
+        <label xml:lang="en">in document</label>
+        <inverse-label xml:lang="ru">отраж. персонаж</inverse-label>
+        <inverse-label xml:lang="en">reflected personage</inverse-label>
+        <domain rdf:resource="reflection"/>
+        <range rdf:resource="document"/>
+    </ObjectProperty>
+    <DatatypeProperty rdf:about="ground" priority="o">
+        <label xml:lang="ru">план</label>
+        <label xml:lang="en">ground</label>
+        <domain rdf:resource="reflection"/>
+        <range rdf:resource="personage-ground"/>
+    </DatatypeProperty>
+    <EnumerationType rdf:about="personage-ground">
+        <state value="portrait" xml:lang="ru">портрет</state>
+        <state value="portrait" xml:lang="en">portrait</state>
+        <state value="foreground" xml:lang="ru">первый план</state>
+        <state value="foreground" xml:lang="en">foreground</state>
+        <state value="background" xml:lang="ru">задний план</state>
+        <state value="background" xml:lang="en">background</state>
+        <state value="casual" xml:lang="ru">случайно</state>
+        <state value="casual" xml:lang="en">casual</state>
+        <state value="place" xml:lang="ru">место</state>
+        <state value="place" xml:lang="en">place</state>
+    </EnumerationType>
+
+    <!--
+        <DatatypeProperty rdf:about="concernment">
+                <label xml:lang="ru">значимость</label>
+                <domain rdf:resource="sys-obj"/>
+                <range rdf:resource="string"/>
+        </DatatypeProperty>
+      -->
+
+  <!--                   Вставка онтологии ontology_iis-v7-doc                   -->
+  <Class rdf:about="scanned-page">
+    <label xml:lang="ru">Страница сканирования</label>
+    <label xml:lang="en">Scanend page</label>
+    <SubClassOf rdf:resource="entity"/>
+  </Class>
+  <ObjectProperty rdf:about="scanned-document" priority="m" essential="yes">
+    <label xml:lang="ru">документ</label>
+    <label xml:lang="en">document</label>
+    <inverse-label xml:lang="ru">страница</inverse-label>
+    <inverse-label xml:lang="en">page</inverse-label>
+    <domain rdf:resource="scanned-page"/>
+    <range rdf:resource="document"/>
+  </ObjectProperty>
+  <ObjectProperty rdf:about="photo-page" priority="m" essential="yes">
+    <label xml:lang="ru">фото-страница</label>
+    <label xml:lang="en">photo page</label>
+    <inverse-label xml:lang="ru">страница документа</inverse-label>
+    <inverse-label xml:lang="en">document's page</inverse-label>
+    <domain rdf:resource="scanned-page"/>
+    <range rdf:resource="photo-doc"/>
+  </ObjectProperty>
+  <DatatypeProperty rdf:about="page-number" essential="yes">
+    <label xml:lang="ru">номер страницы</label>
+    <label xml:lang="en">page number</label>
+    <domain rdf:resource="scanned-page"/>
+    <range rdf:resource="string"/>
+  </DatatypeProperty>
+<!--
+  <DatatypeProperty rdf:about="tip-documenta" essential="yes" priority="x">
+    <label xml:lang="ru">Тип документа</label>
+    <label xml:lang="en">Document's type</label>
+    <domain rdf:resource="document"/>
+    <range rdf:resource="document-tips"/>
+  </DatatypeProperty>
+  <EnumerationType rdf:about="document-tips">
+    <state value="td_monography" xml:lang="ru">Монография</state>
+    <state value="td_monography" xml:lang="en">Monograph</state>
+    <state value="td_article" xml:lang="ru">Статья</state>
+    <state value="td_article" xml:lang="en">Article</state>
+    <state value="td_letter" xml:lang="ru">Письмо</state>
+    <state value="td_letter" xml:lang="en">Letter</state>
+    <state value="td_bio" xml:lang="ru">Биографический документ</state>
+    <state value="td_bio" xml:lang="en">Biographic document</state>
+  </EnumerationType>
+-->
+  <Class rdf:about="letter">
+    <label xml:lang="ru">Письмо</label>
+    <label xml:lang="en">Letter</label>
+    <SubClassOf rdf:resource="document"/>
+  </Class>
+  <Class rdf:about="is-recipient">
+    <label xml:lang="ru">Получатель</label>
+    <label xml:lang="en">Recipient</label>
+    <SubClassOf rdf:resource="entity"/>
+  </Class>
+  <ObjectProperty rdf:about="of-letter" priority="m" essential="yes">
+    <label xml:lang="ru">документ</label>
+    <label xml:lang="en">document</label>
+    <inverse-label xml:lang="ru">получатель</inverse-label>
+    <inverse-label xml:lang="en">recipient</inverse-label>
+    <domain rdf:resource="is-recipient"/>
+    <range rdf:resource="letter"/>
+  </ObjectProperty>
+  <ObjectProperty rdf:about="recipient" priority="n" essential="yes">
+    <label xml:lang="ru">получатель</label>
+    <label xml:lang="en">recipient</label>
+    <inverse-label xml:lang="ru">получатель документа</inverse-label>
+    <inverse-label xml:lang="en">document's recipient</inverse-label>
+    <domain rdf:resource="is-recipient"/>
+    <range rdf:resource="person"/>
+  </ObjectProperty>
+  <!--                   конец вставка онтологии ontology_iis-v7-doc                   -->
+
+        <!--                  Онтология для кассет                       -->
+        <Class rdf:about="cassette">
+                <label xml:lang="ru">Кассета</label>
+                <label xml:lang="en">Cassette</label>
+                <SubClassOf rdf:resource="collection"/>
+        </Class>
+        <!-- Это будет спрятано, чтобы пользователи не редактировали
+        <DatatypeProperty rdf:about="cassetteUri">
+                <label xml:lang="ru">Системное имя кассеты</label>
+                <label xml:lang="en">System name of cassette</label>
+                <domain rdf:resource="cassette"/>
+                <range rdf:resource="string"/>
+        </DatatypeProperty>
+        <DatatypeProperty rdf:about="cassetteLocation">
+                <label xml:lang="ru">Координата кассеты</label>
+                <label xml:lang="en">Coordinate of cassette</label>
+                <domain rdf:resource="cassette"/>
+                <range rdf:resource="string"/>
+        </DatatypeProperty>
+        <Class rdf:about="cassetteSection">
+        </Class>
+        <DatatypeProperty rdf:about="forCassette">
+                <label xml:lang="ru">URI кассеты</label>
+                <label xml:lang="en">URI of cassette</label>
+                <domain rdf:resource="cassetteSection"/>
+                <range rdf:resource="string"/>
+        </DatatypeProperty>
+        <DatatypeProperty rdf:about="sectionType">
+                <label xml:lang="ru">Тип секции кассеты</label>
+                <label xml:lang="en">Type of cassette section</label>
+                <domain rdf:resource="cassetteSection"/>
+                <range rdf:resource="string"/>
+        </DatatypeProperty>
+        <DatatypeProperty rdf:about="sectionLocation">
+                <label xml:lang="ru">Координата секции кассеты</label>
+                <label xml:lang="en">Coordinate of cassette section</label>
+                <domain rdf:resource="cassetteSection"/>
+                <range rdf:resource="string"/>
+        </DatatypeProperty>
+        конец спрятанного -->
+
+        <Theme rdf:about="iis_ont_th_cassette">
+                <label xml:lang="ru">Кассеты</label>
+                <label xml:lang="en">Cassettes</label>
+                <includes rdf:resource="cassette"/>
+        </Theme>
+        <!--                  конец онтологии кассет                       -->
+        <Theme rdf:about="iis_ont_th_common">
+        <label xml:lang="ru">Общие</label>
+        <label xml:lang="en">Common</label>
+        <includes rdf:resource="from-date"/>
+        <includes rdf:resource="to-date"/>
+        <includes rdf:resource="name"/>
+        <includes rdf:resource="person"/>
+        <includes rdf:resource="org-sys"/>
+        <includes rdf:resource="org-classification"/>
+        <includes rdf:resource="org-category"/>
+        <includes rdf:resource="participation"/>
+        <includes rdf:resource="participant"/>
+        <includes rdf:resource="in-org"/>
+        <includes rdf:resource="role"/>
+        <includes rdf:resource="role-classification"/>
+          <includes rdf:resource="org-relatives"/>
+          <includes rdf:resource="org-parent"/>
+          <includes rdf:resource="org-child"/>
+        </Theme>
+<Theme rdf:about="iis_ont_th_02">
+        <label xml:lang="ru">Детали</label>
+        <label xml:lang="en">Common</label>   
+        <includes rdf:resource="comment"/>
+        <includes rdf:resource="description"/>
+        <includes rdf:resource="sex"/>
+        <includes rdf:resource="naming"/>
+        <includes rdf:resource="referred-sys"/>
+        <includes rdf:resource="alias"/>
+        <includes rdf:resource="dating"/>
+        <includes rdf:resource="referred"/>
+        <includes rdf:resource="dating-specificator"/>
+        <includes rdf:resource="dating-variants"/>
+        <includes rdf:resource="some-date"/>
+        <includes rdf:resource="dating-accuracy"/>
+</Theme>
+<Theme rdf:about="iis_ont_th_03">
+        <label xml:lang="ru">Семья</label>
+        <label xml:lang="en">Family</label>  
+        <includes rdf:resource="father"/>
+        <includes rdf:resource="mother"/>
+        <includes rdf:resource="family"/>
+        <includes rdf:resource="husband"/>
+        <includes rdf:resource="wife"/>
+</Theme>
+<Theme rdf:about="iis_ont_th_04">
+        <label xml:lang="ru">Геоинформация</label>
+        <label xml:lang="en">Geographic information</label>
+        <includes rdf:resource="geosys"/>
+        <includes rdf:resource="country"/>
+        <includes rdf:resource="region"/>
+        <includes rdf:resource="city"/>
+        <includes rdf:resource="geosys-special"/>
+        <includes rdf:resource="geosys-category"/>
+        <includes rdf:resource="reg-phone-code"/>
+        <includes rdf:resource="geo-place"/>
+        <includes rdf:resource="code"/>
+        <includes rdf:resource="location"/>
+        <includes rdf:resource="something"/>
+        <includes rdf:resource="location-place"/>
+        <includes rdf:resource="location-category"/>
+        <includes rdf:resource="post-address"/>
+        <includes rdf:resource="post-target"/>
+        <includes rdf:resource="post-index"/>
+        <includes rdf:resource="address"/>
+</Theme>
+<Theme rdf:about="iis_ont_th_05">
+        <label xml:lang="ru">Архив</label>
+        <label xml:lang="en">Archive</label>
+        <includes rdf:resource="archive"/>
+        <includes rdf:resource="in-archive"/>
+        <includes rdf:resource="archive-item"/>
+        <includes rdf:resource="archive-member"/>
+        <includes rdf:resource="concernment"/>
+        <includes rdf:resource="info-source"/>
+</Theme>
+<Theme rdf:about="iis_ont_th_06">
+        <label xml:lang="ru">Коллекция</label>
+        <label xml:lang="en">Collection</label>
+        <includes rdf:resource="collection"/>
+        <includes rdf:resource="collection-member"/>
+        <includes rdf:resource="collection-item"/>
+        <includes rdf:resource="in-collection"/>
+</Theme>
+<Theme rdf:about="iis_ont_th_07">
+        <label xml:lang="ru">Документ</label>
+        <label xml:lang="en">Document</label>
+        <includes rdf:resource="document"/>
+        <includes rdf:resource="published"/>
+        <includes rdf:resource="doc-content"/>
+        <includes rdf:resource="opinion"/>
+  <includes rdf:resource="tip-documenta"/>
+  <includes rdf:resource="photo-doc"/>
+        <includes rdf:resource="video-doc"/>
+        <includes rdf:resource="audio-doc"/>
+        <includes rdf:resource="speech"/>
+        <includes rdf:resource="at-meeting"/>
+        <includes rdf:resource="authority"/>
+        <includes rdf:resource="adoc"/>
+        <includes rdf:resource="author"/>
+        <includes rdf:resource="reflection"/>
+        <includes rdf:resource="reflected"/>
+        <includes rdf:resource="in-doc"/>
+        <includes rdf:resource="ground"/>
+        <!--            Вставка онтологии ontology_iis-v7-doc              -->
+  <includes rdf:resource="scanned-page"/>
+  <includes rdf:resource="scanned-document"/>
+  <includes rdf:resource="photo-page"/>
+  <includes rdf:resource="page-number"/>
+  <includes rdf:resource="letter"/>
+  <includes rdf:resource="is-recipient"/>
+  <includes rdf:resource="of-letter"/>
+  <includes rdf:resource="recipient"/>
+</Theme>
+<Theme rdf:about="iis_ont_th_08">
+        <label xml:lang="ru">Титулы/Дело</label>
+        <label xml:lang="en">Titles/Business</label>
+        <includes rdf:resource="titled"/>
+        <includes rdf:resource="has-title"/>
+        <includes rdf:resource="support-org"/>
+        <includes rdf:resource="degree"/>
+        <includes rdf:resource="business-activity"/>
+        <includes rdf:resource="has-activity"/>
+        <includes rdf:resource="business"/>
+</Theme>
+<Theme rdf:about="iis_ont_th_09">
+        <label xml:lang="ru">Учеба</label>
+        <label xml:lang="en">Education</label>
+        <includes rdf:resource="learn"/>
+        <includes rdf:resource="learner"/>
+        <includes rdf:resource="learning-org"/>
+        <includes rdf:resource="pupil"/>
+        <includes rdf:resource="student"/>
+        <includes rdf:resource="aspirant"/>
+        <includes rdf:resource="learn-special"/>
+        <includes rdf:resource="learn-category"/>
+</Theme>
+<Theme rdf:about="iis_ont_th_10">
+        <label xml:lang="ru">Коммуникация</label>
+        <label xml:lang="en">Communication</label>
+        <includes rdf:resource="communication"/>
+        <includes rdf:resource="user"/>
+        <includes rdf:resource="phone"/>
+        <includes rdf:resource="phone-number"/>
+        <includes rdf:resource="specific"/>
+        <includes rdf:resource="email"/>
+        <includes rdf:resource="email-code"/>
+        <includes rdf:resource="url"/>
+        <includes rdf:resource="url-code"/>
+</Theme>
+
+</Ontology>

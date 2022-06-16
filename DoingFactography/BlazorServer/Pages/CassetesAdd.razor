@@ -1,0 +1,286 @@
+﻿@page "/cassettes-add"
+@using System.Xml;
+@using System.Xml.Linq;
+@using BlazorServer;
+@using System
+@using System.IO
+@using FFMpegCore.Enums
+@using FFMpegCore.Pipes
+@using ImageProcessor
+@using ImageProcessor.Imaging.Formats
+@using Microsoft.AspNetCore.Hosting
+@using Microsoft.Extensions.Logging
+@inject ILogger<Cassetes> Logger
+@inject IWebHostEnvironment Environment
+@using System.IO.Compression;
+@using System.Drawing
+@using System.Collections
+@using FFMpegCore;
+@using System.Threading.Tasks;
+
+
+<h1>Кассеты</h1>
+<h3>Подключенные кассеты:</h3>
+@foreach (XElement cass in config.Elements("LoadCassette"))
+{
+    int pos = cass.Value.LastIndexOf("/") + 1;
+    <div>@cass.Value.Substring(pos, cass.Value.Length - pos)</div>
+}
+<br />
+<h3>Добавить кассеты</h3>
+
+<p>
+    <label>
+        Загрузите файлы для кассеты до @maxFileSize байт:
+        <InputFile OnChange="@LoadFiles" multiple />
+    </label>
+</p>
+
+@if (isLoading)
+{
+    <p>Uploading...</p>
+}
+else if (loadedFiles.Count != 0)
+{
+    <h3>Загруженные файлы:</h3>
+    <ul>
+        @foreach (var file in loadedFiles)
+        {
+
+            <li>
+                <ul>
+                    <li>@file.Name</li>
+                    <li>Размер: @file.Size</li>
+                </ul>
+            </li>
+        }
+    </ul>
+    <input @bind="@cassName"/>
+    <button type="button" @onclick="@SaveCassette">Сохранить кассету</button>
+    <input type="checkbox" id="addition" name="math" value="add" @bind="@addToConfig" /> <span>добавить кассету config.xml</span>
+    <br />
+
+    if (saved)
+    {
+        <div>Кассета сохранена!</div>
+    }
+}
+
+
+@code {
+
+    XElement config;
+
+    protected override void OnInitialized() // = On Page Load
+    {
+        string path = Environment.ContentRootPath + "/wwwroot/config.xml";
+        config = XElement.Load(path);
+    }
+}
+
+
+@code {
+    private List<IBrowserFile> loadedFiles = new();
+    private long maxFileSize = 1024 * 1024 * 1024;
+    private int maxAllowedFiles = 60;
+    private int newFolderInterval = 1000;
+    private bool isLoading;
+    private string cassName = "";
+    private bool saved = false;
+    private bool addToConfig = false;
+    XNamespace fogid = @"http://fogid.net/o/";
+    XNamespace rdf = @"http://www.w3.org/1999/02/22-rdf-syntax-ns#";
+
+    private async Task LoadFiles(InputFileChangeEventArgs e)
+    {
+        isLoading = true;
+        loadedFiles.Clear();
+
+        foreach (var file in e.GetMultipleFiles(maxAllowedFiles))
+        {
+            try
+            {
+                loadedFiles.Add(file);
+
+                var trustedFileNameForFileStorage = file.Name;
+                var path = Path.Combine(Environment.ContentRootPath,
+                        Environment.WebRootPath, "unsafe_uploads",
+                        trustedFileNameForFileStorage);
+
+                await using FileStream fs = new(path, FileMode.Create);
+                await file.OpenReadStream(maxFileSize).CopyToAsync(fs);
+            }
+            catch (Exception ex)
+            {
+                Logger.LogError("File: {Filename} Error: {Error}",
+                    file.Name, ex.Message);
+            }
+        }
+
+        isLoading = false;
+    }
+
+
+    private void SaveCassette()
+    {
+
+        XElement root = new XElement(rdf + "RDF",
+            new XAttribute(XNamespace.Xmlns + "rdf", rdf.NamespaceName),
+            new XAttribute("xmlns", fogid.NamespaceName),
+            new XAttribute("owner", "mag_1"),
+            new XAttribute("prefix", cassName + "_"),
+            new XAttribute("counter", ((loadedFiles.Count + 1) * 2 + 1).ToString().PadLeft(4, '0'))); //add attr after load
+        XElement casseteElement = new XElement("cassete",
+            new XAttribute(rdf + "about", cassName + "_0001"));
+        casseteElement.Add(new XElement("name", cassName));
+        casseteElement.Add(new XElement("cassetteUri", "iiss://" + cassName + "@iis.nsk.su/meta"));
+        root.Add(casseteElement);
+        XElement collectionMemberRoot = MakeCollectionMember(cassName + "_0002", "cassetterootcollection", cassName + "_0001");
+        root.Add(collectionMemberRoot);
+
+        var counter = 3;
+
+        var dirName = Environment.ContentRootPath + "/wwwroot/cassettes/" + cassName;
+        Directory.CreateDirectory(dirName);
+        Directory.CreateDirectory(dirName + "/meta");
+        Directory.CreateDirectory(dirName + "/documents");
+        Directory.CreateDirectory(dirName + "/documents/small");
+        Directory.CreateDirectory(dirName + "/documents/medium");
+        Directory.CreateDirectory(dirName + "/documents/small/0001");
+        Directory.CreateDirectory(dirName + "/documents/medium/0001");
+        Directory.CreateDirectory(dirName + "/originals");
+        Directory.CreateDirectory(dirName + "/originals/0001");
+
+        var currentFolder = 1;
+        var currentFolderName = currentFolder.ToString().PadLeft(4, '0');
+        var filesIndex = 1;
+        GlobalFFOptions.Configure(new FFOptions { BinaryFolder = "C:\\Program Files\\ffmpeg\\bin", TemporaryFilesFolder = dirName + "/tmp" });
+
+
+        foreach (var fl in loadedFiles)
+        {
+
+            // Старое имя и расширение
+            var fname = fl.Name;
+            var fres = fl.Name.Split(".").Last();
+
+            string sourcePath = Environment.ContentRootPath + "/wwwroot/unsafe_uploads/" + fl.Name;
+            string folderAndFile = "/" + currentFolderName + "/" + filesIndex.ToString().PadLeft(4, '0');
+            string originalsPath = dirName + "/originals/" + folderAndFile + "." + fres;
+            File.Move(sourcePath, originalsPath, true);
+
+
+            byte[] fileBytes = File.ReadAllBytes(originalsPath);
+            if (filesIndex % newFolderInterval == 0)
+            {
+                currentFolder++;
+                currentFolderName = currentFolder.ToString().PadLeft(4, '0');
+                Directory.CreateDirectory(dirName + "/originals/" + currentFolderName);
+                Directory.CreateDirectory(dirName + "/documents/small/" + currentFolderName);
+                Directory.CreateDirectory(dirName + "/documents/medium/" + currentFolderName);
+                filesIndex = 0;
+            }
+
+            var pos = fname.IndexOf('.');
+            var ext = fname.Substring(pos);
+            var docId = cassName + "_" + counter.ToString().PadLeft(4, '0');
+            var tag = "document";
+
+
+            switch (fl.ContentType.Split("/")[0])
+            {
+                case "image":
+                    tag = "photo-doc";
+
+                    SaveImage(fileBytes, dirName + "/documents/medium/" + folderAndFile, 400);
+                    SaveImage(fileBytes, dirName + "/documents/small/" + folderAndFile, 100);
+
+                    break;
+                case "audio":
+                    tag = "audio";
+                    break;
+                case "video":
+                default:
+                    ConvertVideo(fileBytes, dirName + "/documents/small/" + folderAndFile, VideoSize.Ld);
+                    ConvertVideo(fileBytes, dirName + "/documents/medium/" + folderAndFile, VideoSize.Ed);
+                    tag = "video";
+                    break;
+            }
+
+
+
+
+            XElement photoDoc = new XElement(tag, new XAttribute(rdf + "about", docId));
+            photoDoc.Add(new XElement("name", fname));
+            photoDoc.Add(new XElement("from-date", fl.LastModified.ToString()));
+            photoDoc.Add(new XElement("uri", "iiss://" + cassName + "@iis.nsk.su/meta/" + currentFolderName + "/" + folderAndFile));
+            photoDoc.Add(new XElement("documenttype", fl.ContentType));
+            root.Add(photoDoc);
+
+            XElement collectionMember = MakeCollectionMember(cassName + "_" + counter.ToString().PadLeft(4, '0'),
+                cassName + "_0001", cassName + "_" + (counter - 1).ToString().PadLeft(4, '0'));
+
+            counter += 2;
+            filesIndex++;
+            root.Add(collectionMember);
+
+
+        }
+        root.Save(dirName + "/meta/" + cassName + "_current.fog");
+
+
+        if (addToConfig) { 
+            config.Add(new XElement("LoadCassette", Environment.ContentRootPath + "/wwwroot/cassettes/" + cassName));
+            config.Save(Environment.ContentRootPath + "/wwwroot/config.xml");
+            OAData.OADB.Reload();
+        }
+        saved = true;
+    }
+
+    private static void ConvertVideo(byte[] fileBytes, string resfile, FFMpegCore.Enums.VideoSize size)
+    {
+        var inputStream = new MemoryStream(fileBytes);
+        var outputFile = resfile;
+        FFMpegArguments
+        .FromPipeInput(new StreamPipeSource(inputStream))
+        .OutputToFile(outputFile + ".mp4", true, options => options
+        .WithVideoFilters(filterOptions => filterOptions
+                .Scale(size))
+            .ForceFormat("Mp4"))
+        .ProcessSynchronously();
+
+    }
+
+
+    private XElement MakeCollectionMember(string about, string inColl, string collItem)
+    {
+        XElement collectionMember = new XElement("collection-member",
+            new XAttribute(rdf+"about", about));
+        collectionMember.Add(new XElement("in-collection",
+            new XAttribute(rdf + "resource", inColl)));
+        collectionMember.Add(new XElement("collection-item",
+            new XAttribute(rdf + "resource", collItem)));
+        return collectionMember;
+    }
+
+    private void SaveImage(byte[] fileBytes, string filePath, int maxWidth)
+    {
+        // Format is automatically detected though can be changed.
+        ISupportedImageFormat format = new JpegFormat { Quality = 70 };
+        Size size = new Size(maxWidth, 0);
+        using (MemoryStream inStream = new MemoryStream(fileBytes))
+        {
+
+            // Initialize the ImageFactory using the overload to preserve EXIF metadata.
+            using (ImageFactory imageFactory = new ImageFactory(preserveExifData:true))
+            {
+                // Load, resize, set the format and quality and save an image.
+                imageFactory.Load(inStream)
+                            .Resize(size)
+                            .Format(format)
+                            .Save(filePath + ".jpg");
+            }
+                        
+        }
+    }
+}

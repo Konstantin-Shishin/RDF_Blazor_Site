@@ -1,0 +1,66 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<config>
+  <!--Parameters extappbinpath="C:/Home/bin/" newcassettesdirpath="C:/Home/FactographProjects/newcassettes/">
+  </Parameters-->
+  <params appname="Открытый архив СО РАН (редактирующее приложение)"></params>
+  <finfo>
+    <image>
+      <small previewBase="120" qualityLevel="90" />
+      <medium previewBase="640" qualityLevel="90" />
+      <normal previewBase="1280" qualityLevel="90" />
+    </image>
+    <video>
+      <medium videoBitrate="400K" audioBitrate="22050" rate="10" framesize="480x360" />
+    </video>
+  </finfo>
+
+
+	<LoadCassette write="yes">H:\home\OA\Ad</LoadCassette>
+	<LoadCassette write="yes">H:\home\OA\Xc</LoadCassette>
+	<LoadCassette write="yes">H:\home\OA\Xu</LoadCassette>
+	<LoadCassette write="yes">H:\home\OA\Xc1</LoadCassette>
+	<LoadCassette write="yes">H:\home\OA\Xu1</LoadCassette>
+
+	<LoadCassette regime="nodata">H:\home\OA\Ba</LoadCassette>
+	<LoadCassette regime="nodata">H:\home\OA\L5</LoadCassette>
+	<LoadCassette regime="nodata">H:\home\OA\La</LoadCassette>
+	<LoadCassette regime="nodata">H:\home\OA\Ly</LoadCassette>
+	<LoadCassette regime="nodata">H:\home\OA\Ns</LoadCassette>
+	<LoadCassette regime="nodata">H:\home\OA\Po</LoadCassette>
+	<LoadCassette regime="nodata">H:\home\OA\Rs</LoadCassette>
+	<LoadCassette regime="nodata">H:\home\OA\Ru</LoadCassette>
+	<LoadCassette regime="nodata">H:\home\OA\Th</LoadCassette>
+	<LoadCassette regime="nodata">H:\home\OA\Ti</LoadCassette>
+	<LoadCassette regime="nodata">H:\home\OA\Rs</LoadCassette>
+
+  	<LoadCassette regime="nodata">F:\home\OA\Bm</LoadCassette>
+  	<LoadCassette regime="nodata">F:\home\OA\F1</LoadCassette>
+ 	<LoadCassette regime="nodata">F:\home\OA\F2</LoadCassette>
+ 	<LoadCassette regime="nodata">F:\home\OA\F3</LoadCassette>
+  	<LoadCassette regime="nodata">F:\home\OA\Ft</LoadCassette>
+  	<LoadCassette regime="nodata">F:\home\OA\G1</LoadCassette>
+	<LoadCassette regime="nodata">F:\home\OA\G2</LoadCassette>
+	<LoadCassette regime="nodata">F:\home\OA\Kv</LoadCassette>
+	<LoadCassette regime="nodata">F:\home\OA\L1</LoadCassette>
+	<LoadCassette regime="nodata">F:\home\OA\Mr</LoadCassette>
+ 	<LoadCassette regime="nodata">F:\home\OA\R1</LoadCassette>
+
+ 	<LoadCassette regime="nodata">G:\home\OA\F4</LoadCassette>
+ 	<LoadCassette regime="nodata">G:\home\OA\F5</LoadCassette>
+	<LoadCassette regime="nodata">G:\home\OA\Hp</LoadCassette>
+	<LoadCassette regime="nodata">G:\home\OA\L2</LoadCassette>
+	<LoadCassette regime="nodata">G:\home\OA\L3</LoadCassette>
+	<LoadCassette regime="nodata">G:\home\OA\L4</LoadCassette>
+	<LoadCassette regime="nodata">G:\home\OA\Sa</LoadCassette>
+	<LoadCassette regime="nodata">G:\home\OA\Ta</LoadCassette>
+	<LoadCassette regime="nodata">G:\home\OA\Vo</LoadCassette>
+
+
+	<LoadCassette regime="nodata">J:\home\OA\Zc</LoadCassette>
+	<LoadCassette regime="nodata">J:\home\OA\F6</LoadCassette>
+	<LoadCassette regime="nodata">J:\home\OA\Ci</LoadCassette>
+	<LoadCassette regime="nodata">J:\home\OA\Os</LoadCassette>
+	<LoadCassette regime="nodata">J:\home\OA\L6</LoadCassette>
+	<LoadCassette regime="nodata">J:\home\OA\Oh</LoadCassette>
+
+</config>

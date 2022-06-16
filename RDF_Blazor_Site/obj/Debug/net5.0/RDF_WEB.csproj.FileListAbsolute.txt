@@ -1,0 +1,17 @@
+C:\Users\shish\source\repos\dev_2022\TestEdit\obj\Debug\net5.0\RDF_WEB.csproj.AssemblyReference.cache
+C:\Users\shish\source\repos\dev_2022\TestEdit\obj\Debug\net5.0\RDF_WEB.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\shish\source\repos\dev_2022\TestEdit\obj\Debug\net5.0\RDF_WEB.AssemblyInfoInputs.cache
+C:\Users\shish\source\repos\dev_2022\TestEdit\obj\Debug\net5.0\RDF_WEB.AssemblyInfo.cs
+C:\Users\shish\source\repos\dev_2022\TestEdit\obj\Debug\net5.0\RDF_WEB.csproj.CoreCompileInputs.cache
+C:\Users\shish\source\repos\dev_2022\TestEdit\obj\Debug\net5.0\RDF_WEB.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\shish\source\repos\dev_2022\TestEdit\obj\Debug\net5.0\RDF_WEB.RazorComponent.input.cache
+C:\Users\shish\source\repos\dev_2022\TestEdit\obj\Debug\net5.0\RazorDeclaration\App.razor.g.cs
+C:\Users\shish\source\repos\dev_2022\TestEdit\obj\Debug\net5.0\RazorDeclaration\Pages\Counter.razor.g.cs
+C:\Users\shish\source\repos\dev_2022\TestEdit\obj\Debug\net5.0\RazorDeclaration\Pages\FetchData.razor.g.cs
+C:\Users\shish\source\repos\dev_2022\TestEdit\obj\Debug\net5.0\RazorDeclaration\Pages\Index.razor.g.cs
+C:\Users\shish\source\repos\dev_2022\TestEdit\obj\Debug\net5.0\RazorDeclaration\Pages\Test.razor.g.cs
+C:\Users\shish\source\repos\dev_2022\TestEdit\obj\Debug\net5.0\RazorDeclaration\Shared\SurveyPrompt.razor.g.cs
+C:\Users\shish\source\repos\dev_2022\TestEdit\obj\Debug\net5.0\RazorDeclaration\_Imports.razor.g.cs
+C:\Users\shish\source\repos\dev_2022\TestEdit\obj\Debug\net5.0\RazorDeclaration\Shared\MainLayout.razor.g.cs
+C:\Users\shish\source\repos\dev_2022\TestEdit\obj\Debug\net5.0\RazorDeclaration\Shared\NavMenu.razor.g.cs
+C:\Users\shish\source\repos\dev_2022\TestEdit\obj\Debug\net5.0\RDF_WEB.RazorComponent.output.cache

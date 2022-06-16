@@ -1,0 +1,67 @@
+﻿@inherits LayoutComponentBase
+@inject NavigationManager NavigationManager;
+
+<div class="page">
+    <div class="sidebar">
+        <NavMenu />
+    </div>
+    <div class="lang-selector">
+        <select @onchange="@(e => LangChangeHandler(e.Value))">
+            @foreach(var lang in languages)
+            {
+                if (lang.code == currentLanguage)
+                {
+                    <option selected="selected" value="@lang.code">@lang.name</option>
+                } else
+                {
+                    <option value="@lang.code">@lang.name</option>
+                }
+            }
+        </select>
+    </div>
+    <div class="lang-selector"></div>
+    <div class="main">
+
+        <div class="content px-4">
+            @Body
+        </div>
+    </div>
+</div>
+
+@code {
+    public static string fallbackLanguage = "ru";
+    public static string currentLanguage;
+
+    public List<Language> languages = new List<Language>()
+    {
+        new Language("ru", "русский"),
+        new Language("en", "english")
+    };
+
+    private void LangChangeHandler(object lang)
+    {
+        currentLanguage = lang.ToString();
+        NavigationManager.NavigateTo(NavigationManager.Uri, true);
+    }
+
+    public class Language
+    {
+        public string name;
+        public string code;
+
+        public Language(string code, string name)
+        {
+            this.name = name;
+            this.code = code;
+        }
+    }
+
+
+    protected override void OnInitialized() // = On Page Load
+    {
+        if (currentLanguage == null)
+        {
+            currentLanguage = fallbackLanguage;
+        }
+    }
+}

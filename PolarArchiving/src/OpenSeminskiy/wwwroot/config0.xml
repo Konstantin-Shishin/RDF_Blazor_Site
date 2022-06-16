@@ -1,0 +1,67 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<config>
+
+  <!--database dbname="OA" connectionstring="xml:" /-->
+  <database connectionstring="trs:C:\Home\PolarDatabases\OA\"/>
+
+  
+  <LoadCassette>H:\OA\Ad</LoadCassette>
+  <LoadCassette>H:\OA\Ba</LoadCassette>
+  <LoadCassette>H:\OA\L5</LoadCassette>
+  <LoadCassette>H:\OA\La</LoadCassette>
+  <LoadCassette>H:\OA\Ly</LoadCassette>
+  <LoadCassette>H:\OA\Ns</LoadCassette>
+  <LoadCassette>H:\OA\Rs</LoadCassette>
+  <LoadCassette>H:\OA\Ru</LoadCassette>
+  <LoadCassette>H:\OA\Th</LoadCassette>
+  <LoadCassette>H:\OA\Ti</LoadCassette>
+
+  <LoadCassette>H:\OA\Xc</LoadCassette>
+  <LoadCassette>H:\OA\Xu</LoadCassette>
+  <LoadCassette>H:\OA\Xc1</LoadCassette>
+  <LoadCassette>H:\OA\Xu1</LoadCassette>
+  <LoadCassette>H:\OA\Xu2</LoadCassette>
+  <!--LoadCassette>H:\OA\Ns</LoadCassette-->
+
+  <LoadCassette>G:\OA\F4</LoadCassette>
+  <LoadCassette>G:\OA\F5</LoadCassette>
+  <LoadCassette>G:\OA\Hp</LoadCassette>
+  <LoadCassette>G:\OA\L2</LoadCassette>
+  <LoadCassette>G:\OA\L3</LoadCassette>
+  <LoadCassette>G:\OA\L4</LoadCassette>
+  <LoadCassette>G:\OA\Sa</LoadCassette>
+  <LoadCassette>G:\OA\Ta</LoadCassette>
+  <LoadCassette>G:\OA\Vo</LoadCassette>
+
+  <LoadCassette>I:\OA_K\Po</LoadCassette>
+  <LoadCassette>I:\OA_K\Pr</LoadCassette>
+  <LoadCassette>I:\OA_K\F6</LoadCassette>
+  <LoadCassette>I:\OA_K\F7</LoadCassette>
+  <LoadCassette>I:\OA_K\Z3</LoadCassette>
+  <LoadCassette>I:\OA_K\Ic</LoadCassette>
+  <LoadCassette>I:\OA_K\Im</LoadCassette>
+
+  <LoadCassette>C:\Home\OA_J\Oh</LoadCassette>
+  <LoadCassette>C:\Home\OA_J\Is</LoadCassette>
+  <LoadCassette>C:\Home\OA_J\Zc</LoadCassette>
+  <LoadCassette>C:\Home\OA_J\Z1</LoadCassette>
+  <LoadCassette>C:\Home\OA_J\Z2</LoadCassette>
+  <LoadCassette>C:\Home\OA_J\Kl</LoadCassette>
+  <LoadCassette>C:\Home\OA_J\Ci</LoadCassette>
+  <LoadCassette>C:\Home\OA_J\Os</LoadCassette>
+  <LoadCassette>C:\Home\OA_J\L6</LoadCassette>
+
+<!--    Остальное не влезло!    
+  <LoadCassette>F:\OA\Bm</LoadCassette>
+  <LoadCassette>F:\OA\F1</LoadCassette>
+  <LoadCassette>F:\OA\F2</LoadCassette>
+  <LoadCassette>F:\OA\F3</LoadCassette>
+  <LoadCassette>F:\OA\Ft</LoadCassette>
+  <LoadCassette>F:\OA\G1</LoadCassette>
+  <LoadCassette>F:\OA\G2</LoadCassette>
+  <LoadCassette>F:\OA\Kv</LoadCassette>
+  <LoadCassette>F:\OA\L1</LoadCassette>
+  <LoadCassette>F:\OA\Mr</LoadCassette>
+  <LoadCassette>F:\OA\R1</LoadCassette>
+-->
+</config>

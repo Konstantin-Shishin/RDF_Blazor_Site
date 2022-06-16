@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<config>
+  <!--
+    <database connectionstring="xml:"/>
+    <database connectionstring="trs:C:/Home/data/Databases/OADataService/" />
+    <database connectionstring="om:D:\Home\data\om\" />
+    -->
+  <database connectionstring="uni:D:\Home\data\uni\" />
+
+  <!--
+  <LoadCassette>D:\Home\FactographProjects\newspaper</LoadCassette>
+-->
+
+
+  <LoadCassette>E:\FactographProjects\PA_newspapers\newspaper</LoadCassette>
+
+  <LoadCassette>E:\FactographProjects\PA_cassettes\PA_database201012</LoadCassette>
+  <LoadCassette>E:\FactographProjects\PA_cassettes\gi_pharchive</LoadCassette>
+  <LoadCassette>E:\FactographProjects\PA_cassettes\PA_Users</LoadCassette>
+
+  <LoadCassette>E:\FactographProjects\PA_cassettes\da1</LoadCassette>
+  <LoadCassette>E:\FactographProjects\PA_cassettes\da2</LoadCassette>
+  <LoadCassette>E:\FactographProjects\PA_cassettes\kbrd2010</LoadCassette>
+  <LoadCassette>E:\FactographProjects\PA_cassettes\PA_folder_collections</LoadCassette>
+  <LoadCassette>E:\FactographProjects\PA_cassettes\PA_folders01-20</LoadCassette>
+  <LoadCassette>E:\FactographProjects\PA_cassettes\PA_folders24-59</LoadCassette>
+  <LoadCassette>E:\FactographProjects\PA_cassettes\PA_folders60-99</LoadCassette>
+  <LoadCassette>E:\FactographProjects\PA_cassettes\PA_folders100-111</LoadCassette>
+  <LoadCassette>E:\FactographProjects\PA_cassettes\RAS_57</LoadCassette>
+  <LoadCassette>E:\FactographProjects\PA_cassettes\SBRAS_2009_12</LoadCassette>
+  <LoadCassette>E:\FactographProjects\PA_cassettes\w100531</LoadCassette>
+  <LoadCassette>E:\FactographProjects\PA_cassettes\wwww</LoadCassette>
+</config>

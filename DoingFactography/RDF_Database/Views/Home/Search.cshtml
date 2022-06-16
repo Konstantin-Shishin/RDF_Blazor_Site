@@ -1,0 +1,19 @@
+﻿@using RDFEngine;
+@model IEnumerable<RRecord>
+
+@{
+    ViewData["Title"] = "Search";
+}
+
+<h1>Search</h1>
+
+@foreach(var record in Model)
+            {
+<div>
+    <span>@record.Tp</span>
+    <a href="~/Home/Show/?id=@record.Id">
+        @record.Props.Where(a =>a.Prop == "name").Select(a => (RField)a).FirstOrDefault().Value
+    </a>
+</div>               
+            }
+

@@ -1,0 +1,1185 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<record id="svet_100616111408_17407" type="http://fogid.net/o/person">
+	<field prop="http://fogid.net/o/name" xml:lang="ru">Ершов Юрий Леонидович</field>
+	<field prop="http://fogid.net/o/name" xml:lang="en">Yershov, Yuri Leonidovich</field>
+	<field prop="http://fogid.net/o/from-date">1940-05-01</field>
+	<inverse prop="http://fogid.net/o/has-title">
+		<record id="w20070417_3_8049" type="http://fogid.net/o/titled">
+			<field prop="http://fogid.net/o/degree" xml:lang="ru">Доктор физико-математических наук </field>
+			<field prop="http://fogid.net/o/from-date">1966</field>
+		</record>
+	</inverse>
+	<inverse prop="http://fogid.net/o/has-title">
+		<record id="w20070417_3_8050" type="http://fogid.net/o/titled">
+			<field prop="http://fogid.net/o/degree" xml:lang="ru">Лауреат Государственной премии РФ</field>
+			<field prop="http://fogid.net/o/from-date">2003</field>
+		</record>
+	</inverse>
+	<inverse prop="http://fogid.net/o/has-title">
+		<record id="w20070417_3_8051" type="http://fogid.net/o/titled">
+			<field prop="http://fogid.net/o/degree" xml:lang="ru">Лауреат премии им. А.И.Мальцева РАН </field>
+			<field prop="http://fogid.net/o/from-date">1992</field>
+		</record>
+	</inverse>
+	<inverse prop="http://fogid.net/o/has-title">
+		<record id="w20090506_svetlana_10729" type="http://fogid.net/o/titled">
+			<field prop="http://fogid.net/o/degree" xml:lang="ru">Член-корреспондент по Отделению математики </field>
+			<field prop="http://fogid.net/o/from-date">1970-11-24</field>
+		</record>
+	</inverse>
+	<inverse prop="http://fogid.net/o/has-title">
+		<record id="w20090506_svetlana_10730" type="http://fogid.net/o/titled">
+			<field prop="http://fogid.net/o/degree" xml:lang="ru">Академик по Секции математики, механики, информатики (математика) </field>
+			<field prop="http://fogid.net/o/from-date">1991-12-07</field>
+		</record>
+	</inverse>
+	<inverse prop="http://fogid.net/o/reflected">
+		<record id="w20070331_1640" type="http://fogid.net/o/reflection">
+			<field prop="http://fogid.net/o/ground">foreground</field>
+			<direct prop="http://fogid.net/o/in-doc">
+				<record id="PA_folders01-20_0001_0025" type="http://fogid.net/o/photo-doc">
+					<field prop="http://fogid.net/o/name" xml:lang="ru">001 005</field>
+					<field prop="http://fogid.net/o/uri">iiss://PA_folders01-20@iis.nsk.su/0001/0001/0025</field>
+					<field prop="http://fogid.net/o/docmetainfo">originalname:F:\processed\папка001\001_005.tif;size:32573221;documenttype:image/tiff;documentcreation:2010-01-18T12:42:36;documentfirstuploaded:2011-02-22T12:59:32;documentmodification:2010-01-15T12:08:49;checksum:qwerty;width:3589;height:3023;transform:;</field>
+					<field prop="http://fogid.net/o/description" xml:lang="ru">Первый ректор НГУ И.Н. Векуа со студентами. 3-я слева - М.В. Киселева, далее И.Н. Векуа, В.А. Парфенов, О.И. Иванова, Ю.Л. Ершов, В.Р. Портнов.</field>
+					<field prop="http://fogid.net/o/from-date">1962</field>
+				</record>
+			</direct>
+		</record>
+	</inverse>
+	<inverse prop="http://fogid.net/o/reflected">
+		<record id="w20070331_1985" type="http://fogid.net/o/reflection">
+			<field prop="http://fogid.net/o/ground">portrait</field>
+			<direct prop="http://fogid.net/o/in-doc">
+				<record id="PA_folders01-20_0001_0359" type="http://fogid.net/o/photo-doc">
+					<field prop="http://fogid.net/o/name" xml:lang="ru">002 091</field>
+					<field prop="http://fogid.net/o/uri">iiss://PA_folders01-20@iis.nsk.su/0001/0001/0359</field>
+					<field prop="http://fogid.net/o/docmetainfo">originalname:F:\processed\папка002\002_091.tif;size:28690548;documenttype:image/tiff;documentcreation:2010-01-18T12:51:46;documentfirstuploaded:2011-02-22T13:10:46;documentmodification:2010-01-15T12:14:36;checksum:qwerty;width:2524;height:3789;transform:;</field>
+					<field prop="http://fogid.net/o/from-date">1987</field>
+				</record>
+			</direct>
+		</record>
+	</inverse>
+	<inverse prop="http://fogid.net/o/reflected">
+		<record id="w20070331_3034" type="http://fogid.net/o/reflection">
+			<field prop="http://fogid.net/o/ground">foreground</field>
+			<direct prop="http://fogid.net/o/in-doc">
+				<record id="PA_folders24-59_0003_0736" type="http://fogid.net/o/photo-doc">
+					<field prop="http://fogid.net/o/name" xml:lang="ru">036 052</field>
+					<field prop="http://fogid.net/o/uri">iiss://PA_folders24-59@iis.nsk.su/0001/0003/0736</field>
+					<field prop="http://fogid.net/o/docmetainfo">originalname:F:\processed\папка036\036_052.tif;size:995234;documenttype:image/tiff;documentcreation:2010-01-18T13:39:10;documentfirstuploaded:2011-02-22T16:01:56;documentmodification:2010-01-15T12:35:52;checksum:qwerty;width:1181;height:840;transform:;</field>
+					<field prop="http://fogid.net/o/description" xml:lang="ru">Поколения сибирских математиков. Слева направо: П.П. Белинский, Ю.Л. Ершов, А.И. Мальцев.</field>
+					<field prop="http://fogid.net/o/from-date">1966</field>
+				</record>
+			</direct>
+		</record>
+	</inverse>
+	<inverse prop="http://fogid.net/o/reflected">
+		<record id="w20070331_3089" type="http://fogid.net/o/reflection">
+			<field prop="http://fogid.net/o/ground">portrait</field>
+			<direct prop="http://fogid.net/o/in-doc">
+				<record id="PA_folders01-20_0001_0097" type="http://fogid.net/o/photo-doc">
+					<field prop="http://fogid.net/o/name" xml:lang="ru">001 077</field>
+					<field prop="http://fogid.net/o/uri">iiss://PA_folders01-20@iis.nsk.su/0001/0001/0097</field>
+					<field prop="http://fogid.net/o/docmetainfo">originalname:F:\processed\папка001\001_077.tif;size:27642624;documenttype:image/tiff;documentcreation:2010-01-18T12:45:20;documentfirstuploaded:2011-02-22T13:02:52;documentmodification:2010-01-15T12:08:26;checksum:qwerty;width:2493;height:3696;transform:;</field>
+				</record>
+			</direct>
+		</record>
+	</inverse>
+	<inverse prop="http://fogid.net/o/reflected">
+		<record id="w20070331_3640" type="http://fogid.net/o/reflection">
+			<field prop="http://fogid.net/o/ground">portrait</field>
+			<direct prop="http://fogid.net/o/in-doc">
+				<record id="PA_folders01-20_0001_0141" type="http://fogid.net/o/photo-doc">
+					<field prop="http://fogid.net/o/name" xml:lang="ru">001 121</field>
+					<field prop="http://fogid.net/o/uri">iiss://PA_folders01-20@iis.nsk.su/0001/0001/0141</field>
+					<field prop="http://fogid.net/o/docmetainfo">originalname:F:\processed\папка001\001_121.tif;size:4938207;documenttype:image/tiff;documentcreation:2010-01-18T12:46:11;documentfirstuploaded:2011-02-22T13:03:55;documentmodification:2010-01-15T12:10:14;checksum:qwerty;width:1293;height:1273;transform:;</field>
+					<field prop="http://fogid.net/o/from-date">1987-10-23</field>
+				</record>
+			</direct>
+		</record>
+	</inverse>
+	<inverse prop="http://fogid.net/o/reflected">
+		<record id="w20070331_4059" type="http://fogid.net/o/reflection">
+			<field prop="http://fogid.net/o/ground">foreground</field>
+			<direct prop="http://fogid.net/o/in-doc">
+				<record id="PA_folders01-20_0001_0192" type="http://fogid.net/o/photo-doc">
+					<field prop="http://fogid.net/o/name" xml:lang="ru">001 172</field>
+					<field prop="http://fogid.net/o/uri">iiss://PA_folders01-20@iis.nsk.su/0001/0001/0192</field>
+					<field prop="http://fogid.net/o/docmetainfo">originalname:F:\processed\папка001\001_172.tif;size:28362552;documenttype:image/tiff;documentcreation:2010-01-18T12:47:20;documentfirstuploaded:2011-02-22T13:05:19;documentmodification:2010-01-15T12:07:56;checksum:qwerty;width:3806;height:2484;transform:;</field>
+					<field prop="http://fogid.net/o/description" xml:lang="ru">Член-корреспондент АН СССР Ю.Л.Ершов с молодыми докторами наук. Слева направо: Ю.Л. Ершов, И.П. Шестаков, А.М. Мейрманов, Ю.Е. Аниконов.</field>
+					<field prop="http://fogid.net/o/from-date">1982-06</field>
+				</record>
+			</direct>
+		</record>
+	</inverse>
+	<inverse prop="http://fogid.net/o/reflected">
+		<record id="w20070331_4615" type="http://fogid.net/o/reflection">
+			<field prop="http://fogid.net/o/ground">foreground</field>
+			<direct prop="http://fogid.net/o/in-doc">
+				<record id="PA_folders01-20_0001_0256" type="http://fogid.net/o/photo-doc">
+					<field prop="http://fogid.net/o/name" xml:lang="ru">001 236</field>
+					<field prop="http://fogid.net/o/uri">iiss://PA_folders01-20@iis.nsk.su/0001/0001/0256</field>
+					<field prop="http://fogid.net/o/docmetainfo">originalname:F:\processed\папка001\001_236.tif;size:24426792;documenttype:image/tiff;documentcreation:2010-01-18T12:48:52;documentfirstuploaded:2011-02-22T13:07:11;documentmodification:2010-01-15T12:08:37;checksum:qwerty;width:3496;height:2329;transform:;</field>
+					<field prop="http://fogid.net/o/description" xml:lang="ru">Член-корреспондент АН СССР Ю.Л.Ершов с молодыми докторами наук. Слева направо: Ю.Е. Аниконов, Ю.Л. Ершов, И.П. Шестаков, А.М. Мейрманов.</field>
+					<field prop="http://fogid.net/o/from-date">1982-06</field>
+				</record>
+			</direct>
+		</record>
+	</inverse>
+	<inverse prop="http://fogid.net/o/reflected">
+		<record id="w20070331_4756" type="http://fogid.net/o/reflection">
+			<field prop="http://fogid.net/o/ground">portrait</field>
+			<direct prop="http://fogid.net/o/in-doc">
+				<record id="PA_folders01-20_0001_0981" type="http://fogid.net/o/photo-doc">
+					<field prop="http://fogid.net/o/name" xml:lang="ru">008 004</field>
+					<field prop="http://fogid.net/o/uri">iiss://PA_folders01-20@iis.nsk.su/0001/0001/0981</field>
+					<field prop="http://fogid.net/o/docmetainfo">originalname:F:\processed\папка008\008_004.jpg;size:14532881;documenttype:image/jpeg;documentcreation:2010-01-18T12:57:49;documentfirstuploaded:2011-02-22T13:23:03;documentmodification:2010-01-15T12:17:07;checksum:qwerty;width:3779;height:5162;transform:;</field>
+				</record>
+			</direct>
+		</record>
+	</inverse>
+	<inverse prop="http://fogid.net/o/reflected">
+		<record id="w20070331_4759" type="http://fogid.net/o/reflection">
+			<field prop="http://fogid.net/o/ground">portrait</field>
+			<direct prop="http://fogid.net/o/in-doc">
+				<record id="PA_folders01-20_0001_0982" type="http://fogid.net/o/photo-doc">
+					<field prop="http://fogid.net/o/name" xml:lang="ru">008 005</field>
+					<field prop="http://fogid.net/o/uri">iiss://PA_folders01-20@iis.nsk.su/0001/0001/0982</field>
+					<field prop="http://fogid.net/o/docmetainfo">originalname:F:\processed\папка008\008_005.jpg;size:13776374;documenttype:image/jpeg;documentcreation:2010-01-18T12:57:49;documentfirstuploaded:2011-02-22T13:23:06;documentmodification:2010-01-15T12:17:16;checksum:qwerty;width:3728;height:5062;transform:;</field>
+				</record>
+			</direct>
+		</record>
+	</inverse>
+	<inverse prop="http://fogid.net/o/reflected">
+		<record id="w20070331_4870" type="http://fogid.net/o/reflection">
+			<field prop="http://fogid.net/o/ground">foreground</field>
+			<direct prop="http://fogid.net/o/in-doc">
+				<record id="PA_folders01-20_0001_0708" type="http://fogid.net/o/photo-doc">
+					<field prop="http://fogid.net/o/name" xml:lang="ru">006 051</field>
+					<field prop="http://fogid.net/o/uri">iiss://PA_folders01-20@iis.nsk.su/0001/0001/0708</field>
+					<field prop="http://fogid.net/o/docmetainfo">originalname:F:\processed\папка006\006_051.jpg;size:535495;documenttype:image/jpeg;documentcreation:2010-01-18T12:57:14;documentfirstuploaded:2011-02-22T13:20:09;documentmodification:2010-01-15T11:41:38;checksum:qwerty;width:4417;height:3021;transform:;</field>
+					<field prop="http://fogid.net/o/description" xml:lang="ru">Ректор НГУ И.Н. Векуа беседует со студентами. Слева направо: 3-я - М.В. Киселева, далее И.Н. Векуа, В.А. Парфенов, О.И. Иванова, Ю.Л. Ершов, В.Р. Портнов. </field>
+					<field prop="http://fogid.net/o/from-date">1962</field>
+				</record>
+			</direct>
+		</record>
+	</inverse>
+	<inverse prop="http://fogid.net/o/reflected">
+		<record id="w20070417_7_3079" type="http://fogid.net/o/reflection">
+			<field prop="http://fogid.net/o/ground">foreground</field>
+			<direct prop="http://fogid.net/o/in-doc">
+				<record id="PA_folders24-59_0004_0495" type="http://fogid.net/o/photo-doc">
+					<field prop="http://fogid.net/o/name" xml:lang="ru">042 117</field>
+					<field prop="http://fogid.net/o/uri">iiss://PA_folders24-59@iis.nsk.su/0001/0004/0495</field>
+					<field prop="http://fogid.net/o/docmetainfo">originalname:F:\processed\папка042\042_117.jpg;size:1072263;documenttype:image/jpeg;documentcreation:2010-01-18T13:41:45;documentfirstuploaded:2011-02-22T16:07:19;documentmodification:2010-01-15T11:34:22;checksum:qwerty;width:2663;height:1775;transform:;</field>
+					<field prop="http://fogid.net/o/from-date">2007-06-02</field>
+				</record>
+			</direct>
+		</record>
+	</inverse>
+	<inverse prop="http://fogid.net/o/reflected">
+		<record id="w20070417_7_8240" type="http://fogid.net/o/reflection">
+			<field prop="http://fogid.net/o/ground">foreground</field>
+			<direct prop="http://fogid.net/o/in-doc">
+				<record id="PA_folders24-59_0001_0141" type="http://fogid.net/o/photo-doc">
+					<field prop="http://fogid.net/o/name" xml:lang="ru">057 084</field>
+					<field prop="http://fogid.net/o/uri">iiss://PA_folders24-59@iis.nsk.su/0001/0001/0141</field>
+					<field prop="http://fogid.net/o/docmetainfo">originalname:F:\processed\папка057\057_084.tif;size:32537724;documenttype:image/tiff;documentcreation:2010-01-18T13:50:11;documentfirstuploaded:2011-02-22T15:25:57;documentmodification:2010-01-15T12:29:50;checksum:qwerty;width:4053;height:2676;transform:;</field>
+					<field prop="http://fogid.net/o/description" xml:lang="ru">Поединок. Слева - Ю.Л. Ершов. </field>
+				</record>
+			</direct>
+		</record>
+	</inverse>
+	<inverse prop="http://fogid.net/o/reflected">
+		<record id="w20070417_1_1937" type="http://fogid.net/o/reflection">
+			<field prop="http://fogid.net/o/ground">portrait</field>
+			<direct prop="http://fogid.net/o/in-doc">
+				<record id="PA_folders01-20_0002_0221" type="http://fogid.net/o/photo-doc">
+					<field prop="http://fogid.net/o/name" xml:lang="ru">008 244</field>
+					<field prop="http://fogid.net/o/uri">iiss://PA_folders01-20@iis.nsk.su/0001/0002/0221</field>
+					<field prop="http://fogid.net/o/docmetainfo">originalname:F:\processed\папка008\008_244.jpg;size:6281250;documenttype:image/jpeg;documentcreation:2010-01-18T12:59:24;documentfirstuploaded:2011-02-22T13:29:37;documentmodification:2010-01-15T12:17:32;checksum:qwerty;width:2615;height:3662;transform:;</field>
+				</record>
+			</direct>
+		</record>
+	</inverse>
+	<inverse prop="http://fogid.net/o/reflected">
+		<record id="w20070417_1_1940" type="http://fogid.net/o/reflection">
+			<field prop="http://fogid.net/o/ground">portrait</field>
+			<direct prop="http://fogid.net/o/in-doc">
+				<record id="PA_folders01-20_0002_0222" type="http://fogid.net/o/photo-doc">
+					<field prop="http://fogid.net/o/name" xml:lang="ru">008 245</field>
+					<field prop="http://fogid.net/o/uri">iiss://PA_folders01-20@iis.nsk.su/0001/0002/0222</field>
+					<field prop="http://fogid.net/o/docmetainfo">originalname:F:\processed\папка008\008_245.jpg;size:6033539;documenttype:image/jpeg;documentcreation:2010-01-18T12:59:24;documentfirstuploaded:2011-02-22T13:29:38;documentmodification:2010-01-15T12:17:01;checksum:qwerty;width:2515;height:3825;transform:;</field>
+				</record>
+			</direct>
+		</record>
+	</inverse>
+	<inverse prop="http://fogid.net/o/reflected">
+		<record id="w20070417_1_2237" type="http://fogid.net/o/reflection">
+			<field prop="http://fogid.net/o/ground">foreground</field>
+			<direct prop="http://fogid.net/o/in-doc">
+				<record id="PA_folders01-20_0002_0775" type="http://fogid.net/o/photo-doc">
+					<field prop="http://fogid.net/o/name" xml:lang="ru">011 049</field>
+					<field prop="http://fogid.net/o/uri">iiss://PA_folders01-20@iis.nsk.su/0001/0002/0775</field>
+					<field prop="http://fogid.net/o/docmetainfo">originalname:F:\processed\папка011\011_049.jpg;size:10807941;documenttype:image/jpeg;documentcreation:2010-01-18T13:03:01;documentfirstuploaded:2011-02-22T13:45:09;documentmodification:2010-01-15T11:33:30;checksum:qwerty;width:5605;height:3037;transform:;</field>
+					<field prop="http://fogid.net/o/description" xml:lang="ru">Выпускники НГУ в руководстве университетом. Слева направо: проректор по учебно-воспитательной работе доцент А.Г. Борзенков, первый проректор профессор В.Н. Врагов, ректор член-корреспондент АН Ю.Л. Ершов. </field>
+				</record>
+			</direct>
+		</record>
+	</inverse>
+	<inverse prop="http://fogid.net/o/reflected">
+		<record id="w20070417_1_2868" type="http://fogid.net/o/reflection">
+			<field prop="http://fogid.net/o/ground">foreground</field>
+			<direct prop="http://fogid.net/o/in-doc">
+				<record id="PA_folders01-20_0002_0947" type="http://fogid.net/o/photo-doc">
+					<field prop="http://fogid.net/o/name" xml:lang="ru">011 223</field>
+					<field prop="http://fogid.net/o/uri">iiss://PA_folders01-20@iis.nsk.su/0001/0002/0947</field>
+					<field prop="http://fogid.net/o/docmetainfo">originalname:F:\processed\папка011\011_223.jpg;size:14524851;documenttype:image/jpeg;documentcreation:2010-01-18T13:04:18;documentfirstuploaded:2011-02-22T13:51:28;documentmodification:2010-01-15T11:33:00;checksum:qwerty;width:5368;height:3987;transform:;</field>
+					<field prop="http://fogid.net/o/description" xml:lang="ru">Первый выпуск НГУ. Вручение дипломов. Слева направо: Ю.Л. Ершов, И.Н. Векуа, Л.Ф. Лисс, Л.С. Алехина. </field>
+					<field prop="http://fogid.net/o/from-date">1963</field>
+				</record>
+			</direct>
+		</record>
+	</inverse>
+	<inverse prop="http://fogid.net/o/reflected">
+		<record id="w20070417_1_3532" type="http://fogid.net/o/reflection">
+			<field prop="http://fogid.net/o/ground">foreground</field>
+			<direct prop="http://fogid.net/o/in-doc">
+				<record id="PA_folders24-59_0003_0760" type="http://fogid.net/o/photo-doc">
+					<field prop="http://fogid.net/o/name" xml:lang="ru">036 076</field>
+					<field prop="http://fogid.net/o/uri">iiss://PA_folders24-59@iis.nsk.su/0001/0003/0760</field>
+					<field prop="http://fogid.net/o/docmetainfo">originalname:F:\processed\папка036\036_076.tif;size:1475756;documenttype:image/tiff;documentcreation:2010-01-18T13:39:12;documentfirstuploaded:2011-02-22T16:02:01;documentmodification:2010-01-15T12:35:48;checksum:qwerty;width:1518;height:969;transform:;</field>
+					<field prop="http://fogid.net/o/description" xml:lang="ru">Первый ректор НГУ И.Н.Векуа со студентами. Слева направо: -, -, М.В.Киселева, И.Н.Векуа, В.А.Парфенов, О.И. Иванова, Ю.Л.Ершов, В.Р.Портнов.</field>
+					<field prop="http://fogid.net/o/from-date">1962</field>
+				</record>
+			</direct>
+		</record>
+	</inverse>
+	<inverse prop="http://fogid.net/o/reflected">
+		<record id="w20070417_1_4788" type="http://fogid.net/o/reflection">
+			<field prop="http://fogid.net/o/ground">portrait</field>
+			<direct prop="http://fogid.net/o/in-doc">
+				<record id="PA_folders01-20_0003_0047" type="http://fogid.net/o/photo-doc">
+					<field prop="http://fogid.net/o/name" xml:lang="ru">012 072</field>
+					<field prop="http://fogid.net/o/uri">iiss://PA_folders01-20@iis.nsk.su/0001/0003/0047</field>
+					<field prop="http://fogid.net/o/docmetainfo">originalname:F:\processed\папка012\012_072.jpg;size:10537928;documenttype:image/jpeg;documentcreation:2010-01-18T13:05:01;documentfirstuploaded:2011-02-22T13:54:32;documentmodification:2010-01-15T12:37:50;checksum:qwerty;width:3728;height:4337;transform:;</field>
+				</record>
+			</direct>
+		</record>
+	</inverse>
+	<inverse prop="http://fogid.net/o/reflected">
+		<record id="w20070417_1_4954" type="http://fogid.net/o/reflection">
+			<field prop="http://fogid.net/o/ground">portrait</field>
+			<direct prop="http://fogid.net/o/in-doc">
+				<record id="PA_folders01-20_0003_0099" type="http://fogid.net/o/photo-doc">
+					<field prop="http://fogid.net/o/name" xml:lang="ru">012 124</field>
+					<field prop="http://fogid.net/o/uri">iiss://PA_folders01-20@iis.nsk.su/0001/0003/0099</field>
+					<field prop="http://fogid.net/o/docmetainfo">originalname:F:\processed\папка012\012_124.jpg;size:11592506;documenttype:image/jpeg;documentcreation:2010-01-18T13:05:28;documentfirstuploaded:2011-02-22T13:56:07;documentmodification:2010-01-15T12:38:22;checksum:qwerty;width:4955;height:3312;transform:;</field>
+				</record>
+			</direct>
+		</record>
+	</inverse>
+	<inverse prop="http://fogid.net/o/reflected">
+		<record id="w20070417_1_5356" type="http://fogid.net/o/reflection">
+			<field prop="http://fogid.net/o/ground">portrait</field>
+			<direct prop="http://fogid.net/o/in-doc">
+				<record id="PA_folders01-20_0003_0221" type="http://fogid.net/o/photo-doc">
+					<field prop="http://fogid.net/o/name" xml:lang="ru">012 246</field>
+					<field prop="http://fogid.net/o/uri">iiss://PA_folders01-20@iis.nsk.su/0001/0003/0221</field>
+					<field prop="http://fogid.net/o/docmetainfo">originalname:F:\processed\папка012\012_246.jpg;size:6459940;documenttype:image/jpeg;documentcreation:2010-01-18T13:06:07;documentfirstuploaded:2011-02-22T13:58:55;documentmodification:2010-01-15T12:38:15;checksum:qwerty;width:2540;height:3419;transform:;</field>
+				</record>
+			</direct>
+		</record>
+	</inverse>
+	<inverse prop="http://fogid.net/o/reflected">
+		<record id="w20070417_1_8945" type="http://fogid.net/o/reflection">
+			<field prop="http://fogid.net/o/ground">foreground</field>
+			<direct prop="http://fogid.net/o/in-doc">
+				<record id="PA_folders24-59_0001_0989" type="http://fogid.net/o/photo-doc">
+					<field prop="http://fogid.net/o/name" xml:lang="ru">025 082</field>
+					<field prop="http://fogid.net/o/uri">iiss://PA_folders24-59@iis.nsk.su/0001/0001/0989</field>
+					<field prop="http://fogid.net/o/docmetainfo">originalname:F:\processed\папка025\025_082.jpg;size:3082989;documenttype:image/jpeg;documentcreation:2010-01-18T13:31:51;documentfirstuploaded:2011-02-22T15:44:46;documentmodification:2010-01-15T12:26:07;checksum:qwerty;width:3616;height:2362;transform:;</field>
+					<field prop="http://fogid.net/o/description" xml:lang="ru">Выступление Ю. Л. Ершова на открытии Мальцевской конференции. </field>
+					<field prop="http://fogid.net/o/from-date">2004</field>
+				</record>
+			</direct>
+		</record>
+	</inverse>
+	<inverse prop="http://fogid.net/o/reflected">
+		<record id="w20070417_1_8949" type="http://fogid.net/o/reflection">
+			<field prop="http://fogid.net/o/ground">portrait</field>
+			<direct prop="http://fogid.net/o/in-doc">
+				<record id="PA_folders24-59_0001_0990" type="http://fogid.net/o/photo-doc">
+					<field prop="http://fogid.net/o/name" xml:lang="ru">025 083</field>
+					<field prop="http://fogid.net/o/uri">iiss://PA_folders24-59@iis.nsk.su/0001/0001/0990</field>
+					<field prop="http://fogid.net/o/docmetainfo">originalname:F:\processed\папка025\025_083.jpg;size:171962;documenttype:image/jpeg;documentcreation:2010-01-18T13:31:51;documentfirstuploaded:2011-02-22T15:44:47;documentmodification:2010-01-15T12:26:01;checksum:qwerty;width:1181;height:872;transform:;</field>
+					<field prop="http://fogid.net/o/from-date">2005</field>
+				</record>
+			</direct>
+		</record>
+	</inverse>
+	<inverse prop="http://fogid.net/o/reflected">
+		<record id="w20070417_1_8953" type="http://fogid.net/o/reflection">
+			<field prop="http://fogid.net/o/ground">portrait</field>
+			<direct prop="http://fogid.net/o/in-doc">
+				<record id="PA_folders24-59_0001_0991" type="http://fogid.net/o/photo-doc">
+					<field prop="http://fogid.net/o/name" xml:lang="ru">025 084</field>
+					<field prop="http://fogid.net/o/uri">iiss://PA_folders24-59@iis.nsk.su/0001/0001/0991</field>
+					<field prop="http://fogid.net/o/docmetainfo">originalname:F:\processed\папка025\025_084.jpg;size:163384;documenttype:image/jpeg;documentcreation:2010-01-18T13:31:51;documentfirstuploaded:2011-02-22T15:44:48;documentmodification:2010-01-15T12:26:03;checksum:qwerty;width:1181;height:895;transform:;</field>
+					<field prop="http://fogid.net/o/description" xml:lang="ru">Ю.Л. Ершов.</field>
+					<field prop="http://fogid.net/o/from-date">2005</field>
+				</record>
+			</direct>
+		</record>
+	</inverse>
+	<inverse prop="http://fogid.net/o/reflected">
+		<record id="w20070417_3_1334" type="http://fogid.net/o/reflection">
+			<field prop="http://fogid.net/o/ground">portrait</field>
+			<direct prop="http://fogid.net/o/in-doc">
+				<record id="PA_folders01-20_0002_0233" type="http://fogid.net/o/photo-doc">
+					<field prop="http://fogid.net/o/name" xml:lang="ru">009 006</field>
+					<field prop="http://fogid.net/o/uri">iiss://PA_folders01-20@iis.nsk.su/0001/0002/0233</field>
+					<field prop="http://fogid.net/o/docmetainfo">originalname:F:\processed\папка009\009_006.jpg;size:5332825;documenttype:image/jpeg;documentcreation:2010-01-18T13:00:03;documentfirstuploaded:2011-02-22T13:29:53;documentmodification:2010-01-15T12:19:34;checksum:qwerty;width:2477;height:3400;transform:;</field>
+				</record>
+			</direct>
+		</record>
+	</inverse>
+	<inverse prop="http://fogid.net/o/reflected">
+		<record id="w20070417_5_2429" type="http://fogid.net/o/reflection">
+			<field prop="http://fogid.net/o/ground">foreground</field>
+			<direct prop="http://fogid.net/o/in-doc">
+				<record id="PA_folders24-59_0003_0369" type="http://fogid.net/o/photo-doc">
+					<field prop="http://fogid.net/o/name" xml:lang="ru">033 097</field>
+					<field prop="http://fogid.net/o/uri">iiss://PA_folders24-59@iis.nsk.su/0001/0003/0369</field>
+					<field prop="http://fogid.net/o/docmetainfo">originalname:F:\processed\папка033\033_097.tif;size:1610626;documenttype:image/tiff;documentcreation:2010-01-18T13:34:45;documentfirstuploaded:2011-02-22T15:55:53;documentmodification:2010-01-15T12:06:51;checksum:qwerty;width:1535;height:1047;transform:;</field>
+					<field prop="http://fogid.net/o/description" xml:lang="ru">На праздновании юбилея "Треть века ФМШ". Слева направо: преподаватель ФМШ д.ф.-м.н. М.А. Могилевский, губернатор Новосибирской области В.П. Муха, академики В.А. Коптюг и Ю.Л. Ершов.</field>
+					<field prop="http://fogid.net/o/from-date">1993</field>
+				</record>
+			</direct>
+		</record>
+	</inverse>
+	<inverse prop="http://fogid.net/o/reflected">
+		<record id="w20070417_5_2626" type="http://fogid.net/o/reflection">
+			<field prop="http://fogid.net/o/ground">foreground</field>
+			<direct prop="http://fogid.net/o/in-doc">
+				<record id="PA_folders24-59_0003_0392" type="http://fogid.net/o/photo-doc">
+					<field prop="http://fogid.net/o/name" xml:lang="ru">033 122</field>
+					<field prop="http://fogid.net/o/uri">iiss://PA_folders24-59@iis.nsk.su/0001/0003/0392</field>
+					<field prop="http://fogid.net/o/docmetainfo">originalname:F:\processed\папка033\033_122.tif;size:751132;documenttype:image/tiff;documentcreation:2010-01-18T13:34:47;documentfirstuploaded:2011-02-22T15:55:59;documentmodification:2010-01-15T12:06:48;checksum:qwerty;width:1181;height:633;transform:;</field>
+					<field prop="http://fogid.net/o/description" xml:lang="ru">Во время космической связи между МГУ и НГУ. Слева направо: -, В.А. Коптюг, Ю.Л. Ершов.</field>
+				</record>
+			</direct>
+		</record>
+	</inverse>
+	<inverse prop="http://fogid.net/o/reflected">
+		<record id="w20070417_5_4218" type="http://fogid.net/o/reflection">
+			<field prop="http://fogid.net/o/ground">foreground</field>
+			<direct prop="http://fogid.net/o/in-doc">
+				<record id="PA_folders01-20_0002_0627" type="http://fogid.net/o/photo-doc">
+					<field prop="http://fogid.net/o/name" xml:lang="ru">010 151</field>
+					<field prop="http://fogid.net/o/uri">iiss://PA_folders01-20@iis.nsk.su/0001/0002/0627</field>
+					<field prop="http://fogid.net/o/docmetainfo">originalname:F:\processed\папка010\010_151.jpg;size:7383574;documenttype:image/jpeg;documentcreation:2010-01-18T13:01:28;documentfirstuploaded:2011-02-22T13:40:49;documentmodification:2010-01-15T12:42:03;checksum:qwerty;width:3829;height:3075;transform:;</field>
+					<field prop="http://fogid.net/o/description" xml:lang="ru">Слева направо: Ю.Л. Ершов, Н.Л. Добрецов.</field>
+				</record>
+			</direct>
+		</record>
+	</inverse>
+	<inverse prop="http://fogid.net/o/reflected">
+		<record id="w20070417_5_4745" type="http://fogid.net/o/reflection">
+			<field prop="http://fogid.net/o/ground">foreground</field>
+			<direct prop="http://fogid.net/o/in-doc">
+				<record id="PA_folders01-20_0002_0685" type="http://fogid.net/o/photo-doc">
+					<field prop="http://fogid.net/o/name" xml:lang="ru">010 209</field>
+					<field prop="http://fogid.net/o/uri">iiss://PA_folders01-20@iis.nsk.su/0001/0002/0685</field>
+					<field prop="http://fogid.net/o/docmetainfo">originalname:F:\processed\папка010\010_209.jpg;size:7074340;documenttype:image/jpeg;documentcreation:2010-01-18T13:01:48;documentfirstuploaded:2011-02-22T13:42:19;documentmodification:2010-01-15T12:41:26;checksum:qwerty;width:4317;height:2824;transform:;</field>
+					<field prop="http://fogid.net/o/description" xml:lang="ru">Ю.Л. Ершов (слева)  беседует с коллегами.</field>
+					<field prop="http://fogid.net/o/from-date">1991</field>
+				</record>
+			</direct>
+		</record>
+	</inverse>
+	<inverse prop="http://fogid.net/o/reflected">
+		<record id="w20070417_5_5037" type="http://fogid.net/o/reflection">
+			<field prop="http://fogid.net/o/ground">foreground</field>
+			<direct prop="http://fogid.net/o/in-doc">
+				<record id="gi_pharchive_0001_0291" type="http://fogid.net/o/photo-doc">
+					<field prop="http://fogid.net/o/name" xml:lang="ru">2280</field>
+					<field prop="http://fogid.net/o/uri">iiss://gi_pharchive@iis.nsk.su/0001/0001/0291</field>
+					<field prop="http://fogid.net/o/docmetainfo">originalname:F:\processed\папка022\022_2280.tif;size:21423872;documenttype:image/tiff;documentcreation:2010-01-18T13:26:44;documentfirstuploaded:2011-02-22T10:59:26;documentmodification:2010-01-15T12:39:25;checksum:qwerty;width:5447;height:3691;transform:;</field>
+					<field prop="http://fogid.net/o/description" xml:lang="ru">50-летие Г.И. Марчука. Слева направо сидят: Е.И. Шемякин, Ю.Л. Ершов, И.М. Романова; стоят: А.К. Лаврова, Р.Г. Яновский, Н.С. Ершова, И.А. Лавров, О.Н. Марчук, Г.И. Марчук, Л.С. Яновская.</field>
+					<field prop="http://fogid.net/o/from-date">1975-06-08</field>
+				</record>
+			</direct>
+		</record>
+	</inverse>
+	<inverse prop="http://fogid.net/o/reflected">
+		<record id="w20070417_5_7291" type="http://fogid.net/o/reflection">
+			<field prop="http://fogid.net/o/ground">foreground</field>
+			<direct prop="http://fogid.net/o/in-doc">
+				<record id="gi_pharchive_0001_0208" type="http://fogid.net/o/photo-doc">
+					<field prop="http://fogid.net/o/name" xml:lang="ru">2121</field>
+					<field prop="http://fogid.net/o/uri">iiss://gi_pharchive@iis.nsk.su/0001/0001/0208</field>
+					<field prop="http://fogid.net/o/docmetainfo">originalname:F:\processed\папка021\021_2121.tif;size:44305484;documenttype:image/tiff;documentcreation:2010-01-18T13:23:10;documentfirstuploaded:2011-02-22T10:53:56;documentmodification:2010-01-15T12:27:14;checksum:qwerty;width:5998;height:4200;transform:;</field>
+					<field prop="http://fogid.net/o/description" xml:lang="ru">Слева направо: Ю.Л. Ершов, С.С. Гончаров в НГУ со студентами.</field>
+					<field prop="http://fogid.net/o/from-date">1975</field>
+				</record>
+			</direct>
+		</record>
+	</inverse>
+	<inverse prop="http://fogid.net/o/reflected">
+		<record id="w20071113_9_8697" type="http://fogid.net/o/reflection">
+			<field prop="http://fogid.net/o/ground">foreground</field>
+			<direct prop="http://fogid.net/o/in-doc">
+				<record id="PA_folders01-20_0001_0409" type="http://fogid.net/o/photo-doc">
+					<field prop="http://fogid.net/o/name" xml:lang="ru">002 141</field>
+					<field prop="http://fogid.net/o/uri">iiss://PA_folders01-20@iis.nsk.su/0001/0001/0409</field>
+					<field prop="http://fogid.net/o/docmetainfo">originalname:F:\processed\папка002\002_141.tif;size:38637732;documenttype:image/tiff;documentcreation:2010-01-18T12:53:49;documentfirstuploaded:2011-02-22T13:13:00;documentmodification:2010-01-15T12:14:15;checksum:qwerty;width:4231;height:3044;transform:;</field>
+					<field prop="http://fogid.net/o/description" xml:lang="ru">Первый ректор НГУ И.Н. Векуа и декан физического факультета Р.З. Сагдеев среди первых выпускников, получивших дипломы с отличием. Слева направо - 1-й ряд: Ф.Б. Баимбетов, В.Е. Захаров, И.Н. Векуа, М.М. Дощанова, В.Н. Штерн; 2-й ряд: Б.Н. Чистяков, Р.З. Сагдеев, Ю.Л. Ершов; 3-й ряд: В.Р. Портнов, Е.В. Мамонтов.</field>
+					<field prop="http://fogid.net/o/from-date">1963</field>
+				</record>
+			</direct>
+		</record>
+	</inverse>
+	<inverse prop="http://fogid.net/o/reflected">
+		<record id="w20071113_9_11017" type="http://fogid.net/o/reflection">
+			<field prop="http://fogid.net/o/ground">foreground</field>
+			<direct prop="http://fogid.net/o/in-doc">
+				<record id="PA_folders01-20_0002_0853" type="http://fogid.net/o/photo-doc">
+					<field prop="http://fogid.net/o/name" xml:lang="ru">011 129</field>
+					<field prop="http://fogid.net/o/uri">iiss://PA_folders01-20@iis.nsk.su/0001/0002/0853</field>
+					<field prop="http://fogid.net/o/docmetainfo">originalname:F:\processed\папка011\011_129.jpg;size:6426618;documenttype:image/jpeg;documentcreation:2010-01-18T13:03:34;documentfirstuploaded:2011-02-22T13:47:54;documentmodification:2010-01-15T11:33:54;checksum:qwerty;width:2452;height:3762;transform:;</field>
+					<field prop="http://fogid.net/o/description" xml:lang="ru">Ю.Л. Ершов выступает на заседании Ученого совета НГУ.</field>
+					<field prop="http://fogid.net/o/from-date">1998</field>
+				</record>
+			</direct>
+		</record>
+	</inverse>
+	<inverse prop="http://fogid.net/o/reflected">
+		<record id="w20071113_9_15087" type="http://fogid.net/o/reflection">
+			<field prop="http://fogid.net/o/ground">portrait</field>
+			<direct prop="http://fogid.net/o/in-doc">
+				<record id="PA_folders24-59_0001_0142" type="http://fogid.net/o/photo-doc">
+					<field prop="http://fogid.net/o/name" xml:lang="ru">057 085</field>
+					<field prop="http://fogid.net/o/uri">iiss://PA_folders24-59@iis.nsk.su/0001/0001/0142</field>
+					<field prop="http://fogid.net/o/docmetainfo">originalname:F:\processed\папка057\057_085.tif;size:31788528;documenttype:image/tiff;documentcreation:2010-01-18T13:50:12;documentfirstuploaded:2011-02-22T15:25:58;documentmodification:2010-01-15T12:28:42;checksum:qwerty;width:4032;height:2628;transform:;</field>
+				</record>
+			</direct>
+		</record>
+	</inverse>
+	<inverse prop="http://fogid.net/o/reflected">
+		<record id="w20071113_9_18710" type="http://fogid.net/o/reflection">
+			<field prop="http://fogid.net/o/ground">portrait</field>
+			<direct prop="http://fogid.net/o/in-doc">
+				<record id="PA_folders01-20_0001_0362" type="http://fogid.net/o/photo-doc">
+					<field prop="http://fogid.net/o/name" xml:lang="ru">002 094</field>
+					<field prop="http://fogid.net/o/uri">iiss://PA_folders01-20@iis.nsk.su/0001/0001/0362</field>
+					<field prop="http://fogid.net/o/docmetainfo">originalname:F:\processed\папка002\002_094.tif;size:33715974;documenttype:image/tiff;documentcreation:2010-01-18T12:51:49;documentfirstuploaded:2011-02-22T13:10:50;documentmodification:2010-01-15T12:13:50;checksum:qwerty;width:2762;height:4069;transform:;</field>
+					<field prop="http://fogid.net/o/from-date">1987-10-21</field>
+				</record>
+			</direct>
+		</record>
+	</inverse>
+	<inverse prop="http://fogid.net/o/reflected">
+		<record id="w20071113_9_18906" type="http://fogid.net/o/reflection">
+			<field prop="http://fogid.net/o/ground">portrait</field>
+			<direct prop="http://fogid.net/o/in-doc">
+				<record id="PA_folders01-20_0001_0782" type="http://fogid.net/o/photo-doc">
+					<field prop="http://fogid.net/o/name" xml:lang="ru">006 128</field>
+					<field prop="http://fogid.net/o/uri">iiss://PA_folders01-20@iis.nsk.su/0001/0001/0782</field>
+					<field prop="http://fogid.net/o/docmetainfo">originalname:F:\processed\папка006\006_128.jpg;size:13426823;documenttype:image/jpeg;documentcreation:2010-01-18T12:57:19;documentfirstuploaded:2011-02-22T13:21:13;documentmodification:2010-01-15T11:41:43;checksum:qwerty;width:4034;height:5338;transform:;</field>
+				</record>
+			</direct>
+		</record>
+	</inverse>
+	<inverse prop="http://fogid.net/o/reflected">
+		<record id="w20071113_9_18924" type="http://fogid.net/o/reflection">
+			<field prop="http://fogid.net/o/ground">portrait</field>
+			<direct prop="http://fogid.net/o/in-doc">
+				<record id="PA_folders01-20_0001_0798" type="http://fogid.net/o/photo-doc">
+					<field prop="http://fogid.net/o/name" xml:lang="ru">006 144</field>
+					<field prop="http://fogid.net/o/uri">iiss://PA_folders01-20@iis.nsk.su/0001/0001/0798</field>
+					<field prop="http://fogid.net/o/docmetainfo">originalname:F:\processed\папка006\006_144.jpg;size:11737389;documenttype:image/jpeg;documentcreation:2010-01-18T12:57:26;documentfirstuploaded:2011-02-22T13:21:42;documentmodification:2010-01-15T11:41:29;checksum:qwerty;width:5100;height:3724;transform:;</field>
+					<field prop="http://fogid.net/o/description" xml:lang="ru">Ю.Л. Ершов - студент НГУ.</field>
+				</record>
+			</direct>
+		</record>
+	</inverse>
+	<inverse prop="http://fogid.net/o/reflected">
+		<record id="w20071120_10_7551" type="http://fogid.net/o/reflection">
+			<field prop="http://fogid.net/o/ground">foreground</field>
+			<direct prop="http://fogid.net/o/in-doc">
+				<record id="PA_folders60-99_0002_0477" type="http://fogid.net/o/photo-doc">
+					<field prop="http://fogid.net/o/name" xml:lang="ru">073 208</field>
+					<field prop="http://fogid.net/o/uri">iiss://PA_folders60-99@iis.nsk.su/0001/0002/0477</field>
+					<field prop="http://fogid.net/o/docmetainfo">originalname:F:\processed\папка073\073_208.tif;size:42836958;documenttype:image/tiff;documentcreation:2010-01-18T14:06:47;documentfirstuploaded:2011-02-22T17:32:28;documentmodification:2010-01-15T12:01:54;checksum:qwerty;width:5198;height:2747;transform:;</field>
+					<field prop="http://fogid.net/o/description" xml:lang="ru">Во время космической связи между МГУ и НГУ. Слева направо в центре: В.А. Коптюг, Ю.Л. Ершов.</field>
+				</record>
+			</direct>
+		</record>
+	</inverse>
+	<inverse prop="http://fogid.net/o/reflected">
+		<record id="w20071120_10_17452" type="http://fogid.net/o/reflection">
+			<field prop="http://fogid.net/o/ground">foreground</field>
+			<direct prop="http://fogid.net/o/in-doc">
+				<record id="PA_folders60-99_0002_0655" type="http://fogid.net/o/photo-doc">
+					<field prop="http://fogid.net/o/name" xml:lang="ru">075 095</field>
+					<field prop="http://fogid.net/o/uri">iiss://PA_folders60-99@iis.nsk.su/0001/0002/0655</field>
+					<field prop="http://fogid.net/o/docmetainfo">originalname:F:\processed\папка075\075_095.jpg;size:735376;documenttype:image/jpeg;documentcreation:2010-01-18T14:10:24;documentfirstuploaded:2011-02-22T17:36:35;documentmodification:2010-01-15T12:31:06;checksum:qwerty;width:2598;height:2717;transform:;</field>
+					<field prop="http://fogid.net/o/description" xml:lang="ru">Слева направо: Ю.Л. Ершов, В.Н. Опарин, Н.С. Диканский.</field>
+				</record>
+			</direct>
+		</record>
+	</inverse>
+	<inverse prop="http://fogid.net/o/reflected">
+		<record id="w20071120_10_17691" type="http://fogid.net/o/reflection">
+			<field prop="http://fogid.net/o/ground">foreground</field>
+			<direct prop="http://fogid.net/o/in-doc">
+				<record id="PA_folders60-99_0002_0722" type="http://fogid.net/o/photo-doc">
+					<field prop="http://fogid.net/o/name" xml:lang="ru">075 162</field>
+					<field prop="http://fogid.net/o/uri">iiss://PA_folders60-99@iis.nsk.su/0001/0002/0722</field>
+					<field prop="http://fogid.net/o/docmetainfo">originalname:F:\processed\папка075\075_162.jpg;size:1082886;documenttype:image/jpeg;documentcreation:2010-01-18T14:10:30;documentfirstuploaded:2011-02-22T17:37:13;documentmodification:2010-01-15T12:31:06;checksum:qwerty;width:2598;height:2717;transform:;</field>
+					<field prop="http://fogid.net/o/description" xml:lang="ru">Серебрянная свадьба. Ю.Л. Ершов с женой.</field>
+				</record>
+			</direct>
+		</record>
+	</inverse>
+	<inverse prop="http://fogid.net/o/reflected">
+		<record id="w20090506_svetlana_6506" type="http://fogid.net/o/reflection">
+			<field prop="http://fogid.net/o/ground">foreground</field>
+			<direct prop="http://fogid.net/o/in-doc">
+				<record id="PA_folders60-99_0002_0285" type="http://fogid.net/o/photo-doc">
+					<field prop="http://fogid.net/o/name" xml:lang="ru">073 016</field>
+					<field prop="http://fogid.net/o/uri">iiss://PA_folders60-99@iis.nsk.su/0001/0002/0285</field>
+					<field prop="http://fogid.net/o/docmetainfo">originalname:F:\processed\папка073\073_016.tif;size:33426510;documenttype:image/tiff;documentcreation:2010-01-18T14:02:11;documentfirstuploaded:2011-02-22T17:26:52;documentmodification:2010-01-15T12:00:29;checksum:qwerty;width:4269;height:2610;transform:;</field>
+					<field prop="http://fogid.net/o/description" xml:lang="ru">Во время космической связи между МГУ и НГУ. Слева направо: -, В.А. Коптюг, Ю.Л. Ершов.</field>
+				</record>
+			</direct>
+		</record>
+	</inverse>
+	<inverse prop="http://fogid.net/o/reflected">
+		<record id="PA_Users_furs_634395045531406250_2041" type="http://fogid.net/o/reflection" />
+	</inverse>
+	<inverse prop="http://fogid.net/o/reflected">
+		<record id="PA_Users_pavl_634395045572656250_1458" type="http://fogid.net/o/reflection">
+			<field prop="http://fogid.net/o/ground">foreground</field>
+			<direct prop="http://fogid.net/o/in-doc">
+				<record id="da2_0001_0537" type="http://fogid.net/o/photo-doc">
+					<field prop="http://fogid.net/o/name" xml:lang="ru">da2 0001 0537</field>
+					<field prop="http://fogid.net/o/uri">iiss://da2@iis.nsk.su/0001/0001/0537</field>
+					<field prop="http://fogid.net/o/docmetainfo">originalname:J:\Work\Новые\New\папка 129\129_015_Из личных коллекций.tif;size:12775392;documenttype:image/tiff;documentcreation:2011-05-30T04:28:45;documentfirstuploaded:2011-05-31T13:17:20;documentmodification:2011-01-20T10:43:25;checksum:qwerty;width:2639;height:1612;transform:;</field>
+					<field prop="http://fogid.net/o/description" xml:lang="ru">Собрание в ИМ СО АН СССР. В центре - С.Л. Соболев, справа от него - Т.И. Зеленяк. Во втором ряду справа - Ю.Л. Ершов.</field>
+				</record>
+			</direct>
+		</record>
+	</inverse>
+	<inverse prop="http://fogid.net/o/reflected">
+		<record id="PA_Users_pavl_634395045572656250_1476" type="http://fogid.net/o/reflection">
+			<field prop="http://fogid.net/o/ground">foreground</field>
+			<direct prop="http://fogid.net/o/in-doc">
+				<record id="da2_0001_0542" type="http://fogid.net/o/photo-doc">
+					<field prop="http://fogid.net/o/name" xml:lang="ru">da2 0001 0542</field>
+					<field prop="http://fogid.net/o/uri">iiss://da2@iis.nsk.su/0001/0001/0542</field>
+					<field prop="http://fogid.net/o/docmetainfo">originalname:J:\Work\Новые\New\папка 129\129_020_Из личных коллекций.tif;size:7757848;documenttype:image/tiff;documentcreation:2011-05-30T04:28:49;documentfirstuploaded:2011-05-31T13:17:25;documentmodification:2011-01-21T05:09:36;checksum:qwerty;width:1965;height:1314;transform:;</field>
+					<field prop="http://fogid.net/o/description" xml:lang="ru">Разговор к коридоре Института математики. Слева направо: – М.А. Тайцлин, А.Д. Тайманов, Ю.Л. Ершов.</field>
+				</record>
+			</direct>
+		</record>
+	</inverse>
+	<inverse prop="http://fogid.net/o/reflected">
+		<record id="PA_Users_pavl_634395045572656250_9093" type="http://fogid.net/o/reflection">
+			<field prop="http://fogid.net/o/ground">foreground</field>
+			<direct prop="http://fogid.net/o/in-doc">
+				<record id="da2_0002_0318" type="http://fogid.net/o/photo-doc">
+					<field prop="http://fogid.net/o/name" xml:lang="ru">da2 0002 0318</field>
+					<field prop="http://fogid.net/o/uri">iiss://da2@iis.nsk.su/0001/0002/0318</field>
+					<field prop="http://fogid.net/o/docmetainfo">originalname:K:\Work\Новые\New\Папка 124\124_179.tif;size:20767780;documenttype:image/tiff;documentcreation:2011-12-08T04:19:14;documentfirstuploaded:2011-12-08T12:42:55;documentmodification:2011-02-04T07:55:49;checksum:qwerty;width:3260;height:2122;transform:;</field>
+					<field prop="http://fogid.net/o/description" xml:lang="ru">Святейший Патриарх знакомится с коллекцией старопечатных книг из собрания ИИ СО РАН и ГПНТБ СО РАН.</field>
+					<field prop="http://fogid.net/o/from-date">1991-05-14</field>
+				</record>
+			</direct>
+		</record>
+	</inverse>
+	<inverse prop="http://fogid.net/o/reflected">
+		<record id="PA_Users_pavl_634395045572656250_9163" type="http://fogid.net/o/reflection">
+			<field prop="http://fogid.net/o/ground">foreground</field>
+			<direct prop="http://fogid.net/o/in-doc">
+				<record id="da2_0002_0323" type="http://fogid.net/o/photo-doc">
+					<field prop="http://fogid.net/o/name" xml:lang="ru">da2 0002 0323</field>
+					<field prop="http://fogid.net/o/uri">iiss://da2@iis.nsk.su/0001/0002/0323</field>
+					<field prop="http://fogid.net/o/docmetainfo">originalname:K:\Work\Новые\New\Папка 124\124_184.tif;size:47234940;documenttype:image/tiff;documentcreation:2011-12-08T04:19:29;documentfirstuploaded:2011-12-08T12:43:10;documentmodification:2011-01-25T09:14:32;checksum:qwerty;width:3386;height:2325;transform:;</field>
+					<field prop="http://fogid.net/o/description" xml:lang="ru">Н.Л. Добрецов, Г.А. Сапожников, Ю.Л. Ершов обсуждают перспективный план развития Академгородка и Технопарка.</field>
+					<field prop="http://fogid.net/o/from-date">2005</field>
+				</record>
+			</direct>
+		</record>
+	</inverse>
+	<inverse prop="http://fogid.net/o/reflected">
+		<record id="PA_Users_pavl_634395045572656250_12384" type="http://fogid.net/o/reflection">
+			<field prop="http://fogid.net/o/ground">portrait</field>
+			<direct prop="http://fogid.net/o/in-doc">
+				<record id="da3_0001_0722" type="http://fogid.net/o/photo-doc">
+					<field prop="http://fogid.net/o/name" xml:lang="ru">454_057</field>
+					<field prop="http://fogid.net/o/uri">iiss://da3@iis.nsk.su/0001/0001/0722</field>
+					<field prop="http://fogid.net/o/docmetainfo">originalname:D:\Папка 454 Из личных коллекций\454_057.tif;size:6961476;documenttype:image/tiff;documentcreation:2017-09-26T07:49:04;documentfirstuploaded:2017-09-27T10:11:01;documentmodification:2017-04-18T07:24:48;checksum:qwerty;width:1208;height:1915;transform:;</field>
+					<field prop="http://fogid.net/o/from-date">1963</field>
+				</record>
+			</direct>
+		</record>
+	</inverse>
+	<inverse prop="http://fogid.net/o/reflected">
+		<record id="PA_Users_svet_634395045704218750_2718" type="http://fogid.net/o/reflection">
+			<field prop="http://fogid.net/o/ground">foreground</field>
+			<direct prop="http://fogid.net/o/in-doc">
+				<record id="da2_0001_0335" type="http://fogid.net/o/photo-doc">
+					<field prop="http://fogid.net/o/name" xml:lang="ru">da2 0001 0335</field>
+					<field prop="http://fogid.net/o/uri">iiss://da2@iis.nsk.su/0001/0001/0335</field>
+					<field prop="http://fogid.net/o/docmetainfo">originalname:K:\Work\Новые\папка 137\137_024_041_ Форум ИИС.jpg;size:2684974;documenttype:image/jpeg;documentcreation:2011-05-19T04:26:05;documentfirstuploaded:2011-05-23T13:39:34;documentmodification:2011-04-14T19:13:22;checksum:qwerty;width:4288;height:2848;transform:;</field>
+					<field prop="http://fogid.net/o/description" xml:lang="ru">Открытие IV Сибирского форума СИИС. В президиуме слева направо: В.И. Псарев, И.В. Дадыкин, Ю.Л. Ершов, Н.З. Ляхов, А.И. Туркот. </field>
+					<field prop="http://fogid.net/o/from-date">2011-04-14T09:07:24</field>
+				</record>
+			</direct>
+		</record>
+	</inverse>
+	<inverse prop="http://fogid.net/o/reflected">
+		<record id="PA_Users_svet_634395045704218750_2727" type="http://fogid.net/o/reflection">
+			<field prop="http://fogid.net/o/ground">foreground</field>
+			<direct prop="http://fogid.net/o/in-doc">
+				<record id="da2_0001_0336" type="http://fogid.net/o/photo-doc">
+					<field prop="http://fogid.net/o/name" xml:lang="ru">da2 0001 0336</field>
+					<field prop="http://fogid.net/o/uri">iiss://da2@iis.nsk.su/0001/0001/0336</field>
+					<field prop="http://fogid.net/o/docmetainfo">originalname:K:\Work\Новые\папка 137\137_025_042_ Форум ИИС.jpg;size:2808347;documenttype:image/jpeg;documentcreation:2011-05-19T04:26:05;documentfirstuploaded:2011-05-23T13:39:35;documentmodification:2011-04-14T19:13:30;checksum:qwerty;width:4288;height:2848;transform:;</field>
+					<field prop="http://fogid.net/o/description" xml:lang="ru">Открытие IV Сибирского форума СИИС. В президиуме слева направо: В.И. Псарев, И.В. Дадыкин, Ю.Л. Ершов, Н.З. Ляхов, А.И. Туркот. </field>
+					<field prop="http://fogid.net/o/from-date">2011-04-14T09:07:36</field>
+				</record>
+			</direct>
+		</record>
+	</inverse>
+	<inverse prop="http://fogid.net/o/reflected">
+		<record id="PA_Users_svet_634395045704218750_2747" type="http://fogid.net/o/reflection">
+			<field prop="http://fogid.net/o/ground">foreground</field>
+			<direct prop="http://fogid.net/o/in-doc">
+				<record id="da2_0001_0339" type="http://fogid.net/o/photo-doc">
+					<field prop="http://fogid.net/o/name" xml:lang="ru">da2 0001 0339</field>
+					<field prop="http://fogid.net/o/uri">iiss://da2@iis.nsk.su/0001/0001/0339</field>
+					<field prop="http://fogid.net/o/docmetainfo">originalname:K:\Work\Новые\папка 137\137_028_051_ Форум ИИС.jpg;size:4794157;documenttype:image/jpeg;documentcreation:2011-05-19T04:26:05;documentfirstuploaded:2011-05-23T13:39:39;documentmodification:2011-04-14T19:14:38;checksum:qwerty;width:4288;height:2848;transform:;</field>
+					<field prop="http://fogid.net/o/description" xml:lang="ru">Приветственное слово участникам IV Сибирского форума CИИC В.И. Псарева. И.В. Дадыкин (2-й), Ю.Л. Ершов (3-й).</field>
+					<field prop="http://fogid.net/o/from-date">2011-04-14T09:14:19</field>
+				</record>
+			</direct>
+		</record>
+	</inverse>
+	<inverse prop="http://fogid.net/o/reflected">
+		<record id="PA_Users_svet_634395045704218750_4548" type="http://fogid.net/o/reflection">
+			<field prop="http://fogid.net/o/ground">foreground</field>
+			<direct prop="http://fogid.net/o/in-doc">
+				<record id="da2_0001_0752" type="http://fogid.net/o/photo-doc">
+					<field prop="http://fogid.net/o/name">da2 0001 0752</field>
+					<field prop="http://fogid.net/o/uri">iiss://da2@iis.nsk.su/0001/0001/0752</field>
+					<field prop="http://fogid.net/o/docmetainfo">originalname:J:\Work\Новые\New\папка 135\135_104_Архив КВН.tif;size:18693412;documenttype:image/tiff;documentcreation:2011-05-30T04:36:58;documentfirstuploaded:2011-05-31T13:30:57;documentmodification:2011-05-25T05:54:15;checksum:qwerty;width:2348;height:2652;transform:;</field>
+				</record>
+			</direct>
+		</record>
+	</inverse>
+	<inverse prop="http://fogid.net/o/reflected">
+		<record id="PA_Users_svet_634395045704218750_5524" type="http://fogid.net/o/reflection">
+			<field prop="http://fogid.net/o/ground">foreground</field>
+			<direct prop="http://fogid.net/o/in-doc">
+				<record id="da2_0001_0877" type="http://fogid.net/o/photo-doc">
+					<field prop="http://fogid.net/o/name" xml:lang="ru">da2 0001 0877</field>
+					<field prop="http://fogid.net/o/uri">iiss://da2@iis.nsk.su/0001/0001/0877</field>
+					<field prop="http://fogid.net/o/docmetainfo">originalname:J:\Work\Новые\папка 139\139_112.tif;size:5438220;documenttype:image/tiff;documentcreation:2011-08-18T04:51:58;documentfirstuploaded:2011-08-19T12:25:48;documentmodification:2011-07-20T05:52:10;checksum:qwerty;width:1686;height:1073;transform:;</field>
+					<field prop="http://fogid.net/o/description" xml:lang="ru">Слева направо: П.П. Белинский, Ю.Л. Ершов.</field>
+					<field prop="http://fogid.net/o/from-date">1964</field>
+				</record>
+			</direct>
+		</record>
+	</inverse>
+	<inverse prop="http://fogid.net/o/reflected">
+		<record id="PA_Users_svet_634395045704218750_5529" type="http://fogid.net/o/reflection">
+			<field prop="http://fogid.net/o/ground">foreground</field>
+			<direct prop="http://fogid.net/o/in-doc">
+				<record id="da2_0001_0878" type="http://fogid.net/o/photo-doc">
+					<field prop="http://fogid.net/o/name" xml:lang="ru">da2 0001 0878</field>
+					<field prop="http://fogid.net/o/uri">iiss://da2@iis.nsk.su/0001/0001/0878</field>
+					<field prop="http://fogid.net/o/docmetainfo">originalname:J:\Work\Новые\папка 139\139_113.tif;size:4758980;documenttype:image/tiff;documentcreation:2011-08-18T04:51:59;documentfirstuploaded:2011-08-19T12:25:49;documentmodification:2011-07-21T06:12:37;checksum:qwerty;width:1553;height:1019;transform:;</field>
+					<field prop="http://fogid.net/o/description" xml:lang="ru">Слева направо: Ю.Л. Ершов, Н.С. Семенова, П.П. Белинский.</field>
+					<field prop="http://fogid.net/o/from-date">1964</field>
+				</record>
+			</direct>
+		</record>
+	</inverse>
+	<inverse prop="http://fogid.net/o/reflected">
+		<record id="PA_Users_svet_634395045704218750_5534" type="http://fogid.net/o/reflection">
+			<field prop="http://fogid.net/o/ground">foreground</field>
+			<direct prop="http://fogid.net/o/in-doc">
+				<record id="da2_0001_0879" type="http://fogid.net/o/photo-doc">
+					<field prop="http://fogid.net/o/name" xml:lang="ru">da2 0001 0879</field>
+					<field prop="http://fogid.net/o/uri">iiss://da2@iis.nsk.su/0001/0001/0879</field>
+					<field prop="http://fogid.net/o/docmetainfo">originalname:J:\Work\Новые\папка 139\139_114.tif;size:4701296;documenttype:image/tiff;documentcreation:2011-08-18T04:51:59;documentfirstuploaded:2011-08-19T12:25:50;documentmodification:2011-07-22T03:47:20;checksum:qwerty;width:1554;height:1006;transform:;</field>
+					<field prop="http://fogid.net/o/description" xml:lang="ru">Слева направо: Ю.Л. Ершов, Н.С. Семенова, П.П. Белинский.</field>
+					<field prop="http://fogid.net/o/from-date">1964</field>
+				</record>
+			</direct>
+		</record>
+	</inverse>
+	<inverse prop="http://fogid.net/o/reflected">
+		<record id="PA_Users_svet_634395045704218750_7247" type="http://fogid.net/o/reflection">
+			<field prop="http://fogid.net/o/ground">foreground</field>
+			<direct prop="http://fogid.net/o/in-doc">
+				<record id="da2_0002_0133" type="http://fogid.net/o/photo-doc">
+					<field prop="http://fogid.net/o/name" xml:lang="ru">da2 0002 0133</field>
+					<field prop="http://fogid.net/o/uri">iiss://da2@iis.nsk.su/0001/0002/0133</field>
+					<field prop="http://fogid.net/o/docmetainfo">originalname:K:\Work\Новые\папка 141\141_042.tif;size:10993024;documenttype:image/tiff;documentcreation:2011-10-24T04:42:21;documentfirstuploaded:2011-10-24T12:54:41;documentmodification:2011-10-12T07:00:25;checksum:qwerty;width:1676;height:1092;transform:;</field>
+					<field prop="http://fogid.net/o/description" xml:lang="ru">Ю.Л. Ершов читает лекцию в НГУ.</field>
+				</record>
+			</direct>
+		</record>
+	</inverse>
+	<inverse prop="http://fogid.net/o/reflected">
+		<record id="PA_Users_svet_634395045704218750_7250" type="http://fogid.net/o/reflection">
+			<field prop="http://fogid.net/o/ground">foreground</field>
+			<direct prop="http://fogid.net/o/in-doc">
+				<record id="da2_0002_0134" type="http://fogid.net/o/photo-doc">
+					<field prop="http://fogid.net/o/name" xml:lang="ru">da2 0002 0134</field>
+					<field prop="http://fogid.net/o/uri">iiss://da2@iis.nsk.su/0001/0002/0134</field>
+					<field prop="http://fogid.net/o/docmetainfo">originalname:K:\Work\Новые\папка 141\141_043.tif;size:10872708;documenttype:image/tiff;documentcreation:2011-10-24T04:42:23;documentfirstuploaded:2011-10-24T12:54:42;documentmodification:2011-10-12T07:03:44;checksum:qwerty;width:1080;height:1676;transform:;</field>
+					<field prop="http://fogid.net/o/description" xml:lang="ru">Ю.Л. Ершов на лекции в НГУ.</field>
+				</record>
+			</direct>
+		</record>
+	</inverse>
+	<inverse prop="http://fogid.net/o/reflected">
+		<record id="PA_Users_svet_634395045704218750_7625" type="http://fogid.net/o/reflection">
+			<field prop="http://fogid.net/o/ground">foreground</field>
+			<direct prop="http://fogid.net/o/in-doc">
+				<record id="da2_0002_0073" type="http://fogid.net/o/photo-doc">
+					<field prop="http://fogid.net/o/name" xml:lang="ru">da2 0002 0073</field>
+					<field prop="http://fogid.net/o/uri">iiss://da2@iis.nsk.su/0001/0002/0073</field>
+					<field prop="http://fogid.net/o/docmetainfo">originalname:K:\Work\Новые\папка 140\140_093-20 11 07 (2).jpg;size:7694315;documenttype:image/jpeg;documentcreation:2011-10-24T04:40:54;documentfirstuploaded:2011-10-24T12:48:52;documentmodification:2011-10-17T09:11:47;checksum:qwerty;width:5048;height:3674;transform:;</field>
+					<field prop="http://fogid.net/o/description" xml:lang="ru">Лекция академика Ю.Л. Ершова в ФМШ. </field>
+					<field prop="http://fogid.net/o/from-date">2007-11-20T16:27:32</field>
+				</record>
+			</direct>
+		</record>
+	</inverse>
+	<inverse prop="http://fogid.net/o/reflected">
+		<record id="PA_Users_vera_634418387401748047_3880" type="http://fogid.net/o/reflection" />
+	</inverse>
+	<inverse prop="http://fogid.net/o/reflected">
+		<record id="PA_Users_svet_634587632753537813_1435" type="http://fogid.net/o/reflection">
+			<field prop="http://fogid.net/o/ground">foreground</field>
+			<direct prop="http://fogid.net/o/in-doc">
+				<record id="PA_folders24-59_0001_0999" type="http://fogid.net/o/photo-doc">
+					<field prop="http://fogid.net/o/name" xml:lang="ru">025 092</field>
+					<field prop="http://fogid.net/o/uri">iiss://PA_folders24-59@iis.nsk.su/0001/0001/0999</field>
+					<field prop="http://fogid.net/o/docmetainfo">originalname:F:\processed\папка025\025_092.jpg;size:491886;documenttype:image/jpeg;documentcreation:2010-01-18T13:31:51;documentfirstuploaded:2011-02-22T15:44:53;documentmodification:2010-01-15T12:26:04;checksum:qwerty;width:2016;height:1206;transform:;</field>
+					<field prop="http://fogid.net/o/description" xml:lang="ru">Ю.Л. Ершов (слева) на семинаре "Алгебра и логика".</field>
+					<field prop="http://fogid.net/o/from-date">2004</field>
+				</record>
+			</direct>
+		</record>
+	</inverse>
+	<inverse prop="http://fogid.net/o/reflected">
+		<record id="PA_Users_svet_634587632753537813_2899" type="http://fogid.net/o/reflection" />
+	</inverse>
+	<inverse prop="http://fogid.net/o/reflected">
+		<record id="PA_Users_svet_634587632753537813_2959" type="http://fogid.net/o/reflection" />
+	</inverse>
+	<inverse prop="http://fogid.net/o/reflected">
+		<record id="PA_Users_svet_634587632753537813_5076" type="http://fogid.net/o/reflection" />
+	</inverse>
+	<inverse prop="http://fogid.net/o/reflected">
+		<record id="PA_Users_svet_634587632753537813_5567" type="http://fogid.net/o/reflection" />
+	</inverse>
+	<inverse prop="http://fogid.net/o/reflected">
+		<record id="PA_Users_svet_634587632753537813_5799" type="http://fogid.net/o/reflection" />
+	</inverse>
+	<inverse prop="http://fogid.net/o/reflected">
+		<record id="PA_Users_svet_634587632753537813_6866" type="http://fogid.net/o/reflection" />
+	</inverse>
+	<inverse prop="http://fogid.net/o/reflected">
+		<record id="PA_Users_svet_634587632753537813_7351" type="http://fogid.net/o/reflection" />
+	</inverse>
+	<inverse prop="http://fogid.net/o/reflected">
+		<record id="PA_Users_svet_634587632753537813_8214" type="http://fogid.net/o/reflection">
+			<field prop="http://fogid.net/o/ground">foreground</field>
+			<direct prop="http://fogid.net/o/in-doc">
+				<record id="da3_0001_0103" type="http://fogid.net/o/photo-doc">
+					<field prop="http://fogid.net/o/name" xml:lang="ru">210_017</field>
+					<field prop="http://fogid.net/o/uri">iiss://da3@iis.nsk.su/0001/0001/0103</field>
+					<field prop="http://fogid.net/o/docmetainfo">originalname:F:\Photo_Archive\Новые\Папка 210\210_017.tif;size:11830996;documenttype:image/tiff;documentcreation:2013-02-04T04:30:51;documentfirstuploaded:2013-02-06T10:44:15;documentmodification:2013-01-11T10:06:16;checksum:qwerty;width:2327;height:1693;transform:;</field>
+					<field prop="http://fogid.net/o/description" xml:lang="ru">Слева направо: П.П. Белинский, Ю.Л. Ершов, А.И. Мальцев.</field>
+					<field prop="http://fogid.net/o/from-date">1966</field>
+				</record>
+			</direct>
+		</record>
+	</inverse>
+	<inverse prop="http://fogid.net/o/reflected">
+		<record id="PA_Users_svet_634587632753537813_8686" type="http://fogid.net/o/reflection" />
+	</inverse>
+	<inverse prop="http://fogid.net/o/reflected">
+		<record id="PA_Users_svet_634587632753537813_9895" type="http://fogid.net/o/reflection" />
+	</inverse>
+	<inverse prop="http://fogid.net/o/reflected">
+		<record id="PA_Users_svet_634587632753537813_12423" type="http://fogid.net/o/reflection" />
+	</inverse>
+	<inverse prop="http://fogid.net/o/reflected">
+		<record id="PA_Users_svet_634587632753537813_14695" type="http://fogid.net/o/reflection" />
+	</inverse>
+	<inverse prop="http://fogid.net/o/reflected">
+		<record id="PA_Users_svet_634587632753537813_15481" type="http://fogid.net/o/reflection" />
+	</inverse>
+	<inverse prop="http://fogid.net/o/reflected">
+		<record id="PA_Users_svet_634587632753537813_17027" type="http://fogid.net/o/reflection" />
+	</inverse>
+	<inverse prop="http://fogid.net/o/reflected">
+		<record id="PA_Users_svet_634587632753537813_18005" type="http://fogid.net/o/reflection" />
+	</inverse>
+	<inverse prop="http://fogid.net/o/reflected">
+		<record id="PA_Users_svet_634587632753537813_18890" type="http://fogid.net/o/reflection" />
+	</inverse>
+	<inverse prop="http://fogid.net/o/reflected">
+		<record id="PA_Users_svet_634587632753537813_19484" type="http://fogid.net/o/reflection" />
+	</inverse>
+	<inverse prop="http://fogid.net/o/reflected">
+		<record id="PA_Users_svet_634587632753537813_19590" type="http://fogid.net/o/reflection" />
+	</inverse>
+	<inverse prop="http://fogid.net/o/reflected">
+		<record id="PA_Users_zoya_634868533114013671_1583" type="http://fogid.net/o/reflection" />
+	</inverse>
+	<inverse prop="http://fogid.net/o/reflected">
+		<record id="PA_Users_zoya_634868533114013671_1912" type="http://fogid.net/o/reflection" />
+	</inverse>
+	<inverse prop="http://fogid.net/o/reflected">
+		<record id="PA_Users_zoya_634868533114013671_1950" type="http://fogid.net/o/reflection" />
+	</inverse>
+	<inverse prop="http://fogid.net/o/reflected">
+		<record id="PA_Users_zoya_634868533114013671_2374" type="http://fogid.net/o/reflection" />
+	</inverse>
+	<inverse prop="http://fogid.net/o/reflected">
+		<record id="PA_Users_zoya_634868533114013671_4361" type="http://fogid.net/o/reflection" />
+	</inverse>
+	<inverse prop="http://fogid.net/o/reflected">
+		<record id="PA_Users_zoya_634868533114013671_4428" type="http://fogid.net/o/reflection" />
+	</inverse>
+	<inverse prop="http://fogid.net/o/reflected">
+		<record id="PA_Users_zoya_634868533114013671_7017" type="http://fogid.net/o/reflection" />
+	</inverse>
+	<inverse prop="http://fogid.net/o/reflected">
+		<record id="PA_Users_zoya_634868533114013671_7782" type="http://fogid.net/o/reflection" />
+	</inverse>
+	<inverse prop="http://fogid.net/o/reflected">
+		<record id="PA_Users_zoya_634868533114013671_8562" type="http://fogid.net/o/reflection" />
+	</inverse>
+	<inverse prop="http://fogid.net/o/reflected">
+		<record id="PA_Users_zoya_634868533114013671_9453" type="http://fogid.net/o/reflection" />
+	</inverse>
+	<inverse prop="http://fogid.net/o/reflected">
+		<record id="PA_Users_zoya_634868533114013671_9713" type="http://fogid.net/o/reflection" />
+	</inverse>
+	<inverse prop="http://fogid.net/o/reflected">
+		<record id="PA_Users_zoya_634868533114013671_10343" type="http://fogid.net/o/reflection" />
+	</inverse>
+	<inverse prop="http://fogid.net/o/reflected">
+		<record id="PA_Users_svet_635182170969905234_1799" type="http://fogid.net/o/reflection" />
+	</inverse>
+	<inverse prop="http://fogid.net/o/reflected">
+		<record id="PA_Users_svet_635182170969905234_1968" type="http://fogid.net/o/reflection" />
+	</inverse>
+	<inverse prop="http://fogid.net/o/reflected">
+		<record id="PA_Users_svet_635182170969905234_2762" type="http://fogid.net/o/reflection" />
+	</inverse>
+	<inverse prop="http://fogid.net/o/reflected">
+		<record id="PA_Users_svet_635182170969905234_3345" type="http://fogid.net/o/reflection" />
+	</inverse>
+	<inverse prop="http://fogid.net/o/reflected">
+		<record id="PA_Users_svet_635182170969905234_5698" type="http://fogid.net/o/reflection" />
+	</inverse>
+	<inverse prop="http://fogid.net/o/reflected">
+		<record id="PA_Users_svet_635182170969905234_5925" type="http://fogid.net/o/reflection" />
+	</inverse>
+	<inverse prop="http://fogid.net/o/reflected">
+		<record id="PA_Users_svet_635182170969905234_8006" type="http://fogid.net/o/reflection" />
+	</inverse>
+	<inverse prop="http://fogid.net/o/reflected">
+		<record id="PA_Users_svet_635182170969905234_8667" type="http://fogid.net/o/reflection" />
+	</inverse>
+	<inverse prop="http://fogid.net/o/reflected">
+		<record id="PA_Users_svet_635182170969905234_8834" type="http://fogid.net/o/reflection" />
+	</inverse>
+	<inverse prop="http://fogid.net/o/reflected">
+		<record id="PA_Users_svet_635182170969905234_9826" type="http://fogid.net/o/reflection" />
+	</inverse>
+	<inverse prop="http://fogid.net/o/reflected">
+		<record id="PA_Users_svet_635182170969905234_12234" type="http://fogid.net/o/reflection" />
+	</inverse>
+	<inverse prop="http://fogid.net/o/reflected">
+		<record id="PA_Users_svet_635182170969905234_14706" type="http://fogid.net/o/reflection" />
+	</inverse>
+	<inverse prop="http://fogid.net/o/reflected">
+		<record id="PA_Users_svet_635182170969905234_14729" type="http://fogid.net/o/reflection" />
+	</inverse>
+	<inverse prop="http://fogid.net/o/reflected">
+		<record id="PA_Users_svet_635182170969905234_16357" type="http://fogid.net/o/reflection" />
+	</inverse>
+	<inverse prop="http://fogid.net/o/reflected">
+		<record id="PA_Users_svet_635182170969905234_19099" type="http://fogid.net/o/reflection" />
+	</inverse>
+	<inverse prop="http://fogid.net/o/reflected">
+		<record id="reflportp0011041" type="http://fogid.net/o/reflection">
+			<field prop="http://fogid.net/o/ground">portrait</field>
+			<direct prop="http://fogid.net/o/in-doc">
+				<record id="RAS_57pdsf61756dfd37306983ee7f2e4aac5673b" type="http://fogid.net/o/photo-doc">
+					<field prop="http://fogid.net/o/name" xml:lang="ru">RAS_57 0002 0579</field>
+					<field prop="http://fogid.net/o/uri">iiss://RAS_57@iis.nsk.su/0001/0002/0579</field>
+					<field prop="http://fogid.net/o/docmetainfo">originalname:D:\CD_PAH\IMAGES\5\5742.JPG;documenttype:image/jpeg;size:68688;documentcreation:21.05.2009 12:42:33;documentmodification:26.05.1999 17:57:10;documentfirstuploaded:01.06.2009 12:54:30;documentlastuploaded:01.06.2009 12:54:30;checksum:a558decb16f7eba8b39e68bf0e45e0f0;documentwidth:310;documentheight:400;</field>
+				</record>
+			</direct>
+		</record>
+	</inverse>
+	<inverse prop="http://fogid.net/o/reflected">
+		<record id="svet_100616111408_4199" type="http://fogid.net/o/reflection">
+			<field prop="http://fogid.net/o/ground">foreground</field>
+			<direct prop="http://fogid.net/o/in-doc">
+				<record id="svet_100616111408_4192" type="http://fogid.net/o/photo-doc">
+					<field prop="http://fogid.net/o/name" xml:lang="ru">da1 0002 0641</field>
+					<field prop="http://fogid.net/o/uri">iiss://da1@iis.nsk.su/0001/0002/0641</field>
+					<field prop="http://fogid.net/o/docmetainfo">originalname:D:\upload_photos\папка 122\122_103_Выставка к 40-летию СО РАН.tif;documenttype:image/tiff;size:24414952;documentcreation:2010-09-01 12:54:03;documentmodification:2010-08-10 14:35:33;documentfirstuploaded:2010-09-02 11:07:43;documentlastuploaded:2010-09-02 11:07:43;checksum:7fe18699cc0a6bfef9c1e94a529e8474;documentwidth:3382;documentheight:2405;</field>
+					<field prop="http://fogid.net/o/description" xml:lang="ru">Раздел экспозиции "Забота о юном поколении". Первый ректор – будущему ректору. Слева направо: И.Н. Векуа (2-й) вручает диплом Ю.Л. Ершову (1-й).</field>
+					<field prop="http://fogid.net/o/from-date">1963</field>
+				</record>
+			</direct>
+		</record>
+	</inverse>
+	<inverse prop="http://fogid.net/o/reflected">
+		<record id="svet_100616111408_4260" type="http://fogid.net/o/reflection">
+			<field prop="http://fogid.net/o/ground">portrait</field>
+			<direct prop="http://fogid.net/o/in-doc">
+				<record id="svet_100616111408_4236" type="http://fogid.net/o/photo-doc">
+					<field prop="http://fogid.net/o/name" xml:lang="ru">da1 0002 0649</field>
+					<field prop="http://fogid.net/o/uri">iiss://da1@iis.nsk.su/0001/0002/0649</field>
+					<field prop="http://fogid.net/o/docmetainfo">originalname:D:\upload_photos\папка 122\122_111_Выставка к 40-летию СО РАН.tif;documenttype:image/tiff;size:14329520;documentcreation:2010-09-01 12:54:11;documentmodification:2010-08-10 16:13:07;documentfirstuploaded:2010-09-02 11:07:52;documentlastuploaded:2010-09-02 11:07:52;checksum:41178036b6b2b603d797a41a2b1ebe2e;documentwidth:1859;documentheight:2567;</field>
+					<field prop="http://fogid.net/o/description" xml:lang="ru">Раздел экспозиции "Первомайские маевки и фестивали – традиции НГУ". Ю.Л. Ершов. </field>
+				</record>
+			</direct>
+		</record>
+	</inverse>
+	<inverse prop="http://fogid.net/o/reflected">
+		<record id="svet_100616111408_5234" type="http://fogid.net/o/reflection">
+			<field prop="http://fogid.net/o/ground">foreground</field>
+			<direct prop="http://fogid.net/o/in-doc">
+				<record id="svet_100616111408_5216" type="http://fogid.net/o/photo-doc">
+					<field prop="http://fogid.net/o/name" xml:lang="ru">da1 0002 0744</field>
+					<field prop="http://fogid.net/o/uri">iiss://da1@iis.nsk.su/0001/0002/0744</field>
+					<field prop="http://fogid.net/o/docmetainfo">originalname:D:\upload_photos\папка 123\123_043_Выставка к 40-летию СО РАН.tif;documenttype:image/tiff;size:21146424;documentcreation:2010-09-01 12:55:54;documentmodification:2010-08-16 12:24:00;documentfirstuploaded:2010-09-02 11:11:49;documentlastuploaded:2010-09-02 11:11:49;checksum:632d01021f3cc50a25605515318a3902;documentwidth:2449;documentheight:2876;</field>
+					<field prop="http://fogid.net/o/description" xml:lang="ru">Раздел экспозиции "Спорт". Слева направо: академики Ю.Л. Ершов и А.П. Деревянко.</field>
+				</record>
+			</direct>
+		</record>
+	</inverse>
+	<inverse prop="http://fogid.net/o/reflected">
+		<record id="svet_100616111408_6989" type="http://fogid.net/o/reflection">
+			<field prop="http://fogid.net/o/ground">foreground</field>
+			<direct prop="http://fogid.net/o/in-doc">
+				<record id="svet_100616111408_6984" type="http://fogid.net/o/photo-doc">
+					<field prop="http://fogid.net/o/name" xml:lang="ru">da1 0002 0996</field>
+					<field prop="http://fogid.net/o/uri">iiss://da1@iis.nsk.su/0001/0002/0996</field>
+					<field prop="http://fogid.net/o/docmetainfo">originalname:D:\upload_photos\папка 125\125_146_Архив Президиума СО РАН.tif;documenttype:image/tiff;size:18098300;documentcreation:2010-11-08 10:26:25;documentmodification:2010-10-14 17:46:35;documentfirstuploaded:2010-11-09 11:41:19;documentlastuploaded:2010-11-09 11:41:19;checksum:368e606b87dcf395e12e214110431b09;documentwidth:2463;documentheight:2447;</field>
+					<field prop="http://fogid.net/o/description" xml:lang="ru">Ю.Л. Ершов проводит заседание кафедры алгебры и матлогики НГУ. </field>
+				</record>
+			</direct>
+		</record>
+	</inverse>
+	<inverse prop="http://fogid.net/o/reflected">
+		<record id="svet_100616111408_7016" type="http://fogid.net/o/reflection">
+			<field prop="http://fogid.net/o/ground">foreground</field>
+			<direct prop="http://fogid.net/o/in-doc">
+				<record id="svet_100616111408_7011" type="http://fogid.net/o/photo-doc">
+					<field prop="http://fogid.net/o/name" xml:lang="ru">da1 0003 0001</field>
+					<field prop="http://fogid.net/o/uri">iiss://da1@iis.nsk.su/0001/0003/0001</field>
+					<field prop="http://fogid.net/o/docmetainfo">originalname:D:\upload_photos\папка 125\125_150_Архив Президиума СО РАН.tif;documenttype:image/tiff;size:13553092;documentcreation:2010-11-08 10:26:32;documentmodification:2010-10-14 16:27:57;documentfirstuploaded:2010-11-09 11:41:22;documentlastuploaded:2010-11-09 11:41:22;checksum:d5126915d1459a2d5031b9cee8b9e2f7;documentwidth:2457;documentheight:1837;</field>
+					<field prop="http://fogid.net/o/description" xml:lang="ru">НГУ. Лекцию читает Ю.Л. Ершов. </field>
+				</record>
+			</direct>
+		</record>
+	</inverse>
+	<inverse prop="http://fogid.net/o/reflected">
+		<record id="svet_100616111408_7023" type="http://fogid.net/o/reflection">
+			<field prop="http://fogid.net/o/ground">foreground</field>
+			<direct prop="http://fogid.net/o/in-doc">
+				<record id="svet_100616111408_7018" type="http://fogid.net/o/photo-doc">
+					<field prop="http://fogid.net/o/name" xml:lang="ru">da1 0003 0002</field>
+					<field prop="http://fogid.net/o/uri">iiss://da1@iis.nsk.su/0001/0003/0002</field>
+					<field prop="http://fogid.net/o/docmetainfo">originalname:D:\upload_photos\папка 125\125_151_Архив Президиума СО РАН.tif;documenttype:image/tiff;size:18931251;documentcreation:2010-11-08 10:26:34;documentmodification:2010-07-26 16:09:37;documentfirstuploaded:2010-11-09 11:41:23;documentlastuploaded:2010-11-09 11:41:23;checksum:996695a985d67fba433f1b45e657db8e;documentwidth:3047;documentheight:2071;</field>
+					<field prop="http://fogid.net/o/description" xml:lang="ru">Ю.Л. Ершов беседует с учениками физико-математической школы.</field>
+				</record>
+			</direct>
+		</record>
+	</inverse>
+	<inverse prop="http://fogid.net/o/reflected">
+		<record id="svet_100616111408_7030" type="http://fogid.net/o/reflection">
+			<field prop="http://fogid.net/o/ground">foreground</field>
+			<direct prop="http://fogid.net/o/in-doc">
+				<record id="svet_100616111408_7025" type="http://fogid.net/o/photo-doc">
+					<field prop="http://fogid.net/o/name" xml:lang="ru">da1 0003 0003</field>
+					<field prop="http://fogid.net/o/uri">iiss://da1@iis.nsk.su/0001/0003/0003</field>
+					<field prop="http://fogid.net/o/docmetainfo">originalname:D:\upload_photos\папка 125\125_152_Архив Президиума СО РАН.tif;documenttype:image/tiff;size:20790504;documentcreation:2010-11-08 10:26:35;documentmodification:2010-10-14 17:55:06;documentfirstuploaded:2010-11-09 11:41:24;documentlastuploaded:2010-11-09 11:41:24;checksum:8b8138bdd77f9394d71fe210f9fe3bf9;documentwidth:2155;documentheight:3214;</field>
+					<field prop="http://fogid.net/o/description" xml:lang="ru">НГУ. Лекцию читает Ю.Л. Ершов. </field>
+				</record>
+			</direct>
+		</record>
+	</inverse>
+	<inverse prop="http://fogid.net/o/reflected">
+		<record id="krai_100616111436_2679" type="http://fogid.net/o/reflection">
+			<field prop="http://fogid.net/o/ground">foreground</field>
+			<direct prop="http://fogid.net/o/in-doc">
+				<record id="krai_100616111436_2680_0" type="http://fogid.net/o/photo-doc">
+					<field prop="http://fogid.net/o/name" xml:lang="ru">093 022</field>
+					<field prop="http://fogid.net/o/uri">iiss://PA_folders60-99@iis.nsk.su/0001/0004/0737</field>
+					<field prop="http://fogid.net/o/docmetainfo">originalname:F:\processed\папка093\093_022.tif;size:35246568;documenttype:image/tiff;documentcreation:2010-01-18T14:24:08;documentfirstuploaded:2011-02-22T18:15:54;documentmodification:2010-01-15T11:35:12;checksum:qwerty;width:4130;height:2843;transform:;</field>
+					<field prop="http://fogid.net/o/description" xml:lang="ru">А.П.Ершов читает доклад по смешанным вычислениям в Институте математики СО АН СССР. Слева - Ю.Л. Ершов.</field>
+					<field prop="http://fogid.net/o/from-date">1981</field>
+				</record>
+			</direct>
+		</record>
+	</inverse>
+	<inverse prop="http://fogid.net/o/participant">
+		<record id="pasbrp0020521" type="http://fogid.net/o/participation">
+			<field prop="http://fogid.net/o/role-classification">director</field>
+			<field prop="http://fogid.net/o/role" xml:lang="ru">Председатель</field>
+			<direct prop="http://fogid.net/o/in-org">
+				<record id="w20070417_3_6438" type="http://fogid.net/o/org-sys">
+					<field prop="http://fogid.net/o/name" xml:lang="ru">Объединенный ученый совет по  математике и информатике  СО РАН</field>
+					<field prop="http://fogid.net/o/org-classification">team</field>
+				</record>
+			</direct>
+		</record>
+	</inverse>
+	<inverse prop="http://fogid.net/o/participant">
+		<record id="w20070417_1_13784" type="http://fogid.net/o/participation">
+			<field prop="http://fogid.net/o/role-classification">director</field>
+			<field prop="http://fogid.net/o/role" xml:lang="ru">Ректор</field>
+			<field prop="http://fogid.net/o/from-date">1985</field>
+			<direct prop="http://fogid.net/o/in-org">
+				<record id="fog_pavlovskaya200812254335" type="http://fogid.net/o/org-sys">
+					<field prop="http://fogid.net/o/name" xml:lang="ru">Новосибирский государственный университет</field>
+					<field prop="http://fogid.net/o/org-classification">organization</field>
+				</record>
+			</direct>
+		</record>
+	</inverse>
+	<inverse prop="http://fogid.net/o/participant">
+		<record id="w20070417_3_7960" type="http://fogid.net/o/participation">
+			<field prop="http://fogid.net/o/role-classification">basic</field>
+			<field prop="http://fogid.net/o/role" xml:lang="ru">гость</field>
+			<direct prop="http://fogid.net/o/in-org">
+				<record id="fog_pavlovskaya200812255110" type="http://fogid.net/o/org-sys">
+					<field prop="http://fogid.net/o/name" xml:lang="ru">50-летие Г.И. Марчука</field>
+					<field prop="http://fogid.net/o/org-classification">arrangement</field>
+				</record>
+			</direct>
+		</record>
+	</inverse>
+	<inverse prop="http://fogid.net/o/participant">
+		<record id="w20070417_3_9130" type="http://fogid.net/o/participation">
+			<field prop="http://fogid.net/o/role-classification">basic</field>
+			<field prop="http://fogid.net/o/role" xml:lang="ru">участник</field>
+			<direct prop="http://fogid.net/o/in-org">
+				<record id="w20070417_3_9126" type="http://fogid.net/o/org-sys">
+					<field prop="http://fogid.net/o/name" xml:lang="ru">Событие "Физико-математический факультет Новосибирского г..."</field>
+					<field prop="http://fogid.net/o/org-classification">arrangement</field>
+				</record>
+			</direct>
+		</record>
+	</inverse>
+	<inverse prop="http://fogid.net/o/participant">
+		<record id="w20070417_3_9148" type="http://fogid.net/o/participation">
+			<field prop="http://fogid.net/o/role-classification">basic</field>
+			<field prop="http://fogid.net/o/role" xml:lang="ru">декан механико-математического факультета</field>
+			<field prop="http://fogid.net/o/from-date">1973</field>
+			<direct prop="http://fogid.net/o/in-org">
+				<record id="fog_pavlovskaya200812254335" type="http://fogid.net/o/org-sys">
+					<field prop="http://fogid.net/o/name" xml:lang="ru">Новосибирский государственный университет</field>
+					<field prop="http://fogid.net/o/org-classification">organization</field>
+				</record>
+			</direct>
+		</record>
+	</inverse>
+	<inverse prop="http://fogid.net/o/participant">
+		<record id="w20071120_10_17456" type="http://fogid.net/o/participation">
+			<field prop="http://fogid.net/o/role-classification">basic</field>
+			<field prop="http://fogid.net/o/role" xml:lang="ru">лаборант, стажер-исследователь, младший, старший научный сотрудник</field>
+			<field prop="http://fogid.net/o/from-date">1963</field>
+			<direct prop="http://fogid.net/o/in-org">
+				<record id="w20070417_7_7031" type="http://fogid.net/o/org-sys">
+					<field prop="http://fogid.net/o/name" xml:lang="ru">Институт математики им. С.Л. Соболева  CО РАН</field>
+					<field prop="http://fogid.net/o/org-classification">organization</field>
+				</record>
+			</direct>
+		</record>
+	</inverse>
+	<inverse prop="http://fogid.net/o/participant">
+		<record id="w20071120_10_17457" type="http://fogid.net/o/participation">
+			<field prop="http://fogid.net/o/role-classification">basic</field>
+			<field prop="http://fogid.net/o/role" xml:lang="ru">заведующий отделом</field>
+			<field prop="http://fogid.net/o/from-date">1967</field>
+			<direct prop="http://fogid.net/o/in-org">
+				<record id="w20070417_7_7031" type="http://fogid.net/o/org-sys">
+					<field prop="http://fogid.net/o/name" xml:lang="ru">Институт математики им. С.Л. Соболева  CО РАН</field>
+					<field prop="http://fogid.net/o/org-classification">organization</field>
+				</record>
+			</direct>
+		</record>
+	</inverse>
+	<inverse prop="http://fogid.net/o/participant">
+		<record id="w20071120_10_17458" type="http://fogid.net/o/participation">
+			<field prop="http://fogid.net/o/role-classification">basic</field>
+			<field prop="http://fogid.net/o/role" xml:lang="ru">исполняющий обязанности директора</field>
+			<field prop="http://fogid.net/o/from-date">2002</field>
+			<direct prop="http://fogid.net/o/in-org">
+				<record id="w20070417_7_7031" type="http://fogid.net/o/org-sys">
+					<field prop="http://fogid.net/o/name" xml:lang="ru">Институт математики им. С.Л. Соболева  CО РАН</field>
+					<field prop="http://fogid.net/o/org-classification">organization</field>
+				</record>
+			</direct>
+		</record>
+	</inverse>
+	<inverse prop="http://fogid.net/o/participant">
+		<record id="w20070417_1_8946" type="http://fogid.net/o/participation">
+			<field prop="http://fogid.net/o/role-classification">director</field>
+			<field prop="http://fogid.net/o/role" xml:lang="ru">Директор</field>
+			<field prop="http://fogid.net/o/from-date">2003</field>
+			<direct prop="http://fogid.net/o/in-org">
+				<record id="w20070417_7_7031" type="http://fogid.net/o/org-sys">
+					<field prop="http://fogid.net/o/name" xml:lang="ru">Институт математики им. С.Л. Соболева  CО РАН</field>
+					<field prop="http://fogid.net/o/org-classification">organization</field>
+				</record>
+			</direct>
+		</record>
+	</inverse>
+	<inverse prop="http://fogid.net/o/participant">
+		<record id="PA_Users_pavl_634395045572656250_2186" type="http://fogid.net/o/participation">
+			<field prop="http://fogid.net/o/role-classification">basic</field>
+			<field prop="http://fogid.net/o/role" xml:lang="ru">студент механико-математического факультета</field>
+			<field prop="http://fogid.net/o/from-date">1958</field>
+			<direct prop="http://fogid.net/o/in-org">
+				<record id="fog_pavlovskaya200812254335" type="http://fogid.net/o/org-sys">
+					<field prop="http://fogid.net/o/name" xml:lang="ru">Новосибирский государственный университет</field>
+					<field prop="http://fogid.net/o/org-classification">organization</field>
+				</record>
+			</direct>
+		</record>
+	</inverse>
+	<inverse prop="http://fogid.net/o/participant">
+		<record id="PA_Users_svet_635182170969905234_16391" type="http://fogid.net/o/participation">
+			<field prop="http://fogid.net/o/role-classification">basic</field>
+			<direct prop="http://fogid.net/o/in-org">
+				<record id="PA_Users_svet_635182170969905234_16189" type="http://fogid.net/o/org-sys">
+					<field prop="http://fogid.net/o/name" xml:lang="ru">ГЭС НА КАТУНИ: ОБСУЖДАЕТСЯ ПРОЕКТ </field>
+					<field prop="http://fogid.net/o/org-classification">arrangement</field>
+				</record>
+			</direct>
+		</record>
+	</inverse>
+</record>

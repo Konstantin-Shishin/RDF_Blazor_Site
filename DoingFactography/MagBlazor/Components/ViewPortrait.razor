@@ -1,0 +1,14 @@
+﻿@using RDFEngine
+
+@if (focusrecord != null)
+{
+    if (focusrecord.Tp == "http://fogid.net/o/person")
+    {
+        <MagBlazor.Components.ViewPortraitPerson focusrecord="@focusrecord" />
+    }
+}
+
+@code {
+    [Parameter]
+    public RRecord focusrecord { get; set; }
+}

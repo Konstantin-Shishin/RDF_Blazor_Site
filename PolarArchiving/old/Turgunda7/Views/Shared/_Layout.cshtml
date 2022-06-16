@@ -1,0 +1,153 @@
+﻿@{
+    Turgunda7.Models.UserModel umodel = new Turgunda7.Models.UserModel(Context.Request);
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>@ViewData["Title"] - OA</title>
+    <link rel="shortcut icon" href="@Url.Content("~/favicon.ico")" type="image/x-icon">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <script type="text/javascript" src="@Url.Content("~/lib/jquery/dist/jquery.js")"></script>
+    @*<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />*@
+    <link rel="stylesheet" href="@Url.Content("~/css/site.css")" />
+
+    <script>
+        // Создаём новый объект XMLHttpRequest, формируем запрос, дожидаемся ответа, размещаем ответ в элементе цели
+        // Надо бы использовать encodeURIComponent(текст)
+        // method - get/post, url - команда (action), data - тело запроса - либо присоединяется к команде для get, либо 
+        // идет через данные для post, data - urlencoded, target - id элемента куда вставлять ответ, position - позиция 
+        // вставки - replace/before, conf_mess - confirm message - если null, то не запрашивает 
+        function HttpAsk(method, url, data, target, position, conf_mess) {
+            //alert('url='+url+' data=' + data);
+            if (conf_mess !== null && !confirm(conf_mess)) return;
+            var xhr = new XMLHttpRequest();
+            var url1 = method === 'get' ? url + '?' + data : url;
+            xhr.open(method, url1, false);
+            if (method === 'get') data = null;
+            xhr.send(data);
+            if (xhr.status !== 200) {
+                alert(xhr.status + ': ' + xhr.statusText); // пример вывода: 404: Not Found
+            } else {
+                if (position === "before") {
+                    var el = document.getElementById(target);
+                    $(el).before(xhr.responseText);
+                    //if (el.childNodes.length === 0) { el.appendChild(xhr.responseText); }
+                    //else { el.insertBefore(xhr.responseText.trim(), el.childNodes[0]); }
+                } else {
+                    document.getElementById(target).innerHTML = xhr.responseText;
+                }
+            }
+        }
+        //function HttpAskConfirm(method, url, data, target, position, conf_mess) {
+        //    alert('url='+url+' data=' + data);
+        //    if (!confirm(conf_mess)) return;
+        //    var xhr = new XMLHttpRequest();
+        //    xhr.open(method, url, false);
+        //    xhr.send(data);
+        //    if (xhr.status !== 200) {
+        //        alert(xhr.status + ': ' + xhr.statusText); // пример вывода: 404: Not Found
+        //    } else {
+        //        if (position === "before") {
+        //            var el = document.getElementById(target);
+        //            //$(el).before(xhr.responseText);
+        //            if (el.childNodes.length === 0) { el.appendChild(xhr.responseText); }
+        //            else { el.insertBefore(xhr.responseText, el.childNodes[0]); }
+        //        } else {
+        //            document.getElementById(target).innerHTML = xhr.responseText;
+        //        }
+        //    }
+        //}
+    </script>
+    <script type="text/jscript">
+        function SubmitForm(u, eid, comm) {
+            var data = comm + '&' + $('#frm_' + eid).serialize();
+            HttpAsk('get', u, data, eid, 'replace', null);
+            return false;
+        }
+        function KeyP(u, key, eid, comm) {
+            if (key === 13) {
+                SubmitForm(u, eid, comm);
+                return false;
+            } else {
+                return true;
+            }
+        }
+    </script>
+
+
+</head>
+<body>
+    <table width="100%" border="0" style="margin-top:10px;">
+        <tr valign="top">
+            <td rowspan="2">
+                <div style="width:120px;" align="center">
+                    <a href="@Url.Content("~/Home/Index")"><img src="@Url.Content("~/images/logo1.jpg")" alt="Начало" style="border:0px;" /></a>
+                </div>
+            </td>
+            <td>
+                <div style="width:200px;">
+                    <div><a href="@Url.Content("~/Home/Index")">Начало</a></div>
+                    @if (umodel.IsInRole("user"))
+    {
+                <div><a href="@Url.Content("~/Home/Index?name=" + umodel.Uuser)">Моё</a></div>
+}
+                    @if (umodel.IsInRole("admin"))
+    {
+                @*<div><a href="@Url.Content("~/Home/LoadDb")">Загрузки</a></div>*@
+                <div><a href="@Url.Content("~/Home/SystemConfiguration")">Управление конфигурацией</a></div>
+                <div><a href="@Url.Content("~/Home/UserConfiguration")">Управление пользователями</a></div>
+}
+                </div>
+            </td>
+            <td width="100%"><h2 style="color:#5c87b2;padding: 0 0 0 0;">@SObjects.appname</h2></td>
+            <td>
+                <div style="width:100px; text-align:right;">
+                    @*Html.Partial("_LoginPartial")*@
+                    @if (umodel.Uuser != null)
+                    {
+                    <span>@umodel.Uuser @Html.ActionLink("вых.", "Logout", "Account", routeValues: null, htmlAttributes: new { id = "rrrrr" })</span>
+                    }
+                    else
+                    {
+                    <span>@Html.ActionLink("ред.", "Logon", "Account", routeValues: null, htmlAttributes: new { id = "registerLink" })</span>
+                    }
+                </div>
+            </td>
+        </tr>
+        <tr valign="bottom">
+            <td colspan="3">
+                <!--input type="text" style="width:50px;" /-->
+                <div style="vertical-align:bottom;">
+                    @using (Html.BeginForm("Search", "Home", FormMethod.Post, new { style = "margin:0;" }))
+                    {
+                        @Html.TextBox("searchstring", null, new { style = "width:300px;" })
+
+
+                        var variants = TurgundaCommon.ModelCommon.formats.Elements("record")
+                            .Select(r => new SelectListItem()
+                            {
+                                Value = r.Attribute("type").Value,
+                                Text = TurgundaCommon.ModelCommon.OntNames[r.Attribute("type").Value]
+                            }).ToList();
+                        variants.Insert(0, new SelectListItem() { Value = "", Text = "" });
+                        @Html.DropDownList("type", variants, new { style = "font-size:small;" });
+
+
+
+                        <input type="submit" value="искать" style="font-size:small;" />
+                    }
+                </div>
+            </td>
+        </tr>
+        <tr valign="top">
+            <td></td>
+            <td colspan="3">
+                @RenderBody()
+            </td>
+        </tr>
+    </table>
+    <div></div>
+</body>
+</html>

@@ -1,0 +1,21 @@
+﻿@page "/statistics"
+ 
+<button @onclick="Calculate">Push</button>
+<h3>Statistics</h3>
+<span>persons: @npersons  docs: @ndocs</span>
+
+@code {
+    private int npersons = 0, ndocs = 0;
+    private void Calculate()
+    {
+        var elements = OAData.OADB.GetAll();
+        foreach (var el in elements)
+        {
+            if (el.Name.LocalName == "person") npersons++;
+            else if (el.Name.LocalName == "document") ndocs++;
+            else if (el.Name.LocalName == "photo-doc") ndocs++;
+            else if (el.Name.LocalName == "video-doc") ndocs++;
+        }
+    }
+
+}

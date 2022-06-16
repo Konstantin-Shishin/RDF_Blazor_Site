@@ -1,0 +1,19 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<head>
+    <title>База данных</title>
+    <link rel="shortcut icon" href="https://www.thismarketerslife.it/site/wp-content/uploads/2015/07/stanchy.png" type="image/gif" />
+</head>
+
+<h1>Index</h1>
+
+@using(Html.BeginForm("Show","Home", FormMethod.Post))
+    { 
+        <p><input type="text" name="searchstring" placeholder="Поиск" /></p>
+        <p><input type="submit" /></p>
+    }
+
+<a href="/Home/Show/?searchstring=Людмила">Поиск "Людмилa" из SypCasseteFamily</a>
+<a href="/Home/Show/?id=syp2001-p-marchuk_a">Элемент с id=syp2001-p-marchuk_a из SypCassete </a>

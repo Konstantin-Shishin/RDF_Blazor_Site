@@ -1,0 +1,59 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <OutputType>Exe</OutputType>
+    <RuntimeIdentifier>win10-x64</RuntimeIdentifier>
+  </PropertyGroup>
+
+  <!-- <ItemGroup>
+    <Compile Remove="wwwroot\newcassettesdirpath\**" />
+    <Content Remove="wwwroot\newcassettesdirpath\**" />
+    <EmbeddedResource Remove="wwwroot\newcassettesdirpath\**" />
+    <None Remove="wwwroot\newcassettesdirpath\**" />
+  </ItemGroup> -->
+
+  <!-- <ItemGroup>
+    <Compile Remove="App_Code\SObjects.cs" />
+  </ItemGroup> -->
+
+  <!-- <ItemGroup>
+    <Content Remove="wwwroot\accounts.xml" />
+    <Content Remove="wwwroot\accounts0.xml" />
+    <Content Remove="wwwroot\ApplicationProfile.xml" />
+    <Content Remove="wwwroot\config.xml" />
+    <Content Remove="wwwroot\log.txt" />
+  </ItemGroup> -->
+
+  <!-- <ItemGroup>
+    <None Remove="config.xml" />
+  </ItemGroup> -->
+
+  <ItemGroup>
+    <PackageReference Include="ExifLib.Standard" Version="1.7.0" />
+    <PackageReference Include="FreeImage-dotnet-core" Version="4.3.6" />
+    <PackageReference Include="MediaInfo.DotNetWrapper" Version="1.0.7" />
+    <PackageReference Include="Microsoft.AspNetCore.All" Version="2.0.5" />
+    <PackageReference Include="Microsoft.jQuery.Unobtrusive.Ajax" Version="3.2.5" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.0.1" />
+    <PackageReference Include="Polar.CellIndexes" Version="1.0.7" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <DotNetCliToolReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Tools" Version="2.0.2" />
+  </ItemGroup>
+
+  <!-- <ItemGroup>
+    <None Include="wwwroot\config0.xml" />
+  </ItemGroup> -->
+
+  <ItemGroup>
+    <ProjectReference Include="..\CassettesCore\CassettesCore.csproj" />
+    <ProjectReference Include="..\TurgundaCommon\TurgundaCommon.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="wwwroot\extappbinpath\" />
+  </ItemGroup>
+
+</Project>

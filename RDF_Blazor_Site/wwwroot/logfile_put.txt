@@ -1,0 +1,46 @@
+﻿<person rdf:about="p1" mT="2022-05-24 07:27:19Z" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+  <name>Kostya</name>
+</person>
+<person rdf:about="p1" mT="2022-05-24 07:40:40Z" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+  <name>Kostya</name>
+</person>
+<person rdf:about="p1" mT="2022-05-24 07:41:49Z" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+  <name>Kostya</name>
+  <name xmlns="http://fogid.net/o/">Kostya</name>
+</person>
+<person rdf:about="p1" mT="2022-05-24 07:44:28Z" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+  <name>Kostya</name>
+  <name xmlns="http://fogid.net/o/">Kostya</name>
+</person>
+<person rdf:about="p1" mT="2022-05-24 07:48:51Z" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+  <name>Kostya</name>
+  <name xmlns="http://fogid.net/o/">Kostya</name>
+</person>
+<photo-doc rdf:about="CassetteWindows_0001_0001" mT="2022-05-24 08:11:04Z" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns="http://fogid.net/o/">
+  <name>SemanticWeb</name>
+  <uri>iiss://CassetteWindows@iis.nsk.su/0001/0001/0001</uri>
+  <docmetainfo>originalname:C:\Users\shish\Pictures\Saved Pictures\SemanticWeb.jpg;size:3135311;documenttype:image/jpeg;documentcreation:2021-07-23T12:27:53;documentfirstuploaded:2022-05-24T13:49:03;documentmodification:2021-07-23T12:27:59;checksum:qwerty;width:2800;height:2800;transform:;</docmetainfo>
+  <comment>C:\Users\shish\Pictures\Saved Pictures\SemanticWeb.jpg</comment>
+</photo-doc>
+<photo-doc rdf:about="CassetteWindows_0001_0001" mT="2022-05-24 08:15:35Z" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns="http://fogid.net/o/">
+  <name>SemanticWebNew</name>
+  <uri>iiss://CassetteWindows@iis.nsk.su/0001/0001/0001</uri>
+  <docmetainfo>originalname:C:\Users\shish\Pictures\Saved Pictures\SemanticWeb.jpg;size:3135311;documenttype:image/jpeg;documentcreation:2021-07-23T12:27:53;documentfirstuploaded:2022-05-24T13:49:03;documentmodification:2021-07-23T12:27:59;checksum:qwerty;width:2800;height:2800;transform:;</docmetainfo>
+  <comment>C:\Users\shish\Pictures\Saved Pictures\SemanticWeb.jpg</comment>
+</photo-doc>
+<photo-doc rdf:about="CassetteWindows_0001_0001" mT="2022-05-24 08:16:23Z" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns="http://fogid.net/o/">
+  <name>SemanticWebNewNew</name>
+  <uri>iiss://CassetteWindows@iis.nsk.su/0001/0001/0001</uri>
+  <docmetainfo>originalname:C:\Users\shish\Pictures\Saved Pictures\SemanticWeb.jpg;size:3135311;documenttype:image/jpeg;documentcreation:2021-07-23T12:27:53;documentfirstuploaded:2022-05-24T13:49:03;documentmodification:2021-07-23T12:27:59;checksum:qwerty;width:2800;height:2800;transform:;</docmetainfo>
+  <comment>C:\Users\shish\Pictures\Saved Pictures\SemanticWeb.jpg</comment>
+</photo-doc>
+<photo-doc rdf:about="CassetteWindows_0001_0001" mT="2022-05-24 08:18:57Z" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns="http://fogid.net/o/">
+  <name>Semantic</name>
+  <uri>iiss://CassetteWindows@iis.nsk.su/0001/0001/0001</uri>
+  <docmetainfo>originalname:C:\Users\shish\Pictures\Saved Pictures\SemanticWeb.jpg;size:3135311;documenttype:image/jpeg;documentcreation:2021-07-23T12:27:53;documentfirstuploaded:2022-05-24T13:49:03;documentmodification:2021-07-23T12:27:59;checksum:qwerty;width:2800;height:2800;transform:;</docmetainfo>
+  <comment>C:\Users\shish\Pictures\Saved Pictures\SemanticWeb.jpg</comment>
+</photo-doc>
+<cassette rdf:about="CassetteWindows_cassetteId" mT="2022-05-24 08:19:14Z" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns="http://fogid.net/o/">
+  <name>CassetteWindowsNew</name>
+  <cassetteUri>iiss://CassetteWindows@iis.nsk.su/meta</cassetteUri>
+</cassette>

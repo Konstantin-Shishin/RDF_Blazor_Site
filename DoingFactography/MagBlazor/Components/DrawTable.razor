@@ -1,0 +1,306 @@
+﻿@using RDFEngine
+
+@if (records == null || records.Length == 0)
+{
+    
+}
+else
+{
+    RRecord defrow = records[0];
+    int rowlength = defrow.Props.Length + (toedit ? 1 : 0);
+    <table border="1">
+        <tr>
+            <td colspan="@(rowlength)">
+                <span style="color:red;">@(Infobase.rontology.LabelOfOnto(inverseTp))</span>
+                @if (inverseProp == null)
+                {
+                    <span>&nbsp; @focusId</span>
+                }
+                @if (toedit && inverseProp != null)
+                {
+                    <span>&nbsp; <a href="javascript:void(0)" @onclick="@(e =>NewRelItem(inverseProp, inverseTp))">нов.</a> </span>
+                }
+            </td>
+        </tr>
+        <tr valign="top" style="background-color:lightgray; font-size:smaller; font-weight: bold;">
+            @foreach (var c in defrow.Props.Where(p => p.Prop != inverseProp))
+            {
+                <td>@(Infobase.rontology.LabelOfOnto(c.Prop))</td>
+            }
+            @if (toedit)
+            {
+                <td></td>
+            }
+        </tr>
+        @foreach (var r in records)
+        {
+            <tr>
+                @if (erecord != null && r.Id == erecord.Id)
+                { // Редактирование ячеек
+                <td colspan="@(r.Props.Length + 1)" style="border:dashed;">
+                    <table border="1">
+                        @* Это рядки записи, предназначенной для редактирования *@
+                        @foreach (var c in erecord.Props.Where(p => p.Prop != inverseProp))
+                        {
+                        <tr>
+                            <td>@(Infobase.rontology.LabelOfOnto(c.Prop))</td>
+                            @if (c is RField)
+                            {
+                                RField f = (RField)c;
+                                // ~~~~~~~~~~~~ выделяем вариант перечислимого и создаем под него элемент ~~~~~~
+                                if (Infobase.rontology.IsEnumeration(c.Prop))
+                                {
+                                    var states = Infobase.rontology.EnumPairs(c.Prop, "ru");
+                        <td>
+                            <select @onchange="@(e => SelectChangeHandler(e.Value, c))">
+                                <option value=""></option>
+                                @foreach (var item in states)
+                                {
+                                    if (f.Value == item.Key)
+                                    {
+                                        <option selected="selected" value="@item.Key">@item.Value</option>
+                                    }
+                                    else
+                                    {
+                                        <option value="@item.Key">@item.Value</option>
+                                    }
+                                }
+                            </select>
+                        </td>
+                                }
+                                else
+                                {
+                                    <td>
+                                        <input @bind="f.Value" />
+                                    </td>
+                                }
+
+                            }
+                            else if (c is RDirect)
+                            {
+                                var rr = ((RDirect)c).DRec;
+                                if (rr != null)
+                                {
+                                    <td>
+                                        <a href="javascript:void(0)" @onclick="@(e =>LinkClick(rr.Id))">@(Infobase.GetName(rr))</a>
+                                        &nbsp;
+                                        <a href="javascript:void(0)" @onclick="@(e => DeleteLink(c.Prop))">x</a>
+                                    </td>
+                                }
+                                else
+                                {
+                                    if (searchlinkprop == c.Prop)
+                                    {
+                                        var typps = Infobase.rontology.RangesOfProp(c.Prop)
+                                            .SelectMany(t => Infobase.rontology.DescendantsAndSelf(t))
+                                            .Distinct();
+                                        <td style="background-color: antiquewhite;">
+                                            <MagBlazor.Components.Search onSelected="(rid) => LinkRecord((string)rid)"
+                                                                         typs="@(typps.ToArray())" user="@user" />
+                                        </td>
+                                    }
+                                    else
+                                    {
+                                        <td style="background-color: antiquewhite;">
+                                            <a href="javascript:void(0)" @onclick="@(e => SearchLink(c.Prop))">связ.</a>
+                                        </td>
+                                    }
+                                }
+                            }
+                        </tr>
+                        }
+                        <tr>
+                            <td colspan="2">
+                                <button @onclick="Ok">ok</button>
+                                <button @onclick="Cancel">cancel</button>
+                            </td>
+                        </tr>
+                    </table>
+
+                </td>
+                }
+                else
+                { // Обычный ряд значений
+                    @foreach (var c in r.Props.Where(p => p.Prop != inverseProp))
+                    {
+                        if (c is RField)
+                        {
+                            string val = ((RField)c).Value; 
+                            <!-- ~~~~~~~~~~~ Вариант перечислимого  ~~~~~~~~~~~-->
+                            if (!string.IsNullOrEmpty(val)  && Infobase.rontology.IsEnumeration(c.Prop)) 
+                            { 
+                                val = Infobase.rontology.EnumValue(c.Prop, val, "ru"); 
+                            }
+                            <td>@(val)</td>
+                        }
+                        else if (c is RDirect)
+                        {
+                            var rr = ((RDirect)c).DRec;
+                            
+                            if (rr != null)
+                            {
+                                <td>
+                                    <a href="javascript:void(0)" @onclick="@(e =>LinkClick(rr.Id))">
+                                        @if (rr.Tp == "http://fogid.net/o/photo-doc")
+                                        {
+                                            string sr = "docs/GetImage?u=" + ((RField)rr.Props.FirstOrDefault(p => p.Prop == "http://fogid.net/o/uri"))?.Value + "&s=small";
+                                            <img src="@sr" />
+                                        }
+                                        else
+                                        {
+                                            @(Infobase.GetName(rr))
+                                        }
+                                    </a>
+                                </td>
+                            }
+                            else
+                            {
+                                <td></td>
+                            }
+                        }
+                        else
+                        {
+                            <td>???</td>
+                        }
+                    }
+                    @if (toedit)
+                    {
+                        <td><a href="javascript:void(0)" @onclick="@(e =>EdClick(r.Id))">ред.</a> | <a href="javascript:void(0)" @onclick="@(e =>DelClick(r.Id))">x</a></td>
+                    }
+                }
+            </tr>
+        }
+    </table>
+}
+
+
+
+
+@code {
+    [Parameter]
+    public string focusId { get; set; }
+    [Parameter]
+    public string inverseProp { get; set; }
+    [Parameter]
+    public string inverseTp { get; set; }
+
+    [Parameter]
+    public RRecord[] records { get; set; }
+
+    [Parameter]
+    public EventCallback onGo { get; set; }
+
+    [Parameter]
+    public string user { get; set; }
+    private bool toedit { get { return !string.IsNullOrEmpty(user); } }
+
+    private async Task LinkClick(string id)
+    {
+        if (erecord != null) return;
+        await onGo.InvokeAsync(id);
+    }
+    private async Task NewRelItem(string prop, string tp)
+    {
+        if (erecord != null) return;
+        string nid = (new RDFEngine.RXEngine() { User = user }).NewRelation(tp, prop, focusId);
+        await onGo.InvokeAsync(focusId);
+    }
+    private async Task DelClick(string id)
+    {
+        if (erecord != null) return;
+        (new RDFEngine.RXEngine() { User = user }).DeleteRecord(id);
+        await onGo.InvokeAsync(focusId);
+    }
+
+    // ========== Раздел редактирования записи в таблице ==========
+    // Копия записи для редактирования, если null, то нет записи для редактирования
+    RRecord erecord = null;
+    // Этот клик - локальное дело компонента
+    private void EdClick(string id)
+    {
+        if (erecord != null) return; // Не реагировать на гиперссылку если не закончено редактирование какой-то записи
+                                     // Попробуем перерисовать
+                                     // Сначала найдем запись, которая будет редактироваться
+        RRecord re = records.FirstOrDefault(r => r.Id == id);
+        if (re == null) return;
+        // Сделаем клона
+        erecord = new RRecord
+        {
+            Id = re.Id,
+            Tp = re.Tp,
+            Props = re.Props.Select(p =>
+            {
+                if (p is RField) return new RField { Prop = ((RField)p).Prop, Value = ((RField)p).Value, Lang = ((RField)p).Lang };
+                else return p;
+            }).ToArray()
+        };
+    }
+
+    // Редактирование прямой ссылки
+    private string searchlinkprop = null;
+    private string searchsubitem = null;
+    private void SearchLink(string prop) { searchlinkprop = prop; }
+    private void LinkRecord(string rid)
+    {
+        RRecord extRec = (new RDFEngine.RXEngine() { User = user }).GetRRecord(rid, false);
+        var erec = new RRecord
+        {
+            Id = erecord.Id,
+            Tp = erecord.Tp,
+            Props = erecord.Props.Select(p => p.Prop != searchlinkprop ? p :
+                new RDirect
+                {
+                    Prop = searchlinkprop,
+                    DRec = new RRecord
+                    {
+                        Id = rid,
+                        Tp = extRec.Tp,
+                        Props = extRec.Props
+                    }
+                }).ToArray()
+        };
+        erecord = erec;
+        searchlinkprop = null;
+        searchsubitem = null;
+
+    }
+    private void DeleteLink(string prop)
+    {
+        var erec = new RRecord
+        {
+            Id = erecord.Id,
+            Tp = erecord.Tp,
+            Props = erecord.Props.Select(p => p.Prop != prop ? p : new RDirect { Prop = prop, DRec = null }).ToArray()
+        };
+        erecord = erec;
+    }
+
+    // Фиксация и отмена редактирования
+    private void Ok()
+    {
+        if (inverseProp != null)
+        {
+            RDirect dpro = (RDirect)erecord.Props.First(p => p.Prop == inverseProp);
+            dpro.DRec = new RRecord { Id = focusId, Tp = inverseTp }; // Tp - неправильное, но оно не используется
+        }
+        //// Делаем клона
+        //RRecord erec = new RRecord() { Id = erecord.Id, Tp = erecord.Tp, Props = erecord.Props.Select(p => p).ToArray() };
+        //erecord = erec;
+
+        (new RDFEngine.RXEngine() { User = user }).Update(erecord);
+
+        // Замещение записи на новую
+        for (int i = 0; i < records.Length; i++)
+        {
+            if (records[i].Id == erecord.Id) records[i] = erecord;
+        }
+        erecord = null;
+    }
+    private void Cancel() { erecord = null; }
+
+    private void SelectChangeHandler(object e, RProperty bindProperty)
+    {
+        ((RField)bindProperty).Value = e.ToString();
+    }
+
+}

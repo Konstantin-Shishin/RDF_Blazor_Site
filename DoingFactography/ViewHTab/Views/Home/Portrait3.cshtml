@@ -1,0 +1,83 @@
+﻿@* Вьюер *@
+@using RDFEngine
+@model P3Model
+@{
+    var m = Model;
+    Func<RRecord, string> GetName = (RRecord rec) =>
+    {
+        return ((RField)rec.Props.FirstOrDefault(p => p is RField && p.Prop == "name"))?.Value;
+    };
+
+}
+
+<table border="1">
+    <tr>
+        <td colspan="@m.row.Length">@m.Tp @m.Id</td>
+    </tr>
+    <tr>
+        @foreach (var c in m.row)
+        {
+            <td>@c.Prop</td>
+        }
+    </tr>
+    <tr>
+        @foreach (var c in m.row)
+        {
+            if (c is RField)
+            {
+                <td>@(((RField)c).Value)</td>
+            }
+            else if (c is RDirect && ((RDirect)c).DRec != null)
+            {
+                var rr = ((RDirect)c).DRec;
+                <td><a href='?id=@(rr.Id)'>@(GetName(rr))</a></td>
+            }
+        }
+    </tr>
+</table>
+@foreach (var p in m.inv)
+{
+    foreach (var t in p.lists)
+    {
+        RRecord defrow = t.list[0];
+<table border="1">
+    <tr>
+        <td colspan="@(defrow.Props.Length-1)">
+            <span>@(p.Prop)</span>
+            <span>@(defrow.Tp)</span>
+        </td>
+    </tr>
+    <tr>
+        @foreach (var c in defrow.Props)
+        {
+            if (c.Prop == p.Prop) { continue; }
+            <td>@(c.Prop)</td>
+        }
+    </tr>
+    @foreach (var r in t.list)
+    {
+        <tr>
+            @foreach (var c in r.Props)
+            {
+                if (c.Prop == p.Prop) { continue; }
+                if (c is RField)
+                {
+                    <td>@(((RField)c).Value)</td>
+                }
+                else if (c is RDirect && ((RDirect)c).DRec != null)
+                {
+                    var rr = ((RDirect)c).DRec;
+
+                    <td><a href='?id=@(rr.Id)'>@(GetName(rr))</a></td>
+                }
+                else
+                {
+                    <td>???</td>
+                }
+            }
+        </tr>
+    }
+
+</table>
+    }
+}

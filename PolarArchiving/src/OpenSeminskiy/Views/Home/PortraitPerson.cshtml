@@ -1,0 +1,182 @@
+﻿@using System.Xml.Linq
+@{
+    if (Model == null) { return; }
+    PortraitPersonModel m = (PortraitPersonModel)Model;
+}
+
+<p class="grad">
+    <a href="~/Home/Index" class="nov"><img src="~/images/ico-home.gif" class="ico-home" alt="" />Открытый архив</a>
+    &raquo;
+    Персоны
+    &raquo;
+    @m.name
+</p>
+
+<div class="heading1">
+    <h1>
+        @m.name
+        @m.dates
+    </h1>
+</div>
+
+
+<p>@m.description</p>
+
+<table cellpadding="0" cellspacing="0" border="0" width="100%" class="info-person">
+    @if (m.titles.Count() > 0)
+    {
+        <tr valign="top">
+            <td width="25%" class="line-name">Титул:</td>
+            <td width="75%" class="line-info">
+                @foreach (XElement tit in m.titles)
+                {
+                    string dts = SObjects.GetDates(tit);
+                    <span>@SObjects.GetField(tit, "http://fogid.net/o/degree")</span>
+                    if (!string.IsNullOrEmpty(dts))
+                    {
+                        <span>(@dts)</span>
+                    }
+                    <br />
+                }
+            </td>
+        </tr>
+    }
+    @if (m.works.Count() > 0)
+    {
+        <tr valign="top">
+            <td width="25%" class="line-name">Место работы:</td>
+            <td width="75%" class="line-info">
+                @foreach (var work in m.works.OrderBy(w => SObjects.GetField(w, "http://fogid.net/o/from-date")))
+                {
+                    var org = work.Element("direct").Element("record");
+                    string nm = SObjects.GetField(org, "http://fogid.net/o/name");
+                    string dt = SObjects.GetDates(work);
+                    <a href='~/Home/Portrait?id=@org.Attribute("id").Value'>@nm</a>
+                    if (!string.IsNullOrEmpty(dt))
+                    {
+                        <span>(@dt)</span>
+                    }
+                    <br />
+                }
+            </td>
+        </tr>
+    }
+    @if (m.notworks.Count() > 0)
+    {
+        <tr valign="top">
+            <td width="25%" class="line-name">Участие в мероприятиях:</td>
+            <td width="75%" class="line-info">
+                @foreach (var part in m.notworks.OrderBy(w => SObjects.GetField(w, "http://fogid.net/o/from-date")))
+                {
+                    var org = part.Element("direct").Element("record");
+                    string nm = SObjects.GetField(org, "http://fogid.net/o/name");
+                    string dt = SObjects.GetDates(part);
+                    string dto = SObjects.GetDates(org);
+                    <a href='~/Home/Portrait?id=@org.Attribute("id").Value'>@nm</a>
+                    if (!string.IsNullOrEmpty(dt))
+                    {
+                        <span>(@dt)</span>
+                    }
+                    else if (!string.IsNullOrEmpty(dto))
+                    {
+                        <span>(@dto)</span>
+                    }
+                    <br />
+                }
+            </td>
+        </tr>
+    }
+    @if (@m.livings.Count() > 0)
+    {
+        <tr valign="top">
+            <td width="25%" class="line-name">Геоинформация:</td>
+            <td width="75%" class="line-info">
+                @foreach (var live in m.livings)
+                {
+                    <a href='~/Home/Portrait?id=@live.Attribute("id").Value'>@SObjects.GetField(live, "http://fogid.net/o/name")</a>
+                    <span> </span>
+                }
+            </td>
+        </tr>
+    }
+</table>
+<br />
+<br />
+
+@if (m.auth.Count() > 0)
+{
+    <div class="heading3">
+        <h3>Является автором/получателем документов</h3>
+    </div>
+
+    <table cellpadding="0" cellspacing="0" border="0" width="100%" class="info-docs">
+        <tr>
+            <th width="15%">
+                <a href="sort">Дата</a>
+            </th>
+            <th width="65%" class="th-document-name">
+                <a href="sort">Название документа<img src="img/ico-sort-down.gif" alt="" /></a>
+            </th>
+            <th width="20%">
+                <a href="sort">автор/получатель</a>
+            </th>
+        </tr>
+        @foreach (XElement doc in m.auth.Select(au => au.Element("direct")?.Element("record")).Where(r => r != null).OrderBy(d => SObjects.GetField(d, "http://fogid.net/o/from-date")))
+        {
+            string dt = SObjects.GetDates(doc);
+            string nm = SObjects.GetField(doc, "http://fogid.net/o/name");
+            string ds = SObjects.GetField(doc, "http://fogid.net/o/description");
+            var auth_spec = SObjects.GetField(doc.Parent.Parent, "http://fogid.net/o/authority-specificator");
+            string au_s = auth_spec == "author" ? "автор" :
+                (auth_spec == "recipient" ? "получатель" : auth_spec);
+            <tr valign="top">
+                <td width="15%">@dt</td>
+                <td width="65%">
+                    <a href='~/Home/Portrait?id=@doc.Attribute("id").Value'>@nm</a>
+                    <br />
+                    <span class="small">@ds</span>
+                </td>
+                <td width="20%">
+                    @au_s
+                </td>
+            </tr>
+        }
+    </table>
+}
+@if (m.refl_docs.Count() > 0)
+{
+    <br />
+    <div class="heading3">
+        <h3>Отражен в документах</h3>
+    </div>
+
+    <table cellpadding="0" cellspacing="0" border="0" width="100%" class="info-docs">
+        <tr>
+            <th width="20%">
+                <a href="sort">Дата</a>
+            </th>
+            <th width="80%" class="th-document-name">
+                <a href="sort">Название документа<img src="img/ico-sort-down.gif" alt="" /></a>
+            </th>
+            <!--th><a href="sort">автор/получатель</a></th-->
+        </tr>
+        @foreach (XElement doc in m.refl_docs.OrderBy(d => SObjects.GetField(d, "http://fogid.net/o/from-date")))
+        {
+            string dt = SObjects.GetDates(doc);
+            string nm = SObjects.GetField(doc, "http://fogid.net/o/name");
+            string ds = SObjects.GetField(doc, "http://fogid.net/o/description");
+            //var ground = OpenArchive.StaticObjects.GetField(doc.Parent.Parent, "http://fogid.net/o/ground");
+            <tr valign="top">
+                <td width="20%">@dt</td>
+                <td width="80%">
+                    <a href='~/Home/Portrait?id=@doc.Attribute("id").Value'>@nm</a>
+                    <br />
+                    <span class="small">@ds</span>
+                </td>
+                <!--td width="25%">
+                </td-->
+            </tr>
+        }
+    </table>
+}
+

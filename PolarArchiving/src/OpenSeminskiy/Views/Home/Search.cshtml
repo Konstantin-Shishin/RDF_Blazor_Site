@@ -1,0 +1,44 @@
+﻿@using System.Xml.Linq
+@{
+    //Layout = "~/_SiteLayout.cshtml";
+    string sv = Context.Request.Form["searchvariant"];
+    string ss = Context.Request.Form["searchstring"];
+    if (string.IsNullOrEmpty(ss)) { return; }
+    var searchresults = SObjects.SearchByName(ss)
+        .Where(ite => string.IsNullOrEmpty(sv) || ite.Attribute("type").Value == "http://fogid.net/o/" + sv)
+        .Select(ite => SObjects.GetItemByIdBasic(ite.Attribute("id").Value, false));
+    IComparer<string> comparedates = new SCompare();
+}
+<p class="grad">
+    <a href="~/Home/Index" class="nov"><img src="~/images/ico-home.gif" class="ico-home" alt="" />Открытый архив</a>
+    &raquo;
+    Результаты поиска
+</p>
+
+@if (searchresults.Count() > 0)
+{
+    <ul class="links">
+        @foreach (XElement ite in searchresults
+          .OrderBy(it => SObjects.GetField(it, "http://fogid.net/o/name"))
+          .ThenBy(it => SObjects.GetDates(it), comparedates)
+          //.Take(40)
+          )
+        {
+            string nm = SObjects.GetField(ite, "http://fogid.net/o/name");
+            string dt = SObjects.GetDates(ite);
+            string descr = SObjects.GetField(ite, "http://fogid.net/o/description");
+            <li>
+                <a href='~/Home/Portrait?id=@ite.Attribute("id").Value'>@nm</a>
+                @if (!string.IsNullOrEmpty(dt))
+                {
+                    <span>(@SObjects.DatePrinted(dt))</span>
+                }
+                @descr
+            </li>
+        }
+    </ul>
+}
+else
+{
+}
+<div>Всего: @searchresults.Count()</div>
